@@ -32,6 +32,8 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     /*自带*/
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    /*progress*/
     implementation 'com.github.snpmyn:Util:v2.0'
     /*util*/
 }

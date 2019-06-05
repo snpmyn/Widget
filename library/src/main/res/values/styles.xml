@@ -1,4 +1,15 @@
 <resources>
+    <!--SweetAlertDialogStyle-->
+    <style name="SweetAlertDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
     <!--PickerViewStyle-->
     <style name="PickerViewStyle" parent="@android:style/Theme.Dialog">
         <!--Dialog之windowFrame框无-->

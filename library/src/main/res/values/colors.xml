@@ -11,4 +11,7 @@
     <color name="fontHint">#B9B9B9</color>
     <color name="fontInput">#585858</color>
     <color name="black60">#60000000</color>
+    <color name="success_sign">#A5DC86</color>
+    <color name="success_circle">#33A5DC86</color>
+    <color name="warning">#F8BB86</color>
 </resources>

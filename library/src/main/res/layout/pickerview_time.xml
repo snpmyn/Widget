@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <com.zsp.library.wheelview.view.WheelView
+            android:id="@+id/year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.96" />

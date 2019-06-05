@@ -37,6 +37,10 @@ public class WidgetMagic {
      */
     public static float FLOAT_LDL = 0.0F;
     public static float FLOAT_LDEW = 0.25F;
+    public static float FLOAT_LDWS = 0.54F;
+    public static float FLOAT_LDLW = 0.65F;
+    public static float FLOAT_LDQ = 0.7F;
+    public static float FLOAT_LDBS = 0.84F;
     public static float FLOAT_YDL = 1.0F;
     public static float FLOAT_EDL = 2.0F;
     public static float FLOAT_S = 3.0F;
