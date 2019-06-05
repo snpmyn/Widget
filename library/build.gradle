@@ -5,6 +5,7 @@ android {
 
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true/*Vector Drawable兼容*/
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -20,11 +21,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    /*自带*/
+    implementation 'androidx.exifinterface:exifinterface:1.1.0-alpha01'
+    /*官方*/
+    implementation 'com.github.snpmyn:Util:v2.0'
+    /*util*/
 }

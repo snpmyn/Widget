@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Library</string>
+    <string name="cancel">取消</string>
+    <string name="toDo">TODO</string>
+    <string name="ensure">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hours">时</string>
+    <string name="minutes">分</string>
+    <string name="seconds">秒</string>
+    <string name="enterSearchKeyword">输入搜索关键字</string>
+    <string name="clearSearchHistory">清除搜索历史</string>
+    <string name="noHistory">暂无历史记录</string>
+    <string name="loggingIn">LOGGING IN</string>
+    <string name="success">SUCCESS</string>
+    <!--format-->
+    <string name="earlyLateDiffer" formatted="true">%1$s秒</string>
 </resources>

@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_solid_c"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/searchDialogFragmentIvTopBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/toDo"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                android:tint="@color/fontInput"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_top_back_light" />
+
+            <EditText
+                android:id="@+id/searchDialogFragmentEt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="end"
+                android:hint="@string/enterSearchKeyword"
+                android:imeOptions="actionSearch"
+                android:paddingStart="@dimen/dp_12"
+                android:singleLine="true"
+                android:textColor="@color/fontInput"
+                android:textColorHint="@color/fontHint"
+                android:textSize="@dimen/sp_11"
+                tools:ignore="Autofill,RtlSymmetry,TextFields" />
+
+            <ImageView
+                android:id="@+id/searchDialogFragmentIvSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/toDo"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingRight="@dimen/dp_12"
+                app:srcCompat="@drawable/ic_search_three" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:background="@color/gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchDialogFragmentRv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none" />
+
+        <View
+            android:id="@+id/searchDialogFragmentViewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:background="@color/backgroundTwo" />
+
+        <TextView
+            android:id="@+id/searchDialogFragmentTvClearSearchHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="@string/clearSearchHistory"
+            android:textColor="@color/fontHint"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/searchDialogFragmentViewOutside"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
