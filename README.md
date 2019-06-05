@@ -3,7 +3,7 @@
 
 ### 依赖
 ##### 自身
-implementation 'com.pnikosis:materialish-progress:1.7'（library - Library）（避重）
+implementation 'com.pnikosis:materialish-progress:1.7'（library - Library）
 ##### com.github.snpmyn:Util
 * api 'org.litepal.android:java:3.0.0'（library - Application）（避重）
 * api 'com.google.android.material:material:1.1.0-alpha07'（library - UtilOne）（避重）
