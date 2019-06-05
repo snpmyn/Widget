@@ -2,7 +2,7 @@
 部件
 
 ### 依赖
-#### 自身
+##### 自身
 implementation 'androidx.exifinterface:exifinterface:1.1.0-alpha01'（library - Library）
 ##### com.github.snpmyn:Util
 * api 'org.litepal.android:java:3.0.0'（library - Application）（避重）
