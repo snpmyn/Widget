@@ -4,7 +4,6 @@
         android:duration="@integer/picker_view_animation_default_duration"
         android:fromAlpha="1.0"
         android:toAlpha="0.3" />
-
     <scale
         android:duration="@integer/picker_view_animation_default_duration"
         android:fromXScale="1.0"
