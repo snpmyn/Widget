@@ -40,6 +40,7 @@ import java.util.ArrayList;
  * @date: 2019/4/23 11:43
  */
 public class SearchDialogFragment extends DialogFragment implements DialogInterface.OnKeyListener, ViewTreeObserver.OnPreDrawListener, CircularRevealAnimator.AnimationListener, OnItemClickOrDeleteClickListener, View.OnClickListener {
+    public static final String TAG = "SearchDialogFragment";
     private EditText searchDialogFragmentEt;
     private ImageView searchDialogFragmentIvSearch;
     private View searchDialogFragmentViewDivider;
