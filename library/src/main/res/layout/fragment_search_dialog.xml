@@ -37,11 +37,12 @@
                 android:hint="@string/enterSearchKeyword"
                 android:imeOptions="actionSearch"
                 android:paddingStart="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_12"
                 android:singleLine="true"
                 android:textColor="@color/fontInput"
                 android:textColorHint="@color/fontHint"
                 android:textSize="@dimen/sp_11"
-                tools:ignore="Autofill,RtlSymmetry,TextFields" />
+                tools:ignore="Autofill,TextFields" />
 
             <ImageView
                 android:id="@+id/searchDialogFragmentIvSearch"
