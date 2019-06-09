@@ -1,4 +1,9 @@
 <resources>
+    <!--PicturePreviewActivityStyle-->
+    <style name="PicturePreviewActivityStyle" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
     <!--SweetAlertDialogStyle-->
     <style name="SweetAlertDialogStyle" parent="android:Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
