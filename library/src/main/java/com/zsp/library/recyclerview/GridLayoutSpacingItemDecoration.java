@@ -1,0 +1,62 @@
+package com.zsp.library.recyclerview;
+
+import android.graphics.Rect;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+/**
+ * Created on 2019/3/22.
+ *
+ * @author 郑少鹏
+ * @desc GridLayout条目间隔装饰
+ */
+public class GridLayoutSpacingItemDecoration extends RecyclerView.ItemDecoration {
+    private int spanCount;
+    private int spacing;
+    private boolean firstRowHaveTopSpaceDecoration;
+    private boolean includeEdge;
+
+    public GridLayoutSpacingItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
+        this.spanCount = spanCount;
+        this.spacing = spacing;
+        this.firstRowHaveTopSpaceDecoration = firstRowHaveTopSpaceDecoration;
+        this.includeEdge = includeEdge;
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        // item position
+        int position = parent.getChildAdapterPosition(view);
+        // item column
+        int column = position % spanCount;
+        if (includeEdge) {
+            // spacing - column * ((1f / spanCount) * spacing)
+            outRect.left = spacing - column * spacing / spanCount;
+            // (column + 1) * ((1f / spanCount) * spacing)
+            outRect.right = (column + 1) * spacing / spanCount;
+            if (position < spanCount) {
+                // top edge
+                outRect.top = spacing;
+            }
+            // item bottom
+            outRect.bottom = spacing;
+        } else {
+            // column * ((1f / spanCount) * spacing)
+            outRect.left = column * spacing / spanCount;
+            // spacing - (column + 1) * ((1f / spanCount) * spacing)
+            outRect.right = spacing - (column + 1) * spacing / spanCount;
+            if (position >= spanCount) {
+                // item top
+                outRect.top = spacing;
+            }
+        }
+        if (!firstRowHaveTopSpaceDecoration) {
+            if (position < spanCount) {
+                // top edge
+                outRect.top = 0;
+            }
+        }
+    }
+}
