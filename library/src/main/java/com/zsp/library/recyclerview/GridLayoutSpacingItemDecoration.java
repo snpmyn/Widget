@@ -18,7 +18,7 @@ public class GridLayoutSpacingItemDecoration extends RecyclerView.ItemDecoration
     private boolean firstRowHaveTopSpaceDecoration;
     private boolean includeEdge;
 
-    public GridLayoutSpacingItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
+    GridLayoutSpacingItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
         this.spanCount = spanCount;
         this.spacing = spacing;
         this.firstRowHaveTopSpaceDecoration = firstRowHaveTopSpaceDecoration;
