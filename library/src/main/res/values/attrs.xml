@@ -25,4 +25,13 @@
         <attr name="wheelViewDividerColor" format="color" />
         <attr name="wheelViewLineSpacingMultiplier" format="float" />
     </declare-styleable>
+    <!--LowerConcaveView-->
+    <declare-styleable name="LowerConcaveView">
+        <attr name="lowerConcaveViewArcHeight" format="dimension" />
+    </declare-styleable>
+    <!--LowerConvexView-->
+    <declare-styleable name="LowerConvexView">
+        <attr name="lowerConvexViewArcHeight" format="dimension" />
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
 </resources>
