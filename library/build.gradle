@@ -37,6 +37,6 @@ dependencies {
     /*progress*/
     api 'com.hwangjr.rxbus:rxbus:2.0.0'
     /*RxBus*/
-    api 'com.github.snpmyn:Util:v2.3'
+    api 'com.github.snpmyn:Util:v2.4'
     /*util*/
 }
