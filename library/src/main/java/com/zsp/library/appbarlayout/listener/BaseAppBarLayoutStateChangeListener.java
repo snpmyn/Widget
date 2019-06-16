@@ -1,4 +1,4 @@
-package com.zsp.library.appbarlayout;
+package com.zsp.library.appbarlayout.listener;
 
 import com.google.android.material.appbar.AppBarLayout;
 
