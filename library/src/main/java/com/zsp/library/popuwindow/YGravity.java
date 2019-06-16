@@ -11,17 +11,17 @@ import java.lang.annotation.RetentionPolicy;
  * @date: 2018/6/22 21:25
  */
 @IntDef({
-        YGravity.center,
-        YGravity.above,
-        YGravity.below,
-        YGravity.alignTop,
-        YGravity.alignBottom,
+        YGravity.CENTER,
+        YGravity.ABOVE,
+        YGravity.BELOW,
+        YGravity.ALIGN_TOP,
+        YGravity.ALIGN_BOTTOM,
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface YGravity {
-    int center = 0;
-    int above = 1;
-    int below = 2;
-    int alignTop = 3;
-    int alignBottom = 4;
+    int CENTER = 0;
+    int ABOVE = 1;
+    int BELOW = 2;
+    int ALIGN_TOP = 3;
+    int ALIGN_BOTTOM = 4;
 }

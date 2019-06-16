@@ -157,7 +157,7 @@ public class CircularFlex {
 
         /**
          * Setting the trigger view.
-         * If {@link VisibleBuilder#mTriggerPoint} is null, then will set the mTriggerView's center as trigger point.
+         * If {@link VisibleBuilder#mTriggerPoint} is null, then will set the mTriggerView's CENTER as trigger point.
          *
          * @param triggerView 触发视图
          * @return VisibleBuilder
@@ -212,29 +212,29 @@ public class CircularFlex {
                 if (mTriggerView != null) {
                     int[] tvLocation = new int[2];
                     mTriggerView.getLocationInWindow(tvLocation);
-                    final int tvCX = tvLocation[0] + mTriggerView.getWidth() / 2;
-                    final int tvCY = tvLocation[1] + mTriggerView.getHeight() / 2;
+                    final int tvCx = tvLocation[0] + mTriggerView.getWidth() / 2;
+                    final int tvCy = tvLocation[1] + mTriggerView.getHeight() / 2;
                     int[] avLocation = new int[2];
                     mAnimView.getLocationInWindow(avLocation);
-                    final int avLX = avLocation[0];
-                    final int avTY = avLocation[1];
-                    int triggerX = Math.max(avLX, tvCX);
-                    triggerX = Math.min(triggerX, avLX + mAnimView.getWidth());
-                    int triggerY = Math.max(avTY, tvCY);
-                    triggerY = Math.min(triggerY, avTY + mAnimView.getHeight());
+                    final int avLx = avLocation[0];
+                    final int avTy = avLocation[1];
+                    int xTrigger = Math.max(avLx, tvCx);
+                    xTrigger = Math.min(xTrigger, avLx + mAnimView.getWidth());
+                    int yTrigger = Math.max(avTy, tvCy);
+                    yTrigger = Math.min(yTrigger, avTy + mAnimView.getHeight());
                     // 以上全绝对坐标
-                    mTriggerPoint = new Point(triggerX - avLX, triggerY - avTY);
+                    mTriggerPoint = new Point(xTrigger - avLx, yTrigger - avTy);
                 } else {
-                    int centerX = (mAnimView.getLeft() + mAnimView.getRight()) / 2;
-                    int centerY = (mAnimView.getTop() + mAnimView.getBottom()) / 2;
-                    mTriggerPoint = new Point(centerX, centerY);
+                    int xCenter = (mAnimView.getLeft() + mAnimView.getRight()) / 2;
+                    int yCenter = (mAnimView.getTop() + mAnimView.getBottom()) / 2;
+                    mTriggerPoint = new Point(xCenter, yCenter);
                 }
             }
             // 算水波中心点至mAnimView边最大距
-            int maxW = Math.max(mTriggerPoint.x, mAnimView.getWidth() - mTriggerPoint.x);
-            int maxH = Math.max(mTriggerPoint.y, mAnimView.getHeight() - mTriggerPoint.y);
+            int wMax = Math.max(mTriggerPoint.x, mAnimView.getWidth() - mTriggerPoint.x);
+            int hMax = Math.max(mTriggerPoint.y, mAnimView.getHeight() - mTriggerPoint.y);
             // 勾股定理和进一法
-            int maxRadius = (int) Math.sqrt(maxW * maxW + maxH * maxH) + 1;
+            int maxRadius = (int) Math.sqrt(wMax * wMax + hMax * hMax) + 1;
             if (isShow && mEndRadius == null) {
                 mEndRadius = maxRadius + 0F;
             } else if (!isShow && mStartRadius == null) {
@@ -378,9 +378,9 @@ public class CircularFlex {
             int h = decorView.getHeight();
             decorView.addView(view, w, h);
             // 算中心点至View边最大距
-            int maxW = Math.max(mTriggerPoint.x, w - mTriggerPoint.x);
-            int maxH = Math.max(mTriggerPoint.y, h - mTriggerPoint.y);
-            final int finalRadius = (int) Math.sqrt(maxW * maxW + maxH * maxH) + 1;
+            int wMax = Math.max(mTriggerPoint.x, w - mTriggerPoint.x);
+            int hMax = Math.max(mTriggerPoint.y, h - mTriggerPoint.y);
+            final int finalRadius = (int) Math.sqrt(wMax * wMax + hMax * hMax) + 1;
             Animator anim = ViewAnimationUtils.createCircularReveal(view, mTriggerPoint.x, mTriggerPoint.y, mStartRadius, finalRadius);
             int maxRadius = (int) Math.sqrt(w * w + h * h) + 1;
             // 未设时长以PERFECT_MILLS为基准据水波扩散距算实际时长

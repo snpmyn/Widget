@@ -22,13 +22,13 @@ class TransitionViewHelper {
      */
     static void spreadAnimation(View targetView, float endSpreadValue, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         // X
-        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", endSpreadValue);
-        scaleXAnimator.setInterpolator(new AccelerateInterpolator());
+        ObjectAnimator xScaleAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", endSpreadValue);
+        xScaleAnimator.setInterpolator(new AccelerateInterpolator());
         // Y
-        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", endSpreadValue);
-        scaleYAnimator.setInterpolator(new AccelerateInterpolator());
+        ObjectAnimator yScaleAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", endSpreadValue);
+        yScaleAnimator.setInterpolator(new AccelerateInterpolator());
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(scaleXAnimator).with(scaleYAnimator);
+        animatorSet.play(xScaleAnimator).with(yScaleAnimator);
         animatorSet.setDuration(500);
         animatorSet.start();
         animatorSet.addListener(baseSimpleAnimatorListener);
@@ -42,13 +42,13 @@ class TransitionViewHelper {
      */
     static void shrinkAnimation(View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         // X
-        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0.0f);
-        scaleXAnimator.setInterpolator(new AccelerateInterpolator());
+        ObjectAnimator xScaleAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0.0f);
+        xScaleAnimator.setInterpolator(new AccelerateInterpolator());
         // Y
-        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", 0.0f);
-        scaleYAnimator.setInterpolator(new AccelerateInterpolator());
+        ObjectAnimator yScaleAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", 0.0f);
+        yScaleAnimator.setInterpolator(new AccelerateInterpolator());
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(scaleXAnimator).with(scaleYAnimator);
+        animatorSet.play(xScaleAnimator).with(yScaleAnimator);
         animatorSet.setDuration(500);
         animatorSet.start();
         animatorSet.addListener(baseSimpleAnimatorListener);
@@ -79,12 +79,12 @@ class TransitionViewHelper {
     static void loggingInTextAnimation(View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         targetView.setVisibility(View.VISIBLE);
         int targetHeight = targetView.getMeasuredHeightAndState();
-        ObjectAnimator scaleXObjectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0.75f, 0.87f, 1f, 1.1f, 1.0f);
-        ObjectAnimator scaleYObjectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", 0.75f, 0.87f, 1f, 1.1f, 1.0f);
-        ObjectAnimator translationYObjectAnimator = ObjectAnimator.ofFloat(targetView, "TranslationY", targetHeight * 0.8f, -targetHeight * 0.2f, 0);
+        ObjectAnimator xScaleObjectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0.75f, 0.87f, 1f, 1.1f, 1.0f);
+        ObjectAnimator yScaleObjectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleY", 0.75f, 0.87f, 1f, 1.1f, 1.0f);
+        ObjectAnimator yTranslationObjectAnimator = ObjectAnimator.ofFloat(targetView, "TranslationY", targetHeight * 0.8f, -targetHeight * 0.2f, 0);
         ObjectAnimator alphaObjectAnimator = ObjectAnimator.ofFloat(targetView, "Alpha", 0.5f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(scaleXObjectAnimator, scaleYObjectAnimator, translationYObjectAnimator, alphaObjectAnimator);
+        animatorSet.playTogether(xScaleObjectAnimator, yScaleObjectAnimator, yTranslationObjectAnimator, alphaObjectAnimator);
         animatorSet.setDuration(2000);
         animatorSet.start();
         animatorSet.addListener(baseSimpleAnimatorListener);

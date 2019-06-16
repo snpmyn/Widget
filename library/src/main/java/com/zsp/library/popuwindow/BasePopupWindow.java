@@ -90,21 +90,21 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
     private boolean mFocusAndOutsideEnable = true;
     private View mAnchorView;
     @YGravity
-    private int mYGravity = YGravity.below;
+    private int yGravity = YGravity.BELOW;
     @XGravity
-    private int mXGravity = XGravity.left;
-    private int mOffsetX;
-    private int mOffsetY;
+    private int xGravity = XGravity.LEFT;
+    private int xOffset;
+    private int yOffset;
     private int mInputMethodMode = PopupWindow.INPUT_METHOD_FROM_FOCUSABLE;
     private int mSoftInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
     /**
      * 重测宽高否
      */
-    private boolean isNeedReMeasureWH = false;
+    private boolean isNeedReMeasureWh = false;
     /**
      * 真实宽高备好否
      */
-    private boolean isRealWHAlready = false;
+    private boolean isRealWhAlready = false;
     private boolean isAtAnchorViewMethod = false;
     private OnRealWidthHeightAlreadyListener mOnRealWidthHeightAlreadyListener;
 
@@ -118,7 +118,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
             mPopupWindow = new PopupWindow();
         }
         onPopupWindowCreated();
-        initContentViewAndWH();
+        initContentViewAndWh();
         onPopupWindowViewCreated(mContentView);
         if (mAnimationStyle != 0) {
             mPopupWindow.setAnimationStyle(mAnimationStyle);
@@ -136,7 +136,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         return self();
     }
 
-    private void initContentViewAndWH() {
+    private void initContentViewAndWh() {
         if (mContentView == null) {
             if (mLayoutId != 0 && mContext != null) {
                 mContentView = LayoutInflater.from(mContext).inflate(mLayoutId, null);
@@ -264,15 +264,15 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
                     getContentView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     mWidth = getContentView().getWidth();
                     mHeight = getContentView().getHeight();
-                    isRealWHAlready = true;
-                    isNeedReMeasureWH = false;
+                    isRealWhAlready = true;
+                    isNeedReMeasureWh = false;
                     if (mOnRealWidthHeightAlreadyListener != null) {
-                        mOnRealWidthHeightAlreadyListener.onRealWHAlready(BasePopupWindow.this, mWidth, mHeight, mAnchorView == null ?
+                        mOnRealWidthHeightAlreadyListener.onRealWhAlready(BasePopupWindow.this, mWidth, mHeight, mAnchorView == null ?
                                 0 : mAnchorView.getWidth(), mAnchorView == null ? 0 : mAnchorView.getHeight());
                     }
                     LogManager.e("onGlobalLayout finished. isShowing=" + isShowing());
                     if (isShowing() && isAtAnchorViewMethod) {
-                        updateLocation(mWidth, mHeight, mAnchorView, mYGravity, mXGravity, mOffsetX, mOffsetY);
+                        updateLocation(mWidth, mHeight, mAnchorView, yGravity, xGravity, xOffset, yOffset);
                     }
                 }
             });
@@ -294,8 +294,8 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         if (mPopupWindow == null) {
             return;
         }
-        x = calculateX(anchor, xGravity, width, x);
-        y = calculateY(anchor, yGravity, height, y);
+        x = xCalculate(anchor, xGravity, width, x);
+        y = yCalculate(anchor, yGravity, height, y);
         mPopupWindow.update(anchor, x, y, width, height);
     }
 
@@ -417,11 +417,11 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
     /**
      * 需重获宽高否
      *
-     * @param needReMeasureWH 需重获宽高否
+     * @param needReMeasureWh 需重获宽高否
      * @return T
      */
-    public T setNeedReMeasureWH(boolean needReMeasureWH) {
-        this.isNeedReMeasureWH = needReMeasureWH;
+    public T setNeedReMeasureWh(boolean needReMeasureWh) {
+        this.isNeedReMeasureWh = needReMeasureWh;
         return self();
     }
 
@@ -446,28 +446,28 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         if (mAnchorView == null) {
             return;
         }
-        showAsDropDown(mAnchorView, mOffsetX, mOffsetY);
+        showAsDropDown(mAnchorView, xOffset, yOffset);
     }
 
     /**
      * PopupWindow自带显法
      *
      * @param anchor  锚点
-     * @param offsetX X偏移量
-     * @param offsetY Y偏移量
+     * @param xOffset X偏移量
+     * @param yOffset Y偏移量
      */
-    private void showAsDropDown(View anchor, int offsetX, int offsetY) {
+    private void showAsDropDown(View anchor, int xOffset, int yOffset) {
         // 避忘调apply()
         checkIsApply(false);
         handleBackgroundDim();
         mAnchorView = anchor;
-        mOffsetX = offsetX;
-        mOffsetY = offsetY;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
         // 重获宽高否
-        if (isNeedReMeasureWH) {
+        if (isNeedReMeasureWh) {
             registerOnGlobalLayoutListener();
         }
-        mPopupWindow.showAsDropDown(anchor, mOffsetX, mOffsetY);
+        mPopupWindow.showAsDropDown(anchor, this.xOffset, this.yOffset);
     }
 
     public void showAsDropDown(View anchor) {
@@ -476,38 +476,38 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         handleBackgroundDim();
         mAnchorView = anchor;
         // 重获宽高否
-        if (isNeedReMeasureWH) {
+        if (isNeedReMeasureWh) {
             registerOnGlobalLayoutListener();
         }
         mPopupWindow.showAsDropDown(anchor);
     }
 
-    public void showAsDropDown(View anchor, int offsetX, int offsetY, int gravity) {
+    public void showAsDropDown(View anchor, int xOffset, int yOffset, int gravity) {
         // 避忘调apply()
         checkIsApply(false);
         handleBackgroundDim();
         mAnchorView = anchor;
-        mOffsetX = offsetX;
-        mOffsetY = offsetY;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
         // 重获宽高否
-        if (isNeedReMeasureWH) {
+        if (isNeedReMeasureWh) {
             registerOnGlobalLayoutListener();
         }
-        PopupWindowCompat.showAsDropDown(mPopupWindow, anchor, mOffsetX, mOffsetY, gravity);
+        PopupWindowCompat.showAsDropDown(mPopupWindow, anchor, this.xOffset, this.yOffset, gravity);
     }
 
-    public void showAtLocation(View parent, int gravity, int offsetX, int offsetY) {
+    public void showAtLocation(View parent, int gravity, int xOffset, int yOffset) {
         // 避忘调apply()
         checkIsApply(false);
         handleBackgroundDim();
         mAnchorView = parent;
-        mOffsetX = offsetX;
-        mOffsetY = offsetY;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
         // 重获宽高否
-        if (isNeedReMeasureWH) {
+        if (isNeedReMeasureWh) {
             registerOnGlobalLayoutListener();
         }
-        mPopupWindow.showAtLocation(parent, gravity, mOffsetX, mOffsetY);
+        mPopupWindow.showAtLocation(parent, gravity, this.xOffset, this.yOffset);
     }
 
     /**
@@ -522,7 +522,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         if (mAnchorView == null) {
             return;
         }
-        showAtAnchorView(mAnchorView, mYGravity, mXGravity);
+        showAtAnchorView(mAnchorView, yGravity, xGravity);
     }
 
     /**
@@ -555,16 +555,16 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         // 避忘调apply()
         checkIsApply(true);
         mAnchorView = anchor;
-        mOffsetX = x;
-        mOffsetY = y;
-        mYGravity = verticalGravity;
-        mXGravity = horizontalGravity;
+        xOffset = x;
+        yOffset = y;
+        yGravity = verticalGravity;
+        xGravity = horizontalGravity;
         // 处理背景变暗
         handleBackgroundDim();
-        x = calculateX(anchor, horizontalGravity, mWidth, mOffsetX);
-        y = calculateY(anchor, verticalGravity, mHeight, mOffsetY);
+        x = xCalculate(anchor, horizontalGravity, mWidth, xOffset);
+        y = yCalculate(anchor, verticalGravity, mHeight, yOffset);
         // 重获宽高否
-        if (isNeedReMeasureWH) {
+        if (isNeedReMeasureWh) {
             registerOnGlobalLayoutListener();
         }
         PopupWindowCompat.showAsDropDown(mPopupWindow, anchor, x, y, Gravity.NO_GRAVITY);
@@ -575,29 +575,29 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @param anchor          锚点
      * @param verticalGravity 垂直对齐方式
-     * @param measuredH       测高
+     * @param hMeasured       测高
      * @param y               y
      * @return y偏移
      */
-    private int calculateY(View anchor, int verticalGravity, int measuredH, int y) {
+    private int yCalculate(View anchor, int verticalGravity, int hMeasured, int y) {
         switch (verticalGravity) {
-            case YGravity.above:
+            case YGravity.ABOVE:
                 // anchor view上
-                y -= measuredH + anchor.getHeight();
+                y -= hMeasured + anchor.getHeight();
                 break;
-            case YGravity.alignBottom:
+            case YGravity.ALIGN_BOTTOM:
                 // anchor view底对齐
-                y -= measuredH;
+                y -= hMeasured;
                 break;
-            case YGravity.center:
+            case YGravity.CENTER:
                 // anchor view垂直居中
-                y -= anchor.getHeight() / 2 + measuredH / 2;
+                y -= anchor.getHeight() / 2 + hMeasured / 2;
                 break;
-            case YGravity.alignTop:
+            case YGravity.ALIGN_TOP:
                 // anchor view顶对齐
                 y -= anchor.getHeight();
                 break;
-            case YGravity.below:
+            case YGravity.BELOW:
                 // anchor view下
                 // default position
                 break;
@@ -612,29 +612,29 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @param anchor            锚点
      * @param horizontalGravity 水平对齐方式
-     * @param measuredW         测宽
+     * @param wMeasured         测宽
      * @param x                 x
      * @return x偏移
      */
-    private int calculateX(View anchor, int horizontalGravity, int measuredW, int x) {
+    private int xCalculate(View anchor, int horizontalGravity, int wMeasured, int x) {
         switch (horizontalGravity) {
-            case XGravity.left:
+            case XGravity.LEFT:
                 // anchor view左侧
-                x -= measuredW;
+                x -= wMeasured;
                 break;
-            case XGravity.alignRight:
+            case XGravity.ALIGN_RIGHT:
                 // 与anchor view右对齐
-                x -= measuredW - anchor.getWidth();
+                x -= wMeasured - anchor.getWidth();
                 break;
-            case XGravity.center:
+            case XGravity.CENTER:
                 // anchor view水平居中
-                x += anchor.getWidth() / 2 - measuredW / 2;
+                x += anchor.getWidth() / 2 - wMeasured / 2;
                 break;
-            case XGravity.alignLeft:
+            case XGravity.ALIGN_LEFT:
                 // 与anchor view左对齐
                 // default position
                 break;
-            case XGravity.right:
+            case XGravity.RIGHT:
                 // anchor view右侧
                 x += anchor.getWidth();
                 break;
@@ -654,7 +654,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         return self();
     }
 
-    public T setOnRealWHAlreadyListener(OnRealWidthHeightAlreadyListener listener) {
+    public T setOnRealWhAlreadyListener(OnRealWidthHeightAlreadyListener listener) {
         this.mOnRealWidthHeightAlreadyListener = listener;
         return self();
     }
@@ -778,12 +778,12 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return 横Gravity
      */
-    public int getXGravity() {
-        return mXGravity;
+    public int getxGravity() {
+        return xGravity;
     }
 
-    public T setXGravity(@XGravity int xGravity) {
-        this.mXGravity = xGravity;
+    public T setxGravity(@XGravity int xGravity) {
+        this.xGravity = xGravity;
         return self();
     }
 
@@ -792,12 +792,12 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return 纵Gravity
      */
-    public int getYGravity() {
-        return mYGravity;
+    public int getyGravity() {
+        return yGravity;
     }
 
-    public T setYGravity(@YGravity int yGravity) {
-        this.mYGravity = yGravity;
+    public T setyGravity(@YGravity int yGravity) {
+        this.yGravity = yGravity;
         return self();
     }
 
@@ -806,12 +806,12 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return x轴偏移
      */
-    public int getOffsetX() {
-        return mOffsetX;
+    public int getxOffset() {
+        return xOffset;
     }
 
-    public T setOffsetX(int offsetX) {
-        this.mOffsetX = offsetX;
+    public T setxOffset(int xOffset) {
+        this.xOffset = xOffset;
         return self();
     }
 
@@ -820,12 +820,12 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return y轴偏移
      */
-    public int getOffsetY() {
-        return mOffsetY;
+    public int getyOffset() {
+        return yOffset;
     }
 
-    public T setOffsetY(int offsetY) {
-        this.mOffsetY = offsetY;
+    public T setyOffset(int yOffset) {
+        this.yOffset = yOffset;
         return self();
     }
 
@@ -843,8 +843,8 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return 精准宽高获完否
      */
-    public boolean isRealWHAlready() {
-        return isRealWHAlready;
+    public boolean isRealWhAlready() {
+        return isRealWhAlready;
     }
 
     /**
@@ -902,9 +902,9 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
          * @param basePopupWindow basePopupWindow
          * @param popWidth        PopupWindow准宽
          * @param popHeight       PopupWindow准高
-         * @param anchorW         锚点宽
-         * @param anchorH         锚点高
+         * @param wAnchor         锚点宽
+         * @param hAnchor         锚点高
          */
-        void onRealWHAlready(BasePopupWindow basePopupWindow, int popWidth, int popHeight, int anchorW, int anchorH);
+        void onRealWhAlready(BasePopupWindow basePopupWindow, int popWidth, int popHeight, int wAnchor, int hAnchor);
     }
 }

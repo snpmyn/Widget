@@ -11,17 +11,17 @@ import java.lang.annotation.RetentionPolicy;
  * @date: 2018/6/22 21:15
  */
 @IntDef({
-        XGravity.center,
-        XGravity.left,
-        XGravity.right,
-        XGravity.alignLeft,
-        XGravity.alignRight,
+        XGravity.CENTER,
+        XGravity.LEFT,
+        XGravity.RIGHT,
+        XGravity.ALIGN_LEFT,
+        XGravity.ALIGN_RIGHT,
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface XGravity {
-    int center = 0;
-    int left = 1;
-    int right = 2;
-    int alignLeft = 3;
-    int alignRight = 4;
+    int CENTER = 0;
+    int LEFT = 1;
+    int RIGHT = 2;
+    int ALIGN_LEFT = 3;
+    int ALIGN_RIGHT = 4;
 }

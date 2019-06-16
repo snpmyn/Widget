@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true/*Vector Drawable兼容*/
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -37,6 +37,6 @@ dependencies {
     /*progress*/
     api 'com.hwangjr.rxbus:rxbus:2.0.0'
     /*RxBus*/
-    api 'com.github.snpmyn:Util:v2.4'
+    api 'com.github.snpmyn:Util:v2.5.1'
     /*util*/
 }

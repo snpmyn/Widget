@@ -259,7 +259,7 @@ public class TimePickerBuilder {
      * @param xOffsetSeconds 秒
      * @return timePickerBuilder
      */
-    public TimePickerBuilder setTextXOffset(int xOffsetYear, int xOffsetMonth, int xOffsetDay, int xOffsetHours, int xOffsetMinutes, int xOffsetSeconds) {
+    public TimePickerBuilder setxOffsetOfText(int xOffsetYear, int xOffsetMonth, int xOffsetDay, int xOffsetHours, int xOffsetMinutes, int xOffsetSeconds) {
         mPickerOptions.xOffsetYear = xOffsetYear;
         mPickerOptions.xOffsetMonth = xOffsetMonth;
         mPickerOptions.xOffsetDay = xOffsetDay;

@@ -79,7 +79,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         }
         wheelOptions.setTextContentSize(mPickerOptions.textSizeContent);
         wheelOptions.setLabels(mPickerOptions.label1, mPickerOptions.label2, mPickerOptions.label3);
-        wheelOptions.setTextXOffset(mPickerOptions.xOffsetOne, mPickerOptions.xOffsetTwo, mPickerOptions.xOffsetThree);
+        wheelOptions.setxOffsetOfText(mPickerOptions.xOffsetOne, mPickerOptions.xOffsetTwo, mPickerOptions.xOffsetThree);
         wheelOptions.setCyclic(mPickerOptions.cyclic1, mPickerOptions.cyclic2, mPickerOptions.cyclic3);
         wheelOptions.setTypeface(mPickerOptions.font);
         setOutSideCancelable(mPickerOptions.cancelable);
@@ -155,9 +155,9 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
      * @param options2Items options2Items
      * @param options3Items options3Items
      */
-    public void setNPicker(List<T> options1Items, List<T> options2Items, List<T> options3Items) {
+    public void setNnPicker(List<T> options1Items, List<T> options2Items, List<T> options3Items) {
         wheelOptions.setLinkage(false);
-        wheelOptions.setNPicker(options1Items, options2Items, options3Items);
+        wheelOptions.setNnPicker(options1Items, options2Items, options3Items);
         reSetCurrentItems();
     }
 

@@ -33,16 +33,16 @@ public class CircularRevealAnimator {
         // 算triggerView中心位
         int[] tvLocation = new int[2];
         triggerView.getLocationInWindow(tvLocation);
-        int tvX = tvLocation[0] + triggerView.getWidth() / 2;
-        int tvY = tvLocation[1] + triggerView.getHeight() / 2;
+        int xTv = tvLocation[0] + triggerView.getWidth() / 2;
+        int yTv = tvLocation[1] + triggerView.getHeight() / 2;
         // 算animView中心位
         int[] avLocation = new int[2];
         animView.getLocationInWindow(avLocation);
-        int avX = avLocation[0] + animView.getWidth() / 2;
-        int avY = avLocation[1] + animView.getHeight() / 2;
-        int rippleW = tvX < avX ? animView.getWidth() - tvX : tvX - avLocation[0];
-        int rippleH = tvY < avY ? animView.getHeight() - tvY : tvY - avLocation[1];
-        float maxRadius = (float) Math.sqrt(rippleW * rippleW + rippleH * rippleH);
+        int xAv = avLocation[0] + animView.getWidth() / 2;
+        int yAv = avLocation[1] + animView.getHeight() / 2;
+        int wRipple = xTv < xAv ? animView.getWidth() - xTv : xTv - avLocation[0];
+        int hRipple = yTv < yAv ? animView.getHeight() - yTv : yTv - avLocation[1];
+        float maxRadius = (float) Math.sqrt(wRipple * wRipple + hRipple * hRipple);
         float startRadius;
         float endRadius;
         if (isShow) {
@@ -52,7 +52,7 @@ public class CircularRevealAnimator {
             startRadius = maxRadius;
             endRadius = 0;
         }
-        Animator animator = ViewAnimationUtils.createCircularReveal(animView, tvX, tvY, startRadius, endRadius);
+        Animator animator = ViewAnimationUtils.createCircularReveal(animView, xTv, yTv, startRadius, endRadius);
         animView.setVisibility(View.VISIBLE);
         animator.setDuration(DURATION);
         animator.setInterpolator(new DecelerateInterpolator());

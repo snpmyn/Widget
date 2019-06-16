@@ -124,7 +124,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         setTime();
         wheelTime.setLabels(mPickerOptions.labelYear, mPickerOptions.labelMonth, mPickerOptions.labelDay,
                 mPickerOptions.labelHours, mPickerOptions.labelMinutes, mPickerOptions.labelSeconds);
-        wheelTime.setTextXOffset(mPickerOptions.xOffsetYear, mPickerOptions.xOffsetMonth, mPickerOptions.xOffsetDay,
+        wheelTime.setxOffsetOfText(mPickerOptions.xOffsetYear, mPickerOptions.xOffsetMonth, mPickerOptions.xOffsetDay,
                 mPickerOptions.xOffsetHours, mPickerOptions.xOffsetMinutes, mPickerOptions.xOffsetSeconds);
         setOutSideCancelable(mPickerOptions.cancelable);
         wheelTime.setCyclic(mPickerOptions.cyclic);

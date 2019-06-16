@@ -41,14 +41,14 @@ public final class SmoothScrollTimerTask extends TimerTask {
             wheelView.cancelFuture();
             wheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_ITEM_SELECTED);
         } else {
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + realOffset);
+            wheelView.setyTotalScroll(wheelView.getyTotalScroll() + realOffset);
             // 这里非循环模式则点空白位需回滚，否出选到－1 item情况
             if (!wheelView.isLoop()) {
                 float itemHeight = wheelView.getItemHeight();
                 float top = (float) (-wheelView.getInitPosition()) * itemHeight;
                 float bottom = (float) (wheelView.getItemsCount() - 1 - wheelView.getInitPosition()) * itemHeight;
-                if (wheelView.getTotalScrollY() <= top || wheelView.getTotalScrollY() >= bottom) {
-                    wheelView.setTotalScrollY(wheelView.getTotalScrollY() - realOffset);
+                if (wheelView.getyTotalScroll() <= top || wheelView.getyTotalScroll() >= bottom) {
+                    wheelView.setyTotalScroll(wheelView.getyTotalScroll() - realOffset);
                     wheelView.cancelFuture();
                     wheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_ITEM_SELECTED);
                     return;

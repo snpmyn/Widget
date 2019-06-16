@@ -21,14 +21,14 @@ public class Rotate3dAnimation extends Animation {
     private static final int ROLL_BY_X = 0;
     private static final int ROLL_BY_Y = 1;
     private static final int ROLL_BY_Z = 2;
-    private int mPivotXType = ABSOLUTE;
-    private int mPivotYType = ABSOLUTE;
-    private float mPivotXValue = 0.0f;
-    private float mPivotYValue = 0.0f;
+    private int xPivotType = ABSOLUTE;
+    private int yPivotType = ABSOLUTE;
+    private float xPivotValue = 0.0f;
+    private float yPivotValue = 0.0f;
     private float mFromDegrees;
     private float mToDegrees;
-    private float mPivotX;
-    private float mPivotY;
+    private float xPivot;
+    private float yPivot;
     private Camera mCamera;
     private int mRollType;
 
@@ -39,11 +39,11 @@ public class Rotate3dAnimation extends Animation {
         mToDegrees = a.getFloat(R.styleable.Rotate3dAnimation_toDeg, 0.0f);
         mRollType = a.getInt(R.styleable.Rotate3dAnimation_rollType, ROLL_BY_X);
         Description d = parseValue(a.peekValue(R.styleable.Rotate3dAnimation_pivotX));
-        mPivotXType = d.type;
-        mPivotXValue = d.value;
+        xPivotType = d.type;
+        xPivotValue = d.value;
         d = parseValue(a.peekValue(R.styleable.Rotate3dAnimation_pivotY));
-        mPivotYType = d.type;
-        mPivotYValue = d.value;
+        yPivotType = d.type;
+        yPivotValue = d.value;
         a.recycle();
         initializePivotPoint();
     }
@@ -52,29 +52,29 @@ public class Rotate3dAnimation extends Animation {
         mRollType = rollType;
         mFromDegrees = fromDegrees;
         mToDegrees = toDegrees;
-        mPivotX = 0.0f;
-        mPivotY = 0.0f;
+        xPivot = 0.0f;
+        yPivot = 0.0f;
     }
 
-    public Rotate3dAnimation(int rollType, float fromDegrees, float toDegrees, float pivotX, float pivotY) {
+    public Rotate3dAnimation(int rollType, float fromDegrees, float toDegrees, float xPivot, float yPivot) {
         mRollType = rollType;
         mFromDegrees = fromDegrees;
         mToDegrees = toDegrees;
-        mPivotXType = ABSOLUTE;
-        mPivotYType = ABSOLUTE;
-        mPivotXValue = pivotX;
-        mPivotYValue = pivotY;
+        xPivotType = ABSOLUTE;
+        yPivotType = ABSOLUTE;
+        xPivotValue = xPivot;
+        yPivotValue = yPivot;
         initializePivotPoint();
     }
 
-    public Rotate3dAnimation(int rollType, float fromDegrees, float toDegrees, int pivotXType, float pivotXValue, int pivotYType, float pivotYValue) {
+    public Rotate3dAnimation(int rollType, float fromDegrees, float toDegrees, int xPivotType, float xPivotValue, int yPivotType, float yPivotValue) {
         mRollType = rollType;
         mFromDegrees = fromDegrees;
         mToDegrees = toDegrees;
-        mPivotXValue = pivotXValue;
-        mPivotXType = pivotXType;
-        mPivotYValue = pivotYValue;
-        mPivotYType = pivotYType;
+        this.xPivotValue = xPivotValue;
+        this.xPivotType = xPivotType;
+        this.yPivotValue = yPivotValue;
+        this.yPivotType = yPivotType;
         initializePivotPoint();
     }
 
@@ -104,11 +104,11 @@ public class Rotate3dAnimation extends Animation {
     }
 
     private void initializePivotPoint() {
-        if (mPivotXType == ABSOLUTE) {
-            mPivotX = mPivotXValue;
+        if (xPivotType == ABSOLUTE) {
+            xPivot = xPivotValue;
         }
-        if (mPivotYType == ABSOLUTE) {
-            mPivotY = mPivotYValue;
+        if (yPivotType == ABSOLUTE) {
+            yPivot = yPivotValue;
         }
     }
 
@@ -116,8 +116,8 @@ public class Rotate3dAnimation extends Animation {
     public void initialize(int width, int height, int parentWidth, int parentHeight) {
         super.initialize(width, height, parentWidth, parentHeight);
         mCamera = new Camera();
-        mPivotX = resolveSize(mPivotXType, mPivotXValue, width, parentWidth);
-        mPivotY = resolveSize(mPivotYType, mPivotYValue, height, parentHeight);
+        xPivot = resolveSize(xPivotType, xPivotValue, width, parentWidth);
+        yPivot = resolveSize(yPivotType, yPivotValue, height, parentHeight);
     }
 
     @Override
@@ -141,8 +141,8 @@ public class Rotate3dAnimation extends Animation {
         }
         mCamera.getMatrix(matrix);
         mCamera.restore();
-        matrix.preTranslate(-mPivotX, -mPivotY);
-        matrix.postTranslate(mPivotX, mPivotY);
+        matrix.preTranslate(-xPivot, -yPivot);
+        matrix.postTranslate(xPivot, yPivot);
     }
 
     protected static class Description {

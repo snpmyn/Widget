@@ -58,29 +58,29 @@ public class SuccessTickView extends View {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        int totalW = getWidth();
-        int totalH = getHeight();
+        int wTotal = getWidth();
+        int hTotal = getHeight();
         // rotate canvas first
-        canvas.rotate(45, new BigDecimal(totalW / 2).floatValue(), new BigDecimal(totalH / 2).floatValue());
-        totalW /= 1.2;
-        totalH /= 1.4;
-        mMaxLeftRectWidth = (totalW + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
+        canvas.rotate(45, new BigDecimal(wTotal / 2).floatValue(), new BigDecimal(hTotal / 2).floatValue());
+        wTotal /= 1.2;
+        hTotal /= 1.4;
+        mMaxLeftRectWidth = (wTotal + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
         RectF leftRect = new RectF();
         if (mLeftRectGrowMode) {
             leftRect.left = 0;
             leftRect.right = leftRect.left + mLeftRectWidth;
-            leftRect.top = (totalH + CONST_RIGHT_RECT_W) / 2;
+            leftRect.top = (hTotal + CONST_RIGHT_RECT_W) / 2;
             leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
         } else {
-            leftRect.right = (totalW + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
+            leftRect.right = (wTotal + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
             leftRect.left = leftRect.right - mLeftRectWidth;
-            leftRect.top = (totalH + CONST_RIGHT_RECT_W) / 2;
+            leftRect.top = (hTotal + CONST_RIGHT_RECT_W) / 2;
             leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
         }
         canvas.drawRoundRect(leftRect, CONST_RADIUS, CONST_RADIUS, mPaint);
         RectF rightRect = new RectF();
-        rightRect.bottom = (totalH + CONST_RIGHT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
-        rightRect.left = (totalW + CONST_LEFT_RECT_W) / 2;
+        rightRect.bottom = (hTotal + CONST_RIGHT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
+        rightRect.left = (wTotal + CONST_LEFT_RECT_W) / 2;
         rightRect.right = rightRect.left + CONST_RECT_WEIGHT;
         rightRect.top = rightRect.bottom - mRightRectWidth;
         canvas.drawRoundRect(rightRect, CONST_RADIUS, CONST_RADIUS, mPaint);
@@ -103,7 +103,7 @@ public class SuccessTickView extends View {
             protected void applyTransformation(float interpolatedTime, Transformation t) {
                 super.applyTransformation(interpolatedTime, t);
                 if (WidgetMagic.FLOAT_LDWS < interpolatedTime && WidgetMagic.FLOAT_LDQ >= interpolatedTime) {
-                    // grow left and right rect to right
+                    // grow LEFT and RIGHT rect to RIGHT
                     mLeftRectGrowMode = true;
                     mLeftRectWidth = mMaxLeftRectWidth * ((interpolatedTime - 0.54f) / 0.16f);
                     if (WidgetMagic.FLOAT_LDLW < interpolatedTime) {
@@ -111,14 +111,14 @@ public class SuccessTickView extends View {
                     }
                     invalidate();
                 } else if (WidgetMagic.FLOAT_LDQ < interpolatedTime && WidgetMagic.FLOAT_LDBS >= interpolatedTime) {
-                    // shorten left rect from right, still grow right rect
+                    // shorten LEFT rect from RIGHT, still grow RIGHT rect
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = mMaxLeftRectWidth * (1 - ((interpolatedTime - 0.7f) / 0.14f));
                     mLeftRectWidth = mLeftRectWidth < MIN_LEFT_RECT_W ? MIN_LEFT_RECT_W : mLeftRectWidth;
                     mRightRectWidth = MAX_RIGHT_RECT_W * ((interpolatedTime - 0.65f) / 0.19f);
                     invalidate();
                 } else if (WidgetMagic.FLOAT_LDBS < interpolatedTime && 1 >= interpolatedTime) {
-                    // restore left rect width, shorten right rect to const
+                    // restore LEFT rect width, shorten RIGHT rect to const
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = MIN_LEFT_RECT_W + (CONST_LEFT_RECT_W - MIN_LEFT_RECT_W) * ((interpolatedTime - 0.84f) / 0.16f);
                     mRightRectWidth = CONST_RIGHT_RECT_W + (MAX_RIGHT_RECT_W - CONST_RIGHT_RECT_W) * (1 - ((interpolatedTime - 0.84f) / 0.16f));

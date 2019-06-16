@@ -16,10 +16,10 @@ import com.zsp.utilone.ViewUtils;
  * @date: 2019/4/28 17:08
  */
 public class TransitionView extends RelativeLayout {
-    private View transitionViewVSpread;
+    private View transitionViewViewSpread;
     private TextView transitionViewTvLoggingIn;
     private TextView transitionViewTvSuccess;
-    private View transitionViewVLine;
+    private View transitionViewViewLine;
     /**
      * 动画结束监听
      */
@@ -42,10 +42,10 @@ public class TransitionView extends RelativeLayout {
 
     private void init() {
         View rootView = inflate(getContext(), R.layout.transtion_view, this);
-        transitionViewVSpread = rootView.findViewById(R.id.transitionViewVSpread);
+        transitionViewViewSpread = rootView.findViewById(R.id.transitionViewViewSpread);
         transitionViewTvLoggingIn = rootView.findViewById(R.id.transitionViewTvLoggingIn);
         transitionViewTvSuccess = rootView.findViewById(R.id.transitionViewTvSuccess);
-        transitionViewVLine = rootView.findViewById(R.id.transitionViewVLine);
+        transitionViewViewLine = rootView.findViewById(R.id.transitionViewViewLine);
     }
 
     /**
@@ -56,9 +56,9 @@ public class TransitionView extends RelativeLayout {
         transitionViewTvLoggingIn.setTranslationX(0);
         transitionViewTvLoggingIn.setVisibility(View.INVISIBLE);
         transitionViewTvSuccess.setVisibility(View.INVISIBLE);
-        transitionViewVLine.setVisibility(View.INVISIBLE);
+        transitionViewViewLine.setVisibility(View.INVISIBLE);
         // 扩散动画
-        TransitionViewHelper.spreadAnimation(transitionViewVSpread, getScale(), new TransitionViewHelper.BaseSimpleAnimatorListener() {
+        TransitionViewHelper.spreadAnimation(transitionViewViewSpread, getScale(), new TransitionViewHelper.BaseSimpleAnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 // 开始登录中文本动画
@@ -78,7 +78,7 @@ public class TransitionView extends RelativeLayout {
     }
 
     private void startLineAnimation() {
-        TransitionViewHelper.lineProlongAnimation(transitionViewVLine, new TransitionViewHelper.BaseSimpleAnimatorListener() {
+        TransitionViewHelper.lineProlongAnimation(transitionViewViewLine, new TransitionViewHelper.BaseSimpleAnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 switch (result) {
@@ -115,8 +115,8 @@ public class TransitionView extends RelativeLayout {
     private void startShrinkAnimation() {
         ViewUtils.hideView(transitionViewTvLoggingIn, View.INVISIBLE);
         ViewUtils.hideView(transitionViewTvSuccess, View.INVISIBLE);
-        ViewUtils.hideView(transitionViewVLine, View.INVISIBLE);
-        TransitionViewHelper.shrinkAnimation(transitionViewVSpread, new TransitionViewHelper.BaseSimpleAnimatorListener() {
+        ViewUtils.hideView(transitionViewViewLine, View.INVISIBLE);
+        TransitionViewHelper.shrinkAnimation(transitionViewViewSpread, new TransitionViewHelper.BaseSimpleAnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (onAnimationEndListener != null) {
@@ -133,7 +133,7 @@ public class TransitionView extends RelativeLayout {
      */
     private float getScale() {
         // 原始扩散圆直径
-        int originalWidth = transitionViewVSpread.getMeasuredWidth();
+        int originalWidth = transitionViewViewSpread.getMeasuredWidth();
         int width = getMeasuredWidth();
         int height = getMeasuredHeight();
         // 扩散圆最终扩散的圆半径

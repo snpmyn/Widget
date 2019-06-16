@@ -221,7 +221,7 @@ public class OptionsPickerBuilder {
         return this;
     }
 
-    public OptionsPickerBuilder setTextXOffset(int xOffsetOne, int xOffsetTwo, int xOffsetThree) {
+    public OptionsPickerBuilder setxOffsetOfText(int xOffsetOne, int xOffsetTwo, int xOffsetThree) {
         mPickerOptions.xOffsetOne = xOffsetOne;
         mPickerOptions.xOffsetTwo = xOffsetTwo;
         mPickerOptions.xOffsetThree = xOffsetThree;

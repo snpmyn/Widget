@@ -64,7 +64,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
         // 透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         // 初始化控件
-        stepUI();
+        stepUi();
         // 初始化配置
         initConfiguration();
         // 初始化数据
@@ -78,7 +78,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
     /**
      * 初始化控件
      */
-    private void stepUI() {
+    private void stepUi() {
         pictureActivityCl = findViewById(R.id.pictureActivityCl);
         pictureActivityVp = findViewById(R.id.pictureActivityVp);
     }

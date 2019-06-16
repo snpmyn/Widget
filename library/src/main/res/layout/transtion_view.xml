@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <View
-        android:id="@+id/transitionViewVSpread"
+        android:id="@+id/transitionViewViewSpread"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"
         android:layout_centerInParent="true"
@@ -14,7 +14,7 @@
         android:id="@+id/transitionViewTvLoggingIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/transitionViewVLine"
+        android:layout_above="@+id/transitionViewViewLine"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/dp_10"
         android:text="@string/loggingIn"
@@ -34,7 +34,7 @@
         android:visibility="invisible" />
 
     <View
-        android:id="@+id/transitionViewVLine"
+        android:id="@+id/transitionViewViewLine"
         android:layout_width="@dimen/dp_80"
         android:layout_height="@dimen/dp_2"
         android:layout_centerInParent="true"

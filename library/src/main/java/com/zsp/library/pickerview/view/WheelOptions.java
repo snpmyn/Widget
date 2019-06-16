@@ -32,7 +32,6 @@ public class WheelOptions<T> {
      * 切换时还原第一项
      */
     private boolean isRestoreItem;
-    private OnItemSelectedListener wheelListenerOption1;
     private OnItemSelectedListener wheelListenerOption2;
     private OnOptionsSelectChangeListener optionsSelectChangeListener;
     /**
@@ -100,7 +99,11 @@ public class WheelOptions<T> {
             wvOption3.setVisibility(View.VISIBLE);
         }
         // 联动监听器
-        wheelListenerOption1 = index -> {
+        // 仅1级联动数据
+        // 上一opt2选中位
+        // 新opt2位，旧位没超数据范围则沿用旧位，否选最后一项
+        // 仅2级联动数据，滑动第1项回调
+        OnItemSelectedListener wheelListenerOption1 = index -> {
             int opt2Select = 0;
             if (mOptions2Items == null) {
                 // 仅1级联动数据
@@ -170,7 +173,7 @@ public class WheelOptions<T> {
      * @param options2Items options2Items
      * @param options3Items options3Items
      */
-    void setNPicker(List<T> options1Items, List<T> options2Items, List<T> options3Items) {
+    void setNnPicker(List<T> options1Items, List<T> options2Items, List<T> options3Items) {
         // 选项1显示数据
         wvOption1.setAdapter(new ArrayWheelAdapter(options1Items));
         // 初始化显示数据
@@ -270,10 +273,10 @@ public class WheelOptions<T> {
     /**
      * x轴偏移量
      */
-    void setTextXOffset(int xOffsetOne, int xOffsetTwo, int xOffsetThree) {
-        wvOption1.setTextXOffset(xOffsetOne);
-        wvOption2.setTextXOffset(xOffsetTwo);
-        wvOption3.setTextXOffset(xOffsetThree);
+    void setxOffsetOfText(int xOffsetOne, int xOffsetTwo, int xOffsetThree) {
+        wvOption1.setxOffsetOfText(xOffsetOne);
+        wvOption2.setxOffsetOfText(xOffsetTwo);
+        wvOption3.setxOffsetOfText(xOffsetThree);
     }
 
     /**

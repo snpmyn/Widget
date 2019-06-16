@@ -21,58 +21,58 @@ public final class InertiaTimerTask extends TimerTask {
     /**
      * 当前滑速
      */
-    private float mCurrentVelocityY;
+    private float yCurrentVelocity;
 
     /**
      * @param wheelView 滚轮对象
-     * @param velocityY Y轴滑速
+     * @param yVelocity Y轴滑速
      */
-    public InertiaTimerTask(WheelView wheelView, float velocityY) {
+    public InertiaTimerTask(WheelView wheelView, float yVelocity) {
         super();
         this.mWheelView = wheelView;
-        this.mFirstVelocityY = velocityY;
-        mCurrentVelocityY = Integer.MAX_VALUE;
+        this.mFirstVelocityY = yVelocity;
+        yCurrentVelocity = Integer.MAX_VALUE;
     }
 
     @Override
     public final void run() {
         // 防闪动（对速度限制）
-        if (mCurrentVelocityY == Integer.MAX_VALUE) {
+        if (yCurrentVelocity == Integer.MAX_VALUE) {
             if (Math.abs(mFirstVelocityY) > WidgetMagic.FLOAT_TWO_THOUSAND) {
-                mCurrentVelocityY = mFirstVelocityY > 0 ? 2000F : -2000F;
+                yCurrentVelocity = mFirstVelocityY > 0 ? 2000F : -2000F;
             } else {
-                mCurrentVelocityY = mFirstVelocityY;
+                yCurrentVelocity = mFirstVelocityY;
             }
         }
         // 发handler消息，处理平顺停止滚动逻辑
-        if (Math.abs(mCurrentVelocityY) >= WidgetMagic.FLOAT_LDL && Math.abs(mCurrentVelocityY) <= WidgetMagic.FLOAT_TWENTY) {
+        if (Math.abs(yCurrentVelocity) >= WidgetMagic.FLOAT_LDL && Math.abs(yCurrentVelocity) <= WidgetMagic.FLOAT_TWENTY) {
             mWheelView.cancelFuture();
             mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL);
             return;
         }
-        int dy = (int) (mCurrentVelocityY / 100F);
-        mWheelView.setTotalScrollY(mWheelView.getTotalScrollY() - dy);
+        int dy = (int) (yCurrentVelocity / 100F);
+        mWheelView.setyTotalScroll(mWheelView.getyTotalScroll() - dy);
         if (!mWheelView.isLoop()) {
             float itemHeight = mWheelView.getItemHeight();
             float top = (-mWheelView.getInitPosition()) * itemHeight;
             float bottom = (mWheelView.getItemsCount() - 1 - mWheelView.getInitPosition()) * itemHeight;
-            if (mWheelView.getTotalScrollY() - itemHeight * WidgetMagic.FLOAT_LDEW < top) {
-                top = mWheelView.getTotalScrollY() + dy;
-            } else if (mWheelView.getTotalScrollY() + itemHeight * WidgetMagic.FLOAT_LDEW > bottom) {
-                bottom = mWheelView.getTotalScrollY() + dy;
+            if (mWheelView.getyTotalScroll() - itemHeight * WidgetMagic.FLOAT_LDEW < top) {
+                top = mWheelView.getyTotalScroll() + dy;
+            } else if (mWheelView.getyTotalScroll() + itemHeight * WidgetMagic.FLOAT_LDEW > bottom) {
+                bottom = mWheelView.getyTotalScroll() + dy;
             }
-            if (mWheelView.getTotalScrollY() <= top) {
-                mCurrentVelocityY = 40F;
-                mWheelView.setTotalScrollY((int) top);
-            } else if (mWheelView.getTotalScrollY() >= bottom) {
-                mWheelView.setTotalScrollY((int) bottom);
-                mCurrentVelocityY = -40F;
+            if (mWheelView.getyTotalScroll() <= top) {
+                yCurrentVelocity = 40F;
+                mWheelView.setyTotalScroll((int) top);
+            } else if (mWheelView.getyTotalScroll() >= bottom) {
+                mWheelView.setyTotalScroll((int) bottom);
+                yCurrentVelocity = -40F;
             }
         }
-        if (mCurrentVelocityY < WidgetMagic.FLOAT_LDL) {
-            mCurrentVelocityY = mCurrentVelocityY + 20F;
+        if (yCurrentVelocity < WidgetMagic.FLOAT_LDL) {
+            yCurrentVelocity = yCurrentVelocity + 20F;
         } else {
-            mCurrentVelocityY = mCurrentVelocityY - 20F;
+            yCurrentVelocity = yCurrentVelocity - 20F;
         }
         // 刷UI
         mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_INVALIDATE_LOOP_VIEW);

@@ -22,8 +22,8 @@ import value.WidgetMagic;
 public class DragFloatingActionButton extends FloatingActionButton {
     private int parentWidth;
     private int parentHeight;
-    private int lastX;
-    private int lastY;
+    private int xLast;
+    private int yLast;
     private boolean isDrag;
 
     public DragFloatingActionButton(Context context) {
@@ -32,26 +32,24 @@ public class DragFloatingActionButton extends FloatingActionButton {
 
     public DragFloatingActionButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-
     }
 
     public DragFloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int rawX = (int) event.getRawX();
-        int rawY = (int) event.getRawY();
+        int xRaw = (int) event.getRawX();
+        int yRaw = (int) event.getRawY();
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 setPressed(true);
                 isDrag = false;
                 getParent().requestDisallowInterceptTouchEvent(true);
-                lastX = rawX;
-                lastY = rawY;
+                xLast = xRaw;
+                yLast = yRaw;
                 ViewGroup parent;
                 if (getParent() != null) {
                     parent = (ViewGroup) getParent();
@@ -66,8 +64,8 @@ public class DragFloatingActionButton extends FloatingActionButton {
                 } else {
                     isDrag = true;
                 }
-                int dx = rawX - lastX;
-                int dy = rawY - lastY;
+                int dx = xRaw - xLast;
+                int dy = yRaw - yLast;
                 // 此处修复一些华为手机无法触发点击事件
                 int distance = (int) Math.sqrt(dx * dx + dy * dy);
                 if (distance == 0) {
@@ -81,8 +79,8 @@ public class DragFloatingActionButton extends FloatingActionButton {
                 y = getY() < 0 ? 0 : getY() + getHeight() > parentHeight ? parentHeight - getHeight() : y;
                 setX(x);
                 setY(y);
-                lastX = rawX;
-                lastY = rawY;
+                xLast = xRaw;
+                yLast = yRaw;
                 Log.e("ACTION_MOVE", "isDrag=" + isDrag + "getX=" + getX() + "; getY=" + getY() + "; parentWidth=" + parentWidth);
                 break;
             case MotionEvent.ACTION_UP:
@@ -90,7 +88,7 @@ public class DragFloatingActionButton extends FloatingActionButton {
                     // 恢复按压效果
                     setPressed(false);
                     /*Log.e("getX=" + getX() + "；screenWidthHalf=" + screenWidthHalf);*/
-                    if (rawX >= parentWidth / WidgetMagic.INT_TWO) {
+                    if (xRaw >= parentWidth / WidgetMagic.INT_TWO) {
                         // 靠右吸附
                         animate().setInterpolator(new DecelerateInterpolator())
                                 .setDuration(300)

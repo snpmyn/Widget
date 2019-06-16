@@ -51,7 +51,7 @@ public class DragKit {
      * ViewConfiguration
      */
     private ViewConfiguration viewConfiguration;
-    private int maxExitY = MAX_EXIT_Y;
+    private int yMaxExit = MAX_EXIT_Y;
     private float minScaleSize = MIN_SCALE_SIZE;
     /**
      * 滑动关闭中否（手指触摸中）
@@ -60,7 +60,7 @@ public class DragKit {
     /**
      * 上次触摸坐标
      */
-    private float mLastY, mLastRawY, mLastX, mLastRawX;
+    private float yLast, yLastRaw, xLast, xLastRaw;
     /**
      * 上次触摸手指ID
      */
@@ -68,11 +68,11 @@ public class DragKit {
     /**
      * 当前位移距离
      */
-    private float mCurrentTranslationY, mCurrentTranslationX;
+    private float yCurrentTranslation, xCurrentTranslation;
     /**
      * 上次位移距离
      */
-    private float mLastTranslationY, mLastTranslationX;
+    private float yLastTranslation, xLastTranslation;
     /**
      * 恢复原位中否
      */
@@ -81,7 +81,7 @@ public class DragKit {
      * 共享元素模式
      */
     private boolean isShareElementMode = false;
-    private View parentV, childV;
+    private View vParent, vChild;
     private DragCloseListener dragCloseListener;
     private Context mContext;
     private boolean isDebug = false;
@@ -111,17 +111,17 @@ public class DragKit {
      * @param childView  子视图
      */
     public void setDragCloseView(View parentView, View childView) {
-        this.parentV = parentView;
-        this.childV = childView;
+        this.vParent = parentView;
+        this.vChild = childView;
     }
 
     /**
      * 最大退出距离
      *
-     * @param maxExitY 最大退出距离
+     * @param yMaxExit 最大退出距离
      */
-    public void setMaxExitY(int maxExitY) {
-        this.maxExitY = maxExitY;
+    public void setyMaxExit(int yMaxExit) {
+        this.yMaxExit = yMaxExit;
     }
 
     /**
@@ -182,16 +182,16 @@ public class DragKit {
                     reset(event);
                     return true;
                 }
-                float currentY = event.getY();
-                float currentX = event.getX();
-                boolean flag = isSwipingToClose || (Math.abs(currentY - mLastY) > 2 * viewConfiguration.getScaledTouchSlop() && Math.abs(currentY - mLastY) > Math.abs(currentX - mLastX) * 1.5);
+                float yCurrent = event.getY();
+                float xCurrent = event.getX();
+                boolean flag = isSwipingToClose || (Math.abs(yCurrent - yLast) > 2 * viewConfiguration.getScaledTouchSlop() && Math.abs(yCurrent - yLast) > Math.abs(xCurrent - xLast) * 1.5);
                 if (flag) {
                     // 已触发或开始触发，更新视图
-                    mLastY = currentY;
-                    mLastX = currentX;
+                    yLast = yCurrent;
+                    xLast = xCurrent;
                     log("action move---> start close");
-                    float currentRawY = event.getRawY();
-                    float currentRawX = event.getRawX();
+                    float yCurrentRaw = event.getRawY();
+                    float xCurrentRaw = event.getRawX();
                     if (!isSwipingToClose) {
                         // 准备开始
                         isSwipingToClose = true;
@@ -200,32 +200,32 @@ public class DragKit {
                         }
                     }
                     // 已开始，更新视图
-                    mCurrentTranslationY = currentRawY - mLastRawY + mLastTranslationY;
-                    mCurrentTranslationX = currentRawX - mLastRawX + mLastTranslationX;
-                    float percent = 1 - Math.abs(mCurrentTranslationY / (maxExitY + childV.getHeight()));
+                    yCurrentTranslation = yCurrentRaw - yLastRaw + yLastTranslation;
+                    xCurrentTranslation = xCurrentRaw - xLastRaw + xLastTranslation;
+                    float percent = 1 - Math.abs(yCurrentTranslation / (yMaxExit + vChild.getHeight()));
                     if (percent > 1) {
                         percent = 1;
                     } else if (percent < 0) {
                         percent = 0;
                     }
-                    parentV.getBackground().mutate().setAlpha((int) (percent * 255));
+                    vParent.getBackground().mutate().setAlpha((int) (percent * 255));
                     if (dragCloseListener != null) {
                         dragCloseListener.dragging(percent);
                     }
-                    childV.setTranslationY(mCurrentTranslationY);
-                    childV.setTranslationX(mCurrentTranslationX);
+                    vChild.setTranslationY(yCurrentTranslation);
+                    vChild.setTranslationX(xCurrentTranslation);
                     if (percent < minScaleSize) {
                         percent = minScaleSize;
                     }
-                    childV.setScaleX(percent);
-                    childV.setScaleY(percent);
+                    vChild.setScaleX(percent);
+                    vChild.setScaleY(percent);
                     return true;
                 }
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                 log("action up--->" + isSwipingToClose);
                 // 手指抬起事件
                 if (isSwipingToClose) {
-                    if (mCurrentTranslationY > maxExitY) {
+                    if (yCurrentTranslation > yMaxExit) {
                         if (isShareElementMode) {
                             // 执行共享元素退出动画
                             if (dragCloseListener != null) {
@@ -233,7 +233,7 @@ public class DragKit {
                             }
                         } else {
                             // 执行定制退出动画
-                            exitWithTranslation(mCurrentTranslationY);
+                            exitWithTranslation(yCurrentTranslation);
                         }
                     } else {
                         resetCallBackAnimation();
@@ -256,12 +256,12 @@ public class DragKit {
     /**
      * 退出动画
      *
-     * @param currentY 当前Y坐标
+     * @param yCurrent 当前Y坐标
      */
-    private void exitWithTranslation(float currentY) {
-        int targetValue = currentY > 0 ? childV.getHeight() : -childV.getHeight();
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(mCurrentTranslationY, targetValue);
-        valueAnimator.addUpdateListener(animation -> updateChildView(mCurrentTranslationX, (float) animation.getAnimatedValue()));
+    private void exitWithTranslation(float yCurrent) {
+        int targetValue = yCurrent > 0 ? vChild.getHeight() : -vChild.getHeight();
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(yCurrentTranslation, targetValue);
+        valueAnimator.addUpdateListener(animation -> updateChildView(xCurrentTranslation, (float) animation.getAnimatedValue()));
         valueAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -299,48 +299,48 @@ public class DragKit {
      */
     private void reset(MotionEvent event) {
         isSwipingToClose = false;
-        mLastY = event.getY();
-        mLastX = event.getX();
-        mLastRawY = event.getRawY();
-        mLastRawX = event.getRawX();
-        mLastTranslationY = 0;
-        mLastTranslationX = 0;
+        yLast = event.getY();
+        xLast = event.getX();
+        yLastRaw = event.getRawY();
+        xLastRaw = event.getRawX();
+        yLastTranslation = 0;
+        xLastTranslation = 0;
     }
 
     /**
      * 更新子视图
      */
-    private void updateChildView(float transX, float transY) {
-        childV.setTranslationY(transY);
-        childV.setTranslationX(transX);
-        float percent = Math.abs(transY / (maxExitY + childV.getHeight()));
+    private void updateChildView(float xTrans, float yTrans) {
+        vChild.setTranslationY(yTrans);
+        vChild.setTranslationX(xTrans);
+        float percent = Math.abs(yTrans / (yMaxExit + vChild.getHeight()));
         float scale = 1 - percent;
         if (scale < minScaleSize) {
             scale = minScaleSize;
         }
-        childV.setScaleX(scale);
-        childV.setScaleY(scale);
+        vChild.setScaleX(scale);
+        vChild.setScaleY(scale);
     }
 
     /**
      * 重置至原位动画
      */
     private void resetCallBackAnimation() {
-        if (isResettingAnimate || mCurrentTranslationY == 0) {
+        if (isResettingAnimate || yCurrentTranslation == 0) {
             return;
         }
-        float ratio = mCurrentTranslationX / mCurrentTranslationY;
-        ValueAnimator animatorY = ValueAnimator.ofFloat(mCurrentTranslationY, 0);
-        animatorY.addUpdateListener(valueAnimator -> {
+        float ratio = xCurrentTranslation / yCurrentTranslation;
+        ValueAnimator yAnimator = ValueAnimator.ofFloat(yCurrentTranslation, 0);
+        yAnimator.addUpdateListener(valueAnimator -> {
             if (isResettingAnimate) {
-                mCurrentTranslationY = (float) valueAnimator.getAnimatedValue();
-                mCurrentTranslationX = ratio * mCurrentTranslationY;
-                mLastTranslationY = mCurrentTranslationY;
-                mLastTranslationX = mCurrentTranslationX;
-                updateChildView(mLastTranslationX, mCurrentTranslationY);
+                yCurrentTranslation = (float) valueAnimator.getAnimatedValue();
+                xCurrentTranslation = ratio * yCurrentTranslation;
+                yLastTranslation = yCurrentTranslation;
+                xLastTranslation = xCurrentTranslation;
+                updateChildView(xLastTranslation, yCurrentTranslation);
             }
         });
-        animatorY.addListener(new Animator.AnimatorListener() {
+        yAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
                 isResettingAnimate = true;
@@ -349,9 +349,9 @@ public class DragKit {
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (isResettingAnimate) {
-                    parentV.getBackground().mutate().setAlpha(255);
-                    mCurrentTranslationY = 0;
-                    mCurrentTranslationX = 0;
+                    vParent.getBackground().mutate().setAlpha(255);
+                    yCurrentTranslation = 0;
+                    xCurrentTranslation = 0;
                     isResettingAnimate = false;
                     if (dragCloseListener != null) {
                         dragCloseListener.dragCancel();
@@ -369,7 +369,7 @@ public class DragKit {
 
             }
         });
-        animatorY.setDuration(DURATION).start();
+        yAnimator.setDuration(DURATION).start();
     }
 
     /**

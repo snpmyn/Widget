@@ -503,34 +503,34 @@ public class WheelTime {
 
     }
 
-    private void setReDay(int yearNum, int monthNum, int startD, int endD, List<String> listBig, List<String> listLittle) {
+    private void setReDay(int yearNum, int monthNum, int dStart, int dEnd, List<String> listBig, List<String> listLittle) {
         int currentItem = wvDay.getCurrentItem();
         // int maxItem;
         if (listBig.contains(String.valueOf(monthNum))) {
-            if (endD > WidgetMagic.INT_THIRTY_ONE) {
-                endD = 31;
+            if (dEnd > WidgetMagic.INT_THIRTY_ONE) {
+                dEnd = 31;
             }
-            wvDay.setAdapter(new NumericWheelAdapter(startD, endD));
+            wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
             // maxItem = endD;
         } else if (listLittle.contains(String.valueOf(monthNum))) {
-            if (endD > WidgetMagic.INT_THIRTY) {
-                endD = 30;
+            if (dEnd > WidgetMagic.INT_THIRTY) {
+                dEnd = 30;
             }
-            wvDay.setAdapter(new NumericWheelAdapter(startD, endD));
+            wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
             // maxItem = endD;
         } else {
             boolean flag = (yearNum % 4 == 0 && yearNum % 100 != 0) || yearNum % 400 == 0;
             if (flag) {
-                if (endD > WidgetMagic.INT_TWENTY_NINE) {
-                    endD = 29;
+                if (dEnd > WidgetMagic.INT_TWENTY_NINE) {
+                    dEnd = 29;
                 }
-                wvDay.setAdapter(new NumericWheelAdapter(startD, endD));
+                wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
                 // maxItem = endD;
             } else {
-                if (endD > WidgetMagic.INT_TWENTY_EIGHT) {
-                    endD = 28;
+                if (dEnd > WidgetMagic.INT_TWENTY_EIGHT) {
+                    dEnd = 28;
                 }
-                wvDay.setAdapter(new NumericWheelAdapter(startD, endD));
+                wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
                 // maxItem = endD;
             }
         }
@@ -631,13 +631,13 @@ public class WheelTime {
         }
     }
 
-    void setTextXOffset(int xOffsetYear, int xOffsetMonth, int xOffsetDay, int xOffsetHours, int xOffsetMinutes, int xOffsetSeconds) {
-        wvDay.setTextXOffset(xOffsetYear);
-        wvMonth.setTextXOffset(xOffsetMonth);
-        wvYear.setTextXOffset(xOffsetDay);
-        wvHours.setTextXOffset(xOffsetHours);
-        wvMinutes.setTextXOffset(xOffsetMinutes);
-        wvSeconds.setTextXOffset(xOffsetSeconds);
+    void setxOffsetOfText(int xOffsetYear, int xOffsetMonth, int xOffsetDay, int xOffsetHours, int xOffsetMinutes, int xOffsetSeconds) {
+        wvDay.setxOffsetOfText(xOffsetYear);
+        wvMonth.setxOffsetOfText(xOffsetMonth);
+        wvYear.setxOffsetOfText(xOffsetDay);
+        wvHours.setxOffsetOfText(xOffsetHours);
+        wvMinutes.setxOffsetOfText(xOffsetMinutes);
+        wvSeconds.setxOffsetOfText(xOffsetSeconds);
     }
 
     /**

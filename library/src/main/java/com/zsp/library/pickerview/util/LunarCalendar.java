@@ -243,30 +243,30 @@ public class LunarCalendar {
         long offset = solarToInt(year, month, monthDay) - solarToInt(y, m, d);
         int days = lunar_month_days[index];
         int leap = getBitInt(days, 4, 13);
-        int lunarY = index + solar_1_1[0];
-        int lunarM = 1;
-        int lunarD;
+        int yLunar = index + solar_1_1[0];
+        int mLunar = 1;
+        int dLunar;
         offset += 1;
         for (int i = 0; i < WidgetMagic.INT_THIRTEEN; i++) {
             int dm = getBitInt(days, 1, 12 - i) == 1 ? 30 : 29;
             if (offset > dm) {
-                lunarM++;
+                mLunar++;
                 offset -= dm;
             } else {
                 break;
             }
         }
-        lunarD = (int) (offset);
-        lunarDate[0] = lunarY;
-        lunarDate[1] = lunarM;
+        dLunar = (int) (offset);
+        lunarDate[0] = yLunar;
+        lunarDate[1] = mLunar;
         boolean isLeap = false;
-        if (leap != 0 && lunarM > leap) {
-            lunarDate[1] = lunarM - 1;
-            if (lunarM == leap + 1) {
+        if (leap != 0 && mLunar > leap) {
+            lunarDate[1] = mLunar - 1;
+            if (mLunar == leap + 1) {
                 isLeap = true;
             }
         }
-        lunarDate[2] = lunarD;
+        lunarDate[2] = dLunar;
         lunarDate[3] = isLeap ? 1 : 0;
         LogManager.e("-->", year + "-" + month + "-" + monthDay + "==>" + lunarDate[0] + "-" + lunarDate[1] + "-" + lunarDate[2] + "-" + lunarDate[3]);
         return lunarDate;
