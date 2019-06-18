@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * @decs: 图片
+ * @decs: 图片页
  * @author: 郑少鹏
  * @date: 2019/6/9 11:22
  */

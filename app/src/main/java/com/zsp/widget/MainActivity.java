@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import example.PictureActivity;
 import example.SearchBoxOneActivity;
 import example.SearchBoxTwoActivity;
+import example.TimerActivity;
 
 /**
  * @decs: 主页
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.mainActivityMbPicture,
             R.id.mainActivitySearchBoxOne,
-            R.id.mainActivitySearchBoxTwo,})
+            R.id.mainActivitySearchBoxTwo,
+            R.id.mainActivityTimer})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -42,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             // 搜索框二
             case R.id.mainActivitySearchBoxTwo:
                 IntentUtils.jumpNoBundle(this, SearchBoxTwoActivity.class);
+                break;
+            // 计时器
+            case R.id.mainActivityTimer:
+                IntentUtils.jumpNoBundle(this, TimerActivity.class);
                 break;
             default:
                 break;

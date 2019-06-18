@@ -28,4 +28,11 @@
         android:layout_height="wrap_content"
         android:text="@string/searchBoxTwo"
         android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/timer"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>
