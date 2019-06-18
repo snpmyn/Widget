@@ -5,4 +5,14 @@
     <string name="searchBoxTwo">搜索框二</string>
     <string name="timer">计时器</string>
     <string name="loginOne">登录一</string>
+    <string name="tryMe">Try me!</string>
+    <string name="dialogOne">对话框一</string>
+    <string name="showMaterialProgress">show material progress</string>
+    <string name="aBasicMessage">a basic message</string>
+    <string name="a_title_with_a_text_under">a title with a text under</string>
+    <string name="showErrorMessage">show error message</string>
+    <string name="aSuccessMessage">a success message</string>
+    <string name="a_warning_message_with_a_listener_bind_to_the_confirm_button">A warning message, with a listener bind to the Confirm button…</string>
+    <string name="aWarningMessageWithListenersBindToCancelAndConfirmButton">A warning message, with listeners bind to Cancel and Confirm button…</string>
+    <string name="a_message_with_a_custom_image">a message with a custom image</string>
 </resources>

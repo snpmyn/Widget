@@ -42,4 +42,11 @@
         android:layout_height="wrap_content"
         android:text="@string/loginOne"
         android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityDialogOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialogOne"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>
