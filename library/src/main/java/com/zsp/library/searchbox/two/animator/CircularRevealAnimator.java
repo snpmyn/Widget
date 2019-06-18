@@ -1,4 +1,4 @@
-package com.zsp.library.searchbox.animator;
+package com.zsp.library.searchbox.two.animator;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

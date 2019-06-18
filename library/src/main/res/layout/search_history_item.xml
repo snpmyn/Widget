@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_12"
         android:layout_weight="1"
-        android:drawableStart="@drawable/ic_history"
+        android:drawableStart="@drawable/ic_history_to_search_history_item"
         android:drawablePadding="@dimen/dp_10"
         android:ellipsize="end"
         android:maxLines="1"
@@ -31,5 +31,5 @@
         android:contentDescription="@string/toDo"
         android:paddingLeft="@dimen/dp_12"
         android:paddingRight="@dimen/dp_12"
-        app:srcCompat="@drawable/ic_clear" />
+        app:srcCompat="@drawable/ic_clear_to_search_edit_text_and_search_history_item" />
 </LinearLayout>

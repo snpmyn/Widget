@@ -1,4 +1,4 @@
-package com.zsp.library.searchbox.database;
+package com.zsp.library.searchbox.two.database;
 
 import android.content.ContentValues;
 import android.content.Context;

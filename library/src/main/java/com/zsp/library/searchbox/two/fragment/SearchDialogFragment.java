@@ -1,4 +1,4 @@
-package com.zsp.library.searchbox.fragment;
+package com.zsp.library.searchbox.two.fragment;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -25,10 +25,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
-import com.zsp.library.searchbox.adapter.SearchHistoryAdapter;
-import com.zsp.library.searchbox.animator.CircularRevealAnimator;
-import com.zsp.library.searchbox.database.SearchHistoryDataBase;
-import com.zsp.library.searchbox.listener.OnItemClickOrDeleteClickListener;
+import com.zsp.library.searchbox.two.adapter.SearchHistoryAdapter;
+import com.zsp.library.searchbox.two.animator.CircularRevealAnimator;
+import com.zsp.library.searchbox.two.database.SearchHistoryDataBase;
+import com.zsp.library.searchbox.two.listener.OnItemClickOrDeleteClickListener;
 import com.zsp.utilone.KeyboardUtils;
 import com.zsp.utilone.ToastUtils;
 

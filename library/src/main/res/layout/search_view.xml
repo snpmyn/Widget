@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/searchViewLlBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zsp.library.searchbox.one.SearchEditText
+            android:id="@+id/searchViewEt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gray_solid_c"
+            android:drawableStart="@drawable/ic_search_to_search_edit_text_and_search_view"
+            android:drawablePadding="@dimen/dp_10"
+            android:gravity="start|center_vertical"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zsp.library.searchbox.one.RecordListView
+                android:id="@+id/searchViewSlv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="@dimen/px1" />
+
+            <TextView
+                android:id="@+id/searchViewTvClear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_12"
+                android:text="@string/clearSearchHistory"
+                android:textColor="@color/fontHint"
+                android:textSize="@dimen/sp_11"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.zsp.library.searchbox.adapter;
+package com.zsp.library.searchbox.two.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
-import com.zsp.library.searchbox.listener.OnItemClickOrDeleteClickListener;
+import com.zsp.library.searchbox.two.listener.OnItemClickOrDeleteClickListener;
 
 import java.util.ArrayList;
 

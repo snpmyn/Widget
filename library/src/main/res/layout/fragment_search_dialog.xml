@@ -51,7 +51,7 @@
                 android:contentDescription="@string/toDo"
                 android:paddingLeft="@dimen/dp_12"
                 android:paddingRight="@dimen/dp_12"
-                app:srcCompat="@drawable/ic_search_three" />
+                app:srcCompat="@drawable/ic_search_to_fragment_search_dialog" />
         </LinearLayout>
 
         <View
