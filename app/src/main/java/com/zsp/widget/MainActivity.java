@@ -9,6 +9,7 @@ import com.zsp.utilone.IntentUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import example.LoginOneActivity;
 import example.PictureActivity;
 import example.SearchBoxOneActivity;
 import example.SearchBoxTwoActivity;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.mainActivityMbPicture,
             R.id.mainActivitySearchBoxOne,
             R.id.mainActivitySearchBoxTwo,
-            R.id.mainActivityTimer})
+            R.id.mainActivityTimer,
+            R.id.mainActivityLoginOne})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityTimer:
                 IntentUtils.jumpNoBundle(this, TimerActivity.class);
                 break;
+            // 登录一
+            case R.id.mainActivityLoginOne:
+                IntentUtils.jumpNoBundle(this, LoginOneActivity.class);
             default:
                 break;
         }

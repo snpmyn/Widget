@@ -15,6 +15,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.HomeActivity" />
+        <activity android:name="example.LoginOneActivity" />
         <activity android:name="example.TimerActivity" />
         <activity android:name="example.SearchBoxOneActivity" />
         <activity android:name="example.SearchBoxTwoActivity" />

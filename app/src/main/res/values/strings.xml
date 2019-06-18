@@ -4,4 +4,5 @@
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>
     <string name="timer">计时器</string>
+    <string name="loginOne">登录一</string>
 </resources>
