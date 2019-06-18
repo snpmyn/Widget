@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.SearchBoxTwoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/searchBoxTwoActivityIvTopBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/toDo"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            app:srcCompat="@drawable/ic_top_back_light" />
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:id="@+id/searchBoxTwoActivityDctvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_28"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="?actionBarSize"
+            android:layout_marginRight="?actionBarSize"
+            android:background="@drawable/white_solid_c"
+            android:drawableStart="@drawable/ic_search_to_search_edit_text_and_search_view"
+            android:drawablePadding="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:text="@string/enterSearchKeyword"
+            android:textColor="@color/fontHint"
+            android:textSize="@dimen/sp_11" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background" />
+</LinearLayout>
