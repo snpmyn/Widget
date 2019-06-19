@@ -43,9 +43,10 @@ dependencies {
     /*progress*/
     api 'com.hwangjr.rxbus:rxbus:2.0.0'
     /*RxBus*/
-    api 'com.github.snpmyn:Util:v2.5.2'
+    api 'com.github.snpmyn:Util:v2.5.3'
     /*util*/
 }
 repositories {
     mavenCentral()
 }
+/*kotlin*/
