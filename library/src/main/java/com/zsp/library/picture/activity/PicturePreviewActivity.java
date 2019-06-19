@@ -24,7 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.hwangjr.rxbus.RxBus;
 import com.zsp.library.R;
 import com.zsp.library.picture.kit.DragKit;
-import com.zsp.utilone.GlideUtils;
+import com.zsp.utilone.glide.GlideUtils;
 
 import java.util.ArrayList;
 import java.util.List;

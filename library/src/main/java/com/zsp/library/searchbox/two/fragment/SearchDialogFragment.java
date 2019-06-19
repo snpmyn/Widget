@@ -29,8 +29,8 @@ import com.zsp.library.searchbox.two.adapter.SearchHistoryAdapter;
 import com.zsp.library.searchbox.two.animator.CircularRevealAnimator;
 import com.zsp.library.searchbox.two.database.SearchHistoryDataBase;
 import com.zsp.library.searchbox.two.listener.OnItemClickOrDeleteClickListener;
-import com.zsp.utilone.KeyboardUtils;
-import com.zsp.utilone.ToastUtils;
+import com.zsp.utilone.keyboard.KeyboardUtils;
+import com.zsp.utilone.toast.ToastUtils;
 
 import java.util.ArrayList;
 

@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.library.searchbox.two.fragment.SearchDialogFragment;
 import com.zsp.library.textview.DrawableCenterTextView;
-import com.zsp.utilone.ToastUtils;
 import com.zsp.utilone.ViewUtils;
 import com.zsp.utilone.animation.AnimationManager;
+import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import butterknife.BindView;

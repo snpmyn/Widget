@@ -78,7 +78,7 @@ public class DialogOneActivity extends AppCompatActivity implements DialogValueL
     private void showMaterialProgress() {
         showMaterialProgressSweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE).setTitleText("Loading");
         showMaterialProgressSweetAlertDialog.setCancelable(false);
-        showErrorMessageSweetAlertDialog.setListener(this);
+        showMaterialProgressSweetAlertDialog.setListener(this);
         showMaterialProgressSweetAlertDialog.show();
         new CountDownTimer(800 * 7, 800) {
             @Override

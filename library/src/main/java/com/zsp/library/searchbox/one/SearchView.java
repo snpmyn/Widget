@@ -20,8 +20,8 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
-import com.zsp.utilone.ToastUtils;
 import com.zsp.utilone.ViewUtils;
+import com.zsp.utilone.toast.ToastUtils;
 
 /**
  * @decs: 搜索视图

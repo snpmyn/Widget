@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.library.textview.TimerTextView;
-import com.zsp.utilone.ToastUtils;
+import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import java.util.concurrent.TimeUnit;

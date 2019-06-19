@@ -25,7 +25,7 @@ import com.zsp.library.wheelview.listener.OnItemSelectedListener;
 import com.zsp.library.wheelview.timer.InertiaTimerTask;
 import com.zsp.library.wheelview.timer.MessageHandler;
 import com.zsp.library.wheelview.timer.SmoothScrollTimerTask;
-import com.zsp.utilone.ThreadUtils;
+import com.zsp.utilone.thread.ThreadManager;
 
 import java.util.Locale;
 import java.util.concurrent.ScheduledExecutorService;
@@ -62,7 +62,7 @@ public class WheelView extends View {
     /**
      * Timer mTimer
      */
-    private ScheduledExecutorService mExecutor = ThreadUtils.stepScheduledExecutorService();
+    private ScheduledExecutorService mExecutor = ThreadManager.stepScheduledExecutorService();
     private ScheduledFuture<?> mFuture;
     private Paint paintOuterText;
     private Paint paintCenterText;
