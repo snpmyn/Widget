@@ -50,4 +50,11 @@
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
     </style>
+    <!--JellyToolbarIconStyle-->
+    <style name="JellyToolbarIconStyle">
+        <item name="android:layout_width">@dimen/dp_32</item>
+        <item name="android:layout_height">@dimen/dp_32</item>
+        <item name="android:padding">@dimen/dp_16</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
 </resources>

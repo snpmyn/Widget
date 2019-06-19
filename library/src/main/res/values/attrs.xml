@@ -42,4 +42,13 @@
         <attr name="searchBlockHeight" format="integer" />
         <attr name="searchBlockColor" format="color" />
     </declare-styleable>
+    <!--JellyToolbar-->
+    <declare-styleable name="JellyToolbar">
+        <attr name="title" format="string" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="icon" format="reference" />
+        <attr name="cancelIcon" format="reference" />
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+    </declare-styleable>
 </resources>
