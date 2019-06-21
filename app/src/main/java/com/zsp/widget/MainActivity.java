@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.utilone.IntentUtils;
+import com.zsp.utilone.intent.IntentUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

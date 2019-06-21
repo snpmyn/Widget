@@ -12,7 +12,7 @@ import android.os.Message;
 import android.view.View;
 
 import com.zsp.library.animation.three.ProgressButton;
-import com.zsp.utilone.IntentUtils;
+import com.zsp.utilone.intent.IntentUtils;
 import com.zsp.widget.R;
 
 import butterknife.BindView;

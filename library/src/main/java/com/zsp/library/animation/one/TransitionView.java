@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zsp.library.R;
-import com.zsp.utilone.ViewUtils;
+import com.zsp.utilone.view.ViewUtils;
 
 /**
  * @decs: 过渡视图

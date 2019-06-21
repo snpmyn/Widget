@@ -17,9 +17,9 @@ import android.view.animation.Transformation;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
-import com.zsp.utilone.DensityUtils;
-import com.zsp.utilone.ScreenUtils;
 import com.zsp.utilone.animation.AnimationManager;
+import com.zsp.utilone.density.DensityUtils;
+import com.zsp.utilone.screen.ScreenUtils;
 
 import java.math.BigDecimal;
 
