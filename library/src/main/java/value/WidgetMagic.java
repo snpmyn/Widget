@@ -7,6 +7,7 @@ package value;
  * @desc 魔法值
  */
 public class WidgetMagic {
+
     /**
      * int
      */
