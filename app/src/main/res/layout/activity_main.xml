@@ -16,37 +16,44 @@
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivitySearchBoxOne"
+        android:id="@+id/mainActivityMbSearchBoxOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/searchBoxOne"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivitySearchBoxTwo"
+        android:id="@+id/mainActivityMbSearchBoxTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/searchBoxTwo"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivityTimer"
+        android:id="@+id/mainActivityMbTimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/timer"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivityLoginOne"
+        android:id="@+id/mainActivityMbLoginOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loginOne"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mainActivityDialogOne"
+        android:id="@+id/mainActivityMbDialogOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/dialogOne"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityMbSpannableString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/spannableString"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>

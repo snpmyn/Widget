@@ -17,4 +17,5 @@
     <string name="a_message_with_a_custom_image">a message with a custom image</string>
     <string name="search">搜索</string>
     <string name="list">列表</string>
+    <string name="spannableString">SpannableString</string>
 </resources>

@@ -14,6 +14,7 @@ import example.LoginOneActivity;
 import example.PictureActivity;
 import example.SearchBoxOneActivity;
 import example.SearchBoxTwoActivity;
+import example.SpannableStringActivity;
 import example.TimerActivity;
 
 /**
@@ -30,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.mainActivityMbPicture,
-            R.id.mainActivitySearchBoxOne,
-            R.id.mainActivitySearchBoxTwo,
-            R.id.mainActivityTimer,
-            R.id.mainActivityLoginOne,
-            R.id.mainActivityDialogOne})
+            R.id.mainActivityMbSearchBoxOne,
+            R.id.mainActivityMbSearchBoxTwo,
+            R.id.mainActivityMbTimer,
+            R.id.mainActivityMbLoginOne,
+            R.id.mainActivityMbDialogOne,
+            R.id.mainActivityMbSpannableString})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -42,24 +44,28 @@ public class MainActivity extends AppCompatActivity {
                 IntentUtils.jumpNoBundle(this, PictureActivity.class);
                 break;
             // 搜索框一
-            case R.id.mainActivitySearchBoxOne:
+            case R.id.mainActivityMbSearchBoxOne:
                 IntentUtils.jumpNoBundle(this, SearchBoxOneActivity.class);
                 break;
             // 搜索框二
-            case R.id.mainActivitySearchBoxTwo:
+            case R.id.mainActivityMbSearchBoxTwo:
                 IntentUtils.jumpNoBundle(this, SearchBoxTwoActivity.class);
                 break;
             // 计时器
-            case R.id.mainActivityTimer:
+            case R.id.mainActivityMbTimer:
                 IntentUtils.jumpNoBundle(this, TimerActivity.class);
                 break;
             // 登录一
-            case R.id.mainActivityLoginOne:
+            case R.id.mainActivityMbLoginOne:
                 IntentUtils.jumpNoBundle(this, LoginOneActivity.class);
                 break;
             // 对话框一
-            case R.id.mainActivityDialogOne:
+            case R.id.mainActivityMbDialogOne:
                 IntentUtils.jumpNoBundle(this, DialogOneActivity.class);
+                break;
+            // SpannableString
+            case R.id.mainActivityMbSpannableString:
+                IntentUtils.jumpNoBundle(this, SpannableStringActivity.class);
                 break;
             default:
                 break;
