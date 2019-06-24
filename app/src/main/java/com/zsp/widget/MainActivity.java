@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbTimer:
                 IntentUtils.jumpNoBundle(this, TimerActivity.class);
                 break;
-
             // 登录一
             case R.id.mainActivityMbLoginOne:
                 IntentUtils.jumpNoBundle(this, LoginOneActivity.class);
