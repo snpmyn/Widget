@@ -11,32 +11,38 @@ import java.util.List;
  */
 public class ScreenDataKit {
     /**
-     * 单打包
+     * 单选打包
      *
      * @param stringList          数据
+     * @param selected            选否
      * @param correspondingValues 对应值
      */
-    public void singlePack(List<Object> stringList, Object... correspondingValues) {
+    public void singleSelectPack(List<Object> stringList, boolean selected, Object... correspondingValues) {
         if (stringList.size() > 0) {
             stringList.clear();
         }
-        stringList.addAll(Arrays.asList(correspondingValues));
+        if (selected) {
+            stringList.addAll(Arrays.asList(correspondingValues));
+        }
     }
 
     /**
-     * 多打包
+     * 多选打包
      *
-     * @param stringList         数据
-     * @param correspondingValue 对应值
-     * @param selected           选否
+     * @param stringList          数据
+     * @param selected            选否
+     * @param correspondingValues 对应值
      */
-    public void multiPack(List<Object> stringList, Object correspondingValue, boolean selected) {
-        if (selected) {
-            if (!stringList.contains(correspondingValue)) {
-                stringList.add(correspondingValue);
+    public void multiSelectPack(List<Object> stringList, boolean selected, Object... correspondingValues) {
+        for (Object o : correspondingValues) {
+            if (selected) {
+                if (stringList.contains(o)) {
+                    return;
+                }
+                stringList.add(o);
+            } else {
+                stringList.remove(o);
             }
-        } else {
-            stringList.remove(correspondingValue);
         }
     }
 }

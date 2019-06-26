@@ -39,6 +39,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     private ScreenAdapter screenAdapter;
     private Map<List<String>, Map<Integer, Boolean>> map;
+    private List<String> canCancelAfterSingleSelectList;
     /**
      * 筛选操作接口
      */
@@ -54,6 +55,7 @@ public class ScreenHandleKit implements View.OnClickListener {
         this.context = context;
         this.screenAdapter = screenAdapter;
         this.map = new LinkedHashMap<>();
+        this.canCancelAfterSingleSelectList = new ArrayList<>();
         stepBottomSheetDialog();
     }
 
@@ -75,44 +77,58 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
-     * 通字符串组装数据
+     * 通字符串条件打包
      *
      * @param classification 类别
      * @param spanCount      跨距数
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void assemblyDataByString(String classification, int spanCount, boolean singleSelect, String... conditions) {
+    public void packByStringConditions(String classification, int spanCount, boolean singleSelect, String... conditions) {
         List<String> list = new ArrayList<>();
-        Map<Integer, Boolean> map = new LinkedHashMap<>();
         list.add(classification);
         list.addAll(Arrays.asList(conditions));
+        Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
         this.map.put(list, map);
     }
 
     /**
-     * 通集合组装数据
+     * 通集合条件打包
      *
      * @param classification 类别
      * @param spanCount      跨距数
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void assemblyDataByList(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
+    public void packByListConditions(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
         List<String> list = new ArrayList<>();
-        Map<Integer, Boolean> map = new LinkedHashMap<>();
         list.add(classification);
         list.addAll(conditions);
+        Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
         this.map.put(list, map);
+    }
+
+    /**
+     * 支持单选后取消
+     *
+     * @param classifications 条件
+     */
+    public void supportCancelAfterSingleSelect(String... classifications) {
+        for (String classification : classifications) {
+            if (canCancelAfterSingleSelectList.contains(classification)) {
+                return;
+            }
+            canCancelAfterSingleSelectList.add(classification);
+        }
     }
 
     /**
      * 关联
      */
     public void associate() {
-        screenAdapter.setScreeningData(map);
+        screenAdapter.setScreeningData(map, canCancelAfterSingleSelectList);
         bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
     }
 

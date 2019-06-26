@@ -26,6 +26,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     private Context context;
     private List<List<String>> keyList;
     private List<Map<Integer, Boolean>> valueList;
+    private List<String> canCancelAfterSingleSelectList;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
     private List<ScreenNestAdapter> screenNestAdapters;
 
@@ -38,9 +39,10 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         this.context = context;
     }
 
-    void setScreeningData(Map<List<String>, Map<Integer, Boolean>> map) {
+    void setScreeningData(Map<List<String>, Map<Integer, Boolean>> map, List<String> list) {
         this.keyList = new ArrayList<>(map.keySet());
         this.valueList = new ArrayList<>(map.values());
+        this.canCancelAfterSingleSelectList = list;
         this.screenNestAdapters = new ArrayList<>(map.size());
     }
 
@@ -69,7 +71,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         recyclerViewKit.gridLayout(integerList.get(0), 36, true);
         // 嵌套（适配器）
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context,
-                leftList.subList(1, leftList.size()), leftList.get(0), booleanList.get(0));
+                leftList.subList(1, leftList.size()), leftList.get(0), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));
         screenNestAdapters.add(screenNestAdapter);
         // 嵌套（控件关联适配器）
         holder.screenItemRv.setAdapter(screenNestAdapter);

@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.screen.ScreenActivity" />
         <activity android:name="example.SpannableStringActivity" />
         <activity android:name="example.DialogOneActivity" />
         <activity android:name="example.HomeActivity" />

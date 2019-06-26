@@ -16,6 +16,7 @@ import example.SearchBoxOneActivity;
 import example.SearchBoxTwoActivity;
 import example.SpannableStringActivity;
 import example.TimerActivity;
+import example.screen.ScreenActivity;
 
 /**
  * @decs: 主页
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbTimer,
             R.id.mainActivityMbLoginOne,
             R.id.mainActivityMbDialogOne,
-            R.id.mainActivityMbSpannableString})
+            R.id.mainActivityMbSpannableString,
+            R.id.mainActivityMbScreen})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -66,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             // SpannableString
             case R.id.mainActivityMbSpannableString:
                 IntentUtils.jumpNoBundle(this, SpannableStringActivity.class);
+                break;
+            // 筛选
+            case R.id.mainActivityMbScreen:
+                IntentUtils.jumpNoBundle(this, ScreenActivity.class);
                 break;
             default:
                 break;

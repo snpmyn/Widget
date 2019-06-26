@@ -25,6 +25,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     private List<String> strings;
     private String classification;
     private boolean singleSelect;
+    private boolean canCancelAfterSingleSelect;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
     private int selectPosition = -1;
     private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
@@ -37,14 +38,15 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      * @param classification 类别
      * @param singleSelect   单选否
      */
-    ScreenNestAdapter(Context context, List<String> strings, String classification, boolean singleSelect) {
+    ScreenNestAdapter(Context context, List<String> strings, String classification, boolean singleSelect, boolean canCancelAfterSingleSelect) {
         this.context = context;
         this.strings = strings;
         this.classification = classification;
         this.singleSelect = singleSelect;
+        this.canCancelAfterSingleSelect = canCancelAfterSingleSelect;
     }
 
-    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
+    void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
 
@@ -58,6 +60,9 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
                 if (selectPosition != position) {
                     selectPosition = position;
                     onRecyclerViewItemClickListener.onItemClick(v, classification, strings.get(position), true);
+                } else if (canCancelAfterSingleSelect) {
+                    selectPosition = -1;
+                    onRecyclerViewItemClickListener.onItemClick(v, classification, strings.get(position), false);
                 }
             } else {
                 boolean preSelected = sparseBooleanArray.get(position);
