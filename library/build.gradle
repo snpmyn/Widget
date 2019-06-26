@@ -46,6 +46,8 @@ dependencies {
     /*progress*/
     api 'com.hwangjr.rxbus:rxbus:2.0.0'
     /*RxBus*/
+    api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
+    /*spruce*/
     api 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
 }

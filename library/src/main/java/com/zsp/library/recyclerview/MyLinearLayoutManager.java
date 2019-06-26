@@ -2,51 +2,50 @@ package com.zsp.library.recyclerview;
 
 import android.content.Context;
 
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * Created on 2017/11/19 0019.
+ * Created on 2019/6/26.
  *
  * @author 郑少鹏
- * @desc MyGridLayoutManager
+ * @desc MyLinearLayoutManager
  */
-public class MyGridLayoutManager extends GridLayoutManager {
-    /**
-     * 允滑
-     */
-    private boolean scrollEnable = true;
+public class MyLinearLayoutManager extends LinearLayoutManager {
     /**
      * 布局子控件监听
      */
     private OnLayoutChildrenListener onLayoutChildrenListener;
 
     /**
-     * Creates a vertical GridLayoutManager
+     * Creates a vertical LinearLayoutManager
      *
      * @param context                  Current context, will be used to access resources.
-     * @param spanCount                The number of columns in the grid
      * @param onLayoutChildrenListener The listener of layout children
      */
-    MyGridLayoutManager(Context context, int spanCount, OnLayoutChildrenListener onLayoutChildrenListener) {
-        super(context, spanCount);
+    MyLinearLayoutManager(Context context, OnLayoutChildrenListener onLayoutChildrenListener) {
+        super(context);
         this.onLayoutChildrenListener = onLayoutChildrenListener;
     }
 
     /**
-     * 允滑
-     *
-     * @param flag 允滑
+     * @param context                  Current context, will be used to access resources.
+     * @param orientation              Layout orientation. Should be {@link #HORIZONTAL} or {@link
+     *                                 #VERTICAL}.
+     * @param reverseLayout            When set to true, layouts from end to start.
+     * @param onLayoutChildrenListener The listener of layout children
      */
-    public void setScrollEnable(boolean flag) {
-        this.scrollEnable = flag;
+    MyLinearLayoutManager(Context context, int orientation, boolean reverseLayout, OnLayoutChildrenListener onLayoutChildrenListener) {
+        super(context, orientation, reverseLayout);
+        this.onLayoutChildrenListener = onLayoutChildrenListener;
     }
 
-    @Override
-    public boolean canScrollVertically() {
-        return scrollEnable && super.canScrollVertically();
-    }
-
+    /**
+     * {@inheritDoc}
+     *
+     * @param recycler
+     * @param state
+     */
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
         super.onLayoutChildren(recycler, state);

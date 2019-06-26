@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spruceItemRl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/spruceItemViewSquare"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@color/colorDBE9F9" />
+
+    <View
+        android:id="@+id/spruceItemViewTopLine"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_toEndOf="@id/spruceItemViewSquare"
+        android:alpha="1"
+        android:background="@color/colorD9E1E2" />
+
+    <View
+        android:id="@+id/spruceItemViewMiddleLine"
+        android:layout_width="250dp"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/spruceItemViewTopLine"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_toEndOf="@id/spruceItemViewSquare"
+        android:alpha="0.5"
+        android:background="@color/colorD9E1E2" />
+
+    <View
+        android:id="@+id/spruceItemViewBottomLine"
+        android:layout_width="200dp"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/spruceItemViewMiddleLine"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_toEndOf="@id/spruceItemViewSquare"
+        android:alpha="0.5"
+        android:background="@color/colorD9E1E2" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_3"
+        android:layout_below="@id/spruceItemViewBottomLine"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/colorF8F8F9" />
+</RelativeLayout>
