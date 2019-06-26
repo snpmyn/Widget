@@ -68,7 +68,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         holder.screenItemTv.setText(leftList.get(0));
         // 嵌套（控件）
         RecyclerViewKit recyclerViewKit = new RecyclerViewKit(context, holder.screenItemRv);
-        recyclerViewKit.gridLayout(integerList.get(0), 36, true);
+        recyclerViewKit.gridLayout(integerList.get(0), 36, true, false);
         // 嵌套（适配器）
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context,
                 leftList.subList(1, leftList.size()), leftList.get(0), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));

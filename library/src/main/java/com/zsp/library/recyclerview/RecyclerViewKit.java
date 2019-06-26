@@ -42,7 +42,7 @@ public class RecyclerViewKit {
         this.context = context;
         this.recyclerView = recyclerView;
         this.spruceKit = new SpruceKit();
-        this.interObjectDelay = 100L;
+        this.interObjectDelay = 50L;
         this.duration = 800L;
         this.reversed = false;
         this.direction = LinearSort.Direction.TOP_TO_BOTTOM;
@@ -51,9 +51,9 @@ public class RecyclerViewKit {
     /**
      * SpruceKit配置
      * <p>
-     * {@link #linearVerticalLayout()}前调。
-     * {@link #linearHorizontalLayout()}前调。
-     * {@link #gridLayout(int, int, boolean)}前调。
+     * {@link #linearVerticalLayout(boolean)}前调。
+     * {@link #linearHorizontalLayout(boolean)}前调。
+     * {@link #gridLayout(int, int, boolean, boolean)}前调。
      *
      * @param interObjectDelay 实体整型延迟
      * @param duration         时长
@@ -71,10 +71,16 @@ public class RecyclerViewKit {
      * 线性垂直布局
      * <p>
      * {@link #spruceKitConfigure(long, long, boolean, LinearSort.Direction)}后调。
+     *
+     * @param spruce spruce否
      */
-    public void linearVerticalLayout() {
-        recyclerView.setLayoutManager(new MyLinearLayoutManager(context, (recycler, state) -> spruceKit.defaultSort(recyclerView, interObjectDelay, duration)));
-        // 每item内容不改RecyclerView大小，此设提性能
+    public void linearVerticalLayout(boolean spruce) {
+        recyclerView.setLayoutManager(new MyLinearLayoutManager(context, (recycler, state) -> {
+            if (spruce) {
+                spruceKit.defaultSort(recyclerView, interObjectDelay, duration);
+            }
+        }));
+        // 每item内容不改RecyclerView大小（提性能）
         recyclerView.setHasFixedSize(true);
     }
 
@@ -82,11 +88,17 @@ public class RecyclerViewKit {
      * 线性水平布局
      * <p>
      * {@link #spruceKitConfigure(long, long, boolean, LinearSort.Direction)}后调。
+     *
+     * @param spruce spruce否
      */
-    public void linearHorizontalLayout() {
+    public void linearHorizontalLayout(boolean spruce) {
         // false头至尾/true尾至头（默false）
-        recyclerView.setLayoutManager(new MyLinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false, (recycler, state) -> spruceKit.defaultSort(recyclerView, interObjectDelay, duration)));
-        // 每item内容不改RecyclerView大小，此设提性能
+        recyclerView.setLayoutManager(new MyLinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false, (recycler, state) -> {
+            if (spruce) {
+                spruceKit.defaultSort(recyclerView, interObjectDelay, duration);
+            }
+        }));
+        // 每item内容不改RecyclerView大小（提性能）
         recyclerView.setHasFixedSize(true);
     }
 
@@ -98,10 +110,15 @@ public class RecyclerViewKit {
      * @param spanCount                      spanCount
      * @param spacing                        spacing
      * @param firstRowHaveTopSpaceDecoration firstRowHaveTopSpaceDecoration
+     * @param spruce                         spruce否
      */
-    public void gridLayout(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration) {
-        recyclerView.setLayoutManager(new MyGridLayoutManager(context, spanCount, (recycler, state) -> spruceKit.linearSort(recyclerView, interObjectDelay, reversed, direction, duration)));
-        // 每item内容不改RecyclerView大小，此设提性能
+    public void gridLayout(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean spruce) {
+        recyclerView.setLayoutManager(new MyGridLayoutManager(context, spanCount, (recycler, state) -> {
+            if (spruce) {
+                spruceKit.linearSort(recyclerView, interObjectDelay, reversed, direction, duration);
+            }
+        }));
+        // 每item内容不改RecyclerView大小（提性能）
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new GridLayoutSpacingItemDecoration(spanCount, spacing, firstRowHaveTopSpaceDecoration, true));
     }

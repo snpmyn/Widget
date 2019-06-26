@@ -21,7 +21,7 @@ import example.spruce.bean.SpruceBean;
  * Created on 2019/6/26.
  *
  * @author 郑少鹏
- * @desc Spruce适配器
+ * @desc spruce适配器
  */
 public class SpruceAdapter extends RecyclerView.Adapter<SpruceAdapter.ViewHolder> {
     private RecyclerView recyclerView;
