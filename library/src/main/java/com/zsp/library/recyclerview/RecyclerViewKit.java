@@ -42,7 +42,7 @@ public class RecyclerViewKit {
         this.context = context;
         this.recyclerView = recyclerView;
         this.spruceKit = new SpruceKit();
-        this.interObjectDelay = 50L;
+        this.interObjectDelay = 100L;
         this.duration = 800L;
         this.reversed = false;
         this.direction = LinearSort.Direction.TOP_TO_BOTTOM;
