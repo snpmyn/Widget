@@ -1,4 +1,4 @@
-package example;
+package example.animation;
 
 import androidx.appcompat.app.AppCompatActivity;
 

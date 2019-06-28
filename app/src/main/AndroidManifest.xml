@@ -22,15 +22,15 @@
         <activity android:name="example.voice.VoiceActivity" />
         <activity android:name="example.spruce.SpruceActivity" />
         <activity android:name="example.screen.ScreenActivity" />
-        <activity android:name="example.SpannableStringActivity" />
+        <activity android:name="example.spannablestring.SpannableStringActivity" />
         <activity android:name="example.dialog.DialogTwoActivity" />
         <activity android:name="example.dialog.DialogOneActivity" />
-        <activity android:name="example.HomeActivity" />
-        <activity android:name="example.LoginOneActivity" />
-        <activity android:name="example.TimerActivity" />
-        <activity android:name="example.SearchBoxOneActivity" />
-        <activity android:name="example.SearchBoxTwoActivity" />
-        <activity android:name="example.PictureActivity" />
+        <activity android:name="example.animation.HomeActivity" />
+        <activity android:name="example.animation.LoginOneActivity" />
+        <activity android:name="example.textview.TimerActivity" />
+        <activity android:name="example.searchbox.SearchBoxOneActivity" />
+        <activity android:name="example.searchbox.SearchBoxTwoActivity" />
+        <activity android:name="example.picture.PictureActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

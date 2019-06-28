@@ -1,4 +1,4 @@
-package example;
+package example.textview;
 
 import android.os.Bundle;
 import android.util.Log;

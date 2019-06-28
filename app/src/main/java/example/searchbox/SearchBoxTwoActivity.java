@@ -1,4 +1,4 @@
-package example;
+package example.searchbox;
 
 import android.os.Bundle;
 

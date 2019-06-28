@@ -1,4 +1,4 @@
-package example;
+package example.spannablestring;
 
 import android.os.Bundle;
 import android.text.SpannableString;

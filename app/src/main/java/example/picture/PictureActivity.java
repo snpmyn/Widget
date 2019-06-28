@@ -1,4 +1,4 @@
-package example;
+package example.picture;
 
 import android.annotation.TargetApi;
 import android.app.SharedElementCallback;

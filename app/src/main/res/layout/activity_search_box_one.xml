@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.SearchBoxOneActivity">
+    tools:context="example.searchbox.SearchBoxOneActivity">
 
     <com.zsp.library.searchbox.one.SearchView
         android:layout_width="match_parent"
