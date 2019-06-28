@@ -9,7 +9,9 @@
     app:cardMaxElevation="@dimen/dp_12"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
-    app:contentPadding="@dimen/dp_10">
+    app:contentPaddingLeft="@dimen/dp_10"
+    app:contentPaddingRight="@dimen/dp_10"
+    app:contentPaddingTop="@dimen/dp_12">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/dp_12"
                 android:src="@drawable/voice_play"
                 app:borderWidth="@dimen/dp_0"
                 app:elevation="@dimen/dp_6"
