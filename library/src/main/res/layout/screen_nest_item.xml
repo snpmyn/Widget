@@ -4,7 +4,7 @@
     android:id="@+id/screenNestItemTv"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_44"
-    android:background="@drawable/gray_color_primary_solid_c_selector"
+    android:background="@drawable/gray_color_primary_solid_c4_selector"
     android:gravity="center"
     android:textColor="@drawable/test_font_hint_background_selector"
     android:textSize="@dimen/sp_11"

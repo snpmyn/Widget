@@ -1,4 +1,4 @@
-package com.zsp.library.dialog;
+package com.zsp.library.dialog.sweetalertdialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
-import com.zsp.library.dialog.listener.DialogValueListener;
+import com.zsp.library.dialog.sweetalertdialog.listener.DialogValueListener;
 
 /**
  * Created on 2017/11/3.

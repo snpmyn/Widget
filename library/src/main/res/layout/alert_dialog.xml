@@ -4,7 +4,7 @@
     android:layout_width="@dimen/dp_290"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/white_solid_c"
+    android:background="@drawable/white_solid_c8"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingTop="@dimen/dp_12"
@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/success_circle" />
 
-        <com.zsp.library.dialog.SuccessTickView
+        <com.zsp.library.dialog.sweetalertdialog.SuccessTickView
             android:id="@+id/successTick"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

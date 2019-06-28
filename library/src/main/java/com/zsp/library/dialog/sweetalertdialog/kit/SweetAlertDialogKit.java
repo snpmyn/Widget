@@ -1,9 +1,9 @@
-package com.zsp.library.dialog.kit;
+package com.zsp.library.dialog.sweetalertdialog.kit;
 
 import android.content.Context;
 
-import com.zsp.library.dialog.SweetAlertDialog;
-import com.zsp.library.dialog.listener.DialogValueListener;
+import com.zsp.library.dialog.sweetalertdialog.SweetAlertDialog;
+import com.zsp.library.dialog.sweetalertdialog.listener.DialogValueListener;
 
 /**
  * Created on 2018/12/4.

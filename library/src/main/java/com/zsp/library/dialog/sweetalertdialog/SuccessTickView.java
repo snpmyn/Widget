@@ -1,4 +1,4 @@
-package com.zsp.library.dialog;
+package com.zsp.library.dialog.sweetalertdialog;
 
 import android.content.Context;
 import android.graphics.Canvas;

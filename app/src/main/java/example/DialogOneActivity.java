@@ -7,8 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.zsp.library.dialog.SweetAlertDialog;
-import com.zsp.library.dialog.listener.DialogValueListener;
+import com.zsp.library.dialog.sweetalertdialog.SweetAlertDialog;
+import com.zsp.library.dialog.sweetalertdialog.listener.DialogValueListener;
 import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
