@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/dp_6"
+    app:cardElevation="@dimen/dp_6"
+    app:cardMaxElevation="@dimen/dp_12"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/dp_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvVoicePlayDialogFragmentFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="@dimen/sp_14"
+            tools:text="comment.record.mp3" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/acsbVoicePlayDialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvVoicePlayDialogFragmentProgressLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/recordDefaultTime"
+                android:textColor="@color/fontHint"
+                android:textSize="@dimen/sp_13" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabVoicePlayDialogFragmentClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/voice_play"
+                app:borderWidth="@dimen/dp_0"
+                app:elevation="@dimen/dp_6"
+                app:fabSize="normal"
+                app:pressedTranslationZ="@dimen/dp_12"
+                app:rippleColor="@color/colorAccent"
+                app:tint="@color/background" />
+
+            <TextView
+                android:id="@+id/tvVoicePlayDialogFragmentFileLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp_12"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/recordDefaultTime"
+                android:textColor="@color/fontHint"
+                android:textSize="@dimen/sp_13"
+                tools:ignore="RelativeOverlap" />
+        </RelativeLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

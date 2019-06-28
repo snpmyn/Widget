@@ -15,6 +15,11 @@
     <string name="loggingIn">LOGGING IN</string>
     <string name="success">SUCCESS</string>
     <string name="resetting">重置</string>
+    <string name="recordDefaultTime">00:00</string>
+    <string name="voiceRecord">录音_</string>
+    <string name="record">录制</string>
+    <string name="play">播放</string>
+    <string name="noVoiceThisMoment">暂无录音</string>
     <!--format-->
     <string name="earlyLateDiffer" formatted="true">%1$s秒</string>
 </resources>

@@ -19,6 +19,7 @@ import example.TimerActivity;
 import example.dialog.DialogTwoActivity;
 import example.screen.ScreenActivity;
 import example.spruce.SpruceActivity;
+import example.voice.VoiceActivity;
 
 /**
  * @decs: 主页
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbDialogTwo,
             R.id.mainActivityMbSpannableString,
             R.id.mainActivityMbScreen,
-            R.id.mainActivityMbSpruce})
+            R.id.mainActivityMbSpruce,
+            R.id.mainActivityMbVoice})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
             // spruce
             case R.id.mainActivityMbSpruce:
                 IntentUtils.jumpNoBundle(this, SpruceActivity.class);
+                break;
+            // 语音
+            case R.id.mainActivityMbVoice:
+                IntentUtils.jumpNoBundle(this, VoiceActivity.class);
                 break;
             default:
                 break;
