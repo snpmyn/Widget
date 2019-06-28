@@ -9,13 +9,14 @@ import com.zsp.utilone.intent.IntentUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import example.DialogOneActivity;
+import example.dialog.DialogOneActivity;
 import example.LoginOneActivity;
 import example.PictureActivity;
 import example.SearchBoxOneActivity;
 import example.SearchBoxTwoActivity;
 import example.SpannableStringActivity;
 import example.TimerActivity;
+import example.dialog.DialogTwoActivity;
 import example.screen.ScreenActivity;
 import example.spruce.SpruceActivity;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbTimer,
             R.id.mainActivityMbLoginOne,
             R.id.mainActivityMbDialogOne,
+            R.id.mainActivityMbDialogTwo,
             R.id.mainActivityMbSpannableString,
             R.id.mainActivityMbScreen,
             R.id.mainActivityMbSpruce})
@@ -66,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             // 对话框一
             case R.id.mainActivityMbDialogOne:
                 IntentUtils.jumpNoBundle(this, DialogOneActivity.class);
+                break;
+            // 对话框二
+            case R.id.mainActivityMbDialogTwo:
+                IntentUtils.jumpNoBundle(this, DialogTwoActivity.class);
                 break;
             // SpannableString
             case R.id.mainActivityMbSpannableString:

@@ -1,4 +1,4 @@
-package example;
+package example.dialog;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;

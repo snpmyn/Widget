@@ -51,6 +51,13 @@
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityMbDialogTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialogTwo"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/mainActivityMbSpannableString"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

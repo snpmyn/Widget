@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:gravity="center"
+        android:text="@string/shareTo"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10">
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:id="@+id/baseDialogDctvWechat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/wechat"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:text="@string/wechat"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_10" />
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/wechat_circle_of_friends"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:text="@string/wechatCircleOfFriends"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_10" />
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/qq"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:text="@string/qq"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_10" />
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/zone"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:text="@string/qqZone"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_10" />
+
+        <com.zsp.library.textview.DrawableCenterTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/microblog"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:text="@string/microblog"
+            android:textColor="@color/fontInput"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+</LinearLayout>
