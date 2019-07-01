@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.dialog.DialogOneActivity;
 import example.animation.LoginOneActivity;
+import example.location.LocationActivity;
 import example.picture.PictureActivity;
 import example.searchbox.SearchBoxOneActivity;
 import example.searchbox.SearchBoxTwoActivity;
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbSpannableString,
             R.id.mainActivityMbScreen,
             R.id.mainActivityMbSpruce,
-            R.id.mainActivityMbVoice})
+            R.id.mainActivityMbVoice,
+            R.id.mainActivityMbLocation})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -90,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
             // 语音
             case R.id.mainActivityMbVoice:
                 IntentUtils.jumpNoBundle(this, VoiceActivity.class);
+                break;
+            // 定位
+            case R.id.mainActivityMbLocation:
+                IntentUtils.jumpNoBundle(this, LocationActivity.class);
                 break;
             default:
                 break;

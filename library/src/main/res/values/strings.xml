@@ -20,6 +20,12 @@
     <string name="record">录制</string>
     <string name="play">播放</string>
     <string name="noVoiceThisMoment">暂无录音</string>
+    <string name="netWorkHintContent">建议选择混合定位模式</string>
+    <string name="locationHintContent">前往定位服务选择</string>
+    <string name="tryFirst">先试试</string>
+    <string name="gpsHintContent">前往定位服务开启GPS\n建议选择混合定位模式</string>
+    <string name="goToSet">去设置</string>
+    <string name="know">知道了</string>
     <!--format-->
     <string name="earlyLateDiffer" formatted="true">%1$s秒</string>
 </resources>

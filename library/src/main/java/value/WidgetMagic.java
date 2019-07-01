@@ -18,6 +18,7 @@ public class WidgetMagic {
     public static final int INT_TWELVE = 12;
     public static final int INT_THIRTEEN = 13;
     public static final int INT_TWENTY = 20;
+    public static final int INT_TWENTY_THREE = 23;
     public static final int INT_TWENTY_EIGHT = 28;
     public static final int INT_TWENTY_NINE = 29;
     public static final int INT_THIRTY = 30;

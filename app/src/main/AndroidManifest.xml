@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.location.LocationActivity" />
         <activity android:name="example.voice.VoiceActivity" />
         <activity android:name="example.spruce.SpruceActivity" />
         <activity android:name="example.screen.ScreenActivity" />
@@ -38,7 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--录音服务-->
+        <!-- 录音服务 -->
         <service android:name="com.zsp.library.voice.service.VoiceRecordService" />
     </application>
 

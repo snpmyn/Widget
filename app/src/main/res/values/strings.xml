@@ -53,4 +53,6 @@
     <string name="voice">语音</string>
     <string name="play">播放</string>
     <string name="record">录制</string>
+    <string name="locationResult">定位结果</string>
+    <string name="location">定位</string>
 </resources>

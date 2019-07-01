@@ -15,3 +15,9 @@
 * api 'com.google.android.material:material:1.1.0-alpha07'（library - UtilOne）（避重）
 * api 'com.qw:soulpermission:1.1.6'（library - UtilOne）（避重）
 * implementation 'org.apache.commons:commons-lang3:3.9'（library - UtilOne）
+### 权限
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />（app）
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />（app）
+<uses-permission android:name="android.permission.RECORD_AUDIO" />（app）
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />（library - Library）
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />（library - Library）
