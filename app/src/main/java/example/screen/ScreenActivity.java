@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.library.screen.ScreenAdapter;
 import com.zsp.library.screen.ScreenHandleKit;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
@@ -46,21 +45,35 @@ public class ScreenActivity extends AppCompatActivity {
     }
 
     private void initConfiguration() {
-        // 筛选适配器
-        ScreenAdapter screenAdapter = new ScreenAdapter(this);
-        screenAdapter.setOnRecyclerViewItemClickListener((view, classification, condition, selected) -> {
-            ToastUtils.shortShow(ScreenActivity.this, classification + "    " + condition + "    " + selected);
-            screenActivityKit.screeningDistribution(classification, condition, selected);
-        });
         // ScreenHandleKit
-        screenHandleKit = new ScreenHandleKit(this, screenAdapter);
+        screenHandleKit = new ScreenHandleKit(this);
         screenHandleKit.setScreenHandleListener(new ScreenHandleKit.ScreenHandleListener() {
+            /**
+             * 点
+             *
+             * @param view           视图
+             * @param classification 类别
+             * @param condition      条件
+             * @param selected       选否
+             */
+            @Override
+            public void click(View view, String classification, String condition, boolean selected) {
+                ToastUtils.shortShow(ScreenActivity.this, classification + "    " + condition + "    " + selected);
+                screenActivityKit.screeningDistribution(classification, condition, selected);
+            }
+
+            /**
+             * 重置
+             */
             @Override
             public void resetting() {
                 screenHandleKit.resetting();
                 screenActivityKit.resetting();
             }
 
+            /**
+             * 确定
+             */
             @Override
             public void ensure() {
                 screenHandleKit.dismiss();
@@ -70,6 +83,7 @@ public class ScreenActivity extends AppCompatActivity {
                         screenActivityKit.numberOfConsumptionResult;
                 screenActivityTvResult.setText(result);
             }
+
         });
         // ScreenActivityKit
         screenActivityKit = new ScreenActivityKit();

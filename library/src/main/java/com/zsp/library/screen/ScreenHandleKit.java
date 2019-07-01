@@ -48,12 +48,11 @@ public class ScreenHandleKit implements View.OnClickListener {
     /**
      * constructor
      *
-     * @param context       上下文
-     * @param screenAdapter 筛选适配器
+     * @param context 上下文
      */
-    public ScreenHandleKit(Context context, ScreenAdapter screenAdapter) {
+    public ScreenHandleKit(Context context) {
         this.context = context;
-        this.screenAdapter = screenAdapter;
+        this.screenAdapter = new ScreenAdapter(context);
         this.map = new LinkedHashMap<>();
         this.canCancelAfterSingleSelectList = new ArrayList<>();
         stepBottomSheetDialog();
@@ -128,6 +127,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * 关联
      */
     public void associate() {
+        screenAdapter.setOnRecyclerViewItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
         screenAdapter.setScreeningData(map, canCancelAfterSingleSelectList);
         bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
     }
@@ -182,6 +182,16 @@ public class ScreenHandleKit implements View.OnClickListener {
      * 筛选操作监听
      */
     public interface ScreenHandleListener {
+        /**
+         * 点
+         *
+         * @param view           视图
+         * @param classification 类别
+         * @param condition      条件
+         * @param selected       选否
+         */
+        void click(View view, String classification, String condition, boolean selected);
+
         /**
          * 重置
          */
