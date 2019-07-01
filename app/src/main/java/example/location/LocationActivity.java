@@ -13,8 +13,6 @@ import com.qw.soul.permission.bean.Permissions;
 import com.qw.soul.permission.callbcak.CheckRequestPermissionsListener;
 import com.zsp.library.location.Location;
 import com.zsp.library.location.LocationKit;
-import com.zsp.library.voice.value.VoiceFolder;
-import com.zsp.utilone.file.FileUtils;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.widget.R;
 
@@ -54,13 +52,12 @@ public class LocationActivity extends AppCompatActivity {
     private void initConfiguration() {
         // 权限
         SoulPermission.getInstance().checkAndRequestPermissions(
-                Permissions.build(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.RECORD_AUDIO),
+                Permissions.build(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
                 // if you want do noting or no need all the callbacks you may use SimplePermissionsAdapter instead
                 new CheckRequestPermissionsListener() {
                     @Override
                     public void onAllPermissionOk(Permission[] allPermissions) {
-                        FileUtils.createFolder(VoiceFolder.VOICE, true);
+
                     }
 
                     @Override
