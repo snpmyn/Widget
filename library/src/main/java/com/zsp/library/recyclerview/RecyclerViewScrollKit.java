@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created on 2018/6/28.
  *
  * @author 郑少鹏
- * @desc RecyclerViewScroll
+ * @desc RecyclerViewScrollKit
  */
-public class RecyclerViewScroll {
+public class RecyclerViewScrollKit {
     private boolean move;
     private int index;
 
