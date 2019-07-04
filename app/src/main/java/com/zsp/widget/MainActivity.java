@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbDialogOne:
                 IntentUtils.jumpNoBundle(this, DialogOneActivity.class);
                 break;
+
             // 对话框二
             case R.id.mainActivityMbDialogTwo:
                 IntentUtils.jumpNoBundle(this, DialogTwoActivity.class);
