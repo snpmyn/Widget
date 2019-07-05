@@ -20,9 +20,11 @@ public class ChinaDate {
      * <lunarInfo数组值计算原理>
      * 0x表十六进制，后五位是十六进制数
      * 例: 1980年数据0x095b0
+     * <p>
      * 二进制: 0000 1001 0101 1011 0000
      * 1-4: 表当年有无闰年，有则为闰月月份；无为0
      * 5-16: 为除闰月外正常月份是大/小月，1为30天，0为29天
+     * <p>
      * 注意: 1到12月对应16到第5位
      * 17-20: 表闰月是大/小月，仅当存在闰月情况下有意义
      */
@@ -85,7 +87,7 @@ public class ChinaDate {
      */
     private static int lYearDays(int y) {
         int i, sum = 348;
-        for (i = WidgetMagic.INT_LXBLLL; i > WidgetMagic.INT_LXB; i >>= 1) {
+        for (i = WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO; i > WidgetMagic.INT_ZERO_X_EIGHT; i >>= 1) {
             if ((LUNAR_INFO[y - 1900] & i) != 0) {
                 sum += 1;
             }
@@ -101,7 +103,7 @@ public class ChinaDate {
      */
     public static int leapDays(int y) {
         if (leapMonth(y) != 0) {
-            if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & WidgetMagic.INT_LXYLLLL) != 0) {
+            if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO) != 0) {
                 return 30;
             } else {
                 return 29;
@@ -129,7 +131,7 @@ public class ChinaDate {
      * @return 农历
      */
     public static int monthDays(int y, int m) {
-        if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & (WidgetMagic.INT_LXYLLLL >> m)) == 0) {
+        if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & (WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO >> m)) == 0) {
             return 29;
         } else {
             return 30;

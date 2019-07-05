@@ -45,7 +45,7 @@ public final class InertiaTimerTask extends TimerTask {
             }
         }
         // 发handler消息，处理平顺停止滚动逻辑
-        if (Math.abs(yCurrentVelocity) >= WidgetMagic.FLOAT_LDL && Math.abs(yCurrentVelocity) <= WidgetMagic.FLOAT_TWENTY) {
+        if (Math.abs(yCurrentVelocity) >= WidgetMagic.FLOAT_ZERO_DOT_ZERO && Math.abs(yCurrentVelocity) <= WidgetMagic.FLOAT_TWENTY) {
             mWheelView.cancelFuture();
             mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL);
             return;
@@ -56,9 +56,9 @@ public final class InertiaTimerTask extends TimerTask {
             float itemHeight = mWheelView.getItemHeight();
             float top = (-mWheelView.getInitPosition()) * itemHeight;
             float bottom = (mWheelView.getItemsCount() - 1 - mWheelView.getInitPosition()) * itemHeight;
-            if (mWheelView.getyTotalScroll() - itemHeight * WidgetMagic.FLOAT_LDEW < top) {
+            if (mWheelView.getyTotalScroll() - itemHeight * WidgetMagic.FLOAT_ZERO_DOT_TWO_FIVE < top) {
                 top = mWheelView.getyTotalScroll() + dy;
-            } else if (mWheelView.getyTotalScroll() + itemHeight * WidgetMagic.FLOAT_LDEW > bottom) {
+            } else if (mWheelView.getyTotalScroll() + itemHeight * WidgetMagic.FLOAT_ZERO_DOT_TWO_FIVE > bottom) {
                 bottom = mWheelView.getyTotalScroll() + dy;
             }
             if (mWheelView.getyTotalScroll() <= top) {
@@ -69,7 +69,7 @@ public final class InertiaTimerTask extends TimerTask {
                 yCurrentVelocity = -40F;
             }
         }
-        if (yCurrentVelocity < WidgetMagic.FLOAT_LDL) {
+        if (yCurrentVelocity < WidgetMagic.FLOAT_ZERO_DOT_ZERO) {
             yCurrentVelocity = yCurrentVelocity + 20F;
         } else {
             yCurrentVelocity = yCurrentVelocity - 20F;

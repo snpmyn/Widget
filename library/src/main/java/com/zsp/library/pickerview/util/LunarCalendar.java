@@ -161,7 +161,7 @@ public class LunarCalendar {
             throw new IllegalArgumentException("Illegal lunar date, must be like that:\n\t" + "year : 1900~2099\n\t" + "month : 1~12\n\t" + "day : 1~30");
         }
         dayOffset = (LUNAR_INFO[year - MIN_YEAR] & 0x001F) - 1;
-        if (((LUNAR_INFO[year - MIN_YEAR] & WidgetMagic.INT_LXLLLL) >> WidgetMagic.INT_FIVE) == WidgetMagic.INT_TWO) {
+        if (((LUNAR_INFO[year - MIN_YEAR] & WidgetMagic.INT_ZERO_X_ZERO_ZERO_SIX_ZERO) >> WidgetMagic.INT_FIVE) == WidgetMagic.INT_TWO) {
             dayOffset += 31;
         }
         for (i = 1; i < month; i++) {
@@ -177,7 +177,7 @@ public class LunarCalendar {
         if (leapMonth != 0) {
             boolean flag = month > leapMonth || (month == leapMonth && isLeapMonth);
             if (flag) {
-                if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_LXBLLLL >> (month - 1))) == 0) {
+                if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO >> (month - 1))) == 0) {
                     dayOffset += 29;
                 } else {
                     dayOffset += 30;
@@ -379,7 +379,7 @@ public class LunarCalendar {
             sum = 377;
         }
         int monthInfo = LUNAR_INFO[year - MIN_YEAR] & 0x0FFF80;
-        for (i = WidgetMagic.INT_LXBLLLL; i > WidgetMagic.INT_LXQ; i >>= 1) {
+        for (i = WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO; i > WidgetMagic.INT_ZERO_X_SEVEN; i >>= 1) {
             if ((monthInfo & i) != 0) {
                 sum += 1;
             }
@@ -395,7 +395,7 @@ public class LunarCalendar {
      * @return 传回农历year年month月总天数
      */
     private static int daysInLunarMonth(int year, int month) {
-        if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_LXYLLLLL >> month)) == 0) {
+        if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO_ZERO >> month)) == 0) {
             return 29;
         } else {
             return 30;

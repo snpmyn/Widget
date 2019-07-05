@@ -102,22 +102,22 @@ public class SuccessTickView extends View {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
                 super.applyTransformation(interpolatedTime, t);
-                if (WidgetMagic.FLOAT_LDWS < interpolatedTime && WidgetMagic.FLOAT_LDQ >= interpolatedTime) {
+                if (WidgetMagic.FLOAT_ZERO_DOT_FIVE_FOUR < interpolatedTime && WidgetMagic.FLOAT_ZERO_DOT_SEVEN >= interpolatedTime) {
                     // grow LEFT and RIGHT rect to RIGHT
                     mLeftRectGrowMode = true;
                     mLeftRectWidth = mMaxLeftRectWidth * ((interpolatedTime - 0.54f) / 0.16f);
-                    if (WidgetMagic.FLOAT_LDLW < interpolatedTime) {
+                    if (WidgetMagic.FLOAT_ZERO_DOT_SIX_FIVE < interpolatedTime) {
                         mRightRectWidth = MAX_RIGHT_RECT_W * ((interpolatedTime - 0.65f) / 0.19f);
                     }
                     invalidate();
-                } else if (WidgetMagic.FLOAT_LDQ < interpolatedTime && WidgetMagic.FLOAT_LDBS >= interpolatedTime) {
+                } else if (WidgetMagic.FLOAT_ZERO_DOT_SEVEN < interpolatedTime && WidgetMagic.FLOAT_ZERO_DOT_EIGHT_FOUR >= interpolatedTime) {
                     // shorten LEFT rect from RIGHT, still grow RIGHT rect
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = mMaxLeftRectWidth * (1 - ((interpolatedTime - 0.7f) / 0.14f));
                     mLeftRectWidth = mLeftRectWidth < MIN_LEFT_RECT_W ? MIN_LEFT_RECT_W : mLeftRectWidth;
                     mRightRectWidth = MAX_RIGHT_RECT_W * ((interpolatedTime - 0.65f) / 0.19f);
                     invalidate();
-                } else if (WidgetMagic.FLOAT_LDBS < interpolatedTime && 1 >= interpolatedTime) {
+                } else if (WidgetMagic.FLOAT_ZERO_DOT_EIGHT_FOUR < interpolatedTime && 1 >= interpolatedTime) {
                     // restore LEFT rect width, shorten RIGHT rect to const
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = MIN_LEFT_RECT_W + (CONST_LEFT_RECT_W - MIN_LEFT_RECT_W) * ((interpolatedTime - 0.84f) / 0.16f);
