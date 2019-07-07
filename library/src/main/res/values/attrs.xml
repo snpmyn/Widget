@@ -9,8 +9,8 @@
         </attr>
         <attr name="fromDeg" format="float" />
         <attr name="toDeg" format="float" />
-        <attr name="pivotX" format="fraction" />
-        <attr name="pivotY" format="fraction" />
+        <attr name="valuePivotX" format="fraction" />
+        <attr name="valuePivotY" format="fraction" />
     </declare-styleable>
     <!--WheelView-->
     <declare-styleable name="WheelView">
