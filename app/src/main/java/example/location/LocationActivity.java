@@ -7,10 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.qw.soul.permission.SoulPermission;
-import com.qw.soul.permission.bean.Permission;
-import com.qw.soul.permission.bean.Permissions;
-import com.qw.soul.permission.callbcak.CheckRequestPermissionsListener;
 import com.zsp.library.location.Location;
 import com.zsp.library.location.LocationKit;
 import com.zsp.utilone.permission.SoulPermissionUtils;
@@ -29,6 +25,10 @@ public class LocationActivity extends AppCompatActivity {
     @BindView(R.id.locationActivityTvResult)
     TextView locationActivityTvResult;
     /**
+     * SoulPermissionUtils
+     */
+    private SoulPermissionUtils soulPermissionUtils;
+    /**
      * 定位
      */
     private Location location;
@@ -41,6 +41,7 @@ public class LocationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initConfiguration();
         startLogic();
+        setListener();
     }
 
     @Override
@@ -50,29 +51,22 @@ public class LocationActivity extends AppCompatActivity {
     }
 
     private void initConfiguration() {
-        // 权限
-        SoulPermission.getInstance().checkAndRequestPermissions(
-                Permissions.build(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
-                // if you want do noting or no need all the callbacks you may use SimplePermissionsAdapter instead
-                new CheckRequestPermissionsListener() {
-                    @Override
-                    public void onAllPermissionOk(Permission[] allPermissions) {
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(Permission[] refusedPermissions) {
-                        SoulPermissionUtils soulPermissionUtils = new SoulPermissionUtils();
-                        soulPermissionUtils.multiPermissionsDenied(LocationActivity.this, refusedPermissions);
-                    }
-                });
+        // SoulPermissionUtils
+        soulPermissionUtils = new SoulPermissionUtils();
         // 定位
         location = new Location(this);
         locationKit = new LocationKit(this);
     }
 
     private void startLogic() {
-        locationKit.modeCheck();
+        soulPermissionUtils.checkAndRequestPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                soulPermissionUtils,
+                () -> locationKit.modeCheck(), true);
+    }
+
+    private void setListener() {
+
     }
 
     @OnClick(R.id.locationActivityMbLocationResult)
