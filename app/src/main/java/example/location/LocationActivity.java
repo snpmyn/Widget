@@ -62,7 +62,17 @@ public class LocationActivity extends AppCompatActivity {
         soulPermissionUtils.checkAndRequestPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 soulPermissionUtils,
-                () -> locationKit.modeCheck(), true);
+                new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                    @Override
+                    public void onPermissionOk() {
+                        locationKit.modeCheck();
+                    }
+
+                    @Override
+                    public void onPermissionDenied() {
+                        finish();
+                    }
+                }, true);
     }
 
     private void setListener() {

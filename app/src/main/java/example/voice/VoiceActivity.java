@@ -11,7 +11,6 @@ import com.zsp.library.voice.kit.VoiceKit;
 import com.zsp.library.voice.value.VoiceFolder;
 import com.zsp.utilone.file.FileUtils;
 import com.zsp.utilone.permission.SoulPermissionUtils;
-import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
@@ -44,10 +43,17 @@ public class VoiceActivity extends AppCompatActivity {
             case R.id.voiceActivityMbRecord:
                 soulPermissionUtils.checkAndRequestPermissions(
                         soulPermissionUtils,
-                        () -> {
-                            ToastUtils.shortShow(this, "可以了");
-                            FileUtils.createFolder(VoiceFolder.VOICE, true);
-                            VoiceKit.startRecord(VoiceActivity.this);
+                        new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                            @Override
+                            public void onPermissionOk() {
+                                FileUtils.createFolder(VoiceFolder.VOICE, true);
+                                VoiceKit.startRecord(VoiceActivity.this);
+                            }
+
+                            @Override
+                            public void onPermissionDenied() {
+                                finish();
+                            }
                         }, true, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO);
                 break;
             // 播放
