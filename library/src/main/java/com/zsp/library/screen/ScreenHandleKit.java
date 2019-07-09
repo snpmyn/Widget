@@ -69,7 +69,7 @@ public class ScreenHandleKit implements View.OnClickListener {
         bottomSheetDialogMemberScreenMbEnsure.setOnClickListener(this);
         bottomSheetDialogMemberScreenRv = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenRv);
         RecyclerViewKit recyclerViewKit = new RecyclerViewKit(context, bottomSheetDialogMemberScreenRv);
-        recyclerViewKit.linearVerticalLayout(false, 0, false);
+        recyclerViewKit.linearVerticalLayout(false, 0, false, false);
         bottomSheetDialogMemberScreenRv.setNestedScrollingEnabled(false);
         bottomSheetDialog = new BottomSheetDialog(context);
         bottomSheetDialog.setContentView(bottomSheetDialogView);
