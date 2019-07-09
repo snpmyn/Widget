@@ -60,7 +60,9 @@ public class LocationActivity extends AppCompatActivity {
     }
 
     private void startLogic() {
-        soulPermissionUtils.checkAndRequestPermission(Manifest.permission.ACCESS_COARSE_LOCATION,
+        soulPermissionUtils.checkAndRequestPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
                 soulPermissionUtils,
                 false,
                 new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
@@ -70,12 +72,13 @@ public class LocationActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onPermissionDenied(boolean b, String s) {
+                    public void onPermissionDeniedInMiUi(String s) {
                         ToastUtils.shortShow(LocationActivity.this, s);
-                        if (b) {
-                            return;
-                        }
-                        finish();
+                    }
+
+                    @Override
+                    public void onPermissionDeniedWithoutLoopHint(String s) {
+                        ToastUtils.shortShow(LocationActivity.this, s);
                     }
                 });
     }
