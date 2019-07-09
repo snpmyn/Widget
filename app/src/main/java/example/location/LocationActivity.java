@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.zsp.library.location.Location;
 import com.zsp.library.location.LocationKit;
 import com.zsp.utilone.permission.SoulPermissionUtils;
+import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import butterknife.BindView;
@@ -59,20 +60,24 @@ public class LocationActivity extends AppCompatActivity {
     }
 
     private void startLogic() {
-        soulPermissionUtils.checkAndRequestPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
+        soulPermissionUtils.checkAndRequestPermission(Manifest.permission.ACCESS_COARSE_LOCATION,
                 soulPermissionUtils,
-                new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                false,
+                new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
                     @Override
                     public void onPermissionOk() {
                         locationKit.modeCheck();
                     }
 
                     @Override
-                    public void onPermissionDenied() {
-                        finish();
+                    public void onPermissionDenied(boolean b, String s) {
+                        if (b) {
+                            ToastUtils.shortShow(LocationActivity.this, s);
+                        } else {
+                            finish();
+                        }
                     }
-                }, true);
+                });
     }
 
     private void setListener() {

@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.zsp.library.voice.kit.VoiceKit;
 import com.zsp.library.voice.value.VoiceFolder;
 import com.zsp.utilone.file.FileUtils;
+import com.zsp.utilone.miui.MiuiUtils;
 import com.zsp.utilone.permission.SoulPermissionUtils;
+import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
@@ -43,18 +45,23 @@ public class VoiceActivity extends AppCompatActivity {
             case R.id.voiceActivityMbRecord:
                 soulPermissionUtils.checkAndRequestPermissions(
                         soulPermissionUtils,
-                        new SoulPermissionUtils.SoulPermissionUtilsCallBack() {
+                        true,
+                        new SoulPermissionUtils.CheckAndRequestPermissionsCallBack() {
                             @Override
-                            public void onPermissionOk() {
+                            public void onAllPermissionOk() {
                                 FileUtils.createFolder(VoiceFolder.VOICE, true);
                                 VoiceKit.startRecord(VoiceActivity.this);
                             }
 
                             @Override
-                            public void onPermissionDenied() {
+                            public void onPermissionDenied(String s) {
+                                if (MiuiUtils.isMiUi()) {
+                                    ToastUtils.shortShow(VoiceActivity.this, s);
+                                    return;
+                                }
                                 finish();
                             }
-                        }, true, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO);
+                        }, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO);
                 break;
             // 播放
             case R.id.voiceActivityMbPlay:
