@@ -71,11 +71,11 @@ public class LocationActivity extends AppCompatActivity {
 
                     @Override
                     public void onPermissionDenied(boolean b, String s) {
+                        ToastUtils.shortShow(LocationActivity.this, s);
                         if (b) {
-                            ToastUtils.shortShow(LocationActivity.this, s);
-                        } else {
-                            finish();
+                            return;
                         }
+                        finish();
                     }
                 });
     }

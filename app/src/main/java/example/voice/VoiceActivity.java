@@ -57,9 +57,8 @@ public class VoiceActivity extends AppCompatActivity {
                             public void onPermissionDenied(String s) {
                                 if (MiuiUtils.isMiUi()) {
                                     ToastUtils.shortShow(VoiceActivity.this, s);
-                                    return;
+                                    finish();
                                 }
-                                finish();
                             }
                         }, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO);
                 break;
