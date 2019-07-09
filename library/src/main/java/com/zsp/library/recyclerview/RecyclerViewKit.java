@@ -84,7 +84,7 @@ public class RecyclerViewKit {
                 spruceKit.defaultSort(recyclerView, interObjectDelay, duration);
             }
         }));
-        // 固定RecyclerView高度（避RecyclerView重调measure）
+        // 固定RecyclerView高（避RecyclerView重measure）
         recyclerView.setHasFixedSize(hasFixedSize);
         if (needSpace) {
             recyclerView.addItemDecoration(new LinearLayoutHorizontalSpaceItemDecoration(space));
@@ -107,7 +107,7 @@ public class RecyclerViewKit {
                 spruceKit.defaultSort(recyclerView, interObjectDelay, duration);
             }
         }));
-        // 固定RecyclerView高度（避RecyclerView重调measure）
+        // 固定RecyclerView高（避RecyclerView重measure）
         recyclerView.setHasFixedSize(hasFixedSize);
         if (needSpace) {
             recyclerView.addItemDecoration(new LinearLayoutVerticalSpaceItemDecoration(space));
@@ -131,7 +131,7 @@ public class RecyclerViewKit {
                 spruceKit.linearSort(recyclerView, interObjectDelay, reversed, direction, duration);
             }
         }));
-        // 固定RecyclerView高度（避RecyclerView重调measure）
+        // 固定RecyclerView高（避RecyclerView重measure）
         recyclerView.setHasFixedSize(hasFixedSize);
         recyclerView.addItemDecoration(new GridLayoutSpaceItemDecoration(spanCount, spacing, firstRowHaveTopSpaceDecoration, true));
     }
