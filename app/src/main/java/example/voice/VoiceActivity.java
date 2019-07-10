@@ -53,13 +53,13 @@ public class VoiceActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onPermissionDeniedInMiUi(String s) {
+                            public void onPermissionDeniedNotRationaleInMiUi(String s) {
                                 ToastUtils.shortShow(VoiceActivity.this, s);
                                 finish();
                             }
 
                             @Override
-                            public void onPermissionDeniedWithoutLoopHint(String s) {
+                            public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
 
                             }
                         }, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO);

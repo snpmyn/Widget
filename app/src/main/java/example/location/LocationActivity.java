@@ -72,13 +72,13 @@ public class LocationActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onPermissionDeniedInMiUi(String s) {
+                    public void onPermissionDeniedNotRationaleInMiUi(String s) {
                         ToastUtils.shortShow(LocationActivity.this, s);
                     }
 
                     @Override
-                    public void onPermissionDeniedWithoutLoopHint(String s) {
-                        ToastUtils.shortShow(LocationActivity.this, s);
+                    public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
+
                     }
                 });
     }
