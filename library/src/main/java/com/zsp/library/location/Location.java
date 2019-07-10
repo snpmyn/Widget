@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat;
 
 import java.util.List;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 import static android.content.Context.LOCATION_SERVICE;
 
@@ -65,7 +65,7 @@ public class Location {
         public void onProviderEnabled(String provider) {
             // 需查权限（否编译错）
             // 抽成方法仍错（只能如下重复）
-            if (Build.VERSION.SDK_INT >= WidgetMagic.INT_TWENTY_THREE &&
+            if (Build.VERSION.SDK_INT >= WidgetLibraryMagic.INT_TWENTY_THREE &&
                     ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
@@ -197,7 +197,7 @@ public class Location {
         }
         // 需查权限（否编译错）
         // 抽成方法仍错，只能如下重复
-        if (Build.VERSION.SDK_INT >= WidgetMagic.INT_TWENTY_THREE &&
+        if (Build.VERSION.SDK_INT >= WidgetLibraryMagic.INT_TWENTY_THREE &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;

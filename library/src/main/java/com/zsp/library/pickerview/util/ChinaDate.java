@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * @decs: ChinaDate
@@ -87,7 +87,7 @@ public class ChinaDate {
      */
     private static int lYearDays(int y) {
         int i, sum = 348;
-        for (i = WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO; i > WidgetMagic.INT_ZERO_X_EIGHT; i >>= 1) {
+        for (i = WidgetLibraryMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO; i > WidgetLibraryMagic.INT_ZERO_X_EIGHT; i >>= 1) {
             if ((LUNAR_INFO[y - 1900] & i) != 0) {
                 sum += 1;
             }
@@ -103,7 +103,7 @@ public class ChinaDate {
      */
     public static int leapDays(int y) {
         if (leapMonth(y) != 0) {
-            if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO) != 0) {
+            if ((LUNAR_INFO[y - WidgetLibraryMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & WidgetLibraryMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO) != 0) {
                 return 30;
             } else {
                 return 29;
@@ -131,7 +131,7 @@ public class ChinaDate {
      * @return 农历
      */
     public static int monthDays(int y, int m) {
-        if ((LUNAR_INFO[y - WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & (WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO >> m)) == 0) {
+        if ((LUNAR_INFO[y - WidgetLibraryMagic.INT_ONE_THOUSAND_NINE_HUNDRED] & (WidgetLibraryMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO >> m)) == 0) {
             return 29;
         } else {
             return 30;
@@ -185,7 +185,7 @@ public class ChinaDate {
         long offset = (objDate.getTime() - baseDate.getTime()) / 86400000L;
         nongDate[5] = offset + 40;
         nongDate[4] = 14;
-        for (i = WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED; i < WidgetMagic.INT_TWO_THOUSAND_FIFTY && offset > 0; i++) {
+        for (i = WidgetLibraryMagic.INT_ONE_THOUSAND_NINE_HUNDRED; i < WidgetLibraryMagic.INT_TWO_THOUSAND_FIFTY && offset > 0; i++) {
             temp = lYearDays(i);
             offset -= temp;
             nongDate[4] += 12;
@@ -200,7 +200,7 @@ public class ChinaDate {
         // 闰哪月
         leap = leapMonth(i);
         nongDate[6] = 0;
-        for (i = 1; i < WidgetMagic.INT_THIRTEEN && offset > 0; i++) {
+        for (i = 1; i < WidgetLibraryMagic.INT_THIRTEEN && offset > 0; i++) {
             // 闰月
             if (leap > 0 && i == (leap + 1) && nongDate[6] == 0) {
                 --i;
@@ -219,7 +219,7 @@ public class ChinaDate {
             }
         }
         if (offset == 0 && leap > 0 && i == leap + 1) {
-            if (nongDate[WidgetMagic.INT_SIX] == 1) {
+            if (nongDate[WidgetLibraryMagic.INT_SIX] == 1) {
                 nongDate[6] = 0;
             } else {
                 nongDate[6] = 1;
@@ -239,13 +239,13 @@ public class ChinaDate {
 
     private static String getChinaDate(int day) {
         String a = "";
-        if (day == WidgetMagic.INT_TEN) {
+        if (day == WidgetLibraryMagic.INT_TEN) {
             return "初十";
         }
-        if (day == WidgetMagic.INT_TWENTY) {
+        if (day == WidgetLibraryMagic.INT_TWENTY) {
             return "二十";
         }
-        if (day == WidgetMagic.INT_THIRTY) {
+        if (day == WidgetLibraryMagic.INT_THIRTY) {
             return "三十";
         }
         int two = (day) / 10;
@@ -255,10 +255,10 @@ public class ChinaDate {
         if (two == 1) {
             a = "十";
         }
-        if (two == WidgetMagic.INT_TWO) {
+        if (two == WidgetLibraryMagic.INT_TWO) {
             a = "廿";
         }
-        if (two == WidgetMagic.INT_FOUR) {
+        if (two == WidgetLibraryMagic.INT_FOUR) {
             a = "三";
         }
         int one = day % 10;
@@ -389,18 +389,18 @@ public class ChinaDate {
         Date baseDate = new GregorianCalendar(1900 + 1900, 1, 31).getTime();
         Date objDate = new GregorianCalendar(y + 1900, m, 1).getTime();
         long offset = (objDate.getTime() - baseDate.getTime()) / 86400000L;
-        if (y < WidgetMagic.INT_TWO_THOUSAND) {
+        if (y < WidgetLibraryMagic.INT_TWO_THOUSAND) {
             offset += YEAR_19[m - 1];
         }
-        if (y > WidgetMagic.INT_TWO_THOUSAND) {
+        if (y > WidgetLibraryMagic.INT_TWO_THOUSAND) {
             offset += YEAR_20[m - 1];
         }
-        if (y == WidgetMagic.INT_TWO_THOUSAND) {
+        if (y == WidgetLibraryMagic.INT_TWO_THOUSAND) {
             offset += YEAR_2000[m - 1];
         }
         longDate[5] = offset + 40;
         longDate[4] = 14;
-        for (i = WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED; i < WidgetMagic.INT_TWO_THOUSAND_FIFTY && offset > 0; i++) {
+        for (i = WidgetLibraryMagic.INT_ONE_THOUSAND_NINE_HUNDRED; i < WidgetLibraryMagic.INT_TWO_THOUSAND_FIFTY && offset > 0; i++) {
             temp = lYearDays(i);
             offset -= temp;
             longDate[4] += 12;
@@ -415,7 +415,7 @@ public class ChinaDate {
         // 闰哪月
         leap = leapMonth(i);
         longDate[6] = 0;
-        for (i = 1; i < WidgetMagic.INT_THIRTEEN && offset > 0; i++) {
+        for (i = 1; i < WidgetLibraryMagic.INT_THIRTEEN && offset > 0; i++) {
             // 闰月
             if (leap > 0 && i == (leap + 1) && longDate[6] == 0) {
                 --i;
@@ -434,7 +434,7 @@ public class ChinaDate {
             }
         }
         if (offset == 0 && leap > 0 && i == leap + 1) {
-            if (longDate[WidgetMagic.INT_SIX] == 1) {
+            if (longDate[WidgetLibraryMagic.INT_SIX] == 1) {
                 longDate[6] = 0;
             } else {
                 longDate[6] = 1;

@@ -32,7 +32,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * Created on 2018/4/3.
@@ -168,11 +168,11 @@ public class WheelView extends View {
         if (density < 1) {
             // 据密度不同适配
             centerContentOffset = 2.4F;
-        } else if (1 <= density && density < WidgetMagic.FLOAT_TWO_DOT_ZERO) {
+        } else if (1 <= density && density < WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO) {
             centerContentOffset = 3.6F;
-        } else if (WidgetMagic.FLOAT_TWO_DOT_ZERO <= density && density < WidgetMagic.FLOAT_THREE_DOT_ZERO) {
+        } else if (WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO <= density && density < WidgetLibraryMagic.FLOAT_THREE_DOT_ZERO) {
             centerContentOffset = 6.0F;
-        } else if (density >= WidgetMagic.FLOAT_THREE_DOT_ZERO) {
+        } else if (density >= WidgetLibraryMagic.FLOAT_THREE_DOT_ZERO) {
             centerContentOffset = density * 2.5F;
         }
         if (attrs != null) {
@@ -194,9 +194,9 @@ public class WheelView extends View {
      * 判间距（1.0-4.0）
      */
     private void judgeLineSpace() {
-        if (lineSpacingMultiplier < WidgetMagic.FLOAT_ONE_DOT_ZERO) {
+        if (lineSpacingMultiplier < WidgetLibraryMagic.FLOAT_ONE_DOT_ZERO) {
             lineSpacingMultiplier = 1.0f;
-        } else if (lineSpacingMultiplier > WidgetMagic.FLOAT_FOUR_DOT_ZERO) {
+        } else if (lineSpacingMultiplier > WidgetLibraryMagic.FLOAT_FOUR_DOT_ZERO) {
             lineSpacingMultiplier = 4.0f;
         }
     }
@@ -283,7 +283,7 @@ public class WheelView extends View {
         cancelFuture();
         if (action == ACTION.FLING || action == ACTION.DRAG) {
             mOffset = (int) ((yTotalScroll % itemHeight + itemHeight) % itemHeight);
-            if ((float) mOffset > itemHeight / WidgetMagic.FLOAT_TWO_DOT_ZERO) {
+            if ((float) mOffset > itemHeight / WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO) {
                 // 超Item高一半，滚动到下一Item
                 mOffset = (int) (itemHeight - (float) mOffset);
             } else {
@@ -323,7 +323,7 @@ public class WheelView extends View {
     }
 
     public final void setTextSize(float size) {
-        if (size > WidgetMagic.FLOAT_ZERO_DOT_ZERO) {
+        if (size > WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
             textSize = (int) (context.getResources().getDisplayMetrics().density * size);
             paintOuterText.setTextSize(textSize);
             paintCenterText.setTextSize(textSize);
@@ -715,7 +715,7 @@ public class WheelView extends View {
                     float extraOffset = (yTotalScroll % itemHeight + itemHeight) % itemHeight;
                     // 已滑弧长
                     mOffset = (int) ((circlePosition - itemsVisible / 2) * itemHeight - extraOffset);
-                    if ((System.currentTimeMillis() - startTime) > WidgetMagic.LONG_ONE_HUNDRED_TWENTY) {
+                    if ((System.currentTimeMillis() - startTime) > WidgetLibraryMagic.LONG_ONE_HUNDRED_TWENTY) {
                         // 处理拖拽事件
                         smoothScroll(ACTION.DRAG);
                     } else {

@@ -4,9 +4,9 @@ package value;
  * Created on 2018/3/5.
  *
  * @author 郑少鹏
- * @desc 魔法值
+ * @desc 部件库魔法值
  */
-public class WidgetMagic {
+public class WidgetLibraryMagic {
     /**
      * int
      */

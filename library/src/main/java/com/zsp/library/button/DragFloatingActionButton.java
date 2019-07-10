@@ -11,7 +11,7 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * Created on 2019/5/7.
@@ -88,7 +88,7 @@ public class DragFloatingActionButton extends FloatingActionButton {
                     // 恢复按压效果
                     setPressed(false);
                     /*Log.e("getX=" + getX() + "；screenWidthHalf=" + screenWidthHalf);*/
-                    if (xRaw >= parentWidth / WidgetMagic.INT_TWO) {
+                    if (xRaw >= parentWidth / WidgetLibraryMagic.INT_TWO) {
                         // 靠右吸附
                         animate().setInterpolator(new DecelerateInterpolator())
                                 .setDuration(300)

@@ -4,7 +4,7 @@ import com.zsp.library.wheelview.view.WheelView;
 
 import java.util.TimerTask;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * Created on 2018/4/3.
@@ -38,14 +38,14 @@ public final class InertiaTimerTask extends TimerTask {
     public final void run() {
         // 防闪动（对速度限制）
         if (yCurrentVelocity == Integer.MAX_VALUE) {
-            if (Math.abs(mFirstVelocityY) > WidgetMagic.FLOAT_TWO_THOUSAND) {
+            if (Math.abs(mFirstVelocityY) > WidgetLibraryMagic.FLOAT_TWO_THOUSAND) {
                 yCurrentVelocity = mFirstVelocityY > 0 ? 2000F : -2000F;
             } else {
                 yCurrentVelocity = mFirstVelocityY;
             }
         }
         // 发handler消息，处理平顺停止滚动逻辑
-        if (Math.abs(yCurrentVelocity) >= WidgetMagic.FLOAT_ZERO_DOT_ZERO && Math.abs(yCurrentVelocity) <= WidgetMagic.FLOAT_TWENTY) {
+        if (Math.abs(yCurrentVelocity) >= WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO && Math.abs(yCurrentVelocity) <= WidgetLibraryMagic.FLOAT_TWENTY) {
             mWheelView.cancelFuture();
             mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL);
             return;
@@ -56,9 +56,9 @@ public final class InertiaTimerTask extends TimerTask {
             float itemHeight = mWheelView.getItemHeight();
             float top = (-mWheelView.getInitPosition()) * itemHeight;
             float bottom = (mWheelView.getItemsCount() - 1 - mWheelView.getInitPosition()) * itemHeight;
-            if (mWheelView.getyTotalScroll() - itemHeight * WidgetMagic.FLOAT_ZERO_DOT_TWO_FIVE < top) {
+            if (mWheelView.getyTotalScroll() - itemHeight * WidgetLibraryMagic.FLOAT_ZERO_DOT_TWO_FIVE < top) {
                 top = mWheelView.getyTotalScroll() + dy;
-            } else if (mWheelView.getyTotalScroll() + itemHeight * WidgetMagic.FLOAT_ZERO_DOT_TWO_FIVE > bottom) {
+            } else if (mWheelView.getyTotalScroll() + itemHeight * WidgetLibraryMagic.FLOAT_ZERO_DOT_TWO_FIVE > bottom) {
                 bottom = mWheelView.getyTotalScroll() + dy;
             }
             if (mWheelView.getyTotalScroll() <= top) {
@@ -69,7 +69,7 @@ public final class InertiaTimerTask extends TimerTask {
                 yCurrentVelocity = -40F;
             }
         }
-        if (yCurrentVelocity < WidgetMagic.FLOAT_ZERO_DOT_ZERO) {
+        if (yCurrentVelocity < WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
             yCurrentVelocity = yCurrentVelocity + 20F;
         } else {
             yCurrentVelocity = yCurrentVelocity - 20F;

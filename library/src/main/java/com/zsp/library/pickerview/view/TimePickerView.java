@@ -18,7 +18,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * @decs: 时间选择器
@@ -106,13 +106,13 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
                 setRangDate();
             }
         } else if (mPickerOptions.startDate != null) {
-            if (mPickerOptions.startDate.get(Calendar.YEAR) < WidgetMagic.INT_ONE_THOUSAND_NINE_HUNDRED) {
+            if (mPickerOptions.startDate.get(Calendar.YEAR) < WidgetLibraryMagic.INT_ONE_THOUSAND_NINE_HUNDRED) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             } else {
                 setRangDate();
             }
         } else if (mPickerOptions.endDate != null) {
-            if (mPickerOptions.endDate.get(Calendar.YEAR) > WidgetMagic.INT_TWO_THOUSAND) {
+            if (mPickerOptions.endDate.get(Calendar.YEAR) > WidgetLibraryMagic.INT_TWO_THOUSAND) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             } else {
                 setRangDate();

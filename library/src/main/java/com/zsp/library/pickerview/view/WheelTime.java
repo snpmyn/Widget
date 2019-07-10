@@ -17,7 +17,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * @decs: WheelTime
@@ -205,7 +205,7 @@ public class WheelTime {
         setChangedListener(wvHours);
         setChangedListener(wvMinutes);
         setChangedListener(wvSeconds);
-        if (type.length != WidgetMagic.INT_SIX) {
+        if (type.length != WidgetLibraryMagic.INT_SIX) {
             throw new RuntimeException("type[] length is not 6");
         }
         wvYear.setVisibility(type[0] ? View.VISIBLE : View.GONE);
@@ -264,12 +264,12 @@ public class WheelTime {
         wvDay = view.findViewById(R.id.day);
         if (startYear == endYear && startMonth == endMonth) {
             if (listBig.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetMagic.INT_THIRTY_ONE) {
+                if (endDay > WidgetLibraryMagic.INT_THIRTY_ONE) {
                     endDay = 31;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
             } else if (listLittle.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetMagic.INT_THIRTY) {
+                if (endDay > WidgetLibraryMagic.INT_THIRTY) {
                     endDay = 30;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
@@ -279,12 +279,12 @@ public class WheelTime {
                 boolean flagRight = year % 400 == 0;
                 boolean flag = flagLeft || flagRight;
                 if (flag) {
-                    if (endDay > WidgetMagic.INT_TWENTY_NINE) {
+                    if (endDay > WidgetLibraryMagic.INT_TWENTY_NINE) {
                         endDay = 29;
                     }
                     wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
                 } else {
-                    if (endDay > WidgetMagic.INT_TWENTY_EIGHT) {
+                    if (endDay > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
                         endDay = 28;
                     }
                     wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
@@ -312,12 +312,12 @@ public class WheelTime {
         } else if (year == endYear && month + 1 == endMonth) {
             // 终止日期天数控制
             if (listBig.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetMagic.INT_THIRTY_ONE) {
+                if (endDay > WidgetLibraryMagic.INT_THIRTY_ONE) {
                     endDay = 31;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
             } else if (listLittle.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetMagic.INT_THIRTY) {
+                if (endDay > WidgetLibraryMagic.INT_THIRTY) {
                     endDay = 30;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
@@ -327,12 +327,12 @@ public class WheelTime {
                 boolean flagRight = year % 400 == 0;
                 boolean flag = flagLeft || flagRight;
                 if (flag) {
-                    if (endDay > WidgetMagic.INT_TWENTY_NINE) {
+                    if (endDay > WidgetLibraryMagic.INT_TWENTY_NINE) {
                         endDay = 29;
                     }
                     wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
                 } else {
-                    if (endDay > WidgetMagic.INT_TWENTY_EIGHT) {
+                    if (endDay > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
                         endDay = 28;
                     }
                     wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
@@ -484,7 +484,7 @@ public class WheelTime {
         setChangedListener(wvHours);
         setChangedListener(wvMinutes);
         setChangedListener(wvSeconds);
-        if (type.length != WidgetMagic.INT_SIX) {
+        if (type.length != WidgetLibraryMagic.INT_SIX) {
             throw new IllegalArgumentException("type[] length is not 6");
         }
         wvYear.setVisibility(type[0] ? View.VISIBLE : View.GONE);
@@ -507,13 +507,13 @@ public class WheelTime {
         int currentItem = wvDay.getCurrentItem();
         // int maxItem;
         if (listBig.contains(String.valueOf(monthNum))) {
-            if (dEnd > WidgetMagic.INT_THIRTY_ONE) {
+            if (dEnd > WidgetLibraryMagic.INT_THIRTY_ONE) {
                 dEnd = 31;
             }
             wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
             // maxItem = endD;
         } else if (listLittle.contains(String.valueOf(monthNum))) {
-            if (dEnd > WidgetMagic.INT_THIRTY) {
+            if (dEnd > WidgetLibraryMagic.INT_THIRTY) {
                 dEnd = 30;
             }
             wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
@@ -521,13 +521,13 @@ public class WheelTime {
         } else {
             boolean flag = (yearNum % 4 == 0 && yearNum % 100 != 0) || yearNum % 400 == 0;
             if (flag) {
-                if (dEnd > WidgetMagic.INT_TWENTY_NINE) {
+                if (dEnd > WidgetLibraryMagic.INT_TWENTY_NINE) {
                     dEnd = 29;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
                 // maxItem = endD;
             } else {
-                if (dEnd > WidgetMagic.INT_TWENTY_EIGHT) {
+                if (dEnd > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
                     dEnd = 28;
                 }
                 wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));

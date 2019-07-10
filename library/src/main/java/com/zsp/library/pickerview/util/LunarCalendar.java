@@ -5,7 +5,7 @@ import com.zsp.utilone.log.LogManager;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import value.WidgetMagic;
+import value.WidgetLibraryMagic;
 
 /**
  * @decs: 公农历互转
@@ -157,11 +157,11 @@ public class LunarCalendar {
         int dayOffset;
         int leapMonth;
         int i;
-        if (year < MIN_YEAR || year > MAX_YEAR || month < 1 || month > WidgetMagic.INT_TWELVE || monthDay < 1 || monthDay > WidgetMagic.INT_THIRTY) {
+        if (year < MIN_YEAR || year > MAX_YEAR || month < 1 || month > WidgetLibraryMagic.INT_TWELVE || monthDay < 1 || monthDay > WidgetLibraryMagic.INT_THIRTY) {
             throw new IllegalArgumentException("Illegal lunar date, must be like that:\n\t" + "year : 1900~2099\n\t" + "month : 1~12\n\t" + "day : 1~30");
         }
         dayOffset = (LUNAR_INFO[year - MIN_YEAR] & 0x001F) - 1;
-        if (((LUNAR_INFO[year - MIN_YEAR] & WidgetMagic.INT_ZERO_X_ZERO_ZERO_SIX_ZERO) >> WidgetMagic.INT_FIVE) == WidgetMagic.INT_TWO) {
+        if (((LUNAR_INFO[year - MIN_YEAR] & WidgetLibraryMagic.INT_ZERO_X_ZERO_ZERO_SIX_ZERO) >> WidgetLibraryMagic.INT_FIVE) == WidgetLibraryMagic.INT_TWO) {
             dayOffset += 31;
         }
         for (i = 1; i < month; i++) {
@@ -177,7 +177,7 @@ public class LunarCalendar {
         if (leapMonth != 0) {
             boolean flag = month > leapMonth || (month == leapMonth && isLeapMonth);
             if (flag) {
-                if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO >> (month - 1))) == 0) {
+                if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetLibraryMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO >> (month - 1))) == 0) {
                     dayOffset += 29;
                 } else {
                     dayOffset += 30;
@@ -187,14 +187,14 @@ public class LunarCalendar {
         boolean flag = dayOffset > 366 || (year % 4 != 0 && dayOffset > 365);
         if (flag) {
             year += 1;
-            if (year % WidgetMagic.INT_FOUR == 1) {
+            if (year % WidgetLibraryMagic.INT_FOUR == 1) {
                 dayOffset -= 366;
             } else {
                 dayOffset -= 365;
             }
         }
         int[] solarInfo = new int[3];
-        for (i = 1; i < WidgetMagic.INT_THIRTEEN; i++) {
+        for (i = 1; i < WidgetLibraryMagic.INT_THIRTEEN; i++) {
             int iPos = DAYS_BEFORE_MONTH[i];
             if (year % 4 == 0 && i > 2) {
                 iPos += 1;
@@ -247,7 +247,7 @@ public class LunarCalendar {
         int mLunar = 1;
         int dLunar;
         offset += 1;
-        for (int i = 0; i < WidgetMagic.INT_THIRTEEN; i++) {
+        for (int i = 0; i < WidgetLibraryMagic.INT_THIRTEEN; i++) {
             int dm = getBitInt(days, 1, 12 - i) == 1 ? 30 : 29;
             if (offset > dm) {
                 mLunar++;
@@ -305,7 +305,7 @@ public class LunarCalendar {
         boolean isLeap = false;
         // 当年天数offset逐减每月（农历）天数，得当天是本月第几天
         int iMonth, daysOfMonth = 0;
-        for (iMonth = 1; iMonth <= WidgetMagic.INT_THIRTEEN && offset > 0; iMonth++) {
+        for (iMonth = 1; iMonth <= WidgetLibraryMagic.INT_THIRTEEN && offset > 0; iMonth++) {
             daysOfMonth = daysInLunarMonth(iYear, iMonth);
             offset -= daysOfMonth;
         }
@@ -379,7 +379,7 @@ public class LunarCalendar {
             sum = 377;
         }
         int monthInfo = LUNAR_INFO[year - MIN_YEAR] & 0x0FFF80;
-        for (i = WidgetMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO; i > WidgetMagic.INT_ZERO_X_SEVEN; i >>= 1) {
+        for (i = WidgetLibraryMagic.INT_ZERO_X_EIGHT_ZERO_ZERO_ZERO_ZERO; i > WidgetLibraryMagic.INT_ZERO_X_SEVEN; i >>= 1) {
             if ((monthInfo & i) != 0) {
                 sum += 1;
             }
@@ -395,7 +395,7 @@ public class LunarCalendar {
      * @return 传回农历year年month月总天数
      */
     private static int daysInLunarMonth(int year, int month) {
-        if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO_ZERO >> month)) == 0) {
+        if ((LUNAR_INFO[year - MIN_YEAR] & (WidgetLibraryMagic.INT_ZERO_X_ONE_ZERO_ZERO_ZERO_ZERO_ZERO >> month)) == 0) {
             return 29;
         } else {
             return 30;
