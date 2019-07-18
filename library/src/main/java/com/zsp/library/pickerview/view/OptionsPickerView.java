@@ -28,7 +28,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
 
     public OptionsPickerView(PickerOptions pickerOptions) {
         super(pickerOptions.context);
-        mPickerOptions = pickerOptions;
+        this.pickerOptions = pickerOptions;
         initView(pickerOptions.context);
     }
 
@@ -37,8 +37,8 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         initViews();
         initAnim();
         initEvents();
-        if (mPickerOptions.customListener == null) {
-            LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer);
+        if (pickerOptions.customListener == null) {
+            LayoutInflater.from(context).inflate(pickerOptions.layoutRes, contentContainer);
             // 顶标
             TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout rlTop = (RelativeLayout) findViewById(R.id.rlTop);
@@ -50,10 +50,10 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
             btnSubmit.setOnClickListener(this);
             btnCancel.setOnClickListener(this);
             // 文本
-            btnSubmit.setText(TextUtils.isEmpty(mPickerOptions.textContentConfirm) ? context.getResources().getString(R.string.ensure) : mPickerOptions.textContentConfirm);
-            btnCancel.setText(TextUtils.isEmpty(mPickerOptions.textContentCancel) ? context.getResources().getString(R.string.cancel) : mPickerOptions.textContentCancel);
+            btnSubmit.setText(TextUtils.isEmpty(pickerOptions.textContentConfirm) ? context.getResources().getString(R.string.ensure) : pickerOptions.textContentConfirm);
+            btnCancel.setText(TextUtils.isEmpty(pickerOptions.textContentCancel) ? context.getResources().getString(R.string.cancel) : pickerOptions.textContentCancel);
             // 默空
-            tvTitle.setText(TextUtils.isEmpty(mPickerOptions.textContentTitle) ? "" : mPickerOptions.textContentTitle);
+            tvTitle.setText(TextUtils.isEmpty(pickerOptions.textContentTitle) ? "" : pickerOptions.textContentTitle);
             // color
             // 自定
             btnSubmit.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
@@ -64,34 +64,34 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
             // 自定
             rlTop.setBackgroundColor(ContextCompat.getColor(context, R.color.background));
             // 文本大小
-            btnSubmit.setTextSize(mPickerOptions.textSizeSubmitCancel);
-            btnCancel.setTextSize(mPickerOptions.textSizeSubmitCancel);
-            tvTitle.setTextSize(mPickerOptions.textSizeTitle);
+            btnSubmit.setTextSize(pickerOptions.textSizeSubmitCancel);
+            btnCancel.setTextSize(pickerOptions.textSizeSubmitCancel);
+            tvTitle.setTextSize(pickerOptions.textSizeTitle);
         } else {
-            mPickerOptions.customListener.customLayout(LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer));
+            pickerOptions.customListener.customLayout(LayoutInflater.from(context).inflate(pickerOptions.layoutRes, contentContainer));
         }
         // 滚轮布局
         final LinearLayout optionsPicker = (LinearLayout) findViewById(R.id.optionsPicker);
-        optionsPicker.setBackgroundColor(mPickerOptions.bgColorWheel);
-        wheelOptions = new WheelOptions(optionsPicker, mPickerOptions.isRestoreItem);
-        if (mPickerOptions.optionsSelectChangeListener != null) {
-            wheelOptions.setOptionsSelectChangeListener(mPickerOptions.optionsSelectChangeListener);
+        optionsPicker.setBackgroundColor(pickerOptions.bgColorWheel);
+        wheelOptions = new WheelOptions(optionsPicker, pickerOptions.isRestoreItem);
+        if (pickerOptions.optionsSelectChangeListener != null) {
+            wheelOptions.setOptionsSelectChangeListener(pickerOptions.optionsSelectChangeListener);
         }
-        wheelOptions.setTextContentSize(mPickerOptions.textSizeContent);
-        wheelOptions.setLabels(mPickerOptions.label1, mPickerOptions.label2, mPickerOptions.label3);
-        wheelOptions.setxOffsetOfText(mPickerOptions.xOffsetOne, mPickerOptions.xOffsetTwo, mPickerOptions.xOffsetThree);
-        wheelOptions.setCyclic(mPickerOptions.cyclic1, mPickerOptions.cyclic2, mPickerOptions.cyclic3);
-        wheelOptions.setTypeface(mPickerOptions.font);
-        setOutSideCancelable(mPickerOptions.cancelable);
+        wheelOptions.setTextContentSize(pickerOptions.textSizeContent);
+        wheelOptions.setLabels(pickerOptions.label1, pickerOptions.label2, pickerOptions.label3);
+        wheelOptions.setxOffsetOfText(pickerOptions.xOffsetOne, pickerOptions.xOffsetTwo, pickerOptions.xOffsetThree);
+        wheelOptions.setCyclic(pickerOptions.cyclic1, pickerOptions.cyclic2, pickerOptions.cyclic3);
+        wheelOptions.setTypeface(pickerOptions.font);
+        setOutSideCancelable(pickerOptions.cancelable);
         // 自定
         wheelOptions.setDividerColor(ContextCompat.getColor(context, R.color.graySelect));
-        wheelOptions.setDividerType(mPickerOptions.dividerType);
-        wheelOptions.setLineSpacingMultiplier(mPickerOptions.lineSpacingMultiplier);
+        wheelOptions.setDividerType(pickerOptions.dividerType);
+        wheelOptions.setLineSpacingMultiplier(pickerOptions.lineSpacingMultiplier);
         // 自定
         wheelOptions.setTextColorOut(ContextCompat.getColor(context, R.color.fontHint));
         // 自定
         wheelOptions.setTextColorCenter(ContextCompat.getColor(context, R.color.fontInput));
-        wheelOptions.isCenterLabel(mPickerOptions.isCenterLabel);
+        wheelOptions.isCenterLabel(pickerOptions.isCenterLabel);
     }
 
     /**
@@ -112,26 +112,26 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
      * @param option1 默选中项
      */
     public void setSelectOptions(int option1) {
-        mPickerOptions.option1 = option1;
+        pickerOptions.option1 = option1;
         reSetCurrentItems();
     }
 
     public void setSelectOptions(int option1, int option2) {
-        mPickerOptions.option1 = option1;
-        mPickerOptions.option2 = option2;
+        pickerOptions.option1 = option1;
+        pickerOptions.option2 = option2;
         reSetCurrentItems();
     }
 
     public void setSelectOptions(int option1, int option2, int option3) {
-        mPickerOptions.option1 = option1;
-        mPickerOptions.option2 = option2;
-        mPickerOptions.option3 = option3;
+        pickerOptions.option1 = option1;
+        pickerOptions.option2 = option2;
+        pickerOptions.option3 = option3;
         reSetCurrentItems();
     }
 
     private void reSetCurrentItems() {
         if (wheelOptions != null) {
-            wheelOptions.setCurrentItems(mPickerOptions.option1, mPickerOptions.option2, mPickerOptions.option3);
+            wheelOptions.setCurrentItems(pickerOptions.option1, pickerOptions.option2, pickerOptions.option3);
         }
     }
 
@@ -174,14 +174,14 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
      * 抽离接口回调方法
      */
     private void returnData() {
-        if (mPickerOptions.optionsSelectListener != null) {
+        if (pickerOptions.optionsSelectListener != null) {
             int[] optionsCurrentItems = wheelOptions.getCurrentItems();
-            mPickerOptions.optionsSelectListener.onOptionsSelect(optionsCurrentItems[0], optionsCurrentItems[1], optionsCurrentItems[2], clickView);
+            pickerOptions.optionsSelectListener.onOptionsSelect(optionsCurrentItems[0], optionsCurrentItems[1], optionsCurrentItems[2], clickView);
         }
     }
 
     @Override
     public boolean isDialog() {
-        return mPickerOptions.isDialog;
+        return pickerOptions.isDialog;
     }
 }

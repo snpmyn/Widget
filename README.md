@@ -3,6 +3,8 @@
 
 ### 依赖
 ##### 自身
+###### app
+implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 ###### AndroidLibrary - Library
 * implementation "androidx.core:core-ktx:1.0.2"
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
@@ -10,7 +12,7 @@
 * api 'com.hwangjr.rxbus:rxbus:2.0.0'（避重）
 * api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
-##### com.github.snpmyn:Util
+##### com.github.snpmyn:Util(api)
 ###### AndroidLibrary - Application
 api 'org.litepal.android:java:3.0.0'（避重）
 ###### AndroidLibrary - UtilOne

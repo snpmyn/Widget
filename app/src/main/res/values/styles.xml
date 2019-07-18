@@ -33,5 +33,7 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/dp_16</item>
     </style>
+    <!--PuddingMaterialButtonStyle-->
+    <style name="PuddingMaterialButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12"
+    tools:context="example.pudding.PuddingActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleOne"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleTwo"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleThree"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleFour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleFour"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleFive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleFive"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleSix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleSix"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleSeven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleSeven"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/puddingActivityJavaExampleEight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exampleEight"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+</LinearLayout>

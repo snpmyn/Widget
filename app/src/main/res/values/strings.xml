@@ -55,4 +55,13 @@
     <string name="record">录制</string>
     <string name="locationResult">定位结果</string>
     <string name="location">定位</string>
+    <string name="pudding">pudding</string>
+    <string name="exampleOne">示例一</string>
+    <string name="exampleTwo">示例二</string>
+    <string name="exampleThree">示例三</string>
+    <string name="exampleFour">示例四</string>
+    <string name="exampleFive">示例五</string>
+    <string name="exampleSix">示例六</string>
+    <string name="exampleSeven">示例七</string>
+    <string name="exampleEight">示例八</string>
 </resources>

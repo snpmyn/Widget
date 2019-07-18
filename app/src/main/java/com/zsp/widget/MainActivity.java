@@ -9,17 +9,18 @@ import com.zsp.utilone.intent.IntentUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import example.dialog.DialogOneActivity;
 import example.animation.LoginOneActivity;
+import example.dialog.DialogOneActivity;
+import example.dialog.DialogTwoActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
+import example.pudding.PuddingActivity;
+import example.screen.ScreenActivity;
 import example.searchbox.SearchBoxOneActivity;
 import example.searchbox.SearchBoxTwoActivity;
 import example.spannablestring.SpannableStringActivity;
-import example.textview.TimerActivity;
-import example.dialog.DialogTwoActivity;
-import example.screen.ScreenActivity;
 import example.spruce.SpruceActivity;
+import example.textview.TimerActivity;
 import example.voice.VoiceActivity;
 
 /**
@@ -46,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbScreen,
             R.id.mainActivityMbSpruce,
             R.id.mainActivityMbVoice,
-            R.id.mainActivityMbLocation})
+            R.id.mainActivityMbLocation,
+            R.id.mainActivityMbPudding})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -96,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
             // 定位
             case R.id.mainActivityMbLocation:
                 IntentUtils.jumpNoBundle(this, LocationActivity.class);
+                break;
+            // pudding
+            case R.id.mainActivityMbPudding:
+                IntentUtils.jumpNoBundle(this, PuddingActivity.class);
                 break;
             default:
                 break;

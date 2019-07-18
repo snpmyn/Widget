@@ -28,7 +28,7 @@ import com.zsp.library.pickerview.util.PickerViewAnimateUtil;
  */
 public class BasePickerView {
     ViewGroup contentContainer;
-    PickerOptions mPickerOptions;
+    PickerOptions pickerOptions;
     /**
      * 通哪View弹出
      */
@@ -78,11 +78,11 @@ public class BasePickerView {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         if (isDialog()) {
             // 对话框模式
-            dialogView = (ViewGroup) layoutInflater.inflate(R.layout.layout_base_picker_view, null, false);
+            dialogView = (ViewGroup) layoutInflater.inflate(R.layout.base_picker_view, null, false);
             // 界面背景透明
             dialogView.setBackgroundColor(Color.TRANSPARENT);
             // 真正加载选择器之父布局
-            contentContainer = dialogView.findViewById(R.id.content_container);
+            contentContainer = dialogView.findViewById(R.id.basePickerViewFlTwo);
             // 默左右距屏30
             // 自定（注销并布局设）
             /*params.leftMargin = 30;
@@ -95,17 +95,17 @@ public class BasePickerView {
         } else {
             // 仅显屏幕下方
             // decorView是activity之根View（含contentView和titleView）
-            if (mPickerOptions.decorView == null) {
-                mPickerOptions.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (pickerOptions.decorView == null) {
+                pickerOptions.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView();
             }
             // 控件添到decorView中
-            rootView = (ViewGroup) layoutInflater.inflate(R.layout.layout_base_picker_view, mPickerOptions.decorView, false);
+            rootView = (ViewGroup) layoutInflater.inflate(R.layout.base_picker_view, pickerOptions.decorView, false);
             rootView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            if (mPickerOptions.backgroundId != -1) {
-                rootView.setBackgroundColor(mPickerOptions.backgroundId);
+            if (pickerOptions.backgroundId != -1) {
+                rootView.setBackgroundColor(pickerOptions.backgroundId);
             }
             // 真正加载时间选取器之父布局
-            contentContainer = rootView.findViewById(R.id.content_container);
+            contentContainer = rootView.findViewById(R.id.basePickerViewFlTwo);
             contentContainer.setLayoutParams(params);
         }
         setKeyBackCancelable(true);
@@ -161,7 +161,7 @@ public class BasePickerView {
      * @param view 该View
      */
     private void onAttached(View view) {
-        mPickerOptions.decorView.addView(view);
+        pickerOptions.decorView.addView(view);
         if (isAnim) {
             contentContainer.startAnimation(inAnim);
         }
@@ -210,9 +210,9 @@ public class BasePickerView {
     }
 
     private void dismissImmediately() {
-        mPickerOptions.decorView.post(() -> {
+        pickerOptions.decorView.post(() -> {
             // 从根视图移除
-            mPickerOptions.decorView.removeView(rootView);
+            pickerOptions.decorView.removeView(rootView);
             isShowing = false;
             dismissing = false;
             if (onDismissListener != null) {
@@ -254,7 +254,7 @@ public class BasePickerView {
 
     BasePickerView setOutSideCancelable(boolean isCancelable) {
         if (rootView != null) {
-            View view = rootView.findViewById(R.id.outMostContainer);
+            View view = rootView.findViewById(R.id.basePickerViewFl);
             if (isCancelable) {
                 view.setOnTouchListener(onCancelableTouchListener);
             } else {
@@ -269,7 +269,7 @@ public class BasePickerView {
      */
     void setDialogOutSideCancelable() {
         if (mDialog != null) {
-            mDialog.setCancelable(mPickerOptions.cancelable);
+            mDialog.setCancelable(pickerOptions.cancelable);
         }
     }
 
@@ -281,7 +281,7 @@ public class BasePickerView {
         if (dialogView != null) {
             mDialog = new Dialog(context, R.style.PickerViewStyle);
             // 不可点外/back取消
-            mDialog.setCancelable(mPickerOptions.cancelable);
+            mDialog.setCancelable(pickerOptions.cancelable);
             mDialog.setContentView(dialogView);
             Window dialogWindow = mDialog.getWindow();
             if (dialogWindow != null) {

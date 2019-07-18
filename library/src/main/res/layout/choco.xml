@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chocoCl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_70"
+        android:paddingEnd="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        tools:ignore="UnusedAttribute">
+        <!--android:background="?selectableItemBackgroundBorderless"-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/chocoAciv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/chocoLl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chocoLl"
+            app:srcCompat="@drawable/ic_notification_to_choco" />
+
+        <Space
+            android:id="@+id/chocoSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@+id/chocoLl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chocoLl" />
+
+        <ProgressBar
+            android:id="@+id/chocoPb"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/chocoLl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chocoLl" />
+
+        <LinearLayout
+            android:id="@+id/chocoLl"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_22"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/chocoSpace"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chocoActvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/background"
+                android:textSize="@dimen/sp_14"
+                tools:text="标题" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chocoActvContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_2"
+                android:text="@string/app_name"
+                android:textColor="@color/background"
+                android:textSize="@dimen/sp_12"
+                android:visibility="gone"
+                tools:text="内容"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/chocoLlContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/chocoLl" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

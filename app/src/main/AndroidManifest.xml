@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.pudding.PuddingActivity" />
         <activity android:name="example.location.LocationActivity" />
         <activity android:name="example.voice.VoiceActivity" />
         <activity android:name="example.spruce.SpruceActivity" />

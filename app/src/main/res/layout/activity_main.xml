@@ -96,5 +96,12 @@
             android:layout_height="wrap_content"
             android:text="@string/location"
             android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbPudding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pudding"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>
