@@ -94,6 +94,7 @@ public class PuddingActivity extends AppCompatActivity {
             choco.setTitle("标题");
             choco.setTitleTypeface(Typeface.DEFAULT_BOLD);
             choco.setText("内容");
+            choco.setTextAppearance(R.style.TextAppearance_AppCompat_Caption);
             return null;
         }).show();
     }
@@ -130,6 +131,7 @@ public class PuddingActivity extends AppCompatActivity {
             choco.setTitle("标题");
             choco.setText("内容");
             choco.setEnableProgress(true);
+            choco.setProgressColorRes(R.color.colorAccent);
             return null;
         }).show();
     }
@@ -171,8 +173,8 @@ public class PuddingActivity extends AppCompatActivity {
      */
     private void exampleEight() {
         Pudding.create(this, choco -> {
-            choco.setTitle("标题");
-            choco.setText("内容");
+            choco.setTitle("按钮");
+            choco.setText("待调试");
             choco.addMaterialButton("ok", R.style.PuddingMaterialButtonStyle, view -> ToastUtils.shortShow(PuddingActivity.this, "ok"));
             choco.addMaterialButton("cancel", R.style.PuddingMaterialButtonStyle, view -> ToastUtils.shortShow(PuddingActivity.this, "cancel"));
             return null;

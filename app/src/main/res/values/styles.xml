@@ -34,6 +34,6 @@
         <item name="cornerSize">@dimen/dp_16</item>
     </style>
     <!--PuddingMaterialButtonStyle-->
-    <style name="PuddingMaterialButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+    <style name="PuddingMaterialButtonStyle" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
 
 </resources>
