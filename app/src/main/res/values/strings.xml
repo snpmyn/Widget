@@ -55,10 +55,10 @@
     <string name="wechatCircleOfFriends">微信朋友圈</string>
     <string name="shareTo">分享到</string>
     <string name="voice">语音</string>
-    <string name="play">播放</string>
     <string name="record">录制</string>
-    <string name="locationResult">定位结果</string>
+    <string name="play">播放</string>
     <string name="location">定位</string>
+    <string name="locationResult">定位结果</string>
     <string name="pudding">pudding</string>
     <string name="exampleOne">示例一</string>
     <string name="exampleTwo">示例二</string>
