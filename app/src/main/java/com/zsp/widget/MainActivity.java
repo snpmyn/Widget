@@ -9,17 +9,17 @@ import com.zsp.utilone.intent.IntentUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import example.animation.LoginOneActivity;
-import example.dialog.DialogOneActivity;
-import example.dialog.DialogTwoActivity;
+import example.animation.LoginActivity;
+import example.dialog.DialogActivity;
+import example.floatingactionbutton.CounterActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
-import example.searchbox.SearchBoxOneActivity;
-import example.searchbox.SearchBoxTwoActivity;
-import example.spannablestring.SpannableStringActivity;
+import example.searchbox.SearchBoxActivity;
+import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
+import example.textview.FillActivity;
 import example.textview.TimerActivity;
 import example.voice.VoiceActivity;
 
@@ -37,51 +37,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.mainActivityMbPicture,
-            R.id.mainActivityMbSearchBoxOne,
-            R.id.mainActivityMbSearchBoxTwo,
+            R.id.mainActivityMbSearchBox,
             R.id.mainActivityMbTimer,
-            R.id.mainActivityMbLoginOne,
-            R.id.mainActivityMbDialogOne,
-            R.id.mainActivityMbDialogTwo,
-            R.id.mainActivityMbSpannableString,
+            R.id.mainActivityMbLogin,
+            R.id.mainActivityMbDialog,
+            R.id.mainActivityMbSpannableStringBuilder,
             R.id.mainActivityMbScreen,
             R.id.mainActivityMbSpruce,
             R.id.mainActivityMbVoice,
             R.id.mainActivityMbLocation,
-            R.id.mainActivityMbPudding})
+            R.id.mainActivityMbPudding,
+            R.id.mainActivityMbFill,
+            R.id.mainActivityMbCounter})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
             case R.id.mainActivityMbPicture:
                 IntentUtils.jumpNoBundle(this, PictureActivity.class);
                 break;
-            // 搜索框一
-            case R.id.mainActivityMbSearchBoxOne:
-                IntentUtils.jumpNoBundle(this, SearchBoxOneActivity.class);
-                break;
-            // 搜索框二
-            case R.id.mainActivityMbSearchBoxTwo:
-                IntentUtils.jumpNoBundle(this, SearchBoxTwoActivity.class);
+            // 搜索框
+            case R.id.mainActivityMbSearchBox:
+                IntentUtils.jumpNoBundle(this, SearchBoxActivity.class);
                 break;
             // 计时器
             case R.id.mainActivityMbTimer:
                 IntentUtils.jumpNoBundle(this, TimerActivity.class);
                 break;
             // 登录一
-            case R.id.mainActivityMbLoginOne:
-                IntentUtils.jumpNoBundle(this, LoginOneActivity.class);
+            case R.id.mainActivityMbLogin:
+                IntentUtils.jumpNoBundle(this, LoginActivity.class);
                 break;
-            // 对话框一
-            case R.id.mainActivityMbDialogOne:
-                IntentUtils.jumpNoBundle(this, DialogOneActivity.class);
+            // 对话框
+            case R.id.mainActivityMbDialog:
+                IntentUtils.jumpNoBundle(this, DialogActivity.class);
                 break;
-            // 对话框二
-            case R.id.mainActivityMbDialogTwo:
-                IntentUtils.jumpNoBundle(this, DialogTwoActivity.class);
-                break;
-            // SpannableString
-            case R.id.mainActivityMbSpannableString:
-                IntentUtils.jumpNoBundle(this, SpannableStringActivity.class);
+            // SpannableStringBuilder
+            case R.id.mainActivityMbSpannableStringBuilder:
+                IntentUtils.jumpNoBundle(this, SpannableStringBuilderActivity.class);
                 break;
             // 筛选
             case R.id.mainActivityMbScreen:
@@ -102,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
             // pudding
             case R.id.mainActivityMbPudding:
                 IntentUtils.jumpNoBundle(this, PuddingActivity.class);
+                break;
+            // 填
+            case R.id.mainActivityMbFill:
+                IntentUtils.jumpNoBundle(this, FillActivity.class);
+                break;
+            // 计数
+            case R.id.mainActivityMbCounter:
+                IntentUtils.jumpNoBundle(this, CounterActivity.class);
                 break;
             default:
                 break;

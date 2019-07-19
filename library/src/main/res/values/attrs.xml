@@ -51,4 +51,23 @@
         <attr name="startColor" format="color" />
         <attr name="endColor" format="color" />
     </declare-styleable>
+    <!--FillTextView-->
+    <declare-styleable name="FillTextView">
+        <attr name="filledText" format="string" />
+        <attr name="fillTextSize" format="dimension" />
+        <attr name="normalColor" format="color" />
+        <attr name="fillColor" format="color" />
+        <attr name="rowSpace" format="dimension" />
+    </declare-styleable>
+    <!--CounterFloatingActionButton-->
+    <declare-styleable name="CounterFloatingActionButton">
+        <attr name="badgeTextColor" format="color" />
+        <attr name="badgeBackgroundColor" format="color" />
+        <attr name="badgePosition" format="enum">
+            <enum name="RightTop" value="0" />
+            <enum name="LeftBottom" value="1" />
+            <enum name="LeftTop" value="2" />
+            <enum name="RightBottom" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>

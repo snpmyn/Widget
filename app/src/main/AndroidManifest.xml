@@ -19,19 +19,24 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.floatingactionbutton.CounterActivity" />
+        <activity android:name="example.textview.FillActivity" />
         <activity android:name="example.pudding.PuddingActivity" />
         <activity android:name="example.location.LocationActivity" />
         <activity android:name="example.voice.VoiceActivity" />
         <activity android:name="example.spruce.SpruceActivity" />
         <activity android:name="example.screen.ScreenActivity" />
-        <activity android:name="example.spannablestring.SpannableStringActivity" />
+        <activity android:name="example.spannablestringbuilder.SpannableStringBuilderActivity" />
         <activity android:name="example.dialog.DialogTwoActivity" />
         <activity android:name="example.dialog.DialogOneActivity" />
+        <activity android:name="example.dialog.DialogActivity" />
         <activity android:name="example.animation.HomeActivity" />
         <activity android:name="example.animation.LoginOneActivity" />
+        <activity android:name="example.animation.LoginActivity" />
         <activity android:name="example.textview.TimerActivity" />
         <activity android:name="example.searchbox.SearchBoxOneActivity" />
         <activity android:name="example.searchbox.SearchBoxTwoActivity" />
+        <activity android:name="example.searchbox.SearchBoxActivity" />
         <activity android:name="example.picture.PictureActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

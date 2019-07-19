@@ -21,17 +21,10 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSearchBoxOne"
+            android:id="@+id/mainActivityMbSearchBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/searchBoxOne"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSearchBoxTwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/searchBoxTwo"
+            android:text="@string/searchBox"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
@@ -42,31 +35,24 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbLoginOne"
+            android:id="@+id/mainActivityMbLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/loginOne"
+            android:text="@string/login"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbDialogOne"
+            android:id="@+id/mainActivityMbDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialogOne"
+            android:text="@string/dialog"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbDialogTwo"
+            android:id="@+id/mainActivityMbSpannableStringBuilder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialogTwo"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSpannableString"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/spannableString"
+            android:text="@string/spannableStringBuilder"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
@@ -102,6 +88,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pudding"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbFill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fill"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter"
             android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>

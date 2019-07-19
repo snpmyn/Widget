@@ -1,8 +1,8 @@
-package com.zsp.library.spannablestring;
+package com.zsp.library.spannablestringbuilder;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
@@ -23,19 +23,19 @@ import androidx.annotation.NonNull;
  * Created on 2019/6/24.
  *
  * @author 郑少鹏
- * @desc SpannableStringCreator
+ * @desc SpannableStringBuilderCreator
  */
-public class SpannableStringCreator {
-    public static SpannableStringCreator.Builder with(String source) {
+public class SpannableStringBuilderCreator {
+    public static Builder with(String source) {
         return new Builder(source);
     }
 
     public static class Builder {
-        private SpannableString spannableString;
+        private SpannableStringBuilder spannableStringBuilder;
         private ClickableSpanListener clickableSpanListener;
 
         Builder(String source) {
-            this.spannableString = new SpannableString(source);
+            this.spannableStringBuilder = new SpannableStringBuilder(source);
         }
 
         /**
@@ -49,7 +49,7 @@ public class SpannableStringCreator {
          */
         public Builder foregroundColorSpan(int colorRes, int start, int end, int flags) {
             ForegroundColorSpan colorSpan = new ForegroundColorSpan(colorRes);
-            spannableString.setSpan(colorSpan, start, end, flags);
+            spannableStringBuilder.setSpan(colorSpan, start, end, flags);
             return this;
         }
 
@@ -64,7 +64,7 @@ public class SpannableStringCreator {
          */
         public Builder backgroundColorSpan(int colorRes, int start, int end, int flags) {
             BackgroundColorSpan colorSpan = new BackgroundColorSpan(colorRes);
-            spannableString.setSpan(colorSpan, start, end, flags);
+            spannableStringBuilder.setSpan(colorSpan, start, end, flags);
             return this;
         }
 
@@ -81,7 +81,7 @@ public class SpannableStringCreator {
          */
         public Builder relativeSizeSpan(float size, int start, int end, int flags) {
             RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(size);
-            spannableString.setSpan(relativeSizeSpan, start, end, flags);
+            spannableStringBuilder.setSpan(relativeSizeSpan, start, end, flags);
             return this;
         }
 
@@ -95,7 +95,7 @@ public class SpannableStringCreator {
          */
         public Builder strikethroughSpan(int start, int end, int flags) {
             StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
-            spannableString.setSpan(strikethroughSpan, start, end, flags);
+            spannableStringBuilder.setSpan(strikethroughSpan, start, end, flags);
             return this;
         }
 
@@ -109,7 +109,7 @@ public class SpannableStringCreator {
          */
         public Builder underlineSpan(int start, int end, int flags) {
             UnderlineSpan underlineSpan = new UnderlineSpan();
-            spannableString.setSpan(underlineSpan, start, end, flags);
+            spannableStringBuilder.setSpan(underlineSpan, start, end, flags);
             return this;
         }
 
@@ -123,7 +123,7 @@ public class SpannableStringCreator {
          */
         public Builder superscriptSpan(int start, int end, int flags) {
             SuperscriptSpan superscriptSpan = new SuperscriptSpan();
-            spannableString.setSpan(superscriptSpan, start, end, flags);
+            spannableStringBuilder.setSpan(superscriptSpan, start, end, flags);
             return this;
         }
 
@@ -137,7 +137,7 @@ public class SpannableStringCreator {
          */
         public Builder subscriptSpan(int start, int end, int flags) {
             SubscriptSpan subscriptSpan = new SubscriptSpan();
-            spannableString.setSpan(subscriptSpan, start, end, flags);
+            spannableStringBuilder.setSpan(subscriptSpan, start, end, flags);
             return this;
         }
 
@@ -151,7 +151,7 @@ public class SpannableStringCreator {
          */
         public Builder bold(int start, int end, int flags) {
             StyleSpan styleSpan = new StyleSpan(Typeface.BOLD);
-            spannableString.setSpan(styleSpan, start, end, flags);
+            spannableStringBuilder.setSpan(styleSpan, start, end, flags);
             return this;
         }
 
@@ -165,7 +165,7 @@ public class SpannableStringCreator {
          */
         public Builder italic(int start, int end, int flags) {
             StyleSpan styleSpan = new StyleSpan(Typeface.ITALIC);
-            spannableString.setSpan(styleSpan, start, end, flags);
+            spannableStringBuilder.setSpan(styleSpan, start, end, flags);
             return this;
         }
 
@@ -185,7 +185,7 @@ public class SpannableStringCreator {
         public Builder imageSpan(Drawable drawable, int drawableLeft, int drawableTop, int drawableRight, int drawableBottom, int start, int end, int flags) {
             drawable.setBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
             ImageSpan imageSpan = new ImageSpan(drawable);
-            spannableString.setSpan(imageSpan, start, end, flags);
+            spannableStringBuilder.setSpan(imageSpan, start, end, flags);
             return this;
         }
 
@@ -201,7 +201,7 @@ public class SpannableStringCreator {
         public Builder clickableSpan(ClickableSpanListener clickableSpanListener, int start, int end, int flags) {
             this.clickableSpanListener = clickableSpanListener;
             MyClickableSpan myClickableSpan = new MyClickableSpan();
-            spannableString.setSpan(myClickableSpan, start, end, flags);
+            spannableStringBuilder.setSpan(myClickableSpan, start, end, flags);
             return this;
         }
 
@@ -239,12 +239,12 @@ public class SpannableStringCreator {
          */
         public Builder urlSpan(String url, int start, int end, int flags) {
             URLSpan urlSpan = new URLSpan(url);
-            spannableString.setSpan(urlSpan, start, end, flags);
+            spannableStringBuilder.setSpan(urlSpan, start, end, flags);
             return this;
         }
 
-        public SpannableString create() {
-            return spannableString;
+        public SpannableStringBuilder build() {
+            return spannableStringBuilder;
         }
     }
 }

@@ -1,7 +1,7 @@
-package example.spannablestring;
+package example.spannablestringbuilder;
 
 import android.os.Bundle;
-import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.zsp.library.spannablestring.SpannableStringCreator;
+import com.zsp.library.spannablestringbuilder.SpannableStringBuilderCreator;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
@@ -17,26 +17,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @decs: SpannableString页
+ * @decs: SpannableStringBuilder页
  * @author: 郑少鹏
  * @date: 2019/6/24 17:03
  */
-public class SpannableStringActivity extends AppCompatActivity {
-    @BindView(R.id.spannableStringActivityTv)
-    TextView spannableStringActivityTv;
+public class SpannableStringBuilderActivity extends AppCompatActivity {
+    @BindView(R.id.spannableStringBuilderActivityTv)
+    TextView spannableStringBuilderActivityTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spannable_string);
+        setContentView(R.layout.activity_spannable_string_builder);
         ButterKnife.bind(this);
         execute();
     }
 
     private void execute() {
-        String source = "大家好！我是测试内容。";
-        SpannableString spannableString =
-                SpannableStringCreator.with(source)
+        String source = "嗨，你好！我是测试内容。";
+        SpannableStringBuilder spannableStringBuilder =
+                SpannableStringBuilderCreator.with(source)
                         .foregroundColorSpan(ContextCompat.getColor(this, R.color.colorPrimary), 7, source.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE)
                         .backgroundColorSpan(ContextCompat.getColor(this, R.color.gray), 7, source.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE)
                         .relativeSizeSpan(1.5f, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
@@ -47,10 +47,10 @@ public class SpannableStringActivity extends AppCompatActivity {
                         .bold(3, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                         .italic(3, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                         .imageSpan(ContextCompat.getDrawable(this, R.drawable.custom),
-                                0, 0, spannableStringActivityTv.getLineHeight(), spannableStringActivityTv.getLineHeight(), 3, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        .clickableSpan(() -> ToastUtils.shortShow(SpannableStringActivity.this, "点击"), 4, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-                        .urlSpan("http://www.google.com/", 5, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE).create();
-        spannableStringActivityTv.setMovementMethod(LinkMovementMethod.getInstance());
-        spannableStringActivityTv.setText(spannableString);
+                                0, 0, spannableStringBuilderActivityTv.getLineHeight(), spannableStringBuilderActivityTv.getLineHeight(), 3, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        .clickableSpan(() -> ToastUtils.shortShow(SpannableStringBuilderActivity.this, "点击"), 4, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+                        .urlSpan("http://www.google.com/", 5, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE).build();
+        spannableStringBuilderActivityTv.setMovementMethod(LinkMovementMethod.getInstance());
+        spannableStringBuilderActivityTv.setText(spannableStringBuilder);
     }
 }

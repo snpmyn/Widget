@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12"
+    tools:context="example.textview.FillActivity">
+
+    <com.zsp.library.textview.FillTextView
+        android:id="@+id/fillActivityFtv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fillColor="@color/colorPrimary"
+        app:fillTextSize="@dimen/sp_14"
+        app:filledText="大家好，我是&#060;fill&#062;，我来自&#060;fill&#062;。我就是来填个空而已&#060;fill&#062;。"
+        app:rowSpace="@dimen/dp_3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fillActivityMb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="@string/filledIn"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <TextView
+        android:id="@+id/fillActivityTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_13"
+        tools:text="内容" />
+</LinearLayout>

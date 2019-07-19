@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">Widget</string>
     <string name="picture">图片</string>
+    <string name="searchBox">搜索框</string>
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>
     <string name="timer">计时器</string>
+    <string name="login">登录</string>
     <string name="loginOne">登录一</string>
-    <string name="tryMe">Try me!</string>
+    <string name="loginTwo">登录二</string>
+    <string name="dialog">对话框</string>
     <string name="dialogOne">对话框一</string>
+    <string name="dialogTwo">对话框二</string>
+    <string name="tryMe">Try me!</string>
     <string name="showMaterialProgress">show material progress</string>
     <string name="aBasicMessage">a basic message</string>
     <string name="a_title_with_a_text_under">a title with a text under</string>
@@ -17,7 +22,7 @@
     <string name="a_message_with_a_custom_image">a message with a custom image</string>
     <string name="search">搜索</string>
     <string name="list">列表</string>
-    <string name="spannableString">SpannableString</string>
+    <string name="spannableStringBuilder">SpannableStringBuilder</string>
     <string name="screen">筛选</string>
     <string name="spruce">spruce</string>
     <string name="share">分享</string>
@@ -49,7 +54,6 @@
     <string name="qq">QQ</string>
     <string name="wechatCircleOfFriends">微信朋友圈</string>
     <string name="shareTo">分享到</string>
-    <string name="dialogTwo">对话框二</string>
     <string name="voice">语音</string>
     <string name="play">播放</string>
     <string name="record">录制</string>
@@ -64,4 +68,9 @@
     <string name="exampleSix">示例六</string>
     <string name="exampleSeven">示例七</string>
     <string name="exampleEight">示例八</string>
+    <string name="fill">填</string>
+    <string name="filledIn">所填内容</string>
+    <string name="increase">increase</string>
+    <string name="decrease">decrease</string>
+    <string name="counter">计数</string>
 </resources>
