@@ -44,5 +44,6 @@
         app:badgePosition="RightTop"
         app:layout_anchor="@id/counterActivityMt"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/background" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
