@@ -7,8 +7,6 @@
     app:cardCornerRadius="@dimen/dp_6"
     app:cardElevation="@dimen/dp_6"
     app:cardMaxElevation="@dimen/dp_12"
-    app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true"
     app:contentPaddingLeft="@dimen/dp_10"
     app:contentPaddingRight="@dimen/dp_10"
     app:contentPaddingTop="@dimen/dp_12">
