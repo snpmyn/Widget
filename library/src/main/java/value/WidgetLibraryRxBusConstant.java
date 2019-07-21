@@ -10,9 +10,9 @@ public class WidgetLibraryRxBusConstant {
     /**
      * 图片预览（更新下标）
      */
-    public static final String PICTURE_PREVIEW_$_UPDATE_INDEX = "picturePreviewUpdateIndex";
+    public static final String PICTURE_PREVIEW_$_UPDATE_INDEX = "PicturePreviewUpdateIndex";
     /**
      * 图片预览（更新视图）
      */
-    public static final String PICTURE_PREVIEW_$_UPDATE_VIEW = "picturePreviewUpdateView";
+    public static final String PICTURE_PREVIEW_$_UPDATE_VIEW = "PicturePreviewUpdateView";
 }
