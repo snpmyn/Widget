@@ -27,6 +27,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import value.WidgetLibraryRxBusConstant;
 
 /**
  * @decs: 图片页
@@ -131,20 +132,20 @@ public class PictureActivity extends AppCompatActivity {
     @OnClick(R.id.pictureActivityIv)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.pictureActivityIv) {
-            dragKit.jump(this, view, new Object[]{R.mipmap.ic_launcher}, 1);
+            dragKit.jump(this, view, new Object[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher}, 0);
         }
     }
 
-    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag("updateIndex")})
+    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(WidgetLibraryRxBusConstant.PICTURE_PREVIEW_$_UPDATE_INDEX)})
     public void updateIndex(Integer integer) {
-        // 通知对应共享元素键值对更新
+        // 更新对应共享元素键值对
         updateIndex = integer;
     }
 
-    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag("updateView")})
+    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(WidgetLibraryRxBusConstant.PICTURE_PREVIEW_$_UPDATE_VIEW)})
     public void updateView(Integer integer) {
-        // 通知对应视图重显
-        if (integer == 1) {
+        // 重显对应视图
+        if (integer == 0) {
             pictureActivityIv.setAlpha(1.0f);
         }
     }

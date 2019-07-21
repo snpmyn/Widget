@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import value.WidgetLibraryRxBusConstant;
+
 /**
  * @decs: 图片预览页
  * @author: 郑少鹏
@@ -165,7 +167,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
             @Override
             public void dragStart() {
                 // 拖拽开始
-                RxBus.get().post("updateView", DragKit.index);
+                RxBus.get().post(WidgetLibraryRxBusConstant.PICTURE_PREVIEW_$_UPDATE_VIEW, DragKit.index);
             }
 
             @Override
@@ -200,7 +202,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-
+                RxBus.get().post(WidgetLibraryRxBusConstant.PICTURE_PREVIEW_$_UPDATE_INDEX, position);
             }
 
             @Override
