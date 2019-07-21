@@ -146,6 +146,13 @@ class CounterFloatingActionButton @JvmOverloads constructor(
         count = if (count > 0) count - 1 else 0
     }
 
+    /**
+     * Clear the current count.
+     */
+    fun clear() {
+        count = 0
+    }
+
     private fun startAnimation() {
         var start = 0f
         var end = 1f

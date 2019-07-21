@@ -35,6 +35,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/decrease" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/counterActivityMrbClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear" />
     </RadioGroup>
 
     <com.zsp.library.floatingactionbutton.CounterFloatingActionButton

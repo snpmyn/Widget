@@ -50,6 +50,10 @@ public class CounterActivity extends AppCompatActivity {
                     counterActivityCfab.setImageResource(R.drawable.ic_remove);
                     counterActivityCfab.decrease();
                     break;
+                case R.id.counterActivityMrbClear:
+                    counterActivityCfab.setImageResource(0);
+                    counterActivityCfab.clear();
+                    break;
                 default:
                     break;
             }
