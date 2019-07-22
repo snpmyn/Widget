@@ -133,6 +133,13 @@ class CounterFloatingActionButton @JvmOverloads constructor(
     }
 
     /**
+     * Set the current count.
+     */
+    fun set(count: Int) {
+        this.count = count
+    }
+
+    /**
      * Increase the current count value by 1.
      */
     fun increase() {
