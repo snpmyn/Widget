@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="@dimen/dp_12"
+    tools:context="example.contract.ContactActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/contactActivityExtract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/extract"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
+</LinearLayout>

@@ -1,15 +1,19 @@
 package com.zsp.widget;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.utilone.intent.IntentUtils;
+import com.zsp.utilone.permission.SoulPermissionUtils;
+import com.zsp.utilone.toast.ToastUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.animation.LoginActivity;
+import example.contract.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.location.LocationActivity;
@@ -17,6 +21,7 @@ import example.picture.PictureActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
 import example.searchbox.SearchBoxActivity;
+import example.sms.SmsActivity;
 import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
 import example.textview.FillActivity;
@@ -29,11 +34,39 @@ import example.voice.VoiceActivity;
  * @date: 2019/6/5 10:38
  */
 public class MainActivity extends AppCompatActivity {
+    private SoulPermissionUtils soulPermissionUtils;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initConfiguration();
+        execute();
+    }
+
+    private void initConfiguration() {
+        soulPermissionUtils = new SoulPermissionUtils();
+    }
+
+    private void execute() {
+        soulPermissionUtils.checkAndRequestPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, soulPermissionUtils,
+                true, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
+                    @Override
+                    public void onPermissionOk() {
+
+                    }
+
+                    @Override
+                    public void onPermissionDeniedNotRationaleInMiUi(String s) {
+                        ToastUtils.shortShow(MainActivity.this, s);
+                    }
+
+                    @Override
+                    public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
+
+                    }
+                });
     }
 
     @OnClick({R.id.mainActivityMbPicture,
@@ -48,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbLocation,
             R.id.mainActivityMbPudding,
             R.id.mainActivityMbFill,
-            R.id.mainActivityMbCounter})
+            R.id.mainActivityMbCounter,
+            R.id.mainActivityMbSms,
+            R.id.mainActivityMbContact})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -102,6 +137,14 @@ public class MainActivity extends AppCompatActivity {
             // 计数
             case R.id.mainActivityMbCounter:
                 IntentUtils.jumpNoBundle(this, CounterActivity.class);
+                break;
+            // 短信
+            case R.id.mainActivityMbSms:
+                IntentUtils.jumpNoBundle(this, SmsActivity.class);
+                break;
+            // 联系人
+            case R.id.mainActivityMbContact:
+                IntentUtils.jumpNoBundle(this, ContactActivity.class);
                 break;
             default:
                 break;
