@@ -3,7 +3,6 @@ package example.contract;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Looper;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,14 +39,7 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        contactExtractor.setContractExtractorListener(contactBeans -> {
-            if (null == Looper.myLooper()) {
-                Looper.getMainLooper();
-            }
-            Looper.prepare();
-            ToastUtils.shortShow(ContactActivity.this, contactBeans.toString());
-            Looper.loop();
-        });
+        contactExtractor.setContractExtractorListener(contactBeans -> ToastUtils.shortShow(ContactActivity.this, contactBeans.toString()));
     }
 
     @OnClick(R.id.contactActivityExtract)
