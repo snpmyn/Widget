@@ -106,7 +106,7 @@ public class PuddingActivity extends AppCompatActivity {
         Pudding.create(this, choco -> {
             choco.setTitle("标题");
             choco.setText("内容");
-            choco.setIcon(R.drawable.ic_top_back_light);
+            choco.setIcon(R.drawable.ic_top_back_light_24dp_background);
             return null;
         }).show();
     }

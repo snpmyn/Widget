@@ -43,11 +43,11 @@ public class CounterActivity extends AppCompatActivity {
         counterActivityRg.setOnCheckedChangeListener((radioGroup, i) -> {
             switch (i) {
                 case R.id.counterActivityMrbIncrease:
-                    counterActivityCfab.setImageResource(R.drawable.ic_add);
+                    counterActivityCfab.setImageResource(R.drawable.ic_add_24dp_background);
                     counterActivityCfab.increase();
                     break;
                 case R.id.counterActivityMrbDecrease:
-                    counterActivityCfab.setImageResource(R.drawable.ic_remove);
+                    counterActivityCfab.setImageResource(R.drawable.ic_remove_24dp_background);
                     counterActivityCfab.decrease();
                     break;
                 case R.id.counterActivityMrbClear:

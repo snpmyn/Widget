@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/dp_12"
         android:layout_toStartOf="@+id/searchHistoryItemIvDelete"
-        android:drawableStart="@drawable/ic_history_to_search_history_item"
+        android:drawableStart="@drawable/ic_history_to_search_history_item_18dp_font_input"
         android:drawablePadding="@dimen/dp_10"
         android:ellipsize="end"
         android:maxLines="1"
@@ -29,5 +29,5 @@
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/toDo"
         android:padding="@dimen/dp_12"
-        app:srcCompat="@drawable/ic_clear_to_search_edit_text_and_search_history_item" />
+        app:srcCompat="@drawable/ic_clear_to_search_edit_text_and_search_history_item_18dp_font_input" />
 </RelativeLayout>

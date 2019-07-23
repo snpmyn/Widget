@@ -26,7 +26,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/chocoLl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chocoLl"
-            app:srcCompat="@drawable/ic_notification_to_choco" />
+            app:srcCompat="@drawable/ic_notification_to_choco_24dp_background" />
 
         <Space
             android:id="@+id/chocoSpace"

@@ -25,7 +25,7 @@
                 android:paddingRight="@dimen/dp_12"
                 android:tint="@color/fontInput"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_top_back_light" />
+                app:srcCompat="@drawable/ic_top_back_light_24dp_background" />
 
             <EditText
                 android:id="@+id/searchDialogFragmentEt"
@@ -51,7 +51,7 @@
                 android:contentDescription="@string/toDo"
                 android:paddingLeft="@dimen/dp_12"
                 android:paddingRight="@dimen/dp_12"
-                app:srcCompat="@drawable/ic_search_to_fragment_search_dialog" />
+                app:srcCompat="@drawable/ic_search_to_fragment_search_dialog_24dp_font_input" />
         </LinearLayout>
 
         <View

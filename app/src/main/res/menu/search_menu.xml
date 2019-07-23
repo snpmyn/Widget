@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/pharmaceuticalKnowledgeListActivityMenuSearch"
-        android:icon="@drawable/ic_search_to_search_edit_text_and_search_view"
+        android:icon="@drawable/ic_search_to_search_edit_text_and_search_view_24dp_font_input"
         android:title="@string/search"
         app:iconTint="@color/background"
         app:showAsAction="always" />

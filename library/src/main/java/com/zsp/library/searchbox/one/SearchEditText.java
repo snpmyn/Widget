@@ -41,8 +41,8 @@ public class SearchEditText extends AppCompatEditText {
      * 初始
      */
     private void step() {
-        searchDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_search_to_search_edit_text_and_search_view);
-        clearDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_clear_to_search_edit_text_and_search_history_item);
+        searchDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_search_to_search_edit_text_and_search_view_24dp_font_input);
+        clearDrawable = ContextCompat.getDrawable(getContext(), R.drawable.ic_clear_to_search_edit_text_and_search_history_item_18dp_font_input);
         // setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom)
         // 作用：EditText上、下、左、右设图（相当android:drawableLeft=""、android:drawableRight=""）
         // 注1：setCompoundDrawablesWithIntrinsicBounds（）所传Drawable宽高等固有宽高（自动通getIntrinsicWidth（）、getIntrinsicHeight（）获）
