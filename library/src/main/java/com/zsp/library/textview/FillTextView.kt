@@ -181,6 +181,7 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
         mTextList.add(AText(mEditEndTag + texts[texts.size - 1]))
     }
 
+    @SuppressLint("DrawAllocation")
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
@@ -625,9 +626,9 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     }
 
     /**
-     * 文本
+     * 原始文本
      */
-    fun getText(): String {
+    fun getOriginalText(): String {
         return mText.toString()
     }
 
@@ -671,6 +672,13 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     fun setUnderlineColor(color: Int) {
         mUnderlinePain.color = color
         invalidate()
+    }
+
+    /**
+     * 文字段落
+     */
+    fun getTextPassage(): List<AText> {
+        return mTextList
     }
 
     /**
@@ -721,7 +729,7 @@ internal class MyInputConnection(targetView: View, fullEditor: Boolean, private 
 /**
  * 文字段落
  */
-internal class AText(
+class AText(
         // 段落文字
         var text: String,
         // 填字段否

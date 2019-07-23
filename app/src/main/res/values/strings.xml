@@ -70,6 +70,8 @@
     <string name="exampleEight">示例八</string>
     <string name="fill">填</string>
     <string name="filledIn">所填内容</string>
+    <string name="originalText">原始文本</string>
+    <string name="textPassage">段落</string>
     <string name="counter">计数</string>
     <string name="increase">increase</string>
     <string name="decrease">decrease</string>

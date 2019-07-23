@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.zsp.library.textview.AText;
 import com.zsp.library.textview.FillTextView;
 import com.zsp.widget.R;
 
@@ -39,15 +40,35 @@ public class FillActivity extends AppCompatActivity {
         fillActivityFtv.setUnderlineColor(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
-    @OnClick(R.id.fillActivityMb)
+    @OnClick({R.id.fillActivityMbFilledIn,
+            R.id.fillActivityMbOriginalText,
+            R.id.fillActivityMbTextPassage})
     public void onViewClicked(View view) {
-        if (view.getId() == R.id.fillActivityMb) {
-            StringBuilder content = new StringBuilder();
-            for (String s : fillActivityFtv.getFillTexts()) {
-                content.append(s);
-                content.append("、");
-            }
-            fillActivityTv.setText(content);
+        switch (view.getId()) {
+            // 所填内容
+            case R.id.fillActivityMbFilledIn:
+                StringBuilder filledIn = new StringBuilder();
+                for (String s : fillActivityFtv.getFillTexts()) {
+                    filledIn.append(s);
+                    filledIn.append("、");
+                }
+                fillActivityTv.setText(filledIn);
+                break;
+            // 原始内容
+            case R.id.fillActivityMbOriginalText:
+                fillActivityTv.setText(fillActivityFtv.getOriginalText());
+                break;
+            // 段落
+            case R.id.fillActivityMbTextPassage:
+                StringBuilder textPassage = new StringBuilder();
+                for (AText aText : fillActivityFtv.getTextPassage()) {
+                    textPassage.append(aText.getText());
+                    textPassage.append("|").append(aText.isFill()).append("|");
+                }
+                fillActivityTv.setText(textPassage);
+                break;
+            default:
+                break;
         }
     }
 }
