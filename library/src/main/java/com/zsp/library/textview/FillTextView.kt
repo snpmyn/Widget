@@ -23,6 +23,8 @@ import kotlin.math.min
 
 /**
  * @decs: FillTextView
+ * 布局示例：我是&#060;fill&#062;
+ * 代码示例：我是<fill>
  * @author: 郑少鹏
  * @date: 2019/7/19 11:09
  */
