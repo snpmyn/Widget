@@ -625,6 +625,13 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     }
 
     /**
+     * 文本
+     */
+    fun getText(): String {
+        return mText.toString()
+    }
+
+    /**
      * 字体大小（sp）
      */
     fun setTextSize(sp: Float) {
