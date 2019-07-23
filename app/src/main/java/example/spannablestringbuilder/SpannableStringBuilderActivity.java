@@ -34,7 +34,7 @@ public class SpannableStringBuilderActivity extends AppCompatActivity {
     }
 
     private void execute() {
-        String source = "嗨，你好！我是测试内容。";
+        String source = "嗨，大家好！我是测试内容。";
         SpannableStringBuilder spannableStringBuilder =
                 SpannableStringBuilderCreator.with(source)
                         .foregroundColorSpan(ContextCompat.getColor(this, R.color.colorPrimary), 7, source.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE)
