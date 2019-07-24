@@ -323,7 +323,7 @@ public class WheelView extends View {
     }
 
     public final void setTextSize(float size) {
-        if (size > WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
+        if (size > WidgetLibraryMagic.FLOAT_ZERO) {
             textSize = (int) (context.getResources().getDisplayMetrics().density * size);
             paintOuterText.setTextSize(textSize);
             paintCenterText.setTextSize(textSize);

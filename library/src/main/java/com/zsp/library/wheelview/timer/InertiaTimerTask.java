@@ -45,7 +45,7 @@ public final class InertiaTimerTask extends TimerTask {
             }
         }
         // 发handler消息，处理平顺停止滚动逻辑
-        if (Math.abs(yCurrentVelocity) >= WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO && Math.abs(yCurrentVelocity) <= WidgetLibraryMagic.FLOAT_TWENTY) {
+        if (Math.abs(yCurrentVelocity) >= WidgetLibraryMagic.FLOAT_ZERO && Math.abs(yCurrentVelocity) <= WidgetLibraryMagic.FLOAT_TWENTY) {
             mWheelView.cancelFuture();
             mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL);
             return;
@@ -69,7 +69,7 @@ public final class InertiaTimerTask extends TimerTask {
                 yCurrentVelocity = -40F;
             }
         }
-        if (yCurrentVelocity < WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
+        if (yCurrentVelocity < WidgetLibraryMagic.FLOAT_ZERO) {
             yCurrentVelocity = yCurrentVelocity + 20F;
         } else {
             yCurrentVelocity = yCurrentVelocity - 20F;

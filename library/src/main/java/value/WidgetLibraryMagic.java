@@ -36,7 +36,7 @@ public class WidgetLibraryMagic {
     /**
      * Float
      */
-    public static final float FLOAT_ZERO_DOT_ZERO = 0.0F;
+    public static final float FLOAT_ZERO = 0F;
     public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25F;
     public static final float FLOAT_ZERO_DOT_FIVE_FOUR = 0.54F;
     public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65F;
