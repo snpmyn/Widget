@@ -38,14 +38,14 @@ public final class InertiaTimerTask extends TimerTask {
     public final void run() {
         // 防闪动（对速度限制）
         if (yCurrentVelocity == Integer.MAX_VALUE) {
-            if (Math.abs(mFirstVelocityY) > WidgetLibraryMagic.FLOAT_TWO_THOUSAND) {
+            if (Math.abs(mFirstVelocityY) > WidgetLibraryMagic.FLOAT_TWO_THOUSAND_DOT_ZERO) {
                 yCurrentVelocity = mFirstVelocityY > 0 ? 2000F : -2000F;
             } else {
                 yCurrentVelocity = mFirstVelocityY;
             }
         }
         // 发handler消息，处理平顺停止滚动逻辑
-        if (Math.abs(yCurrentVelocity) >= WidgetLibraryMagic.FLOAT_ZERO && Math.abs(yCurrentVelocity) <= WidgetLibraryMagic.FLOAT_TWENTY) {
+        if (Math.abs(yCurrentVelocity) >= WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO && Math.abs(yCurrentVelocity) <= WidgetLibraryMagic.FLOAT_TWENTY_DOT_ZERO) {
             mWheelView.cancelFuture();
             mWheelView.getHandler().sendEmptyMessage(MessageHandler.WHAT_SMOOTH_SCROLL);
             return;
@@ -69,7 +69,7 @@ public final class InertiaTimerTask extends TimerTask {
                 yCurrentVelocity = -40F;
             }
         }
-        if (yCurrentVelocity < WidgetLibraryMagic.FLOAT_ZERO) {
+        if (yCurrentVelocity < WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
             yCurrentVelocity = yCurrentVelocity + 20F;
         } else {
             yCurrentVelocity = yCurrentVelocity - 20F;

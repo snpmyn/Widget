@@ -168,11 +168,11 @@ public class WheelView extends View {
         if (density < 1) {
             // 据密度不同适配
             centerContentOffset = 2.4F;
-        } else if (1 <= density && density < WidgetLibraryMagic.FLOAT_TWO) {
+        } else if (1 <= density && density < WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO) {
             centerContentOffset = 3.6F;
-        } else if (WidgetLibraryMagic.FLOAT_TWO <= density && density < WidgetLibraryMagic.FLOAT_THREE) {
+        } else if (WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO <= density && density < WidgetLibraryMagic.FLOAT_THREE_DOT_ZERO) {
             centerContentOffset = 6.0F;
-        } else if (density >= WidgetLibraryMagic.FLOAT_THREE) {
+        } else if (density >= WidgetLibraryMagic.FLOAT_THREE_DOT_ZERO) {
             centerContentOffset = density * 2.5F;
         }
         if (attrs != null) {
@@ -194,9 +194,9 @@ public class WheelView extends View {
      * 判间距（1.0-4.0）
      */
     private void judgeLineSpace() {
-        if (lineSpacingMultiplier < WidgetLibraryMagic.FLOAT_ONE) {
+        if (lineSpacingMultiplier < WidgetLibraryMagic.FLOAT_ONE_DOT_ZERO) {
             lineSpacingMultiplier = 1.0f;
-        } else if (lineSpacingMultiplier > WidgetLibraryMagic.FLOAT_FOUR) {
+        } else if (lineSpacingMultiplier > WidgetLibraryMagic.FLOAT_FOUR_DOT_ZERO) {
             lineSpacingMultiplier = 4.0f;
         }
     }
@@ -283,7 +283,7 @@ public class WheelView extends View {
         cancelFuture();
         if (action == ACTION.FLING || action == ACTION.DRAG) {
             mOffset = (int) ((yTotalScroll % itemHeight + itemHeight) % itemHeight);
-            if ((float) mOffset > itemHeight / WidgetLibraryMagic.FLOAT_TWO) {
+            if ((float) mOffset > itemHeight / WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO) {
                 // 超Item高一半，滚动到下一Item
                 mOffset = (int) (itemHeight - (float) mOffset);
             } else {
@@ -323,7 +323,7 @@ public class WheelView extends View {
     }
 
     public final void setTextSize(float size) {
-        if (size > WidgetLibraryMagic.FLOAT_ZERO) {
+        if (size > WidgetLibraryMagic.FLOAT_ZERO_DOT_ZERO) {
             textSize = (int) (context.getResources().getDisplayMetrics().density * size);
             paintOuterText.setTextSize(textSize);
             paintCenterText.setTextSize(textSize);

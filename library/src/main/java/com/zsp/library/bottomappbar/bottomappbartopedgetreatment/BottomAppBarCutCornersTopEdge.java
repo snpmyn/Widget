@@ -33,7 +33,7 @@ public class BottomAppBarCutCornersTopEdge extends BottomAppBarTopEdgeTreatment 
         float diamondSize = fabDiameter / 2f;
         @SuppressLint("RestrictedApi") float middle = center + getHorizontalOffset();
         float verticalOffsetRatio = cradleVerticalOffset / diamondSize;
-        if (verticalOffsetRatio >= WidgetLibraryMagic.FLOAT_ONE) {
+        if (verticalOffsetRatio >= WidgetLibraryMagic.FLOAT_ONE_DOT_ZERO) {
             shapePath.lineTo(length, 0);
             return;
         }
