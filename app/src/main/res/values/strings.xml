@@ -84,6 +84,6 @@
     <string name="smsDeliverSuccess">短信已送达</string>
     <string name="smsDeliverFail">短信未送达</string>
     <string name="contact">联系人</string>
-    <string name="extract">提取</string>
     <string name="noExternalStorage">无外部存储</string>
+    <string name="extract">提取</string>
 </resources>

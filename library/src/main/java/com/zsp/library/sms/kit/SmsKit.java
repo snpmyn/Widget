@@ -10,6 +10,7 @@ import android.telephony.SmsManager;
 
 import com.zsp.library.sms.receiver.SmsBroadcastReceiver;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class SmsKit {
     /**
      * 上下文
      */
-    private Context context;
+    private WeakReference<Context> weakReference;
     /**
      * 短信广播接收器
      */
@@ -52,13 +53,13 @@ public class SmsKit {
      * @param context 上下文
      */
     public SmsKit(Context context) {
-        this.context = context.getApplicationContext();
+        this.weakReference = new WeakReference<>(context);
         registerReceiver();
         setListener();
         smsSendIntent = new Intent(SMS_SEND_ACTION);
         smsDeliverIntent = new Intent(SMS_DELIVER_ACTION);
-        smsSendPendingIntent = PendingIntent.getBroadcast(this.context, 0, smsSendIntent, 0);
-        smsDeliverPendingIntent = PendingIntent.getBroadcast(this.context, 0, smsDeliverIntent, 0);
+        smsSendPendingIntent = PendingIntent.getBroadcast(weakReference.get(), 0, smsSendIntent, 0);
+        smsDeliverPendingIntent = PendingIntent.getBroadcast(weakReference.get(), 0, smsDeliverIntent, 0);
     }
 
     /**
@@ -68,25 +69,25 @@ public class SmsKit {
         // 发送
         smsSendBroadcastReceiver = new SmsBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter(SMS_SEND_ACTION);
-        context.registerReceiver(smsSendBroadcastReceiver, intentFilter);
+        weakReference.get().registerReceiver(smsSendBroadcastReceiver, intentFilter);
         // 传送
         smsDeliverBroadcastReceiver = new SmsBroadcastReceiver();
         intentFilter = new IntentFilter(SMS_DELIVER_ACTION);
-        context.registerReceiver(smsDeliverBroadcastReceiver, intentFilter);
+        weakReference.get().registerReceiver(smsDeliverBroadcastReceiver, intentFilter);
     }
 
     /**
      * 反注册
      */
     public void unregisterReceiver() {
-        PackageManager pm = context.getPackageManager();
-        List<ResolveInfo> smsSendResolveInfos = pm.queryBroadcastReceivers(smsSendIntent, 0);
-        List<ResolveInfo> smsDeliverResolveInfos = pm.queryBroadcastReceivers(smsDeliverIntent, 0);
+        PackageManager packageManager = weakReference.get().getPackageManager();
+        List<ResolveInfo> smsSendResolveInfos = packageManager.queryBroadcastReceivers(smsSendIntent, 0);
+        List<ResolveInfo> smsDeliverResolveInfos = packageManager.queryBroadcastReceivers(smsDeliverIntent, 0);
         if (!smsSendResolveInfos.isEmpty()) {
-            context.unregisterReceiver(smsSendBroadcastReceiver);
+            weakReference.get().unregisterReceiver(smsSendBroadcastReceiver);
         }
         if (!smsDeliverResolveInfos.isEmpty()) {
-            context.unregisterReceiver(smsDeliverBroadcastReceiver);
+            weakReference.get().unregisterReceiver(smsDeliverBroadcastReceiver);
         }
     }
 
