@@ -32,10 +32,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             if (intent.getAction().equals(SmsKit.SMS_SEND_ACTION)) {
                 switch (getResultCode()) {
                     case Activity.RESULT_OK:
-                        smsBroadcastReceiverSendListener.resultOk();
+                        smsBroadcastReceiverSendListener.sendResultOk();
                         break;
                     case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-                        smsBroadcastReceiverSendListener.resultErrorCenericFailure();
+                        smsBroadcastReceiverSendListener.sendResultErrorCenericFailure();
                         break;
                     case SmsManager.RESULT_ERROR_RADIO_OFF:
                         break;
@@ -47,10 +47,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             } else if (intent.getAction().equals(SmsKit.SMS_DELIVER_ACTION)) {
                 switch (getResultCode()) {
                     case Activity.RESULT_OK:
-                        smsBroadcastReceiverDeliverListener.resultOk();
+                        smsBroadcastReceiverDeliverListener.deliverResultOk();
                         break;
                     case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-                        smsBroadcastReceiverDeliverListener.resultErrorCenericFailure();
+                        smsBroadcastReceiverDeliverListener.deliverResultErrorCenericFailure();
                         break;
                     case SmsManager.RESULT_ERROR_RADIO_OFF:
                         break;
@@ -68,14 +68,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
      */
     public interface SmsBroadcastReceiverSendListener {
         /**
-         * RESULT_OK
+         * 发送（RESULT_OK）
          */
-        void resultOk();
+        void sendResultOk();
 
         /**
-         * RESULT_ERROR_GENERIC_FAILURE
+         * 发送（RESULT_ERROR_GENERIC_FAILURE）
          */
-        void resultErrorCenericFailure();
+        void sendResultErrorCenericFailure();
     }
 
     /**
@@ -83,13 +83,13 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
      */
     public interface SmsBroadcastReceiverDeliverListener {
         /**
-         * RESULT_OK
+         * 传送（RESULT_OK）
          */
-        void resultOk();
+        void deliverResultOk();
 
         /**
-         * RESULT_ERROR_GENERIC_FAILURE
+         * 传送（RESULT_ERROR_GENERIC_FAILURE）
          */
-        void resultErrorCenericFailure();
+        void deliverResultErrorCenericFailure();
     }
 }

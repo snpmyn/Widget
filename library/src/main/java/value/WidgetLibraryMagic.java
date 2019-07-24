@@ -42,10 +42,10 @@ public class WidgetLibraryMagic {
     public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65F;
     public static final float FLOAT_ZERO_DOT_SEVEN = 0.7F;
     public static final float FLOAT_ZERO_DOT_EIGHT_FOUR = 0.84F;
-    public static final float FLOAT_ONE_DOT_ZERO = 1.0F;
-    public static final float FLOAT_TWO_DOT_ZERO = 2.0F;
-    public static final float FLOAT_THREE_DOT_ZERO = 3.0F;
-    public static final float FLOAT_FOUR_DOT_ZERO = 4.0F;
+    public static final float FLOAT_ONE = 1F;
+    public static final float FLOAT_TWO = 2F;
+    public static final float FLOAT_THREE = 3F;
+    public static final float FLOAT_FOUR = 4F;
     public static final float FLOAT_TWENTY = 20F;
     public static final float FLOAT_TWO_THOUSAND = 2000F;
     /**

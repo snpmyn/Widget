@@ -133,7 +133,7 @@ public class ProgressButton extends View {
             float startAngle = 0.0F;
             canvas.drawArc(fRectProcess, startAngle, 100, false, paintProcess);
         }
-        if (space < (getMeasuredWidth() - getMeasuredHeight()) / WidgetLibraryMagic.FLOAT_TWO_DOT_ZERO) {
+        if (space < (getMeasuredWidth() - getMeasuredHeight()) / WidgetLibraryMagic.FLOAT_TWO) {
             /*if (mRectF.width() > getFontLength(paintText, text)) {*/
             canvas.drawText(text,
                     getMeasuredWidth() / 2.0F - getFontLength(paintText, text) / 2.0F,
@@ -241,7 +241,7 @@ public class ProgressButton extends View {
             super.applyTransformation(interpolatedTime, t);
             space = (getMeasuredWidth() - getMeasuredHeight()) / 2.0F * interpolatedTime;
             invalidate();
-            if (interpolatedTime == WidgetLibraryMagic.FLOAT_ONE_DOT_ZERO) {
+            if (interpolatedTime == WidgetLibraryMagic.FLOAT_ONE) {
                 if (rotateAnimation != null) {
                     clearAnimation();
                     rotateAnimation.setDuration(300);

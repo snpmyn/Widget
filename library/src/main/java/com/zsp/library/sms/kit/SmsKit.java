@@ -20,7 +20,7 @@ import java.util.List;
  * @author 郑少鹏
  * @desc SmsKit
  */
-public class SmsKit {
+public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendListener, SmsBroadcastReceiver.SmsBroadcastReceiverDeliverListener {
     /**
      * 上下文
      */
@@ -155,30 +155,8 @@ public class SmsKit {
      * 设监听
      */
     private void setListener() {
-        // 发送
-        smsSendBroadcastReceiver.setSmsBroadcastReceiverSendListener(new SmsBroadcastReceiver.SmsBroadcastReceiverSendListener() {
-            @Override
-            public void resultOk() {
-                smsKitSendListener.resultOk();
-            }
-
-            @Override
-            public void resultErrorCenericFailure() {
-                smsKitSendListener.resultErrorCenericFailure();
-            }
-        });
-        // 传送
-        smsDeliverBroadcastReceiver.setSmsBroadcastReceiverDeliverListener(new SmsBroadcastReceiver.SmsBroadcastReceiverDeliverListener() {
-            @Override
-            public void resultOk() {
-                smsKitDeliverListener.resultOk();
-            }
-
-            @Override
-            public void resultErrorCenericFailure() {
-                smsKitDeliverListener.resultErrorCenericFailure();
-            }
-        });
+        smsSendBroadcastReceiver.setSmsBroadcastReceiverSendListener(this);
+        smsDeliverBroadcastReceiver.setSmsBroadcastReceiverDeliverListener(this);
     }
 
     /**
@@ -204,14 +182,14 @@ public class SmsKit {
      */
     public interface SmsKitSendListener {
         /**
-         * RESULT_OK
+         * 发送（RESULT_OK）
          */
-        void resultOk();
+        void sendResultOk();
 
         /**
-         * RESULT_ERROR_GENERIC_FAILURE
+         * 发送（RESULT_ERROR_GENERIC_FAILURE）
          */
-        void resultErrorCenericFailure();
+        void sendResultErrorCenericFailure();
     }
 
     /**
@@ -219,13 +197,45 @@ public class SmsKit {
      */
     public interface SmsKitDeliverListener {
         /**
-         * RESULT_OK
+         * 传送（RESULT_OK）
          */
-        void resultOk();
+        void deliverResultOk();
 
         /**
-         * RESULT_ERROR_GENERIC_FAILURE
+         * 传送（RESULT_ERROR_GENERIC_FAILURE）
          */
-        void resultErrorCenericFailure();
+        void deliverResultErrorCenericFailure();
+    }
+
+    /**
+     * 发送（RESULT_OK）
+     */
+    @Override
+    public void sendResultOk() {
+        smsKitSendListener.sendResultOk();
+    }
+
+    /**
+     * 发送（RESULT_ERROR_GENERIC_FAILURE）
+     */
+    @Override
+    public void sendResultErrorCenericFailure() {
+        smsKitSendListener.sendResultErrorCenericFailure();
+    }
+
+    /**
+     * 传送（RESULT_OK）
+     */
+    @Override
+    public void deliverResultOk() {
+        smsKitDeliverListener.deliverResultOk();
+    }
+
+    /**
+     * 传送（RESULT_ERROR_GENERIC_FAILURE）
+     */
+    @Override
+    public void deliverResultErrorCenericFailure() {
+        smsKitDeliverListener.deliverResultErrorCenericFailure();
     }
 }

@@ -22,7 +22,7 @@ import butterknife.OnClick;
  * @author: 郑少鹏
  * @date: 2019/7/22 17:09
  */
-public class SmsActivity extends AppCompatActivity {
+public class SmsActivity extends AppCompatActivity implements SmsKit.SmsKitSendListener, SmsKit.SmsKitDeliverListener {
     /**
      * SoulPermissionUtils
      */
@@ -55,30 +55,8 @@ public class SmsActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        // 设SmsKit发送监听
-        smsKit.setSmsKitSendListener(new SmsKit.SmsKitSendListener() {
-            @Override
-            public void resultOk() {
-                ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsSendSuccess));
-            }
-
-            @Override
-            public void resultErrorCenericFailure() {
-                ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsSendFail));
-            }
-        });
-        // 设SmsKit传送监听
-        smsKit.setSmsKitDeliverListener(new SmsKit.SmsKitDeliverListener() {
-            @Override
-            public void resultOk() {
-                ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsDeliverSuccess));
-            }
-
-            @Override
-            public void resultErrorCenericFailure() {
-                ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsDeliverFail));
-            }
-        });
+        smsKit.setSmsKitSendListener(this);
+        smsKit.setSmsKitDeliverListener(this);
     }
 
     @OnClick({R.id.smsActivitySingleShot, R.id.smsActivityMass})
@@ -144,5 +122,37 @@ public class SmsActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    /**
+     * 发送（RESULT_OK）
+     */
+    @Override
+    public void sendResultOk() {
+        ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsSendSuccess));
+    }
+
+    /**
+     * 发送（RESULT_ERROR_GENERIC_FAILURE）
+     */
+    @Override
+    public void sendResultErrorCenericFailure() {
+        ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsSendFail));
+    }
+
+    /**
+     * 传送（RESULT_OK）
+     */
+    @Override
+    public void deliverResultOk() {
+        ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsDeliverSuccess));
+    }
+
+    /**
+     * 传送（RESULT_ERROR_GENERIC_FAILURE）
+     */
+    @Override
+    public void deliverResultErrorCenericFailure() {
+        ToastUtils.shortShow(SmsActivity.this, getString(R.string.smsDeliverFail));
     }
 }
