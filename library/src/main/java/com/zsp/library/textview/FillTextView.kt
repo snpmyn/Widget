@@ -320,6 +320,10 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
         }
     }
 
+    fun destroy() {
+        mHandler!!.removeCallbacksAndMessages(null)
+    }
+
     /**
      * 清过期状
      */

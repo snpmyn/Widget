@@ -34,6 +34,12 @@ public class FillActivity extends AppCompatActivity {
         execute();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        fillActivityFtv.destroy();
+    }
+
     private void execute() {
         fillActivityFtv.setEditTag("[", "]");
         fillActivityFtv.displayUnderline(true);
