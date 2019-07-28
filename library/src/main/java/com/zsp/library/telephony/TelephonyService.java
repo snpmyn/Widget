@@ -137,6 +137,13 @@ public class TelephonyService extends Service {
     }
 
     /**
+     * 销
+     */
+    public static void destroy() {
+        TelephonyService.telephonyServiceListener = null;
+    }
+
+    /**
      * 电话服务监听
      */
     public interface TelephonyServiceListener {

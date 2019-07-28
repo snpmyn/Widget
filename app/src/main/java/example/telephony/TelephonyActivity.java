@@ -40,6 +40,7 @@ public class TelephonyActivity extends AppCompatActivity implements TelephonySer
     protected void onDestroy() {
         super.onDestroy();
         stopService(intent);
+        TelephonyService.destroy();
     }
 
     private void setListener() {
