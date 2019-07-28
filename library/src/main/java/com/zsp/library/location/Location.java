@@ -10,12 +10,12 @@ import android.location.LocationProvider;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
 import java.util.List;
 
+import timber.log.Timber;
 import value.WidgetLibraryMagic;
 
 import static android.content.Context.LOCATION_SERVICE;
@@ -44,13 +44,13 @@ public class Location {
         public void onStatusChanged(String provider, int status, Bundle arg2) {
             switch (status) {
                 case LocationProvider.AVAILABLE:
-                    Log.e("onStatusChanged", "当前GPS可见");
+                    Timber.d("onStatusChanged", "当前GPS可见");
                     break;
                 case LocationProvider.OUT_OF_SERVICE:
-                    Log.e("onStatusChanged", "当前GPS服务区外");
+                    Timber.d("onStatusChanged", "当前GPS服务区外");
                     break;
                 case LocationProvider.TEMPORARILY_UNAVAILABLE:
-                    Log.e("onStatusChanged", "当前GPS暂停服务");
+                    Timber.d("onStatusChanged", "当前GPS暂停服务");
                     break;
                 default:
                     break;
@@ -96,10 +96,10 @@ public class Location {
             // 精确度
             location.getAccuracy();
             setLocation(location);
-            Log.e("onLocationChanged", "时间：" + location.getTime());
-            Log.e("onLocationChanged", "经度：" + location.getLongitude());
-            Log.e("onLocationChanged", "纬度：" + location.getLatitude());
-            Log.e("onLocationChanged", "海拔：" + location.getAltitude());
+            Timber.d("onLocationChanged", "时间：" + location.getTime());
+            Timber.d("onLocationChanged", "经度：" + location.getLongitude());
+            Timber.d("onLocationChanged", "纬度：" + location.getLatitude());
+            Timber.d("onLocationChanged", "海拔：" + location.getAltitude());
         }
     };
 
@@ -163,7 +163,7 @@ public class Location {
         this.location = location;
         if (location != null) {
             String address = "经度：" + location.getLongitude() + " " + "纬度：" + location.getLatitude();
-            Log.e("坐标", address);
+            Timber.d("坐标", address);
         }
     }
 
@@ -186,13 +186,13 @@ public class Location {
         if (providers.contains(LocationManager.GPS_PROVIDER)) {
             // GPS提供器
             locationProvider = LocationManager.GPS_PROVIDER;
-            Log.e("位置提供器", "gps");
+            Timber.d("位置提供器", "gps");
         } else if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
             // 网络提供器
             locationProvider = LocationManager.NETWORK_PROVIDER;
-            Log.e("位置提供器", "network");
+            Timber.d("位置提供器", "network");
         } else {
-            Log.e("位置提供器", "无可用位置提供器");
+            Timber.d("位置提供器", "无可用位置提供器");
             return;
         }
         // 需查权限（否编译错）

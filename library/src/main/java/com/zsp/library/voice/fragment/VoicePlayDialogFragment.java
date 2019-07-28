@@ -8,7 +8,6 @@ import android.graphics.LightingColorFilter;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -29,13 +28,14 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import timber.log.Timber;
+
 /**
  * @decs: 语音播放对话框
  * @author: 郑少鹏
  * @date: 2018/12/7 12:26
  */
 public class VoicePlayDialogFragment extends DialogFragment {
-    private static final String TAG = "VoicePlayDialogFragment";
     /**
      * 控件
      */
@@ -109,7 +109,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
         long itemDuration = Long.parseLong(getArguments().getString(VoiceConstant.VOICE_RECORD_FILE_LENGTH));
         minutes = TimeUnit.MILLISECONDS.toMinutes(itemDuration);
         seconds = TimeUnit.MILLISECONDS.toSeconds(itemDuration) - TimeUnit.MINUTES.toSeconds(minutes);
-        Log.e(TAG, "时长" + minutes + "-" + seconds);
+        Timber.d("时长" + minutes + "-" + seconds);
     }
 
     @Override
@@ -251,7 +251,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
             acsbVoicePlayDialogFragment.setMax(mMediaPlayer.getDuration());
             mMediaPlayer.setOnPreparedListener(mp -> mMediaPlayer.start());
         } catch (IOException e) {
-            Log.e(TAG, "prepare() failed");
+            Timber.d("prepare() failed");
         }
         mMediaPlayer.setOnCompletionListener(mp -> stopPlaying());
         updateSeekBar();
@@ -271,7 +271,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
             mMediaPlayer.seekTo(progress);
             mMediaPlayer.setOnCompletionListener(mp -> stopPlaying());
         } catch (IOException e) {
-            Log.e(TAG, "prepare fail");
+            Timber.d("prepare fail");
         }
         // keep screen on while playing audio
         if (getActivity() != null) {

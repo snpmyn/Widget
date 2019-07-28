@@ -1,7 +1,6 @@
 package example.textview;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 /**
  * @decs: 计时器页
@@ -43,7 +43,7 @@ public class TimerActivity extends AppCompatActivity {
                 .setShowFormatTime(false)
                 .setIntervalUnit(TimeUnit.SECONDS)
                 .setOnCountDownStartListener(() -> ToastUtils.shortShow(this, "开始计时"))
-                .setOnCountDownTickListener(untilFinished -> Log.e("onTick", "onTick：" + untilFinished))
+                .setOnCountDownTickListener(untilFinished -> Timber.d("onTick", "onTick：" + untilFinished))
                 .setOnCountDownFinishListener(() -> ToastUtils.shortShow(this, "计时结束"))
                 .setOnClickListener(v -> {
                     ToastUtils.shortShow(this, "短信已发送");

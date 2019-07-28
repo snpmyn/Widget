@@ -24,6 +24,7 @@ import example.searchbox.SearchBoxActivity;
 import example.sms.SmsActivity;
 import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
+import example.telephony.TelephonyActivity;
 import example.textview.FillActivity;
 import example.textview.TimerActivity;
 import example.voice.VoiceActivity;
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbFill,
             R.id.mainActivityMbCounter,
             R.id.mainActivityMbSms,
-            R.id.mainActivityMbContact})
+            R.id.mainActivityMbContact,
+            R.id.mainActivityMbTelephony})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -145,6 +147,10 @@ public class MainActivity extends AppCompatActivity {
             // 联系人
             case R.id.mainActivityMbContact:
                 IntentUtils.jumpNoBundle(this, ContactActivity.class);
+                break;
+            // 电话
+            case R.id.mainActivityMbTelephony:
+                IntentUtils.jumpNoBundle(this, TelephonyActivity.class);
                 break;
             default:
                 break;

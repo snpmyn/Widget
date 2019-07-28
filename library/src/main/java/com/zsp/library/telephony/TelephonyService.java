@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
-import com.zsp.utilone.log.LogManager;
+import timber.log.Timber;
 
 /**
  * Created on 2019/6/11.
@@ -15,7 +15,6 @@ import com.zsp.utilone.log.LogManager;
  * @desc 电话服务
  */
 public class TelephonyService extends Service {
-    private static final String TAG = "TelephonyService";
     /**
      * 电话管理器
      */
@@ -45,7 +44,7 @@ public class TelephonyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogManager.e(TAG, "开启电话服务");
+        Timber.d("开启电话服务");
         // 监听通话状
         listenCallState();
     }
@@ -53,7 +52,7 @@ public class TelephonyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogManager.e(TAG, "关闭电话服务");
+        Timber.d("关闭电话服务");
         // 不监听
         listenNone();
     }
@@ -81,14 +80,14 @@ public class TelephonyService extends Service {
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
             super.onCallStateChanged(state, incomingNumber);
-            LogManager.e(TAG, incomingNumber);
+            Timber.d(incomingNumber);
             switch (state) {
                 /*
                   响铃
                  */
                 case TelephonyManager.CALL_STATE_RINGING:
+                    Timber.d("响铃");
                     lastCallState = TelephonyManager.CALL_STATE_RINGING;
-                    LogManager.e(TAG, "响铃");
                     duration = System.currentTimeMillis();
                     telephonyServiceListener.callStateRinging(duration);
                     break;
@@ -97,12 +96,10 @@ public class TelephonyService extends Service {
                  */
                 case TelephonyManager.CALL_STATE_OFFHOOK:
                     if (lastCallState == TelephonyManager.CALL_STATE_RINGING) {
-                        // 呼入
-                        LogManager.e(TAG, "呼入");
+                        Timber.d("呼入");
                         telephonyServiceListener.incomingCall();
                     } else {
-                        // 呼出
-                        LogManager.e(TAG, "呼出");
+                        Timber.d("呼出");
                         duration = System.currentTimeMillis();
                         telephonyServiceListener.callOut(duration);
                     }
@@ -113,14 +110,12 @@ public class TelephonyService extends Service {
                  */
                 case TelephonyManager.CALL_STATE_IDLE:
                     if (lastCallState == TelephonyManager.CALL_STATE_IDLE) {
-                        // 无通话
-                        LogManager.e(TAG, "无通话");
+                        Timber.d("无通话");
                         if (telephonyServiceListener != null) {
                             telephonyServiceListener.noCalls();
                         }
                     } else {
-                        // 挂断通话
-                        LogManager.e(TAG, "挂断通话");
+                        Timber.d("挂断通话");
                         lastCallState = TelephonyManager.CALL_STATE_IDLE;
                         long endTime = System.currentTimeMillis();
                         telephonyServiceListener.hangUpTheCall(endTime, endTime - duration);

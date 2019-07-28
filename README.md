@@ -14,7 +14,8 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 ##### com.github.snpmyn:Util(api)
 ###### AndroidLibrary - Application
-api 'org.litepal.android:java:3.0.0'（避重）
+* api 'com.jakewharton.timber:timber:4.7.1'（避重）
+* api 'org.litepal.android:java:3.0.0'（避重）
 ###### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
 * api 'com.google.android.material:material:1.1.0-alpha08'（避重）

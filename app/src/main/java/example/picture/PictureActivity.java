@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -27,6 +26,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import timber.log.Timber;
 import value.WidgetLibraryRxBusConstant;
 
 /**
@@ -84,25 +84,25 @@ public class PictureActivity extends AppCompatActivity {
             @Override
             public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Log.d("exitSharedElement", "onSharedElementStart");
+                Timber.d("exitSharedElement", "onSharedElementStart");
             }
 
             @Override
             public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Log.d("exitSharedElement", "onSharedElementEnd");
+                Timber.d("exitSharedElement", "onSharedElementEnd");
             }
 
             @Override
             public void onRejectSharedElements(List<View> rejectedSharedElements) {
                 super.onRejectSharedElements(rejectedSharedElements);
-                Log.d("exitSharedElement", "onRejectSharedElements");
+                Timber.d("exitSharedElement", "onRejectSharedElements");
             }
 
             @Override
             public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                 super.onMapSharedElements(names, sharedElements);
-                Log.d("exitSharedElement", "onMapSharedElements");
+                Timber.d("exitSharedElement", "onMapSharedElements");
                 if (updateIndex == 1) {
                     sharedElements.put(dragKit.sharedElementName, pictureActivityIv);
                 }
@@ -110,21 +110,21 @@ public class PictureActivity extends AppCompatActivity {
 
             @Override
             public Parcelable onCaptureSharedElementSnapshot(View sharedElement, Matrix viewToGlobalMatrix, RectF screenBounds) {
-                Log.d("exitSharedElement", "onCaptureSharedElementSnapshot");
+                Timber.d("exitSharedElement", "onCaptureSharedElementSnapshot");
                 sharedElement.setAlpha(1.0f);
                 return super.onCaptureSharedElementSnapshot(sharedElement, viewToGlobalMatrix, screenBounds);
             }
 
             @Override
             public View onCreateSnapshotView(Context context, Parcelable snapshot) {
-                Log.d("exitSharedElement", "onCreateSnapshotView");
+                Timber.d("exitSharedElement", "onCreateSnapshotView");
                 return super.onCreateSnapshotView(context, snapshot);
             }
 
             @Override
             public void onSharedElementsArrived(List<String> sharedElementNames, List<View> sharedElements, OnSharedElementsReadyListener listener) {
                 super.onSharedElementsArrived(sharedElementNames, sharedElements, listener);
-                Log.d("exitSharedElement", "onSharedElementsArrived");
+                Timber.d("exitSharedElement", "onSharedElementsArrived");
             }
         });
     }

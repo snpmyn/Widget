@@ -5,7 +5,6 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -16,6 +15,8 @@ import androidx.core.app.ActivityOptionsCompat;
 
 import com.zsp.library.R;
 import com.zsp.library.picture.activity.PicturePreviewActivity;
+
+import timber.log.Timber;
 
 /**
  * @decs: DragKit
@@ -84,7 +85,6 @@ public class DragKit {
     private View vParent, vChild;
     private DragCloseListener dragCloseListener;
     private Context mContext;
-    private boolean isDebug = false;
 
     public DragKit(Context mContext) {
         this.mContext = mContext;
@@ -131,15 +131,6 @@ public class DragKit {
      */
     public void setMinScaleSize(@FloatRange(from = 0.1f, to = 1.0f) float minScaleSize) {
         this.minScaleSize = minScaleSize;
-    }
-
-    /**
-     * 调试
-     *
-     * @param debug 调试否
-     */
-    public void setDebug(boolean debug) {
-        isDebug = debug;
     }
 
     /**
@@ -395,9 +386,7 @@ public class DragKit {
      * @param message 消息
      */
     private void log(String message) {
-        if (isDebug) {
-            Log.d(getClass().getName(), message);
-        }
+        Timber.d(getClass().getName(), message);
     }
 
     public interface DragCloseListener {

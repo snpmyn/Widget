@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.telephony.TelephonyActivity" />
         <activity android:name="example.contract.ContactActivity" />
         <activity android:name="example.sms.SmsActivity" />
         <activity android:name="example.floatingactionbutton.CounterActivity" />
@@ -52,6 +53,8 @@
         </activity>
         <!-- 录音服务 -->
         <service android:name="com.zsp.library.voice.service.VoiceRecordService" />
+        <!-- 电话服务 -->
+        <service android:name="com.zsp.library.telephony.TelephonyService" />
     </application>
 
 </manifest>

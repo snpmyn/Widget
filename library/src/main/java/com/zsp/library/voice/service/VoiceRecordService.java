@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaRecorder;
 import android.os.IBinder;
-import android.util.Log;
 
 import com.zsp.library.R;
 import com.zsp.library.voice.value.VoiceConstant;
@@ -16,13 +15,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.TimerTask;
 
+import timber.log.Timber;
+
 /**
  * @decs: 录音服务
  * @author: 郑少鹏
  * @date: 2018/12/7 12:37
  */
 public class VoiceRecordService extends Service {
-    private static final String TAG = "VoiceRecordService";
     private String recordFilePath = null;
     private MediaRecorder mediaRecorder = null;
     private long recordStartTimeMillis = 0;
@@ -67,7 +67,7 @@ public class VoiceRecordService extends Service {
             mediaRecorder.start();
             recordStartTimeMillis = System.currentTimeMillis();
         } catch (IOException e) {
-            Log.e("startRecording", "prepare fail");
+            Timber.e(e);
         }
     }
 
@@ -80,7 +80,7 @@ public class VoiceRecordService extends Service {
             if (!mediaStorageDir.exists()) {
                 mediaStorageDir.mkdirs();
                 if (!mediaStorageDir.mkdirs()) {
-                    Log.e("setFileNameAndPath", "failed to create directory");
+                    Timber.d("setFileNameAndPath", "failed to create directory");
                 }
             }
             file = new File(mediaStorageDir + File.separator + recordFileName);
@@ -95,7 +95,7 @@ public class VoiceRecordService extends Service {
         mediaRecorder.release();
         SharedPreferencesUtils.saveString(this, VoiceConstant.VOICE_RECORD_FILE_PATH, recordFilePath);
         SharedPreferencesUtils.saveString(this, VoiceConstant.VOICE_RECORD_FILE_LENGTH, Long.toString(recordElapsedMillis));
-        Log.e(TAG, "停止录制" + recordFilePath);
+        Timber.d("停止录制" + recordFilePath);
         if (timerTask != null) {
             timerTask.cancel();
             timerTask = null;

@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import timber.log.Timber;
 import value.WidgetLibraryRxBusConstant;
 
 /**
@@ -91,7 +91,6 @@ public class PicturePreviewActivity extends AppCompatActivity {
     private void initConfiguration() {
         // DragKit
         dragKit = new DragKit(this);
-        dragKit.setDebug(true);
         dragKit.setShareElementMode(true);
         dragKit.setDragCloseView(pictureActivityCl, pictureActivityVp);
         // 数据
@@ -218,42 +217,42 @@ public class PicturePreviewActivity extends AppCompatActivity {
             @Override
             public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Log.d("enterSharedElement", "onSharedElementStart");
+                Timber.d("enterSharedElement", "onSharedElementStart");
             }
 
             @Override
             public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Log.d("enterSharedElement", "onSharedElementEnd");
+                Timber.d("enterSharedElement", "onSharedElementEnd");
             }
 
             @Override
             public void onRejectSharedElements(List<View> rejectedSharedElements) {
                 super.onRejectSharedElements(rejectedSharedElements);
-                Log.d("enterSharedElement", "onRejectSharedElements");
+                Timber.d("enterSharedElement", "onRejectSharedElements");
             }
 
             @Override
             public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                 super.onMapSharedElements(names, sharedElements);
-                Log.d("enterSharedElement", "onMapSharedElements");
+                Timber.d("enterSharedElement", "onMapSharedElements");
             }
 
             @Override
             public Parcelable onCaptureSharedElementSnapshot(View sharedElement, Matrix viewToGlobalMatrix, RectF screenBounds) {
-                Log.d("enterSharedElement", "onCaptureSharedElementSnapshot");
+                Timber.d("enterSharedElement", "onCaptureSharedElementSnapshot");
                 return super.onCaptureSharedElementSnapshot(sharedElement, viewToGlobalMatrix, screenBounds);
             }
 
             @Override
             public View onCreateSnapshotView(Context context, Parcelable snapshot) {
-                Log.d("enterSharedElement", "onCreateSnapshotView");
+                Timber.d("enterSharedElement", "onCreateSnapshotView");
                 return super.onCreateSnapshotView(context, snapshot);
             }
 
             @Override
             public void onSharedElementsArrived(List<String> sharedElementNames, List<View> sharedElements, OnSharedElementsReadyListener listener) {
-                Log.d("enterSharedElement", "onSharedElementsArrived");
+                Timber.d("enterSharedElement", "onSharedElementsArrived");
                 super.onSharedElementsArrived(sharedElementNames, sharedElements, listener);
             }
         });

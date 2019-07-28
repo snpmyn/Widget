@@ -2,7 +2,6 @@ package com.zsp.library.voice.kit;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -15,6 +14,8 @@ import com.zsp.library.voice.service.VoiceRecordService;
 import com.zsp.library.voice.value.VoiceConstant;
 import com.zsp.utilone.sharedpreferences.SharedPreferencesUtils;
 
+import timber.log.Timber;
+
 /**
  * Created on 2018/12/7.
  *
@@ -22,8 +23,6 @@ import com.zsp.utilone.sharedpreferences.SharedPreferencesUtils;
  * @desc VoiceKit
  */
 public class VoiceKit {
-    private static final String TAG = "VoiceKit";
-
     /**
      * 开始录制
      *
@@ -56,7 +55,7 @@ public class VoiceKit {
      */
     public static void play(Activity activity, FragmentManager fragmentManager) {
         String voicePath = SharedPreferencesUtils.getString(activity, VoiceConstant.VOICE_RECORD_FILE_PATH, null);
-        Log.e(TAG, "播放" + voicePath);
+        Timber.d("播放" + voicePath);
         if (voicePath != null) {
             VoicePlayDialogFragment voicePlayDialogFragment = new VoicePlayDialogFragment().
                     newInstance(voicePath, Long.parseLong(SharedPreferencesUtils.getString(activity, VoiceConstant.VOICE_RECORD_FILE_LENGTH, null)));

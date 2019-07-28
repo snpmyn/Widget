@@ -1,10 +1,9 @@
 package com.zsp.library.pickerview.util;
 
-import com.zsp.utilone.log.LogManager;
-
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import timber.log.Timber;
 import value.WidgetLibraryMagic;
 
 /**
@@ -268,7 +267,7 @@ public class LunarCalendar {
         }
         lunarDate[2] = dLunar;
         lunarDate[3] = isLeap ? 1 : 0;
-        LogManager.e("-->", year + "-" + month + "-" + monthDay + "==>" + lunarDate[0] + "-" + lunarDate[1] + "-" + lunarDate[2] + "-" + lunarDate[3]);
+        Timber.d(year + "-" + month + "-" + monthDay + "==>" + lunarDate[0] + "-" + lunarDate[1] + "-" + lunarDate[2] + "-" + lunarDate[3]);
         return lunarDate;
     }
 
@@ -312,7 +311,7 @@ public class LunarCalendar {
         // 当前月超闰月（需校正）
         if (leapMonth != 0 && iMonth > leapMonth) {
             --iMonth;
-            LogManager.e("-->", year + "-" + month + "-" + monthDay + "==>" + iMonth + "-" + leapMonth);
+            Timber.d(year + "-" + month + "-" + monthDay + "==>" + iMonth + "-" + leapMonth);
             if (iMonth == leapMonth) {
                 isLeap = true;
             }
@@ -325,7 +324,7 @@ public class LunarCalendar {
         lunarDate[1] = iMonth;
         lunarDate[2] = offset + 1;
         lunarDate[3] = isLeap ? 1 : 0;
-        LogManager.e("-->", year + "-" + month + "-" + monthDay + "==>" + lunarDate[0] + "-" + lunarDate[1] + "-" + lunarDate[2] + "-" + lunarDate[3]);
+        Timber.d(year + "-" + month + "-" + monthDay + "==>" + lunarDate[0] + "-" + lunarDate[1] + "-" + lunarDate[2] + "-" + lunarDate[3]);
         return lunarDate;
     }
 

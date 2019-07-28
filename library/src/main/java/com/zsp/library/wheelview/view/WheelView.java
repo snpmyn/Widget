@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -32,6 +31,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import timber.log.Timber;
 import value.WidgetLibraryMagic;
 
 /**
@@ -374,12 +374,12 @@ public class WheelView extends View {
         @SuppressLint("DrawAllocation") Object[] visible = new Object[itemsVisible];
         // 滚动Y值高去每行Item高，得滚动item数，即change数
         int change = (int) (yTotalScroll / itemHeight);
-        Log.d("change", "" + change);
+        Timber.d("change", "" + change);
         try {
             // 滚动中实际预选中item（即经中间位item）＝滑动前位＋滑动相对位
             preCurrentIndex = initPosition + change % adapter.getItemsCount();
         } catch (ArithmeticException e) {
-            Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
+            Timber.e("出错了！adapter.getItemsCount() == 0，联动数据不匹配");
         }
         if (!isLoop) {
             // 不循环
