@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!--Your custom size defind by references can be writted in anywhere, any module, any values/*.xml, for example-->
     <dimen name="px1">1px</dimen>
-    <!--dp and sp values must be defind in this file-->
-    <!--view size, you can add if there is no one-->
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>
@@ -40,7 +37,7 @@
     <dimen name="dp_180">180dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_290">290dp</dimen>
-    <!--font size, you can add if there is no one-->
+    <!--font size-->
     <dimen name="sp_10">10sp</dimen>
     <dimen name="sp_11">11sp</dimen>
     <dimen name="sp_12">12sp</dimen>
