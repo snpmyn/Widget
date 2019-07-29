@@ -84,25 +84,25 @@ public class PictureActivity extends AppCompatActivity {
             @Override
             public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Timber.d("exitSharedElement", "onSharedElementStart");
+                Timber.d("exitSharedElement: %s", "onSharedElementStart");
             }
 
             @Override
             public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Timber.d("exitSharedElement", "onSharedElementEnd");
+                Timber.d("exitSharedElement: %s", "onSharedElementEnd");
             }
 
             @Override
             public void onRejectSharedElements(List<View> rejectedSharedElements) {
                 super.onRejectSharedElements(rejectedSharedElements);
-                Timber.d("exitSharedElement", "onRejectSharedElements");
+                Timber.d("exitSharedElement: %s", "onRejectSharedElements");
             }
 
             @Override
             public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                 super.onMapSharedElements(names, sharedElements);
-                Timber.d("exitSharedElement", "onMapSharedElements");
+                Timber.d("exitSharedElement: %s", "onMapSharedElements");
                 if (updateIndex == 1) {
                     sharedElements.put(dragKit.sharedElementName, pictureActivityIv);
                 }
@@ -110,21 +110,21 @@ public class PictureActivity extends AppCompatActivity {
 
             @Override
             public Parcelable onCaptureSharedElementSnapshot(View sharedElement, Matrix viewToGlobalMatrix, RectF screenBounds) {
-                Timber.d("exitSharedElement", "onCaptureSharedElementSnapshot");
+                Timber.d("exitSharedElement: %s", "onCaptureSharedElementSnapshot");
                 sharedElement.setAlpha(1.0f);
                 return super.onCaptureSharedElementSnapshot(sharedElement, viewToGlobalMatrix, screenBounds);
             }
 
             @Override
             public View onCreateSnapshotView(Context context, Parcelable snapshot) {
-                Timber.d("exitSharedElement", "onCreateSnapshotView");
+                Timber.d("exitSharedElement: %s", "onCreateSnapshotView");
                 return super.onCreateSnapshotView(context, snapshot);
             }
 
             @Override
             public void onSharedElementsArrived(List<String> sharedElementNames, List<View> sharedElements, OnSharedElementsReadyListener listener) {
                 super.onSharedElementsArrived(sharedElementNames, sharedElements, listener);
-                Timber.d("exitSharedElement", "onSharedElementsArrived");
+                Timber.d("exitSharedElement: %s", "onSharedElementsArrived");
             }
         });
     }

@@ -80,7 +80,7 @@ public class VoiceRecordService extends Service {
             if (!mediaStorageDir.exists()) {
                 mediaStorageDir.mkdirs();
                 if (!mediaStorageDir.mkdirs()) {
-                    Timber.d("setFileNameAndPath", "failed to create directory");
+                    Timber.d("setFileNameAndPath: %s", "failed to create directory");
                 }
             }
             file = new File(mediaStorageDir + File.separator + recordFileName);
@@ -95,7 +95,7 @@ public class VoiceRecordService extends Service {
         mediaRecorder.release();
         SharedPreferencesUtils.saveString(this, VoiceConstant.VOICE_RECORD_FILE_PATH, recordFilePath);
         SharedPreferencesUtils.saveString(this, VoiceConstant.VOICE_RECORD_FILE_LENGTH, Long.toString(recordElapsedMillis));
-        Timber.d("停止录制" + recordFilePath);
+        Timber.d("停止录制：%s", recordFilePath);
         if (timerTask != null) {
             timerTask.cancel();
             timerTask = null;

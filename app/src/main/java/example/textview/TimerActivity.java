@@ -43,7 +43,7 @@ public class TimerActivity extends AppCompatActivity {
                 .setShowFormatTime(false)
                 .setIntervalUnit(TimeUnit.SECONDS)
                 .setOnCountDownStartListener(() -> ToastUtils.shortShow(this, "开始计时"))
-                .setOnCountDownTickListener(untilFinished -> Timber.d("onTick", "onTick：" + untilFinished))
+                .setOnCountDownTickListener(untilFinished -> Timber.d("onTick: %s", untilFinished))
                 .setOnCountDownFinishListener(() -> ToastUtils.shortShow(this, "计时结束"))
                 .setOnClickListener(v -> {
                     ToastUtils.shortShow(this, "短信已发送");

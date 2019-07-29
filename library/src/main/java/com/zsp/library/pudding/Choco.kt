@@ -47,7 +47,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     /**
      * 初始配置
-     *
      * loading显示、icon动画、触摸反馈等。
      */
     private fun initConfiguration() {
@@ -71,19 +70,19 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        Timber.e(TAG, "onAttachedToWindow")
+        Timber.e("onAttachedToWindow")
         initConfiguration()
         onShow?.invoke()
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        Timber.e(TAG, "onDetachedFromWindow")
+        Timber.e("onDetachedFromWindow")
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        Timber.e(TAG, "onMeasure")
+        Timber.e("onMeasure")
         if (onlyOnce) {
             onlyOnce = false
             animEnter = ObjectAnimator.ofFloat(this@Choco, "translationY", -this@Choco.measuredHeight.toFloat(), -80F)
@@ -380,7 +379,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
     }
 
     companion object {
-        private val TAG = Choco::class.java.simpleName
         const val DISPLAY_TIME: Long = 3000
         const val ANIMATION_DURATION: Long = 500
         private const val MUL = -0x1000000

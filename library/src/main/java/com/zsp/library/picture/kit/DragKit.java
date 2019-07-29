@@ -142,18 +142,18 @@ public class DragKit {
     public boolean handleMotionEvent(MotionEvent event) {
         if (dragCloseListener != null && dragCloseListener.intercept()) {
             // 拦截
-            log("action dispatch--->");
+            Timber.d("action dispatch--->");
             isSwipingToClose = false;
             return false;
         } else {
             // 不拦截
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                log("action down--->");
+                Timber.d("action down--->");
                 // 初始数据
                 lastPointerId = event.getPointerId(0);
                 reset(event);
             } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                log("action move--->" + event.getPointerCount() + "---" + isSwipingToClose);
+                Timber.d("action move--->%s---%s", event.getPointerCount(), isSwipingToClose);
                 if (event.getPointerCount() > 1) {
                     // 有多手指
                     if (isSwipingToClose) {
@@ -180,7 +180,7 @@ public class DragKit {
                     // 已触发或开始触发，更新视图
                     yLast = yCurrent;
                     xLast = xCurrent;
-                    log("action move---> start close");
+                    Timber.d("action move--->%s", "start close");
                     float yCurrentRaw = event.getRawY();
                     float xCurrentRaw = event.getRawX();
                     if (!isSwipingToClose) {
@@ -213,7 +213,7 @@ public class DragKit {
                     return true;
                 }
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                log("action up--->" + isSwipingToClose);
+                Timber.d("action up--->%s", isSwipingToClose);
                 // 手指抬起事件
                 if (isSwipingToClose) {
                     if (yCurrentTranslation > yMaxExit) {
@@ -378,15 +378,6 @@ public class DragKit {
         Intent intent = new Intent();
         intent.setClass(activity, PicturePreviewActivity.class);
         activity.startActivity(intent, compat.toBundle());
-    }
-
-    /**
-     * 打印日志
-     *
-     * @param message 消息
-     */
-    private void log(String message) {
-        Timber.d(getClass().getName(), message);
     }
 
     public interface DragCloseListener {

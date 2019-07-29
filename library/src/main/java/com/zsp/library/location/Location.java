@@ -44,13 +44,13 @@ public class Location {
         public void onStatusChanged(String provider, int status, Bundle arg2) {
             switch (status) {
                 case LocationProvider.AVAILABLE:
-                    Timber.d("onStatusChanged", "当前GPS可见");
+                    Timber.d("onStatusChanged: %s", "当前GPS可见");
                     break;
                 case LocationProvider.OUT_OF_SERVICE:
-                    Timber.d("onStatusChanged", "当前GPS服务区外");
+                    Timber.d("onStatusChanged: %s", "当前GPS服务区外");
                     break;
                 case LocationProvider.TEMPORARILY_UNAVAILABLE:
-                    Timber.d("onStatusChanged", "当前GPS暂停服务");
+                    Timber.d("onStatusChanged: %s", "当前GPS暂停服务");
                     break;
                 default:
                     break;
@@ -96,10 +96,10 @@ public class Location {
             // 精确度
             location.getAccuracy();
             setLocation(location);
-            Timber.d("onLocationChanged", "时间：" + location.getTime());
-            Timber.d("onLocationChanged", "经度：" + location.getLongitude());
-            Timber.d("onLocationChanged", "纬度：" + location.getLatitude());
-            Timber.d("onLocationChanged", "海拔：" + location.getAltitude());
+            Timber.d("onLocationChanged 时间：%s", location.getTime());
+            Timber.d("onLocationChanged 经度：%s", location.getLongitude());
+            Timber.d("onLocationChanged 纬度：%s", location.getLatitude());
+            Timber.d("onLocationChanged 海拔：%s", location.getAltitude());
         }
     };
 
@@ -163,7 +163,7 @@ public class Location {
         this.location = location;
         if (location != null) {
             String address = "经度：" + location.getLongitude() + " " + "纬度：" + location.getLatitude();
-            Timber.d("坐标", address);
+            Timber.d("坐标：%s", address);
         }
     }
 
@@ -186,13 +186,13 @@ public class Location {
         if (providers.contains(LocationManager.GPS_PROVIDER)) {
             // GPS提供器
             locationProvider = LocationManager.GPS_PROVIDER;
-            Timber.d("位置提供器", "gps");
+            Timber.d("位置提供器：%s", "gps");
         } else if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
             // 网络提供器
             locationProvider = LocationManager.NETWORK_PROVIDER;
-            Timber.d("位置提供器", "network");
+            Timber.d("位置提供器：%s", "network");
         } else {
-            Timber.d("位置提供器", "无可用位置提供器");
+            Timber.d("位置提供器：%s", "无可用位置提供器");
             return;
         }
         // 需查权限（否编译错）

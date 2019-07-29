@@ -106,10 +106,13 @@ public class VoicePlayDialogFragment extends DialogFragment {
             path = getArguments().getString(VoiceConstant.VOICE_RECORD_FILE_PATH);
         }
         // 文件时长
-        long itemDuration = Long.parseLong(getArguments().getString(VoiceConstant.VOICE_RECORD_FILE_LENGTH));
-        minutes = TimeUnit.MILLISECONDS.toMinutes(itemDuration);
-        seconds = TimeUnit.MILLISECONDS.toSeconds(itemDuration) - TimeUnit.MINUTES.toSeconds(minutes);
-        Timber.d("时长" + minutes + "-" + seconds);
+        Bundle bundle = getArguments();
+        if (null != bundle) {
+            long itemDuration = Long.parseLong(bundle.getString(VoiceConstant.VOICE_RECORD_FILE_LENGTH));
+            minutes = TimeUnit.MILLISECONDS.toMinutes(itemDuration);
+            seconds = TimeUnit.MILLISECONDS.toSeconds(itemDuration) - TimeUnit.MINUTES.toSeconds(minutes);
+            Timber.d("时长：%s-%s", minutes, seconds);
+        }
     }
 
     @Override

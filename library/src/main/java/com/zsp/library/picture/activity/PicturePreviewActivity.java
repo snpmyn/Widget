@@ -217,42 +217,42 @@ public class PicturePreviewActivity extends AppCompatActivity {
             @Override
             public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Timber.d("enterSharedElement", "onSharedElementStart");
+                Timber.d("enterSharedElement: %s", "onSharedElementStart");
             }
 
             @Override
             public void onSharedElementEnd(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
-                Timber.d("enterSharedElement", "onSharedElementEnd");
+                Timber.d("enterSharedElement: %s", "onSharedElementEnd");
             }
 
             @Override
             public void onRejectSharedElements(List<View> rejectedSharedElements) {
                 super.onRejectSharedElements(rejectedSharedElements);
-                Timber.d("enterSharedElement", "onRejectSharedElements");
+                Timber.d("enterSharedElement: %s", "onRejectSharedElements");
             }
 
             @Override
             public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                 super.onMapSharedElements(names, sharedElements);
-                Timber.d("enterSharedElement", "onMapSharedElements");
+                Timber.d("enterSharedElement: %s", "onMapSharedElements");
             }
 
             @Override
             public Parcelable onCaptureSharedElementSnapshot(View sharedElement, Matrix viewToGlobalMatrix, RectF screenBounds) {
-                Timber.d("enterSharedElement", "onCaptureSharedElementSnapshot");
+                Timber.d("enterSharedElement: %s", "onCaptureSharedElementSnapshot");
                 return super.onCaptureSharedElementSnapshot(sharedElement, viewToGlobalMatrix, screenBounds);
             }
 
             @Override
             public View onCreateSnapshotView(Context context, Parcelable snapshot) {
-                Timber.d("enterSharedElement", "onCreateSnapshotView");
+                Timber.d("enterSharedElement: %s", "onCreateSnapshotView");
                 return super.onCreateSnapshotView(context, snapshot);
             }
 
             @Override
             public void onSharedElementsArrived(List<String> sharedElementNames, List<View> sharedElements, OnSharedElementsReadyListener listener) {
-                Timber.d("enterSharedElement", "onSharedElementsArrived");
+                Timber.d("enterSharedElement: %s", "onSharedElementsArrived");
                 super.onSharedElementsArrived(sharedElementNames, sharedElements, listener);
             }
         });

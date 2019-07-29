@@ -90,7 +90,7 @@ class Pudding : LifecycleObserver {
     companion object {
         @JvmStatic
         private fun log(e: String) {
-            Timber.e(this::class.java.simpleName, "${this} $e")
+            Timber.e("${this} $e")
         }
 
         private var activityWeakReference: WeakReference<AppCompatActivity>? = null

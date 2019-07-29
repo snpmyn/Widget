@@ -6,6 +6,8 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 
 import com.squareup.leakcanary.LeakCanary;
+import com.zsp.utilone.timber.configure.TimberInitConfigure;
+import com.zsp.widget.BuildConfig;
 
 /**
  * Created on 2019/7/22.
@@ -13,7 +15,7 @@ import com.squareup.leakcanary.LeakCanary;
  * @author 郑少鹏
  * @desc 应用
  */
-public class App extends Application {
+public class WidgetApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -23,6 +25,7 @@ public class App extends Application {
             return;
         }
         LeakCanary.install(this);
+        TimberInitConfigure.initTimber(BuildConfig.DEBUG);
     }
 
     @Override

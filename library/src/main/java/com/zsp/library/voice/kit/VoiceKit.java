@@ -55,7 +55,7 @@ public class VoiceKit {
      */
     public static void play(Activity activity, FragmentManager fragmentManager) {
         String voicePath = SharedPreferencesUtils.getString(activity, VoiceConstant.VOICE_RECORD_FILE_PATH, null);
-        Timber.d("播放" + voicePath);
+        Timber.d("播放：%s", voicePath);
         if (voicePath != null) {
             VoicePlayDialogFragment voicePlayDialogFragment = new VoicePlayDialogFragment().
                     newInstance(voicePath, Long.parseLong(SharedPreferencesUtils.getString(activity, VoiceConstant.VOICE_RECORD_FILE_LENGTH, null)));

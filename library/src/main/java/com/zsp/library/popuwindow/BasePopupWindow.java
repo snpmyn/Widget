@@ -186,11 +186,11 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
                 boolean flag = (event.getAction() == MotionEvent.ACTION_DOWN) && ((x < 0) || (x >= mWidth) || (y < 0) || (y >= mHeight));
                 if (flag) {
                     // outside
-                    Timber.d("onTouch outside:mWidth=" + mWidth + "，mHeight=" + mHeight);
+                    Timber.d("onTouch outside: mWidth=" + mWidth + "，mHeight=" + mHeight);
                     return true;
                 } else if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
                     // outside
-                    Timber.d("onTouch outside event:mWidth=" + mWidth + "，mHeight=" + mHeight);
+                    Timber.d("onTouch outside event: mWidth=" + mWidth + "，mHeight=" + mHeight);
                     return true;
                 }
                 return false;
@@ -269,7 +269,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
                         mOnRealWidthHeightAlreadyListener.onRealWhAlready(BasePopupWindow.this, mWidth, mHeight, mAnchorView == null ?
                                 0 : mAnchorView.getWidth(), mAnchorView == null ? 0 : mAnchorView.getHeight());
                     }
-                    Timber.d("onGlobalLayout finished. isShowing=" + isShowing());
+                    Timber.d("onGlobalLayout finished. isShowing = %s", isShowing());
                     if (isShowing() && isAtAnchorViewMethod) {
                         updateLocation(mWidth, mHeight, mAnchorView, yGravity, xGravity, xOffset, yOffset);
                     }
