@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true/*Vector Drawable兼容*/
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.zsp.widget"
         minSdkVersion 19
         targetSdkVersion 29
@@ -36,7 +36,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     /*ButterKnife*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-alpha-2'
     /*LeakCanary*/
 }
