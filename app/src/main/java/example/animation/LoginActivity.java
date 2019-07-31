@@ -6,7 +6,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.utilone.intent.IntentUtils;
-import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
@@ -34,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 break;
             // 登录二
             case R.id.loginActivityMbLoginTwo:
-                ToastUtils.shortShow(this, "待补充");
+                IntentUtils.jumpNoBundle(this, LoginTwoActivity.class);
                 break;
             default:
                 break;

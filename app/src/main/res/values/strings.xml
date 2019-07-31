@@ -8,6 +8,7 @@
     <string name="login">登录</string>
     <string name="loginOne">登录一</string>
     <string name="loginTwo">登录二</string>
+    <string name="loginFail">登录失败</string>
     <string name="dialog">对话框</string>
     <string name="dialogOne">对话框一</string>
     <string name="dialogTwo">对话框二</string>

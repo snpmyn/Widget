@@ -35,6 +35,7 @@
         <activity android:name="example.dialog.DialogOneActivity" />
         <activity android:name="example.dialog.DialogActivity" />
         <activity android:name="example.animation.HomeActivity" />
+        <activity android:name="example.animation.LoginTwoActivity" />
         <activity android:name="example.animation.LoginOneActivity" />
         <activity android:name="example.animation.LoginActivity" />
         <activity android:name="example.textview.TimerActivity" />
@@ -48,10 +49,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- 录音服务 -->
-        <service android:name="com.zsp.library.voice.service.VoiceRecordService" />
-        <!-- 电话服务 -->
+        </activity> <!-- 录音服务 -->
+        <service android:name="com.zsp.library.voice.service.VoiceRecordService" /> <!-- 电话服务 -->
         <service android:name="com.zsp.library.telephony.TelephonyService" />
     </application>
 
