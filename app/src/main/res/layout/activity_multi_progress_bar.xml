@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="example.progressbar.MultiProgressBarActivity">
+
+    <com.zsp.library.progressbar.MultiProgressBar
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_12"
+        android:progress="40"
+        app:multiProgressBarIsCapRounded="false"
+        app:multiProgressBarIsHiddenText="true"
+        app:multiProgressBarMode="horizontal"
+        app:multiProgressBarReachedColor="@color/warning"
+        app:multiProgressBarReachedHeight="@dimen/dp_4"
+        app:multiProgressBarTextColor="@color/warning"
+        app:multiProgressBarTextMargin="@dimen/dp_8"
+        app:multiProgressBarTextSize="@dimen/sp_14"
+        app:multiProgressBarUnReachedColor="@color/gray"
+        app:multiProgressBarUnReachedHeight="@dimen/dp_2"
+        tools:targetApi="lollipop" />
+
+    <com.zsp.library.progressbar.MultiProgressBar
+        android:id="@+id/bpbDownloadProgressDialog"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_32"
+        android:progress="56"
+        app:multiProgressBarIsCapRounded="true"
+        app:multiProgressBarMode="circle"
+        app:multiProgressBarRadius="@dimen/dp_44"
+        app:multiProgressBarReachedColor="@color/colorPrimary"
+        app:multiProgressBarReachedHeight="@dimen/dp_8"
+        app:multiProgressBarTextColor="@color/colorPrimary"
+        app:multiProgressBarTextSize="@dimen/sp_16"
+        app:multiProgressBarUnReachedColor="@color/gray"
+        app:multiProgressBarUnReachedHeight="@dimen/dp_4"
+        tools:targetApi="lollipop" />
+</LinearLayout>

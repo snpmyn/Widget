@@ -88,6 +88,7 @@
     <string name="noExternalStorage">无外部存储</string>
     <string name="extract">提取</string>
     <string name="telephony">电话</string>
+    <string name="multiProgressBar">多样进度条</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

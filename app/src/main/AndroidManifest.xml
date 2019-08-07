@@ -20,6 +20,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.progressbar.MultiProgressBarActivity" />
         <activity android:name="example.telephony.TelephonyActivity" />
         <activity android:name="example.contract.ContactActivity" />
         <activity android:name="example.sms.SmsActivity" />

@@ -70,4 +70,40 @@
             <enum name="RightBottom" value="3" />
         </attr>
     </declare-styleable>
+    <!--MultiProgressBar-->
+    <declare-styleable name="MultiProgressBar">
+        <!--样式（默system）-->
+        <attr name="multiProgressBarMode" format="enum">
+            <!--系统-->
+            <enum name="system" value="0" />
+            <!--水平-->
+            <enum name="horizontal" value="1" />
+            <!--圆-->
+            <enum name="circle" value="2" />
+            <!--彗星-->
+            <enum name="comet" value="3" />
+            <!--波浪-->
+            <enum name="wave" value="4" />
+        </attr>
+        <!--文本色（默#70A800）-->
+        <attr name="multiProgressBarTextColor" format="reference|color" />
+        <!--文本大小（默10sp）-->
+        <attr name="multiProgressBarTextSize" format="dimension" />
+        <!--文本同进度条间距（默4dp）-->
+        <attr name="multiProgressBarTextMargin" format="dimension" />
+        <!--已完成进度色（默#70A800）-->
+        <attr name="multiProgressBarReachedColor" format="reference|color" />
+        <!--已完成进度高（默2dp）-->
+        <attr name="multiProgressBarReachedHeight" format="dimension" />
+        <!--未完成进度色（默#CCCCCC）-->
+        <attr name="multiProgressBarUnReachedColor" format="reference|color" />
+        <!--未完成进度高（默1dp）-->
+        <attr name="multiProgressBarUnReachedHeight" format="dimension" />
+        <!--圆角否（默false）-->
+        <attr name="multiProgressBarIsCapRounded" format="boolean" />
+        <!--隐文本否（默false）-->
+        <attr name="multiProgressBarIsHiddenText" format="boolean" />
+        <!--圆进度条半径（默16dp）-->
+        <attr name="multiProgressBarRadius" format="dimension" />
+    </declare-styleable>
 </resources>

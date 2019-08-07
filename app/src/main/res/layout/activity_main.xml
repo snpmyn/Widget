@@ -124,5 +124,12 @@
             android:layout_height="wrap_content"
             android:text="@string/telephony"
             android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbMultiProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/multiProgressBar"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>

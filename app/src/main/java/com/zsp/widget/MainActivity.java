@@ -18,6 +18,7 @@ import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
+import example.progressbar.MultiProgressBarActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
 import example.searchbox.SearchBoxActivity;
@@ -85,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbCounter,
             R.id.mainActivityMbSms,
             R.id.mainActivityMbContact,
-            R.id.mainActivityMbTelephony})
+            R.id.mainActivityMbTelephony,
+            R.id.mainActivityMbMultiProgressBar})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -151,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
             // 电话
             case R.id.mainActivityMbTelephony:
                 IntentUtils.jumpNoBundle(this, TelephonyActivity.class);
+                break;
+            // 多样进度条
+            case R.id.mainActivityMbMultiProgressBar:
+                IntentUtils.jumpNoBundle(this, MultiProgressBarActivity.class);
                 break;
             default:
                 break;
