@@ -4,7 +4,12 @@
     <string name="searchBox">搜索框</string>
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>
+    <string name="textView">TextView</string>
     <string name="timer">计时器</string>
+    <string name="fill">填</string>
+    <string name="filledIn">所填内容</string>
+    <string name="originalText">原始文本</string>
+    <string name="textPassage">段落</string>
     <string name="login">登录</string>
     <string name="loginOne">登录一</string>
     <string name="loginTwo">登录二</string>
@@ -69,10 +74,6 @@
     <string name="exampleSix">示例六</string>
     <string name="exampleSeven">示例七</string>
     <string name="exampleEight">示例八</string>
-    <string name="fill">填</string>
-    <string name="filledIn">所填内容</string>
-    <string name="originalText">原始文本</string>
-    <string name="textPassage">段落</string>
     <string name="counter">计数</string>
     <string name="increase">increase</string>
     <string name="decrease">decrease</string>
@@ -88,7 +89,37 @@
     <string name="noExternalStorage">无外部存储</string>
     <string name="extract">提取</string>
     <string name="telephony">电话</string>
+    <string name="progressBar">进度条</string>
     <string name="multiProgressBar">多样进度条</string>
+    <string name="progressWheel">进度轮</string>
+    <string name="options">Options:</string>
+    <string name="progress">Progress:</string>
+    <string name="barColor">Bar color:</string>
+    <string name="wheelColor">Wheel color:</string>
+    <string name="interpolatedProgress">Interpolated progress:</string>
+    <string name="linearProgress">Linear progress:</string>
+    <string name="ok">OK</string>
+    <string name="about">About</string>
+    <string name="aboutHint">This app is for demonstrate the Material-ish progress wheel library, which provides a Material-style progress wheel compatible back to API 9. You can have indeterminate and determinate versions of the progress wheel, the later with a linear animation or a interpolated one like in the guidelines.\n\nRefer to the Github project page for more info at https://github.com/pnikosis/materialish-progress. </string>
+    <string-array name="progressValueOptions">
+        <item>Cycle between 0% and 100%</item>
+        <item>0%</item>
+        <item>10%</item>
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="progressColorOptions">
+        <item>Default</item>
+        <item>Red</item>
+        <item>Magenta</item>
+    </string-array>
+    <string-array name="wheelColorOptions">
+        <item>Default</item>
+        <item>Light Gray</item>
+        <item>Gray</item>
+    </string-array>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

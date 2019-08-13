@@ -8,7 +8,7 @@ android {
 
 
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true/*Vector Drawable兼容*/
+        vectorDrawables.useSupportLibrary = true
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -44,8 +44,6 @@ dependencies {
     /*官方*/
     api 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
-    implementation 'com.pnikosis:materialish-progress:1.7'
-    /*progress*/
     api 'com.hwangjr.rxbus:rxbus:2.0.1'
     /*RxBus*/
     api 'com.willowtreeapps.spruce:spruce-android:1.0.1'

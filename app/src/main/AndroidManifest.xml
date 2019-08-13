@@ -20,12 +20,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.progressbar.ProgressWheelActivity" />
         <activity android:name="example.progressbar.MultiProgressBarActivity" />
+        <activity android:name="example.progressbar.ProgressBarActivity" />
         <activity android:name="example.telephony.TelephonyActivity" />
         <activity android:name="example.contract.ContactActivity" />
         <activity android:name="example.sms.SmsActivity" />
         <activity android:name="example.floatingactionbutton.CounterActivity" />
-        <activity android:name="example.textview.FillActivity" />
         <activity android:name="example.pudding.PuddingActivity" />
         <activity android:name="example.location.LocationActivity" />
         <activity android:name="example.voice.VoiceActivity" />
@@ -40,6 +41,8 @@
         <activity android:name="example.animation.LoginOneActivity" />
         <activity android:name="example.animation.LoginActivity" />
         <activity android:name="example.textview.TimerActivity" />
+        <activity android:name="example.textview.FillActivity" />
+        <activity android:name="example.textview.TextViewActivity" />
         <activity android:name="example.searchbox.SearchBoxOneActivity" />
         <activity android:name="example.searchbox.SearchBoxTwoActivity" />
         <activity android:name="example.searchbox.SearchBoxActivity" />
@@ -50,8 +53,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 录音服务 -->
-        <service android:name="com.zsp.library.voice.service.VoiceRecordService" /> <!-- 电话服务 -->
+        </activity>
+        <!-- 录音服务 -->
+        <service android:name="com.zsp.library.voice.service.VoiceRecordService" />
+        <!-- 电话服务 -->
         <service android:name="com.zsp.library.telephony.TelephonyService" />
     </application>
 

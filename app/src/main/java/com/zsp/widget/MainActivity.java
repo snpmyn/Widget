@@ -18,7 +18,7 @@ import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
-import example.progressbar.MultiProgressBarActivity;
+import example.progressbar.ProgressBarActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
 import example.searchbox.SearchBoxActivity;
@@ -26,8 +26,7 @@ import example.sms.SmsActivity;
 import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
 import example.telephony.TelephonyActivity;
-import example.textview.FillActivity;
-import example.textview.TimerActivity;
+import example.textview.TextViewActivity;
 import example.voice.VoiceActivity;
 
 /**
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.mainActivityMbPicture,
             R.id.mainActivityMbSearchBox,
-            R.id.mainActivityMbTimer,
+            R.id.mainActivityMbTextView,
             R.id.mainActivityMbLogin,
             R.id.mainActivityMbDialog,
             R.id.mainActivityMbSpannableStringBuilder,
@@ -82,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbVoice,
             R.id.mainActivityMbLocation,
             R.id.mainActivityMbPudding,
-            R.id.mainActivityMbFill,
             R.id.mainActivityMbCounter,
             R.id.mainActivityMbSms,
             R.id.mainActivityMbContact,
             R.id.mainActivityMbTelephony,
-            R.id.mainActivityMbMultiProgressBar})
+            R.id.mainActivityMbProgressBar})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -98,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbSearchBox:
                 IntentUtils.jumpNoBundle(this, SearchBoxActivity.class);
                 break;
-            // 计时器
-            case R.id.mainActivityMbTimer:
-                IntentUtils.jumpNoBundle(this, TimerActivity.class);
+            // TextView
+            case R.id.mainActivityMbTextView:
+                IntentUtils.jumpNoBundle(this, TextViewActivity.class);
                 break;
             // 登录一
             case R.id.mainActivityMbLogin:
@@ -134,10 +132,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbPudding:
                 IntentUtils.jumpNoBundle(this, PuddingActivity.class);
                 break;
-            // 填
-            case R.id.mainActivityMbFill:
-                IntentUtils.jumpNoBundle(this, FillActivity.class);
-                break;
             // 计数
             case R.id.mainActivityMbCounter:
                 IntentUtils.jumpNoBundle(this, CounterActivity.class);
@@ -154,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbTelephony:
                 IntentUtils.jumpNoBundle(this, TelephonyActivity.class);
                 break;
-            // 多样进度条
-            case R.id.mainActivityMbMultiProgressBar:
-                IntentUtils.jumpNoBundle(this, MultiProgressBarActivity.class);
+            // 进度条
+            case R.id.mainActivityMbProgressBar:
+                IntentUtils.jumpNoBundle(this, ProgressBarActivity.class);
                 break;
             default:
                 break;

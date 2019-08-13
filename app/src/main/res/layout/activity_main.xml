@@ -28,10 +28,10 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbTimer"
+            android:id="@+id/mainActivityMbTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/timer"
+            android:text="@string/textView"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
@@ -91,13 +91,6 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbFill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fill"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/mainActivityMbCounter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,10 +119,10 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbMultiProgressBar"
+            android:id="@+id/mainActivityMbProgressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/multiProgressBar"
+            android:text="@string/progressBar"
             android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>

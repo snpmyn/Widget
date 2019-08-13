@@ -4,8 +4,8 @@ import android.content.Context;
 
 import androidx.core.content.ContextCompat;
 
-import com.pnikosis.materialishprogress.ProgressWheel;
 import com.zsp.library.R;
+import com.zsp.library.progressbar.ProgressWheel;
 
 /**
  * Created on 2017/11/3.

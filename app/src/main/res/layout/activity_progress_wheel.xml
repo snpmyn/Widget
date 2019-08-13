@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.progressbar.ProgressWheelActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="@dimen/dp_12">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/progressWheelActivityMbAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/progressWheelActivityLlSpinners"
+            android:layout_alignParentTop="true"
+            android:text="@string/about"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <TextView
+            android:id="@+id/progressWheelActivityTvOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressWheelActivityMbAbout"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="@string/options"
+            android:textSize="@dimen/sp_16" />
+
+        <LinearLayout
+            android:id="@+id/progressWheelActivityLlSpinners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressWheelActivityTvOptions"
+            android:layout_alignParentStart="true"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/barColor" />
+
+                <Spinner
+                    android:id="@+id/progressWheelActivitySpinnerProgressColorOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/progressColorOptions" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wheelColor" />
+
+                <Spinner
+                    android:id="@+id/progressWheelActivitySpinnerWheelColorOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/wheelColorOptions" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.zsp.library.progressbar.ProgressWheel
+            android:id="@+id/progressWheelActivityPw"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_below="@id/progressWheelActivityLlSpinners"
+            android:layout_centerHorizontal="true"
+            wheel:ProgressWheelBarColor="@color/color5588FF"
+            wheel:ProgressWheelProgressIndeterminate="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressWheelActivityPw"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/progress" />
+
+            <Spinner
+                android:id="@+id/progressWheelActivitySpinnerProgressValueOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:entries="@array/progressValueOptions"
+                android:gravity="center_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:text="@string/interpolatedProgress" />
+
+                    <com.zsp.library.progressbar.ProgressWheel
+                        android:id="@+id/progressWheelActivityPwInterpolated"
+                        android:layout_width="@dimen/dp_80"
+                        android:layout_height="@dimen/dp_80"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12"
+                        wheel:ProgressWheelBarColor="@color/color5588FF"
+                        wheel:ProgressWheelFillRadius="false" />
+
+                    <TextView
+                        android:id="@+id/progressWheelActivityTvInterpolatedValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12"
+                        android:text="@string/linearProgress" />
+
+                    <com.zsp.library.progressbar.ProgressWheel
+                        android:id="@+id/progressWheelActivityPwLinear"
+                        android:layout_width="@dimen/dp_80"
+                        android:layout_height="@dimen/dp_80"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12"
+                        wheel:ProgressWheelBarColor="@color/color5588FF"
+                        wheel:ProgressWheelFillRadius="false"
+                        wheel:ProgressWheelLinearProgress="true" />
+
+                    <TextView
+                        android:id="@+id/progressWheelActivityTvLinearValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_12" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

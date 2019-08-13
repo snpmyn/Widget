@@ -106,4 +106,17 @@
         <!--圆进度条半径（默16dp）-->
         <attr name="multiProgressBarRadius" format="dimension" />
     </declare-styleable>
+    <!--ProgressWheel-->
+    <declare-styleable name="ProgressWheel">
+        <attr name="ProgressWheelProgressIndeterminate" format="boolean" />
+        <attr name="ProgressWheelBarColor" format="color" />
+        <attr name="ProgressWheelRimColor" format="color" />
+        <attr name="ProgressWheelRimWidth" format="dimension" />
+        <attr name="ProgressWheelSpinSpeed" format="float" />
+        <attr name="ProgressWheelBarSpinCycleTime" format="integer" />
+        <attr name="ProgressWheelCircleRadius" format="dimension" />
+        <attr name="ProgressWheelFillRadius" format="boolean" />
+        <attr name="ProgressWheelBarWidth" format="dimension" />
+        <attr name="ProgressWheelLinearProgress" format="boolean" />
+    </declare-styleable>
 </resources>
