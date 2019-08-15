@@ -6,7 +6,7 @@
 ##### app
 implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 ##### AndroidLibrary - Library
-* implementation "androidx.core:core-ktx:1.2.0-alpha02"
+* implementation 'androidx.core:core-ktx:1.2.0-alpha03'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 * api 'com.hwangjr.rxbus:rxbus:2.0.1'（避重）
