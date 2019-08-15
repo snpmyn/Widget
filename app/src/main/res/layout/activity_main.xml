@@ -124,5 +124,12 @@
             android:layout_height="wrap_content"
             android:text="@string/progressBar"
             android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbPercentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/percentLayout"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>

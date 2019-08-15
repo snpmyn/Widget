@@ -20,6 +20,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name="example.percentlayout.PercentLayoutActivity" />
         <activity android:name="example.progressbar.ProgressWheelActivity" />
         <activity android:name="example.progressbar.MultiProgressBarActivity" />
         <activity android:name="example.progressbar.ProgressBarActivity" />

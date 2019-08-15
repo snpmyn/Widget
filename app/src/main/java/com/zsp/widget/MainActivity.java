@@ -17,6 +17,7 @@ import example.contract.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.location.LocationActivity;
+import example.percentlayout.PercentLayoutActivity;
 import example.picture.PictureActivity;
 import example.progressbar.ProgressBarActivity;
 import example.pudding.PuddingActivity;
@@ -85,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbSms,
             R.id.mainActivityMbContact,
             R.id.mainActivityMbTelephony,
-            R.id.mainActivityMbProgressBar})
+            R.id.mainActivityMbProgressBar,
+            R.id.mainActivityMbPercentLayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -151,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
             // 进度条
             case R.id.mainActivityMbProgressBar:
                 IntentUtils.jumpNoBundle(this, ProgressBarActivity.class);
+                break;
+            // 百分比布局
+            case R.id.mainActivityMbPercentLayout:
+                IntentUtils.jumpNoBundle(this, PercentLayoutActivity.class);
                 break;
             default:
                 break;

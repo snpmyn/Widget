@@ -120,6 +120,9 @@
         <item>Light Gray</item>
         <item>Gray</item>
     </string-array>
+    <string name="percentLayout">百分比布局</string>
+    <string name="percentLayoutHintOne">宽占父布局宽50%\n\n高占父布局高40%</string>
+    <string name="percentLayoutHintTwo">宽占父布局高80%\n\n高占父布局高60%</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
