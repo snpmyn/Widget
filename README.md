@@ -26,6 +26,7 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 * android:name="android.permission.RECORD_AUDIO"（避重）
 * android:name="android.permission.READ_CONTACTS"（避重）
 * android:name="android.permission.SEND_SMS"（避重）
+
 ##### AndroidLibrary - Library
 * android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）
 * android:name="android.permission.ACCESS_FINE_LOCATION"（避重）
