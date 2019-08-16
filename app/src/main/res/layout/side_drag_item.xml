@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sideDragItemMcv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="@dimen/dp_6"
+    app:contentPadding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/sideDragItemTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/fontInput"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:id="@+id/sideDragItemIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:contentDescription="@string/toDo"
+        app:srcCompat="@drawable/ic_reorder_24dp_gray_select" />
+</com.google.android.material.card.MaterialCardView>

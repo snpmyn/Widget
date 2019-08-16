@@ -23,6 +23,7 @@ import example.progressbar.ProgressBarActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
 import example.searchbox.SearchBoxActivity;
+import example.sidedrag.SideDragActivity;
 import example.sms.SmsActivity;
 import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
@@ -87,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbContact,
             R.id.mainActivityMbTelephony,
             R.id.mainActivityMbProgressBar,
-            R.id.mainActivityMbPercentLayout})
+            R.id.mainActivityMbPercentLayout,
+            R.id.mainActivityMbSideDrag})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -157,6 +159,10 @@ public class MainActivity extends AppCompatActivity {
             // 百分比布局
             case R.id.mainActivityMbPercentLayout:
                 IntentUtils.jumpNoBundle(this, PercentLayoutActivity.class);
+                break;
+            // 侧拖
+            case R.id.mainActivityMbSideDrag:
+                IntentUtils.jumpNoBundle(this, SideDragActivity.class);
                 break;
             default:
                 break;

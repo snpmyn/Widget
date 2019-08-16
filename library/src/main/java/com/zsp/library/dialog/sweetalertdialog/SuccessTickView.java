@@ -49,7 +49,7 @@ public class SuccessTickView extends View {
 
     private void init() {
         mPaint = new Paint();
-        mPaint.setColor(ContextCompat.getColor(getContext(), R.color.success_sign));
+        mPaint.setColor(ContextCompat.getColor(getContext(), R.color.successSign));
         mLeftRectWidth = CONST_LEFT_RECT_W;
         mRightRectWidth = CONST_RIGHT_RECT_W;
         mLeftRectGrowMode = false;

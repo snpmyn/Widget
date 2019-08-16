@@ -3,7 +3,7 @@
     android:shape="oval">
     <stroke
         android:width="@dimen/dp_2"
-        android:color="@color/success_circle" />
+        android:color="@color/successCircle" />
     <solid android:color="@android:color/transparent" />
 </shape>
 
