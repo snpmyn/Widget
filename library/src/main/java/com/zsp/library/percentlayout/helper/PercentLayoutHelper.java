@@ -60,32 +60,18 @@ public class PercentLayoutHelper {
         params.height = array.getLayoutDimension(heightAttr, 0);
     }
 
-    /**
-     * Iterates over children and changes their width and height to one calculated from percentage values.
-     *
-     * @param widthMeasureSpec  Width MeasureSpec of the parent ViewGroup.
-     * @param heightMeasureSpec Height MeasureSpec of the parent ViewGroup.
-     */
-    public void adjustChildren(int widthMeasureSpec, int heightMeasureSpec) {
-        int widthHint = View.MeasureSpec.getSize(widthMeasureSpec);
-        int heightHint = View.MeasureSpec.getSize(heightMeasureSpec);
-        for (int i = 0, N = mHost.getChildCount(); i < N; i++) {
-            View view = mHost.getChildAt(i);
-            ViewGroup.LayoutParams params = view.getLayoutParams();
-            if (params instanceof PercentLayoutParams) {
-                PercentLayoutInfo info = ((PercentLayoutParams) params).getPercentLayoutInfo();
-                if (info != null) {
-                    supportTextSize(widthHint, heightHint, view, info);
-                    supportPadding(widthHint, heightHint, view, info);
-                    supportMinOrMaxDimension(widthHint, heightHint, view, info);
-                    if (params instanceof ViewGroup.MarginLayoutParams) {
-                        info.fillMarginLayoutParams((ViewGroup.MarginLayoutParams) params, widthHint, heightHint);
-                    } else {
-                        info.fillLayoutParams(params, widthHint, heightHint);
-                    }
-                }
-            }
+    private static PercentLayoutInfo setWidthAndHeightVal(TypedArray array, PercentLayoutInfo percentLayoutInfo) {
+        PercentLayoutInfo.PercentVal percentVal = getPercentVal(array, R.styleable.PercentLayout_layout_widthPercent, true);
+        if (percentVal != null) {
+            percentLayoutInfo = checkForInfoExists(percentLayoutInfo);
+            percentLayoutInfo.widthPercent = percentVal;
         }
+        percentVal = getPercentVal(array, R.styleable.PercentLayout_layout_heightPercent, false);
+        if (percentVal != null) {
+            percentLayoutInfo = checkForInfoExists(percentLayoutInfo);
+            percentLayoutInfo.heightPercent = percentVal;
+        }
+        return percentLayoutInfo;
     }
 
     private void supportPadding(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
@@ -187,18 +173,32 @@ public class PercentLayoutHelper {
         return info;
     }
 
-    private static PercentLayoutInfo setWidthAndHeightVal(TypedArray array, PercentLayoutInfo info) {
-        PercentLayoutInfo.PercentVal percentVal = getPercentVal(array, R.styleable.PercentLayout_layout_widthPercent, true);
-        if (percentVal != null) {
-            info = checkForInfoExists(info);
-            info.widthPercent = percentVal;
+    /**
+     * Iterates over children and changes their width and height to one calculated from percentage values.
+     *
+     * @param widthMeasureSpec  Width MeasureSpec of the parent ViewGroup.
+     * @param heightMeasureSpec Height MeasureSpec of the parent ViewGroup.
+     */
+    public void adjustChildren(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthHint = View.MeasureSpec.getSize(widthMeasureSpec);
+        int heightHint = View.MeasureSpec.getSize(heightMeasureSpec);
+        for (int i = 0, n = mHost.getChildCount(); i < n; i++) {
+            View view = mHost.getChildAt(i);
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            if (params instanceof PercentLayoutParams) {
+                PercentLayoutInfo info = ((PercentLayoutParams) params).getPercentLayoutInfo();
+                if (info != null) {
+                    supportTextSize(widthHint, heightHint, view, info);
+                    supportPadding(widthHint, heightHint, view, info);
+                    supportMinOrMaxDimension(widthHint, heightHint, view, info);
+                    if (params instanceof ViewGroup.MarginLayoutParams) {
+                        info.fillMarginLayoutParams((ViewGroup.MarginLayoutParams) params, widthHint, heightHint);
+                    } else {
+                        info.fillLayoutParams(params, widthHint, heightHint);
+                    }
+                }
+            }
         }
-        percentVal = getPercentVal(array, R.styleable.PercentLayout_layout_heightPercent, false);
-        if (percentVal != null) {
-            info = checkForInfoExists(info);
-            info.heightPercent = percentVal;
-        }
-        return info;
     }
 
     private static PercentLayoutInfo setTextSizeSupportVal(TypedArray array, PercentLayoutInfo info) {
@@ -385,7 +385,7 @@ public class PercentLayoutHelper {
      * Calling this method only makes sense if you previously called {@link PercentLayoutHelper#adjustChildren(int, int)}.
      */
     public void restoreOriginalParams() {
-        for (int i = 0, N = mHost.getChildCount(); i < N; i++) {
+        for (int i = 0, n = mHost.getChildCount(); i < n; i++) {
             View view = mHost.getChildAt(i);
             ViewGroup.LayoutParams params = view.getLayoutParams();
             if (params instanceof PercentLayoutParams) {
@@ -417,7 +417,7 @@ public class PercentLayoutHelper {
      */
     public boolean handleMeasuredStateTooSmall() {
         boolean needsSecondMeasure = false;
-        for (int i = 0, N = mHost.getChildCount(); i < N; i++) {
+        for (int i = 0, n = mHost.getChildCount(); i < n; i++) {
             View view = mHost.getChildAt(i);
             ViewGroup.LayoutParams params = view.getLayoutParams();
             if (params instanceof PercentLayoutParams) {

@@ -13,6 +13,7 @@ import com.zsp.utilone.toast.ToastUtils;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.animation.LoginActivity;
+import example.banner.BannerActivity;
 import example.contract.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
@@ -89,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbTelephony,
             R.id.mainActivityMbProgressBar,
             R.id.mainActivityMbPercentLayout,
-            R.id.mainActivityMbSideDrag})
+            R.id.mainActivityMbSideDrag,
+            R.id.mainActivityMbBanner})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // Switch
@@ -163,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
             // 侧拖
             case R.id.mainActivityMbSideDrag:
                 IntentUtils.jumpNoBundle(this, SideDragActivity.class);
+                break;
+            // 轮播
+            case R.id.mainActivityMbBanner:
+                IntentUtils.jumpNoBundle(this, BannerActivity.class);
                 break;
             default:
                 break;

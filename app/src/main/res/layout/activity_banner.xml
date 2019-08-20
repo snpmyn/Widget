@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12"
+    tools:context="example.banner.BannerActivity">
+
+    <com.zsp.library.banner.view.BannerView
+        android:id="@+id/bannerActivityBvInterval"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        app:bv_intervalInMillis="3000"
+        app:bv_viewCornerRadius="@dimen/dp_8"
+        app:bv_viewHeight="@dimen/dp_120">
+
+        <com.zsp.library.banner.indicator.CrossBarIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:cbi_itemBackgroundColor="@color/color192D3C63"
+            app:cbi_itemForegroundColor="@color/colorPrimary"
+            app:cbi_itemHeight="@dimen/dp_2"
+            app:cbi_itemSpace="@dimen/dp_4"
+            app:cbi_itemWidth="@dimen/dp_24" />
+    </com.zsp.library.banner.view.BannerView>
+
+    <com.zsp.library.banner.view.BannerView
+        android:id="@+id/bannerActivityBvSmooth"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginRight="@dimen/dp_20"
+        app:bv_intervalInMillis="6000"
+        app:bv_itemViewAlign="CENTER_HORIZONTAL"
+        app:bv_itemViewMargin="@dimen/dp_8"
+        app:bv_itemViewWidthRatio="0.9"
+        app:bv_pageHoldInMillis="1000"
+        app:bv_scrollMode="SMOOTH">
+
+        <com.zsp.library.banner.indicator.CrossBarIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            app:cbi_itemBackgroundColor="@color/color192D3C63"
+            app:cbi_itemForegroundColor="@color/colorPrimary"
+            app:cbi_itemHeight="@dimen/dp_2"
+            app:cbi_itemSpace="@dimen/dp_4"
+            app:cbi_itemWidth="@dimen/dp_24" />
+    </com.zsp.library.banner.view.BannerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?actionBarSize"
+        android:clipToPadding="false"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bannerActivityMbClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="?actionBarSize"
+            android:text="@string/clear"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bannerActivityMbAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+    </LinearLayout>
+</LinearLayout>

@@ -20,9 +20,14 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 * implementation 'com.qw:soulpermission:1.2.1_x'
 * implementation 'org.apache.commons:commons-lang3:3.9'
 
+##### AndroidLibrary - UtilTwo
+* implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+* implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
+
 ### 权限
 #### 自身
 ##### app
+* android:name="android.permission.INTERNET"（避重）
 * android:name="android.permission.RECORD_AUDIO"（避重）
 * android:name="android.permission.READ_CONTACTS"（避重）
 * android:name="android.permission.SEND_SMS"（避重）

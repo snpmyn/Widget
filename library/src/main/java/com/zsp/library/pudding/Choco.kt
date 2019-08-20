@@ -46,7 +46,7 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
     }
 
     /**
-     * 初始配置
+     * 初配
      * loading显示、icon动画、触摸反馈等。
      */
     private fun initConfiguration() {
@@ -132,7 +132,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     /**
      * Sets the choco background drawable resource.
-     *
      * @param resource the qualified drawable integer
      */
     fun setChocoBackgroundResource(@DrawableRes resource: Int) {
@@ -141,7 +140,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     /**
      * Sets the choco background drawable.
-     *
      * @param drawable the qualified drawable
      */
     fun setChocoBackgroundDrawable(drawable: Drawable) {

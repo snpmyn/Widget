@@ -72,7 +72,7 @@ class Pudding : LifecycleObserver {
                         WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
                         // 保装饰物（如状态栏）不遮内容
                         WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
-        // popWindow层级为TYPE_APPLICATION_PANEL
+        // popWindow层级TYPE_APPLICATION_PANEL
         layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_SUB_PANEL
         return layoutParams
     }

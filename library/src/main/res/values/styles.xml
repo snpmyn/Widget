@@ -70,4 +70,33 @@
         <item name="android:padding">@dimen/dp_16</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+    <!--BannerView-->
+    <declare-styleable name="BannerView">
+        <attr name="bv_viewHeight" format="dimension" />
+        <attr name="bv_viewCornerRadius" format="dimension" />
+        <!--百分比设条目宽-->
+        <attr name="bv_itemViewWidthRatio" format="float" />
+        <attr name="bv_itemViewMargin" format="dimension" />
+        <attr name="bv_intervalInMillis" format="integer" />
+        <!--滑后页停时（SMOOTH模式生效）-->
+        <attr name="bv_pageHoldInMillis" format="integer" />
+        <attr name="bv_scrollMode" format="enum">
+            <enum name="INTERVAL" value="101" />
+            <enum name="SMOOTH" value="102" />
+        </attr>
+        <!--itemView与父wrapper对齐方式（定itemViewMargin留白位）-->
+        <attr name="bv_itemViewAlign" format="enum">
+            <enum name="CENTER_HORIZONTAL" value="201" />
+            <enum name="ALIGN_PARENT_LEFT" value="202" />
+            <enum name="ALIGN_PARENT_RIGHT" value="203" />
+        </attr>
+    </declare-styleable>
+    <!--CrossBarIndicator-->
+    <declare-styleable name="CrossBarIndicator">
+        <attr name="cbi_itemWidth" format="dimension" />
+        <attr name="cbi_itemHeight" format="dimension" />
+        <attr name="cbi_itemSpace" format="dimension" />
+        <attr name="cbi_itemBackgroundColor" format="color" />
+        <attr name="cbi_itemForegroundColor" format="color" />
+    </declare-styleable>
 </resources>
