@@ -120,9 +120,11 @@
         <item>Light Gray</item>
         <item>Gray</item>
     </string-array>
+    <string name="layout">布局</string>
     <string name="percentLayout">百分比布局</string>
     <string name="percentLayoutHintOne">宽占父布局宽50%\n\n高占父布局高40%</string>
     <string name="percentLayoutHintTwo">宽占父布局高80%\n\n高占父布局高60%</string>
+    <string name="shadowLayout">阴影布局</string>
     <string name="sideDrag">侧拖</string>
     <string name="banner">轮播</string>
     <string name="add">add</string>

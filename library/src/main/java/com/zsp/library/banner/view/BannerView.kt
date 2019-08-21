@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import com.zsp.library.R
 import com.zsp.library.banner.*
 import com.zsp.library.banner.factory.PagerViewFactory
-import com.zsp.library.banner.kit.createPaint
+import com.zsp.library.kit.createPaint
 import com.zsp.utilone.density.DensityUtils
 import kotlin.properties.Delegates
 

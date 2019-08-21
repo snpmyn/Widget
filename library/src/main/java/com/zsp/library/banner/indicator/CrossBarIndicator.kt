@@ -10,8 +10,8 @@ import androidx.annotation.ColorInt
 import com.zsp.library.R
 import com.zsp.library.banner.IIndicator
 import com.zsp.library.banner.IIndicatorInstance
-import com.zsp.library.banner.kit.createPaint
-import com.zsp.library.banner.kit.resetPaint
+import com.zsp.library.kit.createPaint
+import com.zsp.library.kit.resetPaint
 import com.zsp.utiltwo.density.DensityUtils
 import kotlin.properties.Delegates
 

@@ -1,17 +1,16 @@
-package com.zsp.library.percentlayout.layout;
+package com.zsp.library.layout.percent.layout;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.zsp.library.percentlayout.helper.PercentLayoutHelper;
+import com.zsp.library.layout.percent.helper.PercentLayoutHelper;
 
 /**
  * Created on 2019/8/15.
@@ -29,11 +28,11 @@ public class PercentLinearLayout extends LinearLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int heightSize = View.MeasureSpec.getSize(heightMeasureSpec);
-        int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int tmpHeightMeasureSpec = MeasureSpec.makeMeasureSpec(heightSize, heightMode);
-        int widthSize = View.MeasureSpec.getSize(widthMeasureSpec);
-        int widthMode = View.MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int tmpWidthMeasureSpec = MeasureSpec.makeMeasureSpec(widthSize, widthMode);
         // fixed scrollview height problems
         if (heightMode == MeasureSpec.UNSPECIFIED && getParent() != null && (getParent() instanceof ScrollView)) {

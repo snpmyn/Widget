@@ -1,4 +1,4 @@
-package com.zsp.library.percentlayout.helper;
+package com.zsp.library.layout.percent.helper;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -47,7 +47,7 @@ public class PercentLayoutHelper {
     }
 
     /**
-     * Helper method to be called from {@link android.view.ViewGroup.LayoutParams#setBaseAttributes(TypedArray, int, int)}
+     * Helper method to be called from {@link ViewGroup.LayoutParams#setBaseAttributes(TypedArray, int, int)}
      * override that reads layout_width and layout_height attribute values without throwing an exception if they aren't present.
      *
      * @param params     ViewGroup.LayoutParams
@@ -99,20 +99,52 @@ public class PercentLayoutHelper {
         view.setPadding(left, top, right, bottom);
     }
 
-    private void supportMinOrMaxDimension(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
-        try {
-            Class clazz = view.getClass();
-            invokeMethod("setMaxWidth", widthHint, heightHint, view, clazz, info.maxWidthPercent);
-            invokeMethod("setMaxHeight", widthHint, heightHint, view, clazz, info.maxHeightPercent);
-            invokeMethod("setMinWidth", widthHint, heightHint, view, clazz, info.minWidthPercent);
-            invokeMethod("setMinHeight", widthHint, heightHint, view, clazz, info.minHeightPercent);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+    /**
+     * 获PercentVal
+     * <p>
+     * eg:
+     * 35%w => new PercentVal(35, true)
+     *
+     * @param percentStr String
+     * @param isOnWidth  boolean
+     * @return PercentLayoutInfo.PercentVal
+     */
+    private static PercentLayoutInfo.PercentVal getPercentVal(String percentStr, boolean isOnWidth) {
+        // valid param
+        if (percentStr == null) {
+            return null;
         }
+        Pattern p = Pattern.compile(REGEX_PERCENT);
+        Matcher matcher = p.matcher(percentStr);
+        if (!matcher.matches()) {
+            throw new RuntimeException("the value of layout_xxxPercent invalid! ==>" + percentStr);
+        }
+        // extract the float value
+        String floatVal = matcher.group(1);
+        float percent = 0;
+        if (floatVal != null) {
+            percent = Float.parseFloat(floatVal) / 100.0f;
+        }
+        PercentLayoutInfo.PercentVal percentVal = new PercentLayoutInfo.PercentVal();
+        percentVal.percent = percent;
+        if (percentStr.endsWith(PercentLayoutInfo.BaseMode.SW)) {
+            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_SCREEN_WIDTH;
+        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.SH)) {
+            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_SCREEN_HEIGHT;
+        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.PERCENT)) {
+            if (isOnWidth) {
+                percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_WIDTH;
+            } else {
+                percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_HEIGHT;
+            }
+        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.W)) {
+            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_WIDTH;
+        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.H)) {
+            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_HEIGHT;
+        } else {
+            throw new IllegalArgumentException("the " + percentStr + " must be endWith [%|w|h|sw|sh]");
+        }
+        return percentVal;
     }
 
     private void invokeMethod(String methodName, int widthHint, int heightHint, View view, Class clazz, PercentLayoutInfo.PercentVal percentVal) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -335,49 +367,16 @@ public class PercentLayoutHelper {
 
     private static final String REGEX_PERCENT = "^(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)%([s]?[wh]?)$";
 
-    /**
-     * 获PercentVal
-     * <p>
-     * eg:
-     * 35%w => new PercentVal(35, true)
-     *
-     * @param percentStr String
-     * @param isOnWidth  boolean
-     * @return PercentLayoutInfo.PercentVal
-     */
-    private static PercentLayoutInfo.PercentVal getPercentVal(String percentStr, boolean isOnWidth) {
-        // valid param
-        if (percentStr == null) {
-            return null;
+    private void supportMinOrMaxDimension(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
+        try {
+            Class clazz = view.getClass();
+            invokeMethod("setMaxWidth", widthHint, heightHint, view, clazz, info.maxWidthPercent);
+            invokeMethod("setMaxHeight", widthHint, heightHint, view, clazz, info.maxHeightPercent);
+            invokeMethod("setMinWidth", widthHint, heightHint, view, clazz, info.minWidthPercent);
+            invokeMethod("setMinHeight", widthHint, heightHint, view, clazz, info.minHeightPercent);
+        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
         }
-        Pattern p = Pattern.compile(REGEX_PERCENT);
-        Matcher matcher = p.matcher(percentStr);
-        if (!matcher.matches()) {
-            throw new RuntimeException("the value of layout_xxxPercent invalid! ==>" + percentStr);
-        }
-        // extract the float value
-        String floatVal = matcher.group(1);
-        float percent = Float.parseFloat(floatVal) / 100.0f;
-        PercentLayoutInfo.PercentVal percentVal = new PercentLayoutInfo.PercentVal();
-        percentVal.percent = percent;
-        if (percentStr.endsWith(PercentLayoutInfo.BaseMode.SW)) {
-            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_SCREEN_WIDTH;
-        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.SH)) {
-            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_SCREEN_HEIGHT;
-        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.PERCENT)) {
-            if (isOnWidth) {
-                percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_WIDTH;
-            } else {
-                percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_HEIGHT;
-            }
-        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.W)) {
-            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_WIDTH;
-        } else if (percentStr.endsWith(PercentLayoutInfo.BaseMode.H)) {
-            percentVal.baseMode = PercentLayoutInfo.BaseMode.BASE_HEIGHT;
-        } else {
-            throw new IllegalArgumentException("the " + percentStr + " must be endWith [%|w|h|sw|sh]");
-        }
-        return percentVal;
     }
 
     /**
@@ -483,26 +482,29 @@ public class PercentLayoutHelper {
             public static final String SH = "sh";
         }
 
-        public static class PercentVal {
-            float percent = -1;
-            BaseMode baseMode;
-
-            PercentVal() {
-
-            }
-
-            public PercentVal(float percent, BaseMode baseMode) {
-                this.percent = percent;
-                this.baseMode = baseMode;
-            }
-
-            @Override
-            public String toString() {
-                return "PercentVal{" +
-                        "percent=" + percent +
-                        ", baseMode=" + baseMode.name() +
-                        '}';
-            }
+        @NonNull
+        @Override
+        public String toString() {
+            return "PercentLayoutInfo{" +
+                    "widthPercent=" + widthPercent +
+                    ", heightPercent=" + heightPercent +
+                    ", leftMarginPercent=" + leftMarginPercent +
+                    ", topMarginPercent=" + topMarginPercent +
+                    ", rightMarginPercent=" + rightMarginPercent +
+                    ", bottomMarginPercent=" + bottomMarginPercent +
+                    ", startMarginPercent=" + startMarginPercent +
+                    ", endMarginPercent=" + endMarginPercent +
+                    ", textSizePercent=" + textSizePercent +
+                    ", maxWidthPercent=" + maxWidthPercent +
+                    ", maxHeightPercent=" + maxHeightPercent +
+                    ", minWidthPercent=" + minWidthPercent +
+                    ", minHeightPercent=" + minHeightPercent +
+                    ", paddingLeftPercent=" + paddingLeftPercent +
+                    ", paddingRightPercent=" + paddingRightPercent +
+                    ", paddingTopPercent=" + paddingTopPercent +
+                    ", paddingBottomPercent=" + paddingBottomPercent +
+                    ", mPreservedParams=" + mPreservedParams +
+                    '}';
         }
 
         PercentVal widthPercent;
@@ -594,28 +596,27 @@ public class PercentLayoutHelper {
             }
         }
 
-        @Override
-        public String toString() {
-            return "PercentLayoutInfo{" +
-                    "widthPercent=" + widthPercent +
-                    ", heightPercent=" + heightPercent +
-                    ", leftMarginPercent=" + leftMarginPercent +
-                    ", topMarginPercent=" + topMarginPercent +
-                    ", rightMarginPercent=" + rightMarginPercent +
-                    ", bottomMarginPercent=" + bottomMarginPercent +
-                    ", startMarginPercent=" + startMarginPercent +
-                    ", endMarginPercent=" + endMarginPercent +
-                    ", textSizePercent=" + textSizePercent +
-                    ", maxWidthPercent=" + maxWidthPercent +
-                    ", maxHeightPercent=" + maxHeightPercent +
-                    ", minWidthPercent=" + minWidthPercent +
-                    ", minHeightPercent=" + minHeightPercent +
-                    ", paddingLeftPercent=" + paddingLeftPercent +
-                    ", paddingRightPercent=" + paddingRightPercent +
-                    ", paddingTopPercent=" + paddingTopPercent +
-                    ", paddingBottomPercent=" + paddingBottomPercent +
-                    ", mPreservedParams=" + mPreservedParams +
-                    '}';
+        public static class PercentVal {
+            float percent = -1;
+            BaseMode baseMode;
+
+            PercentVal() {
+
+            }
+
+            public PercentVal(float percent, BaseMode baseMode) {
+                this.percent = percent;
+                this.baseMode = baseMode;
+            }
+
+            @NonNull
+            @Override
+            public String toString() {
+                return "PercentVal{" +
+                        "percent=" + percent +
+                        ", baseMode=" + baseMode.name() +
+                        '}';
+            }
         }
 
         /**

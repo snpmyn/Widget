@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.layout.ShadowLayoutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <com.zsp.library.layout.shadow.ShadowLayout
+            android:layout_width="@dimen/dp_360"
+            android:layout_height="@dimen/dp_100"
+            app:sl_borderColor="@color/colorPrimary"
+            app:sl_borderWidth="@dimen/px1"
+            app:sl_cornerRadius="@dimen/dp_8"
+            app:sl_dy="@dimen/dp_4"
+            app:sl_shadowColor="@color/colorAccent"
+            app:sl_shadowRadius="@dimen/dp_12">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/exampleOne"
+                android:textSize="@dimen/sp_16" />
+        </com.zsp.library.layout.shadow.ShadowLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <com.zsp.library.layout.shadow.ShadowLayout
+            android:layout_width="@dimen/dp_360"
+            android:layout_height="@dimen/dp_100"
+            app:sl_cornerRadius="@dimen/dp_20"
+            app:sl_dy="@dimen/dp_4"
+            app:sl_shadowColor="@color/colorAccent"
+            app:sl_shadowRadius="@dimen/dp_24">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/warning"
+                android:gravity="center"
+                android:text="@string/exampleTwo"
+                android:textColor="@color/background"
+                android:textSize="@dimen/sp_16" />
+        </com.zsp.library.layout.shadow.ShadowLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1"
+        android:background="@color/gray">
+
+        <com.zsp.library.layout.shadow.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_70"
+            android:layout_gravity="bottom"
+            app:sl_borderWidth="@dimen/dp_0"
+            app:sl_cornerRadius="@dimen/dp_0"
+            app:sl_dy="-4dp"
+            app:sl_shadowColor="@color/colorAccent"
+            app:sl_shadowRadius="@dimen/dp_12"
+            app:sl_shadowSides="TOP">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/exampleThree"
+                android:textSize="@dimen/sp_16" />
+        </com.zsp.library.layout.shadow.ShadowLayout>
+    </LinearLayout>
+</LinearLayout>

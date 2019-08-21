@@ -126,10 +126,10 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbPercentLayout"
+            android:id="@+id/mainActivityMbLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/percentLayout"
+            android:text="@string/layout"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton

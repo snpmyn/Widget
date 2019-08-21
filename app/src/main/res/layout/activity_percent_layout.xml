@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zsp.library.percentlayout.layout.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zsp.library.layout.percent.layout.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.percentlayout.PercentLayoutActivity">
+    tools:context="example.layout.PercentLayoutActivity">
 
-    <com.zsp.library.percentlayout.layout.PercentLinearLayout
+    <com.zsp.library.layout.percent.layout.PercentLinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -26,8 +26,8 @@
             app:layout_widthPercent="50%" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/percentLayoutHintTwo"
@@ -35,9 +35,9 @@
             android:textSize="@dimen/sp_14"
             app:layout_heightPercent="60%h"
             app:layout_widthPercent="80%h" />
-    </com.zsp.library.percentlayout.layout.PercentLinearLayout>
+    </com.zsp.library.layout.percent.layout.PercentLinearLayout>
 
-    <com.zsp.library.percentlayout.layout.PercentRelativeLayout
+    <com.zsp.library.layout.percent.layout.PercentRelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -57,8 +57,8 @@
             app:layout_widthPercent="50%" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
             android:gravity="center"
@@ -67,5 +67,5 @@
             android:textSize="@dimen/sp_14"
             app:layout_heightPercent="60%h"
             app:layout_widthPercent="80%h" />
-    </com.zsp.library.percentlayout.layout.PercentRelativeLayout>
-</com.zsp.library.percentlayout.layout.PercentFrameLayout>
+    </com.zsp.library.layout.percent.layout.PercentRelativeLayout>
+</com.zsp.library.layout.percent.layout.PercentFrameLayout>

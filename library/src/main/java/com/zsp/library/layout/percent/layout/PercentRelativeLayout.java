@@ -1,32 +1,32 @@
-package com.zsp.library.percentlayout.layout;
+package com.zsp.library.layout.percent.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
-import com.zsp.library.percentlayout.helper.PercentLayoutHelper;
+import com.zsp.library.layout.percent.helper.PercentLayoutHelper;
 
 /**
  * Created on 2019/8/15.
  *
  * @author 郑少鹏
- * @desc PercentFrameLayout
+ * @desc PercentRelativeLayout
  */
-public class PercentFrameLayout extends FrameLayout {
+public class PercentRelativeLayout extends RelativeLayout {
     private final PercentLayoutHelper percentLayoutHelper = new PercentLayoutHelper(this);
 
-    public PercentFrameLayout(Context context) {
+    public PercentRelativeLayout(Context context) {
         super(context);
     }
 
-    public PercentFrameLayout(Context context, AttributeSet attrs) {
+    public PercentRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PercentFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public PercentRelativeLayout(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class PercentFrameLayout extends FrameLayout {
         percentLayoutHelper.restoreOriginalParams();
     }
 
-    public static class LayoutParams extends FrameLayout.LayoutParams implements PercentLayoutHelper.PercentLayoutParams {
+    public static class LayoutParams extends RelativeLayout.LayoutParams implements PercentLayoutHelper.PercentLayoutParams {
         private PercentLayoutHelper.PercentLayoutInfo percentLayoutInfo;
 
         public LayoutParams(Context c, AttributeSet attrs) {
@@ -61,26 +61,12 @@ public class PercentFrameLayout extends FrameLayout {
             super(width, height);
         }
 
-        public LayoutParams(int width, int height, int gravity) {
-            super(width, height, gravity);
-        }
-
         public LayoutParams(ViewGroup.LayoutParams source) {
             super(source);
         }
 
         public LayoutParams(MarginLayoutParams source) {
             super(source);
-        }
-
-        public LayoutParams(FrameLayout.LayoutParams source) {
-            super((MarginLayoutParams) source);
-            gravity = source.gravity;
-        }
-
-        public LayoutParams(LayoutParams source) {
-            this((FrameLayout.LayoutParams) source);
-            percentLayoutInfo = source.percentLayoutInfo;
         }
 
         @Override
@@ -94,3 +80,4 @@ public class PercentFrameLayout extends FrameLayout {
         }
     }
 }
+
