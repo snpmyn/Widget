@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="example.chart.RadarChartActivity">
+
+    <com.zsp.library.chart.RadarChart
+        android:id="@+id/radarChartActivityRc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rc_animateMode="SPEED"
+        app:rc_animateTime="1000"
+        app:rc_areaBorderColor="@color/colorFF415AFF"
+        app:rc_areaColor="@color/colorCC6478FF"
+        app:rc_textArrayedColor="@color/colorFF8995AB"
+        app:rc_textCenteredColor="@color/background"
+        app:rc_textCenteredName="能力值"
+        app:rc_webLineColor="#FFD8DCE3"
+        app:rc_webRadius="@dimen/dp_100" />
+</LinearLayout>

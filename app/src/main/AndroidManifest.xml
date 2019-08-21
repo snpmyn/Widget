@@ -16,6 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
+        <activity android:name="example.chart.RadarChartActivity" />
         <activity android:name="example.layout.ShadowLayoutActivity" />
         <activity android:name="example.layout.LayoutActivity" />
         <activity android:name="example.banner.BannerActivity" />
@@ -62,11 +63,11 @@
     </application>
 
     <uses-permission
-        android:name="android.permission.RECORD_AUDIO"
+        android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module dist:instant="true" />
 

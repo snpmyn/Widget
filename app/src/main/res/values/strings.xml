@@ -101,6 +101,19 @@
     <string name="ok">OK</string>
     <string name="about">About</string>
     <string name="aboutHint">This app is for demonstrate the Material-ish progress wheel library, which provides a Material-style progress wheel compatible back to API 9. You can have indeterminate and determinate versions of the progress wheel, the later with a linear animation or a interpolated one like in the guidelines.\n\nRefer to the Github project page for more info at https://github.com/pnikosis/materialish-progress. </string>
+    <string name="layout">布局</string>
+    <string name="percentLayout">百分比布局</string>
+    <string name="percentLayoutHintOne">宽占父布局宽50%\n\n高占父布局高40%</string>
+    <string name="percentLayoutHintTwo">宽占父布局高80%\n\n高占父布局高60%</string>
+    <string name="shadowLayout">阴影布局</string>
+    <string name="sideDrag">侧拖</string>
+    <string name="banner">轮播</string>
+    <string name="add">add</string>
+    <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
+    <string name="callOutStartTime">呼出 开始时间：%1$d</string>
+    <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
+    <string name="radarChart">雷达图</string>
+    <!--format-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>
         <item>0%</item>
@@ -120,16 +133,4 @@
         <item>Light Gray</item>
         <item>Gray</item>
     </string-array>
-    <string name="layout">布局</string>
-    <string name="percentLayout">百分比布局</string>
-    <string name="percentLayoutHintOne">宽占父布局宽50%\n\n高占父布局高40%</string>
-    <string name="percentLayoutHintTwo">宽占父布局高80%\n\n高占父布局高60%</string>
-    <string name="shadowLayout">阴影布局</string>
-    <string name="sideDrag">侧拖</string>
-    <string name="banner">轮播</string>
-    <string name="add">add</string>
-    <!--format-->
-    <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
-    <string name="callOutStartTime">呼出 开始时间：%1$d</string>
-    <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
 </resources>

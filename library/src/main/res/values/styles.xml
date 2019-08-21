@@ -116,4 +116,23 @@
             <flag name="ALL" value="15" />
         </attr>
     </declare-styleable>
+    <!--RadarChart-->
+    <declare-styleable name="RadarChart">
+        <attr name="rc_webRadius" format="dimension" />
+        <attr name="rc_webMaxProgress" format="integer" />
+        <attr name="rc_webLineColor" format="color" />
+        <attr name="rc_webLineWidth" format="dimension" />
+        <attr name="rc_textArrayedColor" format="color" />
+        <attr name="rc_textArrayedFontPath" format="string" />
+        <attr name="rc_areaColor" format="color" />
+        <attr name="rc_areaBorderColor" format="color" />
+        <attr name="rc_textCenteredName" format="string" />
+        <attr name="rc_textCenteredColor" format="color" />
+        <attr name="rc_textCenteredFontPath" format="string" />
+        <attr name="rc_animateTime" format="integer" />
+        <attr name="rc_animateMode" format="enum">
+            <enum name="TIME" value="101" />
+            <enum name="SPEED" value="102" />
+        </attr>
+    </declare-styleable>
 </resources>
