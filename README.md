@@ -11,7 +11,6 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 * api 'com.hwangjr.rxbus:rxbus:2.0.1'（避重）
 * api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）
-
 #### com.github.snpmyn:Util(api)
 ##### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
@@ -35,7 +34,6 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 ##### AndroidLibrary - Library
 * android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）
 * android:name="android.permission.ACCESS_FINE_LOCATION"（避重）
-
 #### com.github.snpmyn:Util
 ##### app
 * android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）
