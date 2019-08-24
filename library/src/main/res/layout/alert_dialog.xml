@@ -10,11 +10,24 @@
     android:paddingTop="@dimen/dp_12"
     android:paddingBottom="@dimen/dp_12">
 
+    <ImageView
+        android:id="@+id/customImage"
+        android:layout_width="@dimen/dp_53"
+        android:layout_height="@dimen/dp_53"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
     <FrameLayout
         android:id="@+id/errorFrame"
         android:layout_width="@dimen/dp_53"
         android:layout_height="@dimen/dp_53"
         android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/error_circle" />
 
         <ImageView
             android:id="@+id/errorX"
@@ -23,11 +36,6 @@
             android:contentDescription="@string/app_name"
             android:scaleType="center"
             android:src="@drawable/error_center" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/error_circle" />
     </FrameLayout>
 
     <FrameLayout
@@ -74,17 +82,17 @@
         android:layout_height="@dimen/dp_53"
         android:visibility="gone">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/warning_circle" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="center"
             android:src="@drawable/warning_sigh" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/warning_circle" />
     </FrameLayout>
 
     <FrameLayout
@@ -102,12 +110,28 @@
             android:layout_gravity="center" />
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/customImage"
-        android:layout_width="@dimen/dp_53"
-        android:layout_height="@dimen/dp_53"
-        android:contentDescription="@string/app_name"
-        android:scaleType="fitCenter"
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:id="@+id/contentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:textAlignment="center"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_13"
         android:visibility="gone" />
 
     <LinearLayout
@@ -138,28 +162,4 @@
             android:text="@string/ensure"
             android:textSize="@dimen/sp_13" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/contentText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:gravity="center"
-        android:paddingLeft="@dimen/dp_12"
-        android:paddingRight="@dimen/dp_12"
-        android:textAlignment="center"
-        android:textColor="@color/fontHint"
-        android:textSize="@dimen/sp_13"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:gravity="center"
-        android:paddingLeft="@dimen/dp_12"
-        android:paddingRight="@dimen/dp_12"
-        android:textColor="@color/fontHint"
-        android:textSize="@dimen/sp_14" />
 </LinearLayout>
