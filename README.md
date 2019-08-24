@@ -11,6 +11,7 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 * api 'com.hwangjr.rxbus:rxbus:2.0.1'（避重）
 * api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）
+
 #### com.github.snpmyn:Util(api)
 ##### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
