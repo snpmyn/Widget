@@ -29,13 +29,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     /*自带*/
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar'
     /*官方*/
     implementation project(path: ':library')
     /*library*/
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     /*ButterKnife*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
     /*LeakCanary*/
 }

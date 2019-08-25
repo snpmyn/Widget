@@ -4,7 +4,7 @@
 ### 依赖
 #### 自身
 ##### app
-implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.41@jar"
+implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar"
 ##### AndroidLibrary - Library
 * implementation 'androidx.core:core-ktx:1.2.0-alpha03'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
