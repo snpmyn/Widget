@@ -10,13 +10,13 @@
     <string name="filledIn">所填内容</string>
     <string name="originalText">原始文本</string>
     <string name="textPassage">段落</string>
+    <string name="animation">动画</string>
     <string name="login">登录</string>
     <string name="loginOne">登录一</string>
     <string name="loginTwo">登录二</string>
     <string name="loginFail">登录失败</string>
     <string name="reveal">揭示</string>
-
-
+    <string name="packUp">收起</string>
     <string name="dialog">对话框</string>
     <string name="dialogOne">对话框一</string>
     <string name="dialogTwo">对话框二</string>
@@ -121,8 +121,6 @@
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
     <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
-    <string name="animation">动画</string>
-    <string name="packUp">收起</string>
     <!--string-array-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>
