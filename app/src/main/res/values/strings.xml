@@ -14,6 +14,9 @@
     <string name="loginOne">登录一</string>
     <string name="loginTwo">登录二</string>
     <string name="loginFail">登录失败</string>
+    <string name="reveal">揭示</string>
+
+
     <string name="dialog">对话框</string>
     <string name="dialogOne">对话框一</string>
     <string name="dialogTwo">对话框二</string>
@@ -109,13 +112,18 @@
     <string name="sideDrag">侧拖</string>
     <string name="banner">轮播</string>
     <string name="add">add</string>
-    <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
-    <string name="callOutStartTime">呼出 开始时间：%1$d</string>
-    <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
     <string name="radarChart">雷达图</string>
     <string name="rippleLayout">波纹布局</string>
     <string name="rippleLayoutDescription">1.Declare a RippleView inside your XML layout file with a content like an ImageView or whatever.\n\n2.If you want to know when the Ripple effect is finished, you can set a listener on your view.\n\n3.If you want to add an OnClickListener don\'t forget to add it to the RippleView.</string>
+    <string name="circularReveal">循环揭示</string>
+    <string name="circularRevealLayout">循环揭示布局</string>
     <!--format-->
+    <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
+    <string name="callOutStartTime">呼出 开始时间：%1$d</string>
+    <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
+    <string name="animation">动画</string>
+    <string name="packUp">收起</string>
+    <!--string-array-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>
         <item>0%</item>

@@ -1,11 +1,11 @@
-package example.animation;
+package example.animation.login;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.library.animation.one.TransitionView;
+import com.zsp.library.animation.login.two.TransitionView;
 import com.zsp.utilone.intent.IntentUtils;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;

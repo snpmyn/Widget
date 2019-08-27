@@ -20,6 +20,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 
+import androidx.core.content.ContextCompat;
+
 import com.zsp.library.R;
 
 import value.WidgetLibraryMagic;
@@ -83,7 +85,7 @@ public class RippleLayout extends RelativeLayout {
             return;
         }
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
-        rippleColor = typedArray.getColor(R.styleable.RippleLayout_RippleLayoutColor, getResources().getColor(R.color.background));
+        rippleColor = typedArray.getColor(R.styleable.RippleLayout_RippleLayoutColor, ContextCompat.getColor(context, R.color.background));
         rippleType = typedArray.getInt(R.styleable.RippleLayout_RippleLayoutType, 0);
         hasToZoom = typedArray.getBoolean(R.styleable.RippleLayout_RippleLayoutZoom, false);
         isCentered = typedArray.getBoolean(R.styleable.RippleLayout_RippleLayoutCentered, false);
@@ -292,7 +294,7 @@ public class RippleLayout extends RelativeLayout {
      * @param rippleColor new color resource
      */
     public void setRippleColor(int rippleColor) {
-        this.rippleColor = getResources().getColor(rippleColor);
+        this.rippleColor = ContextCompat.getColor(getContext(), rippleColor);
     }
 
     public int getRippleColor() {

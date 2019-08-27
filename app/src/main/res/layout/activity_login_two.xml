@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.animation.LoginTwoActivity">
+    tools:context="example.animation.login.LoginTwoActivity">
     <!--无LinearLayout露MaterialButton-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
-    <com.zsp.library.animation.one.TransitionView
+    <com.zsp.library.animation.login.two.TransitionView
         android:id="@+id/loginTwoActivityTv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

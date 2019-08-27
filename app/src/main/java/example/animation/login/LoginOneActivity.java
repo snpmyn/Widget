@@ -1,8 +1,4 @@
-package example.animation;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+package example.animation.login;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -11,7 +7,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 
-import com.zsp.library.animation.three.ProgressButton;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.zsp.library.animation.login.one.ProgressButton;
 import com.zsp.utilone.intent.IntentUtils;
 import com.zsp.widget.R;
 

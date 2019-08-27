@@ -10,30 +10,31 @@ import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import example.animation.login.LoginActivity;
 
 /**
- * @decs: 登录页
+ * @decs: 动画页
  * @author: 郑少鹏
- * @date: 2019/7/19 14:59
+ * @date: 2019/8/27 14:33
  */
-public class LoginActivity extends AppCompatActivity {
+public class AnimationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_animation);
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.loginActivityMbLoginOne, R.id.loginActivityMbLoginTwo})
+    @OnClick({R.id.loginActivityMbLogin, R.id.loginActivityMbReveal})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            // 登录一
-            case R.id.loginActivityMbLoginOne:
-                IntentUtils.jumpNoBundle(this, LoginOneActivity.class);
+            // 登录
+            case R.id.loginActivityMbLogin:
+                IntentUtils.jumpNoBundle(this, LoginActivity.class);
                 break;
-            // 登录二
-            case R.id.loginActivityMbLoginTwo:
-                IntentUtils.jumpNoBundle(this, LoginTwoActivity.class);
+            // 揭示
+            case R.id.loginActivityMbReveal:
+                IntentUtils.jumpNoBundle(this, RevealActivity.class);
                 break;
             default:
                 break;

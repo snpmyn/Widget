@@ -35,10 +35,10 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbLogin"
+            android:id="@+id/mainActivityMbAnimation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="@string/animation"
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton

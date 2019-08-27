@@ -12,7 +12,7 @@ import com.zsp.utilone.toast.ToastUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import example.animation.LoginActivity;
+import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
 import example.chart.RadarChartActivity;
 import example.contract.ContactActivity;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.mainActivityMbPicture,
             R.id.mainActivityMbSearchBox,
             R.id.mainActivityMbTextView,
-            R.id.mainActivityMbLogin,
+            R.id.mainActivityMbAnimation,
             R.id.mainActivityMbDialog,
             R.id.mainActivityMbSpannableStringBuilder,
             R.id.mainActivityMbScreen,
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbRadarChart})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            // Switch
+            // 图片
             case R.id.mainActivityMbPicture:
                 IntentUtils.jumpNoBundle(this, PictureActivity.class);
                 break;
@@ -108,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mainActivityMbTextView:
                 IntentUtils.jumpNoBundle(this, TextViewActivity.class);
                 break;
-            // 登录一
-            case R.id.mainActivityMbLogin:
-                IntentUtils.jumpNoBundle(this, LoginActivity.class);
+            // 动画
+            case R.id.mainActivityMbAnimation:
+                IntentUtils.jumpNoBundle(this, AnimationActivity.class);
                 break;
             // 对话框
             case R.id.mainActivityMbDialog:

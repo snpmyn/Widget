@@ -7,19 +7,19 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.animation.login.LoginActivity">
+    tools:context="example.animation.AnimationActivity">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginActivityMbLoginOne"
+        android:id="@+id/loginActivityMbLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loginOne"
+        android:text="@string/login"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginActivityMbLoginTwo"
+        android:id="@+id/loginActivityMbReveal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loginTwo"
+        android:text="@string/reveal"
         android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>

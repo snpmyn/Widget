@@ -1,8 +1,8 @@
-package example.animation;
-
-import androidx.appcompat.app.AppCompatActivity;
+package example.animation.login;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.widget.R;
 

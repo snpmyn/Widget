@@ -25,6 +25,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
+        <activity android:name="example.layout.CircularRevealActivity" />
         <activity android:name="example.layout.RippleLayoutActivity" />
         <activity android:name="example.chart.RadarChartActivity" />
         <activity android:name="example.layout.ShadowLayoutActivity" />
@@ -48,10 +49,12 @@
         <activity android:name="example.dialog.DialogTwoActivity" />
         <activity android:name="example.dialog.DialogOneActivity" />
         <activity android:name="example.dialog.DialogActivity" />
-        <activity android:name="example.animation.HomeActivity" />
-        <activity android:name="example.animation.LoginTwoActivity" />
-        <activity android:name="example.animation.LoginOneActivity" />
-        <activity android:name="example.animation.LoginActivity" />
+        <activity android:name="example.animation.RevealActivity" />
+        <activity android:name="example.animation.login.HomeActivity" />
+        <activity android:name="example.animation.login.LoginTwoActivity" />
+        <activity android:name="example.animation.login.LoginOneActivity" />
+        <activity android:name="example.animation.login.LoginActivity" />
+        <activity android:name="example.animation.AnimationActivity" />
         <activity android:name="example.textview.TimerActivity" />
         <activity android:name="example.textview.FillActivity" />
         <activity android:name="example.textview.TextViewActivity" />
