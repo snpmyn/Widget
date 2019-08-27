@@ -39,7 +39,9 @@ public class WidgetLibraryMagic {
      */
     public static final float FLOAT_ZERO_DOT_ZERO = 0.0F;
     public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25F;
+    public static final float FLOAT_ZERO_DOT_FOUR = 0.4F;
     public static final float FLOAT_ZERO_DOT_FIVE_FOUR = 0.54F;
+    public static final float FLOAT_ZERO_DOT_SIX = 0.6F;
     public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65F;
     public static final float FLOAT_ZERO_DOT_SEVEN = 0.7F;
     public static final float FLOAT_ZERO_DOT_EIGHT_FOUR = 0.84F;

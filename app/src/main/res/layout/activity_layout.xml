@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:text="@string/shadowLayout"
         android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/voiceActivityMbRippleLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rippleLayout"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>

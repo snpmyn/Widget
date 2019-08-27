@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="example.layout.RippleLayoutActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_12"
+        android:text="@string/rippleLayoutDescription"
+        android:textColor="@color/fontHint"
+        android:textSize="@dimen/sp_14" />
+
+    <com.zsp.library.layout.ripple.RippleLayout
+        android:id="@+id/rippleLayoutActivityRl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:RippleLayoutCentered="true">
+
+        <ImageView
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:contentDescription="@string/toDo"
+            android:src="@mipmap/ic_launcher_round" />
+    </com.zsp.library.layout.ripple.RippleLayout>
+
+    <com.zsp.library.layout.ripple.RippleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_12"
+        app:RippleLayoutType="rectangle">
+
+        <ImageView
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:contentDescription="@string/toDo"
+            android:src="@mipmap/ic_launcher_round" />
+    </com.zsp.library.layout.ripple.RippleLayout>
+
+    <com.zsp.library.layout.ripple.RippleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:RippleLayoutType="doubleRipple">
+
+        <ImageView
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:contentDescription="@string/toDo"
+            android:src="@mipmap/ic_launcher_round" />
+    </com.zsp.library.layout.ripple.RippleLayout>
+
+    <com.zsp.library.layout.ripple.RippleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        app:RippleLayoutType="rectangle"
+        app:RippleLayoutZoom="true">
+
+        <ImageView
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:contentDescription="@string/toDo"
+            android:src="@mipmap/ic_launcher_round" />
+    </com.zsp.library.layout.ripple.RippleLayout>
+</LinearLayout>

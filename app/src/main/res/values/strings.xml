@@ -113,6 +113,8 @@
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
     <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
     <string name="radarChart">雷达图</string>
+    <string name="rippleLayout">波纹布局</string>
+    <string name="rippleLayoutDescription">1.Declare a RippleView inside your XML layout file with a content like an ImageView or whatever.\n\n2.If you want to know when the Ripple effect is finished, you can set a listener on your view.\n\n3.If you want to add an OnClickListener don\'t forget to add it to the RippleView.</string>
     <!--format-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>

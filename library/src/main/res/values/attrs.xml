@@ -141,4 +141,21 @@
         <attr name="layout_paddingLeftPercent" format="string" />
         <attr name="layout_paddingRightPercent" format="string" />
     </declare-styleable>
+    <!--RippleView-->
+    <declare-styleable name="RippleLayout">
+        <attr name="RippleLayoutAlpha" format="integer" />
+        <attr name="RippleLayoutFrameRate" format="integer" />
+        <attr name="RippleLayoutRippleDuration" format="integer" />
+        <attr name="RippleLayoutZoomDuration" format="integer" />
+        <attr name="RippleLayoutColor" format="color" />
+        <attr name="RippleLayoutCentered" format="boolean" />
+        <attr name="RippleLayoutType" format="enum">
+            <enum name="simpleRipple" value="0" />
+            <enum name="doubleRipple" value="1" />
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="RippleLayoutRipplePadding" format="dimension" />
+        <attr name="RippleLayoutZoom" format="boolean" />
+        <attr name="RippleLayoutZoomScale" format="float" />
+    </declare-styleable>
 </resources>

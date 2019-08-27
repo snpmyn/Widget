@@ -24,7 +24,9 @@ public class LayoutActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.voiceActivityMbPercentLayout, R.id.voiceActivityMbShadowLayout})
+    @OnClick({R.id.voiceActivityMbPercentLayout,
+            R.id.voiceActivityMbShadowLayout,
+            R.id.voiceActivityMbRippleLayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 百分比布局
@@ -34,6 +36,10 @@ public class LayoutActivity extends AppCompatActivity {
             // 阴影布局
             case R.id.voiceActivityMbShadowLayout:
                 IntentUtils.jumpNoBundle(this, ShadowLayoutActivity.class);
+                break;
+            // 波纹布局
+            case R.id.voiceActivityMbRippleLayout:
+                IntentUtils.jumpNoBundle(this, RippleLayoutActivity.class);
                 break;
             default:
                 break;
