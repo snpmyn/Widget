@@ -20,10 +20,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.hwangjr.rxbus.RxBus;
 import com.zsp.library.R;
 import com.zsp.library.picture.kit.DragKit;
 import com.zsp.utilone.glide.util.GlideUtils;
+import com.zsp.utilone.rxbus.RxBus;
 
 import java.util.ArrayList;
 import java.util.List;

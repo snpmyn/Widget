@@ -44,8 +44,6 @@ dependencies {
     /*官方*/
     api 'com.github.snpmyn:Util:master-SNAPSHOT'
     /*util*/
-    api 'com.hwangjr.rxbus:rxbus:2.0.1'
-    /*RxBus*/
     api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     /*spruce*/
 }

@@ -13,11 +13,11 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.hwangjr.rxbus.RxBus;
-import com.hwangjr.rxbus.annotation.Subscribe;
-import com.hwangjr.rxbus.annotation.Tag;
-import com.hwangjr.rxbus.thread.EventThread;
 import com.zsp.library.picture.kit.DragKit;
+import com.zsp.utilone.rxbus.RxBus;
+import com.zsp.utilone.rxbus.annotation.Subscribe;
+import com.zsp.utilone.rxbus.annotation.Tag;
+import com.zsp.utilone.rxbus.thread.EventThread;
 import com.zsp.widget.R;
 
 import java.util.List;
