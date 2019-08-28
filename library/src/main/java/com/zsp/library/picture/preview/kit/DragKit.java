@@ -1,4 +1,4 @@
-package com.zsp.library.picture.kit;
+package com.zsp.library.picture.preview.kit;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -14,7 +14,7 @@ import androidx.annotation.FloatRange;
 import androidx.core.app.ActivityOptionsCompat;
 
 import com.zsp.library.R;
-import com.zsp.library.picture.activity.PicturePreviewActivity;
+import com.zsp.library.picture.preview.activity.PreviewActivity;
 
 import timber.log.Timber;
 
@@ -376,7 +376,7 @@ public class DragKit {
         DragKit.data = data;
         DragKit.index = index;
         Intent intent = new Intent();
-        intent.setClass(activity, PicturePreviewActivity.class);
+        intent.setClass(activity, PreviewActivity.class);
         activity.startActivity(intent, compat.toBundle());
     }
 

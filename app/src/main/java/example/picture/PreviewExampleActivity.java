@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.library.picture.kit.DragKit;
+import com.zsp.library.picture.preview.kit.DragKit;
 import com.zsp.utilone.rxbus.RxBus;
 import com.zsp.utilone.rxbus.annotation.Subscribe;
 import com.zsp.utilone.rxbus.annotation.Tag;
@@ -30,12 +30,12 @@ import timber.log.Timber;
 import value.WidgetLibraryRxBusConstant;
 
 /**
- * @decs: 预览页
+ * @decs: 预览示例页
  * @author: 郑少鹏
  * @date: 2019/6/9 11:22
  */
-public class PreviewActivity extends AppCompatActivity {
-    @BindView(R.id.previewActivityIv)
+public class PreviewExampleActivity extends AppCompatActivity {
+    @BindView(R.id.previewExampleActivityIv)
     ImageView pictureActivityIv;
     /**
      * DragKit
@@ -53,7 +53,7 @@ public class PreviewActivity extends AppCompatActivity {
                 // 状态栏或导航栏显/隐布局不变
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         );
-        setContentView(R.layout.activity_preview);
+        setContentView(R.layout.activity_preview_example);
         ButterKnife.bind(this);
         RxBus.get().register(this);
         // 初始化配置
@@ -129,9 +129,9 @@ public class PreviewActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.previewActivityIv)
+    @OnClick(R.id.previewExampleActivityIv)
     public void onViewClicked(View view) {
-        if (view.getId() == R.id.previewActivityIv) {
+        if (view.getId() == R.id.previewExampleActivityIv) {
             dragKit.jump(this, view, new Object[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher}, 0);
         }
     }

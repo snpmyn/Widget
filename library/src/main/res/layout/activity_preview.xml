@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/pictureActivityCl"
+    android:id="@+id/previewActivityCl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black60"
-    tools:context=".picture.activity.PicturePreviewActivity">
+    tools:context=".picture.preview.activity.PreviewActivity">
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pictureActivityVp"
+        android:id="@+id/previewActivityVp"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
         android:transitionName="share_picture"

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="example.picture.PreviewActivity">
+    tools:context="example.picture.PreviewExampleActivity">
 
     <ImageView
-        android:id="@+id/previewActivityIv"
+        android:id="@+id/previewExampleActivityIv"
         android:layout_width="@dimen/dp_290"
         android:layout_height="@dimen/dp_290"
         android:contentDescription="@string/toDo"

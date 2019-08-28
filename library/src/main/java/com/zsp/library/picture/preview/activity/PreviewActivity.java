@@ -1,4 +1,4 @@
-package com.zsp.library.picture.activity;
+package com.zsp.library.picture.preview.activity;
 
 import android.annotation.TargetApi;
 import android.app.SharedElementCallback;
@@ -21,7 +21,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.zsp.library.R;
-import com.zsp.library.picture.kit.DragKit;
+import com.zsp.library.picture.preview.kit.DragKit;
 import com.zsp.utilone.glide.util.GlideUtils;
 import com.zsp.utilone.rxbus.RxBus;
 
@@ -33,16 +33,16 @@ import timber.log.Timber;
 import value.WidgetLibraryRxBusConstant;
 
 /**
- * @decs: 图片预览页
+ * @decs: 预览页
  * @author: 郑少鹏
  * @date: 2019/6/9 10:45
  */
-public class PicturePreviewActivity extends AppCompatActivity {
+public class PreviewActivity extends AppCompatActivity {
     /**
      * 控件
      */
-    private ViewPager pictureActivityVp;
-    private ConstraintLayout pictureActivityCl;
+    private ViewPager previewActivityVp;
+    private ConstraintLayout previewActivityCl;
     /**
      * DragKit
      */
@@ -59,7 +59,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_picture_preview);
+        setContentView(R.layout.activity_preview);
         // 拖拽返关时导航栏显拖拽视图可如下（同微信一致）
         // 隐状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -81,8 +81,8 @@ public class PicturePreviewActivity extends AppCompatActivity {
      * 初始化控件
      */
     private void stepUi() {
-        pictureActivityCl = findViewById(R.id.pictureActivityCl);
-        pictureActivityVp = findViewById(R.id.pictureActivityVp);
+        previewActivityCl = findViewById(R.id.previewActivityCl);
+        previewActivityVp = findViewById(R.id.previewActivityVp);
     }
 
     /**
@@ -92,7 +92,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
         // DragKit
         dragKit = new DragKit(this);
         dragKit.setShareElementMode(true);
-        dragKit.setDragCloseView(pictureActivityCl, pictureActivityVp);
+        dragKit.setDragCloseView(previewActivityCl, previewActivityVp);
         // 数据
         views = new ArrayList<>();
     }
@@ -118,7 +118,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
      */
     private void startLogic() {
         // ViewPager关联适配器
-        pictureActivityVp.setAdapter(new PagerAdapter() {
+        previewActivityVp.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
                 return views.size();
@@ -142,7 +142,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
             }
         });
         // ViewPager当前项
-        pictureActivityVp.setCurrentItem(DragKit.index);
+        previewActivityVp.setCurrentItem(DragKit.index);
     }
 
     /**
@@ -193,7 +193,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
     }
 
     private void onPageChangeListener() {
-        pictureActivityVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        previewActivityVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
