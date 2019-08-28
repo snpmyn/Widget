@@ -58,7 +58,7 @@
         <activity android:name="example.searchbox.SearchBoxOneActivity" />
         <activity android:name="example.searchbox.SearchBoxTwoActivity" />
         <activity android:name="example.searchbox.SearchBoxActivity" />
-        <activity android:name="example.picture.PictureActivity" />
+        <activity android:name="example.picture.PreviewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

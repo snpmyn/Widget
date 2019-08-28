@@ -30,12 +30,12 @@ import timber.log.Timber;
 import value.WidgetLibraryRxBusConstant;
 
 /**
- * @decs: 图片页
+ * @decs: 预览页
  * @author: 郑少鹏
  * @date: 2019/6/9 11:22
  */
-public class PictureActivity extends AppCompatActivity {
-    @BindView(R.id.pictureActivityIv)
+public class PreviewActivity extends AppCompatActivity {
+    @BindView(R.id.previewActivityIv)
     ImageView pictureActivityIv;
     /**
      * DragKit
@@ -53,7 +53,7 @@ public class PictureActivity extends AppCompatActivity {
                 // 状态栏或导航栏显/隐布局不变
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         );
-        setContentView(R.layout.activity_picture);
+        setContentView(R.layout.activity_preview);
         ButterKnife.bind(this);
         RxBus.get().register(this);
         // 初始化配置
@@ -129,9 +129,9 @@ public class PictureActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.pictureActivityIv)
+    @OnClick(R.id.previewActivityIv)
     public void onViewClicked(View view) {
-        if (view.getId() == R.id.pictureActivityIv) {
+        if (view.getId() == R.id.previewActivityIv) {
             dragKit.jump(this, view, new Object[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher}, 0);
         }
     }
@@ -146,7 +146,7 @@ public class PictureActivity extends AppCompatActivity {
     public void updateView(Integer integer) {
         // 重显对应视图
         if (integer == 0) {
-            pictureActivityIv.setAlpha(1.0f);
+            pictureActivityIv.setAlpha(1.0F);
         }
     }
 }
