@@ -20,7 +20,7 @@ import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.layout.LayoutActivity;
 import example.location.LocationActivity;
-import example.picture.PreviewExampleActivity;
+import example.picture.PictureActivity;
 import example.progressbar.ProgressBarActivity;
 import example.pudding.PuddingActivity;
 import example.screen.ScreenActivity;
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    @OnClick({R.id.mainActivityMbPreviewExample,
+    @OnClick({R.id.mainActivityMbPicture,
             R.id.mainActivityMbSearchBox,
             R.id.mainActivityMbTextView,
             R.id.mainActivityMbAnimation,
@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbRadarChart})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            // 预览示例
-            case R.id.mainActivityMbPreviewExample:
-                IntentUtils.jumpNoBundle(this, PreviewExampleActivity.class);
+            // 图片
+            case R.id.mainActivityMbPicture:
+                IntentUtils.jumpNoBundle(this, PictureActivity.class);
                 break;
             // 搜索框
             case R.id.mainActivityMbSearchBox:

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Widget</string>
+    <string name="picture">图片</string>
     <string name="previewExample">预览示例</string>
+    <string name="lubanCompression">鲁班压缩</string>
+    <string name="syncCompress">同步压缩</string>
+    <string name="asyncCompress">异步压缩</string>
     <string name="searchBox">搜索框</string>
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>
@@ -121,6 +125,7 @@
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
     <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
+    <string name="pictureParameters">原始参数：%1$s\n压缩后参数：%2$s</string>
     <!--string-array-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>
