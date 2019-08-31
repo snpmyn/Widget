@@ -10,6 +10,12 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import com.zsp.library.picture.luban.adapter.BaseInputStreamAdapter;
+import com.zsp.library.picture.luban.listener.OnCompressListener;
+import com.zsp.library.picture.luban.listener.OnRenameListener;
+import com.zsp.library.picture.luban.predicate.CompressionPredicate;
+import com.zsp.library.picture.luban.provider.InputStreamProvider;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -9,10 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.library.picture.luban.CompressionPredicate;
 import com.zsp.library.picture.luban.Luban;
-import com.zsp.library.picture.luban.OnCompressListener;
-import com.zsp.library.picture.luban.OnRenameListener;
+import com.zsp.library.picture.luban.listener.OnCompressListener;
 import com.zsp.utilone.file.FileUtils;
 import com.zsp.utilone.glide.util.GlideUtils;
 import com.zsp.widget.R;
@@ -30,10 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 import value.WidgetFolder;
@@ -112,32 +107,19 @@ public class LubanCompressActivity extends AppCompatActivity {
         FileUtils.createFolder(WidgetFolder.COMPRESS_PICTURE, false);
         compositeDisposable.add(Flowable.just(photos)
                 .observeOn(Schedulers.io())
-                .map(new Function<List<T>, List<File>>() {
-                    @Override
-                    public List<File> apply(@NonNull List<T> list) throws Exception {
-                        return Luban.with(LubanCompressActivity.this)
-                                .setTargetDir(WidgetFolder.COMPRESS_PICTURE)
-                                .load(list)
-                                .get();
-                    }
-                })
+                .map(list -> Luban.with(LubanCompressActivity.this)
+                        .setTargetDir(WidgetFolder.COMPRESS_PICTURE)
+                        .load(list)
+                        .get())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnError(new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) {
-                        Timber.e(throwable);
-                    }
-                })
-                .onErrorResumeNext(Flowable.<List<File>>empty())
-                .subscribe(new Consumer<List<File>>() {
-                    @Override
-                    public void accept(@NonNull List<File> list) {
-                        for (int i = 0; i < list.size(); i++) {
-                            File file = list.get(i);
-                            Timber.d(file.getAbsolutePath());
-                            GlideUtils.loadByObject(LubanCompressActivity.this, file.getAbsolutePath(), lubanCompressActivityIv);
-                            showResult(files.get(i), file);
-                        }
+                .doOnError(Timber::e)
+                .onErrorResumeNext(Flowable.empty())
+                .subscribe(list -> {
+                    for (int i = 0; i < list.size(); i++) {
+                        File file = list.get(i);
+                        Timber.d(file.getAbsolutePath());
+                        GlideUtils.loadByObject(LubanCompressActivity.this, file.getAbsolutePath(), lubanCompressActivityIv);
+                        showResult(files.get(i), file);
                     }
                 }));
     }
@@ -155,24 +137,16 @@ public class LubanCompressActivity extends AppCompatActivity {
                 .ignoreBy(100)
                 .setTargetDir(WidgetFolder.COMPRESS_PICTURE)
                 .setFocusAlpha(false)
-                .filter(new CompressionPredicate() {
-                    @Override
-                    public boolean apply(String path) {
-                        return !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif"));
+                .filter(path -> !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif")))
+                .setRenameListener(filePath -> {
+                    try {
+                        MessageDigest md = MessageDigest.getInstance("MD5");
+                        md.update(filePath.getBytes());
+                        return new BigInteger(1, md.digest()).toString(32);
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
                     }
-                })
-                .setRenameListener(new OnRenameListener() {
-                    @Override
-                    public String rename(String filePath) {
-                        try {
-                            MessageDigest md = MessageDigest.getInstance("MD5");
-                            md.update(filePath.getBytes());
-                            return new BigInteger(1, md.digest()).toString(32);
-                        } catch (NoSuchAlgorithmException e) {
-                            e.printStackTrace();
-                        }
-                        return "";
-                    }
+                    return "";
                 })
                 .setCompressListener(new OnCompressListener() {
                     @Override

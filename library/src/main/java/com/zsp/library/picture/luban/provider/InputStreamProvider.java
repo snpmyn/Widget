@@ -1,4 +1,4 @@
-package com.zsp.library.picture.luban;
+package com.zsp.library.picture.luban.provider;
 
 import java.io.IOException;
 import java.io.InputStream;

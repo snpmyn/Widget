@@ -2,6 +2,8 @@ package com.zsp.library.picture.luban;
 
 import android.graphics.BitmapFactory;
 
+import com.zsp.library.picture.luban.provider.InputStreamProvider;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;

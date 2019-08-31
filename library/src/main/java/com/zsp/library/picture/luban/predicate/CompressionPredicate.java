@@ -1,4 +1,4 @@
-package com.zsp.library.picture.luban;
+package com.zsp.library.picture.luban.predicate;
 
 /**
  * @decs: CompressionPredicate
