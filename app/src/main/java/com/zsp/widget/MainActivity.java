@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
+import example.card.CardActivity;
 import example.chart.RadarChartActivity;
 import example.contract.ContactActivity;
 import example.dialog.DialogActivity;
@@ -93,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbLayout,
             R.id.mainActivityMbSideDrag,
             R.id.mainActivityMbBanner,
-            R.id.mainActivityMbRadarChart})
+            R.id.mainActivityMbRadarChart,
+            R.id.mainActivityMbRadarCard})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -175,6 +177,10 @@ public class MainActivity extends AppCompatActivity {
             // 雷达图
             case R.id.mainActivityMbRadarChart:
                 IntentUtils.jumpNoBundle(this, RadarChartActivity.class);
+                break;
+            // 卡片
+            case R.id.mainActivityMbRadarCard:
+                IntentUtils.jumpNoBundle(this, CardActivity.class);
                 break;
             default:
                 break;

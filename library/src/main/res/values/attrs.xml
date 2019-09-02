@@ -158,4 +158,9 @@
         <attr name="RippleLayoutZoom" format="boolean" />
         <attr name="RippleLayoutZoomScale" format="float" />
     </declare-styleable>
+    <!--CollapsibleCard-->
+    <declare-styleable name="CollapsibleCard">
+        <attr name="cardTitle" format="string" />
+        <attr name="cardDescription" format="string" />
+    </declare-styleable>
 </resources>

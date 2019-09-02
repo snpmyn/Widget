@@ -152,5 +152,12 @@
             android:layout_height="wrap_content"
             android:text="@string/radarChart"
             android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbRadarCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout">
+    <!--
+    Note: putting everything in a RelativeLayout confuses TalkBack, which does not always focus on the HtmlTextView.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/collapsibleCardLlContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="?android:listPreferredItemHeightSmall"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_12">
+
+            <TextView
+                android:id="@+id/collapsibleCardTvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/google_sans_medium"
+                android:paddingTop="@dimen/dp_4"
+                android:paddingBottom="@dimen/dp_4"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/sp_14"
+                tools:text="标题" />
+
+            <ImageView
+                android:id="@+id/collapsibleCardIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/ic_expand_more_24dp_font_input" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/collapsibleCardTvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_medium"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_12"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp_12"
+            android:visibility="gone"
+            tools:text="描述"
+            tools:visibility="visible" />
+    </LinearLayout>
+</merge>
