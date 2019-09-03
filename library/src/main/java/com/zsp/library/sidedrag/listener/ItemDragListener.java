@@ -11,7 +11,7 @@ public interface ItemDragListener {
     /**
      * 拖拽
      *
-     * @param viewHolder viewHolder
+     * @param viewHolder RecyclerView.ViewHolder
      */
     void onStartDrag(RecyclerView.ViewHolder viewHolder);
 }

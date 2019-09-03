@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
-import com.zsp.library.recyclerview.RecyclerViewKit;
+import com.zsp.library.recyclerview.RecyclerViewConfigure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,8 +67,8 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 类别
         holder.screenItemTv.setText(leftList.get(0));
         // 嵌套（控件）
-        RecyclerViewKit recyclerViewKit = new RecyclerViewKit(context, holder.screenItemRv);
-        recyclerViewKit.gridLayout(integerList.get(0), 36, true, false, false);
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
+        recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
         // 嵌套（适配器）
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context,
                 leftList.subList(1, leftList.size()), leftList.get(0), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));

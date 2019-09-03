@@ -12,9 +12,9 @@ import com.zsp.library.spruce.SpruceKit;
  * Created on 2019/5/22.
  *
  * @author 郑少鹏
- * @desc RecyclerViewKit
+ * @desc RecyclerViewConfigure
  */
-public class RecyclerViewKit {
+public class RecyclerViewConfigure {
     /**
      * 上下文
      */
@@ -38,7 +38,7 @@ public class RecyclerViewKit {
      * @param context      控件
      * @param recyclerView 控件
      */
-    public RecyclerViewKit(Context context, RecyclerView recyclerView) {
+    public RecyclerViewConfigure(Context context, RecyclerView recyclerView) {
         this.context = context;
         this.recyclerView = recyclerView;
         this.spruceKit = new SpruceKit();

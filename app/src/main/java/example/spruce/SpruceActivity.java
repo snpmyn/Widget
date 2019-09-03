@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zsp.library.recyclerview.RecyclerViewKit;
+import com.zsp.library.recyclerview.RecyclerViewConfigure;
 import com.zsp.widget.R;
 
 import java.util.ArrayList;
@@ -40,9 +40,9 @@ public class SpruceActivity extends AppCompatActivity {
     }
 
     private void initConfiguration() {
-        RecyclerViewKit recyclerViewKit = new RecyclerViewKit(this, spruceActivityRv);
-        recyclerViewKit.spruceKitConfigure(50L, 800L, false, com.willowtreeapps.spruce.sort.LinearSort.Direction.TOP_TO_BOTTOM);
-        recyclerViewKit.linearVerticalLayout(false, 0, true, true);
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, spruceActivityRv);
+        recyclerViewConfigure.spruceKitConfigure(50L, 800L, false, com.willowtreeapps.spruce.sort.LinearSort.Direction.TOP_TO_BOTTOM);
+        recyclerViewConfigure.linearVerticalLayout(false, 0, false, true);
     }
 
     private void initData() {

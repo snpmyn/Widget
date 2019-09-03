@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zsp.library.recyclerview.RecyclerViewKit;
+import com.zsp.library.recyclerview.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.RecyclerViewDisplayKit;
 import com.zsp.library.sidedrag.callback.SimpleItemTouchHelperCallback;
 import com.zsp.library.sidedrag.listener.ItemDragListener;
 import com.zsp.widget.R;
@@ -49,9 +50,9 @@ public class SideDragActivity extends AppCompatActivity implements ItemDragListe
     }
 
     private void initConfiguration() {
-        // RecyclerViewKit
-        RecyclerViewKit recyclerViewKit = new RecyclerViewKit(this, sideDragActivityRv);
-        recyclerViewKit.linearVerticalLayout(true, 36, false, false);
+        // RecyclerViewConfigure
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, sideDragActivityRv);
+        recyclerViewConfigure.linearVerticalLayout(true, 36, false, false);
         // 侧拖适配器
         sideDragAdapter = new SideDragAdapter(this, this);
         // 数据
@@ -73,27 +74,14 @@ public class SideDragActivity extends AppCompatActivity implements ItemDragListe
     }
 
     private void startLogic() {
-        sideDragDisplay(list);
-    }
-
-    /**
-     * 侧拖展示
-     *
-     * @param displayList 数据
-     */
-    private void sideDragDisplay(List<String> displayList) {
-        sideDragAdapter.setSideDragData(displayList);
-        if (sideDragAdapter.hasObservers()) {
-            sideDragAdapter.notifyDataSetChanged();
-        } else {
-            sideDragActivityRv.setAdapter(sideDragAdapter);
-        }
+        sideDragAdapter.setSideDragData(list);
+        RecyclerViewDisplayKit.display(sideDragActivityRv, sideDragAdapter);
     }
 
     /**
      * 拖拽
      *
-     * @param viewHolder viewHolder
+     * @param viewHolder RecyclerView.ViewHolder
      */
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {

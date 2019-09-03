@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
-import com.zsp.library.recyclerview.RecyclerViewKit;
+import com.zsp.library.recyclerview.RecyclerViewConfigure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,8 +68,8 @@ public class ScreenHandleKit implements View.OnClickListener {
         MaterialButton bottomSheetDialogMemberScreenMbEnsure = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenMbEnsure);
         bottomSheetDialogMemberScreenMbEnsure.setOnClickListener(this);
         bottomSheetDialogMemberScreenRv = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenRv);
-        RecyclerViewKit recyclerViewKit = new RecyclerViewKit(context, bottomSheetDialogMemberScreenRv);
-        recyclerViewKit.linearVerticalLayout(false, 0, false, false);
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, bottomSheetDialogMemberScreenRv);
+        recyclerViewConfigure.linearVerticalLayout(false, 0, false, false);
         bottomSheetDialogMemberScreenRv.setNestedScrollingEnabled(false);
         bottomSheetDialog = new BottomSheetDialog(context);
         bottomSheetDialog.setContentView(bottomSheetDialogView);
