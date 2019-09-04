@@ -1,6 +1,7 @@
 package com.zsp.library.animation.login.two;
 
 import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -51,12 +52,14 @@ public class TransitionView extends RelativeLayout {
     /**
      * 开始动画
      */
+    @SuppressLint("ClickableViewAccessibility")
     public void startAnimation() {
-        this.setVisibility(View.VISIBLE);
+        ViewUtils.showView(this);
+        this.setOnTouchListener((view, motionEvent) -> true);
         transitionViewTvLoggingIn.setTranslationX(0);
-        transitionViewTvLoggingIn.setVisibility(View.INVISIBLE);
-        transitionViewTvSuccess.setVisibility(View.INVISIBLE);
-        transitionViewViewLine.setVisibility(View.INVISIBLE);
+        ViewUtils.hideView(transitionViewTvLoggingIn, View.INVISIBLE);
+        ViewUtils.hideView(transitionViewTvSuccess, View.INVISIBLE);
+        ViewUtils.hideView(transitionViewViewLine, View.INVISIBLE);
         // 扩散动画
         TransitionViewHelper.spreadAnimation(transitionViewViewSpread, getScale(), new TransitionViewHelper.BaseSimpleAnimatorListener() {
             @Override
@@ -101,6 +104,9 @@ public class TransitionView extends RelativeLayout {
         });
     }
 
+    /**
+     * 开始成功文本动画
+     */
     private void startSuccessTextAnimation() {
         TransitionViewHelper.successTextAnimation(transitionViewTvSuccess, transitionViewTvLoggingIn, new TransitionViewHelper.BaseSimpleAnimatorListener() {
             @Override
@@ -112,7 +118,12 @@ public class TransitionView extends RelativeLayout {
         });
     }
 
+    /**
+     * 开始收缩动画
+     */
+    @SuppressLint("ClickableViewAccessibility")
     private void startShrinkAnimation() {
+        this.setOnTouchListener(null);
         ViewUtils.hideView(transitionViewTvLoggingIn, View.INVISIBLE);
         ViewUtils.hideView(transitionViewTvSuccess, View.INVISIBLE);
         ViewUtils.hideView(transitionViewViewLine, View.INVISIBLE);
