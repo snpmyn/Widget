@@ -123,6 +123,7 @@
     <string name="circularRevealLayout">循环揭示布局</string>
     <string name="card">卡片</string>
     <string name="description">描述</string>
+    <string name="focusResize">聚焦调整</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

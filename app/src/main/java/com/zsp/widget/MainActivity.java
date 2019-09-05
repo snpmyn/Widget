@@ -19,6 +19,7 @@ import example.chart.RadarChartActivity;
 import example.contract.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
+import example.focusresize.FocusResizeActivity;
 import example.layout.LayoutActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbSideDrag,
             R.id.mainActivityMbBanner,
             R.id.mainActivityMbRadarChart,
-            R.id.mainActivityMbRadarCard})
+            R.id.mainActivityMbRadarCard,
+            R.id.mainActivityMbFocusResize})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -181,6 +183,10 @@ public class MainActivity extends AppCompatActivity {
             // 卡片
             case R.id.mainActivityMbRadarCard:
                 IntentUtils.jumpNoBundle(this, CardActivity.class);
+                break;
+            // 聚焦调整
+            case R.id.mainActivityMbFocusResize:
+                IntentUtils.jumpNoBundle(this, FocusResizeActivity.class);
                 break;
             default:
                 break;

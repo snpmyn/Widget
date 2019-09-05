@@ -5,4 +5,6 @@
     <dimen name="dp_160">160dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_360">360dp</dimen>
+    <!--font size-->
+    <dimen name="sp_32">32sp</dimen>
 </resources>

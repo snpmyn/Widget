@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.focusresize.FocusResizeActivity" />
         <activity android:name="example.card.CardActivity" />
         <activity android:name="example.layout.CircularRevealActivity" />
         <activity android:name="example.layout.RippleLayoutActivity" />
