@@ -15,8 +15,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import example.focusresize.adapter.CustomAdapter;
-import example.focusresize.adapter.DefaultAdapter;
+import example.focusresize.adapter.FocusResizeCustomAdapter;
+import example.focusresize.adapter.FocusResizeDefaultAdapter;
 import example.focusresize.bean.FocusResizeBean;
 
 /**
@@ -28,9 +28,9 @@ public class FocusResizeActivity extends AppCompatActivity {
     @BindView(R.id.focusResizeActivityRv)
     RecyclerView focusResizeActivityRv;
     /**
-     * 自定适配器
+     * 聚焦调整自定适配器
      */
-    private CustomAdapter customAdapter;
+    private FocusResizeCustomAdapter focusResizeCustomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +46,20 @@ public class FocusResizeActivity extends AppCompatActivity {
         // 控件
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, focusResizeActivityRv);
         recyclerViewConfigure.linearVerticalLayout(true, 36, false, false);
-        // 默适配器
-        DefaultAdapter defaultAdapter = new DefaultAdapter(this, (int) getResources().getDimension(R.dimen.dp_100));
-        defaultAdapter.setDefaultData(addItems());
-        // 自定适配器
-        customAdapter = new CustomAdapter(this, (int) getResources().getDimension(R.dimen.dp_100));
-        customAdapter.setCustomData(addItems());
+        // 聚焦调整默适配器
+        FocusResizeDefaultAdapter focusResizeDefaultAdapter = new FocusResizeDefaultAdapter(this, (int) getResources().getDimension(R.dimen.dp_100));
+        focusResizeDefaultAdapter.setDefaultData(addItems());
+        // 聚焦调整自定适配器
+        focusResizeCustomAdapter = new FocusResizeCustomAdapter(this, (int) getResources().getDimension(R.dimen.dp_100));
+        focusResizeCustomAdapter.setCustomData(addItems());
     }
 
     private void startLogic() {
-        focusResizeActivityRv.setAdapter(customAdapter);
+        focusResizeActivityRv.setAdapter(focusResizeCustomAdapter);
     }
 
     private void setListener() {
-        focusResizeActivityRv.addOnScrollListener(new FocusResizeScrollListener<>(customAdapter, (LinearLayoutManager) focusResizeActivityRv.getLayoutManager()));
+        focusResizeActivityRv.addOnScrollListener(new FocusResizeScrollListener<>(focusResizeCustomAdapter, (LinearLayoutManager) focusResizeActivityRv.getLayoutManager()));
     }
 
     /**

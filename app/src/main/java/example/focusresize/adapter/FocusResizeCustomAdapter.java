@@ -24,9 +24,9 @@ import example.focusresize.bean.FocusResizeBean;
  * Created on 2019/9/5.
  *
  * @author 郑少鹏
- * @desc 自定适配器
+ * @desc 聚焦调整自定适配器
  */
-public class CustomAdapter extends BaseFocusResizeAdapter<RecyclerView.ViewHolder> {
+public class FocusResizeCustomAdapter extends BaseFocusResizeAdapter<RecyclerView.ViewHolder> {
     /**
      * 偏移量
      */
@@ -52,7 +52,7 @@ public class CustomAdapter extends BaseFocusResizeAdapter<RecyclerView.ViewHolde
      * @param context 上下文
      * @param height  高
      */
-    public CustomAdapter(Context context, int height) {
+    public FocusResizeCustomAdapter(Context context, int height) {
         super(context, height);
         this.context = context;
         focusResizeBeans = new ArrayList<>();
