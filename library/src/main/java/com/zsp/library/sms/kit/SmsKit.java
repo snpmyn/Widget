@@ -4,8 +4,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.telephony.SmsManager;
 
 import com.zsp.library.sms.receiver.SmsBroadcastReceiver;
@@ -32,8 +30,6 @@ public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendList
     /**
      * 意图
      */
-    private Intent smsSendIntent;
-    private Intent smsDeliverIntent;
     private PendingIntent smsSendPendingIntent;
     private PendingIntent smsDeliverPendingIntent;
     /**
@@ -54,16 +50,19 @@ public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendList
      */
     public SmsKit(Context context) {
         this.weakReference = new WeakReference<>(context);
+        // 注册接收器
         registerReceiver();
+        // 设监听
         setListener();
-        smsSendIntent = new Intent(SMS_SEND_ACTION);
-        smsDeliverIntent = new Intent(SMS_DELIVER_ACTION);
+        // 意图
+        Intent smsSendIntent = new Intent(SMS_SEND_ACTION);
+        Intent smsDeliverIntent = new Intent(SMS_DELIVER_ACTION);
         smsSendPendingIntent = PendingIntent.getBroadcast(weakReference.get(), 0, smsSendIntent, 0);
         smsDeliverPendingIntent = PendingIntent.getBroadcast(weakReference.get(), 0, smsDeliverIntent, 0);
     }
 
     /**
-     * 注册
+     * 注册接收器
      */
     private void registerReceiver() {
         // 发送
@@ -77,18 +76,13 @@ public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendList
     }
 
     /**
-     * 反注册
+     * 反注册接收器
      */
     public void unregisterReceiver() {
-        PackageManager packageManager = weakReference.get().getPackageManager();
-        List<ResolveInfo> smsSendResolveInfos = packageManager.queryBroadcastReceivers(smsSendIntent, 0);
-        List<ResolveInfo> smsDeliverResolveInfos = packageManager.queryBroadcastReceivers(smsDeliverIntent, 0);
-        if (!smsSendResolveInfos.isEmpty()) {
-            weakReference.get().unregisterReceiver(smsSendBroadcastReceiver);
-        }
-        if (!smsDeliverResolveInfos.isEmpty()) {
-            weakReference.get().unregisterReceiver(smsDeliverBroadcastReceiver);
-        }
+        // 发送
+        weakReference.get().unregisterReceiver(smsSendBroadcastReceiver);
+        // 传送
+        weakReference.get().unregisterReceiver(smsDeliverBroadcastReceiver);
     }
 
     /**
