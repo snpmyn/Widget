@@ -24,9 +24,9 @@ android:
     - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
   licenses:
-    - 'android-sdk-preview-license-52d11cd2'
+    # - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+    # - 'google-gdk-license-.+'
 # Emulator Management: Create, Start and Wait
 before_script:
   # - echo no | android create avd --force -n test -t android-29 --abi armeabi-v7a -c 100M
