@@ -1,4 +1,4 @@
-package com.zsp.library.animation.circual;
+package com.zsp.library.animation.circular;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -149,9 +149,9 @@ public class CircularFlex {
             mAnimView = animView;
             this.isShow = isShow;
             if (isShow) {
-                mStartRadius = MINI_RADIUS + 0F;
+                mStartRadius = MINI_RADIUS + 0.0F;
             } else {
-                mEndRadius = MINI_RADIUS + 0F;
+                mEndRadius = MINI_RADIUS + 0.0F;
             }
         }
 
@@ -202,7 +202,7 @@ public class CircularFlex {
             go(null);
         }
 
-        void go(OnAnimationEndListener onAnimationEndListener) {
+        public void go(OnAnimationEndListener onAnimationEndListener) {
             mOnAnimationEndListener = onAnimationEndListener;
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 doOnEnd();
@@ -426,7 +426,7 @@ public class CircularFlex {
                             }
                             returnAnim.start();
                         }
-                    }, 1000);
+                    }, 1000L);
 
                 }
             });

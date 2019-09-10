@@ -22,6 +22,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.animation.circular.CircularFlexContentActivity" />
+        <activity android:name="example.animation.circular.CircularFlexActivity" />
         <activity android:name="example.focusresize.FocusResizeActivity" />
         <activity android:name="example.card.CardActivity" />
         <activity android:name="example.layout.CircularRevealActivity" />
@@ -48,7 +50,7 @@
         <activity android:name="example.dialog.DialogTwoActivity" />
         <activity android:name="example.dialog.DialogOneActivity" />
         <activity android:name="example.dialog.DialogActivity" />
-        <activity android:name="example.animation.RevealActivity" />
+        <activity android:name="example.animation.reveal.RevealActivity" />
         <activity android:name="example.animation.login.HomeActivity" />
         <activity android:name="example.animation.login.LoginTwoActivity" />
         <activity android:name="example.animation.login.LoginOneActivity" />

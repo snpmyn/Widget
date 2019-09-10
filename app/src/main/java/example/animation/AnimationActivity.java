@@ -10,7 +10,9 @@ import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import example.animation.circular.CircularFlexActivity;
 import example.animation.login.LoginActivity;
+import example.animation.reveal.RevealActivity;
 
 /**
  * @decs: 动画页
@@ -25,7 +27,9 @@ public class AnimationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.loginActivityMbLogin, R.id.loginActivityMbReveal})
+    @OnClick({R.id.loginActivityMbLogin,
+            R.id.loginActivityMbReveal,
+            R.id.loginActivityMbCircularFlex})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 登录
@@ -35,6 +39,10 @@ public class AnimationActivity extends AppCompatActivity {
             // 揭示
             case R.id.loginActivityMbReveal:
                 IntentUtils.jumpNoBundle(this, RevealActivity.class);
+                break;
+            // 圆形伸缩
+            case R.id.loginActivityMbCircularFlex:
+                IntentUtils.jumpNoBundle(this, CircularFlexActivity.class);
                 break;
             default:
                 break;

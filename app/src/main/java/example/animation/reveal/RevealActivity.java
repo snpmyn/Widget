@@ -1,4 +1,4 @@
-package example.animation;
+package example.animation.reveal;
 
 import android.os.Bundle;
 import android.view.View;

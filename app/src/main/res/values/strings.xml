@@ -124,6 +124,10 @@
     <string name="card">卡片</string>
     <string name="description">描述</string>
     <string name="focusResize">聚焦调整</string>
+    <string name="circularFlex">圆形伸缩</string>
+    <string name="startActivityWithPicture">start Activity with picture</string>
+    <string name="startActivityWithColor">start Activity with color</string>
+    <string name="change">变</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
