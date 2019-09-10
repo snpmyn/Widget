@@ -22,10 +22,11 @@ import androidx.fragment.app.DialogFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.zsp.library.R;
 import com.zsp.library.voice.value.VoiceConstant;
-import com.zsp.utilone.sharedpreferences.SharedPreferencesUtils;
+import com.zsp.utilone.storage.sharedpreferences.SharedPreferencesUtils;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
@@ -108,7 +109,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
         // 文件时长
         Bundle bundle = getArguments();
         if (null != bundle) {
-            long itemDuration = Long.parseLong(bundle.getString(VoiceConstant.VOICE_RECORD_FILE_LENGTH));
+            long itemDuration = Long.parseLong(Objects.requireNonNull(bundle.getString(VoiceConstant.VOICE_RECORD_FILE_LENGTH), "must not be null"));
             minutes = TimeUnit.MILLISECONDS.toMinutes(itemDuration);
             seconds = TimeUnit.MILLISECONDS.toSeconds(itemDuration) - TimeUnit.MINUTES.toSeconds(minutes);
             Timber.d("时长：%s-%s", minutes, seconds);
@@ -136,7 +137,8 @@ public class VoicePlayDialogFragment extends DialogFragment {
         fabVoicePlayDialogFragmentClick = view.findViewById(R.id.fabVoicePlayDialogFragmentClick);
         tvVoicePlayDialogFragmentFileLength = view.findViewById(R.id.tvVoicePlayDialogFragmentFileLength);
         // 文件名
-        tvVoicePlayDialogFragmentFileName.setText(SharedPreferencesUtils.getString(getContext(), VoiceConstant.VOICE_RECORD_FILE_NAME, null));
+        tvVoicePlayDialogFragmentFileName.setText(SharedPreferencesUtils.getString(Objects.requireNonNull(getContext(), "must not be null"),
+                VoiceConstant.VOICE_RECORD_FILE_NAME, null));
         // 进度
         ColorFilter filter = new LightingColorFilter(ContextCompat.getColor(getContext(), R.color.colorPrimary), ContextCompat.getColor(getContext(), R.color.colorPrimary));
         acsbVoicePlayDialogFragment.getProgressDrawable().setColorFilter(filter);
