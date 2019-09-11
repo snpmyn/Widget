@@ -69,9 +69,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initConfiguration() {
-        // SoulPermissionUtils
+        /*
+          SoulPermissionUtils
+         */
         soulPermissionUtils = new SoulPermissionUtils();
-        // 图片引导视图
+        /*
+          图片引导视图
+         */
         pictureGuideView = GuideView.Builder
                 // 初始（必调）
                 .newInstance(this)
@@ -100,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
                 .showOnce()
                 // Builder模式（返引导图实例）（必调）
                 .build();
-        // 动画引导视图
+        /*
+          动画引导视图
+         */
         animationGuideView = GuideView.Builder
                 .newInstance(this)
                 .setTargetView(mainActivityMbAnimation)
