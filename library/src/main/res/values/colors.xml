@@ -14,4 +14,5 @@
     <color name="successSign">#A5DC86</color>
     <color name="successCircle">#33A5DC86</color>
     <color name="black60">#60000000</color>
+    <color name="blackCC">#CC000000</color>
 </resources>
