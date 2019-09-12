@@ -94,7 +94,6 @@
     <string name="smsDeliverFail">短信未送达</string>
     <string name="contact">联系人</string>
     <string name="noExternalStorage">无外部存储</string>
-    <string name="extract">提取</string>
     <string name="telephony">电话</string>
     <string name="progressBar">进度条</string>
     <string name="multiProgressBar">多样进度条</string>

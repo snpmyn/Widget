@@ -20,7 +20,7 @@ import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
 import example.card.CardActivity;
 import example.chart.RadarChartActivity;
-import example.contract.ContactActivity;
+import example.contact.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.focusresize.FocusResizeActivity;

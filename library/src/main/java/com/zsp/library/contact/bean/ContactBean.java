@@ -1,5 +1,7 @@
 package com.zsp.library.contact.bean;
 
+import com.zsp.library.sidebar.FirstLetter;
+
 /**
  * Created on 2018/1/8.
  *
@@ -7,9 +9,18 @@ package com.zsp.library.contact.bean;
  * @desc 联系人
  */
 public class ContactBean {
+    private String index;
     private String name;
     private String phoneNumber;
     private String emailAddress;
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String name) {
+        this.index = FirstLetter.getFirstLetter(name);
+    }
 
     public String getName() {
         return name;

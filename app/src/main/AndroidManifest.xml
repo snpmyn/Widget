@@ -38,7 +38,7 @@
         <activity android:name="example.progressbar.MultiProgressBarActivity" />
         <activity android:name="example.progressbar.ProgressBarActivity" />
         <activity android:name="example.telephony.TelephonyActivity" />
-        <activity android:name="example.contract.ContactActivity" />
+        <activity android:name="example.contact.ContactActivity" />
         <activity android:name="example.sms.SmsActivity" />
         <activity android:name="example.floatingactionbutton.CounterActivity" />
         <activity android:name="example.pudding.PuddingActivity" />

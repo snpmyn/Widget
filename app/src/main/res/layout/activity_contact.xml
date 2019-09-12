@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:padding="@dimen/dp_12"
-    tools:context="example.contract.ContactActivity">
+    tools:context="example.contact.ContactActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/contactActivityExtract"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contactActivityRv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/extract"
-        android:textAppearance="?android:attr/textAppearanceInverse" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
+
+    <com.zsp.library.sidebar.WaveSideBar
+        android:id="@+id/contactActivityWsb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:backgroundColor="@color/colorAccent"
+        app:chooseTextColor="@color/background"
+        app:circleRadius="@dimen/dp_24"
+        app:hintTextSize="@dimen/sp_32"
+        app:radius="@dimen/dp_20"
+        app:textColor="@color/fontHint"
+        app:textSize="@dimen/sp_10" />
+</RelativeLayout>

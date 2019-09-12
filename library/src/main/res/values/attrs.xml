@@ -32,7 +32,7 @@
     <!--LowerConvexView-->
     <declare-styleable name="LowerConvexView">
         <attr name="lowerConvexViewArcHeight" format="dimension" />
-        <attr name="backgroundColor" format="color" />
+        <attr name="lowerConvexViewBackgroundColor" format="color" />
     </declare-styleable>
     <!--SearchView-->
     <declare-styleable name="SearchView">
@@ -162,5 +162,15 @@
     <declare-styleable name="CollapsibleCard">
         <attr name="cardTitle" format="string" />
         <attr name="cardDescription" format="string" />
+    </declare-styleable>
+    <!--WaveSideBar-->
+    <declare-styleable name="WaveSideBar">
+        <attr name="textColor" format="color|reference" />
+        <attr name="backgroundColor" format="color|reference" />
+        <attr name="chooseTextColor" format="color|reference" />
+        <attr name="textSize" format="dimension" />
+        <attr name="hintTextSize" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="circleRadius" format="dimension" />
     </declare-styleable>
 </resources>

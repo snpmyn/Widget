@@ -16,7 +16,7 @@
 * implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
 
 ##### AndroidLibrary - Library
-* implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+* implementation 'androidx.core:core-ktx:1.2.0-alpha04'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 * api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）
@@ -24,7 +24,7 @@
 #### com.github.snpmyn:Util(api)
 ##### AndroidLibrary - UtilOne
 * api 'com.github.bumptech.glide:glide:4.9.0'（避重）
-* api 'com.google.android.material:material:1.1.0-alpha09'（避重）
+* api 'com.google.android.material:material:1.1.0-alpha10'（避重）
 * api 'io.reactivex:rxandroid:1.2.1'（避重）
 * api 'io.reactivex:rxjava:1.3.8'（避重）
 * api 'com.jakewharton.timber:timber:4.7.1'（避重）
@@ -34,7 +34,7 @@
 * implementation 'org.apache.commons:commons-lang3:3.9'
 
 ##### AndroidLibrary - UtilTwo
-* implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+* implementation 'androidx.core:core-ktx:1.2.0-alpha04'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
 
 ### 权限

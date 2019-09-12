@@ -53,7 +53,7 @@ public class LowerConvexView extends View {
         super(context, attrs, defStyleAttr);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LowerConvexView);
         arcHeight = typedArray.getDimensionPixelSize(R.styleable.LowerConvexView_lowerConvexViewArcHeight, 0);
-        backgroundColor = typedArray.getColor(R.styleable.LowerConvexView_backgroundColor, Color.parseColor("#303F9F"));
+        backgroundColor = typedArray.getColor(R.styleable.LowerConvexView_lowerConvexViewBackgroundColor, Color.parseColor("#303F9F"));
         typedArray.recycle();
         paint = new Paint();
     }

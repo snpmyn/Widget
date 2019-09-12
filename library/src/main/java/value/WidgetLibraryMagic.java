@@ -21,6 +21,7 @@ public class WidgetLibraryMagic {
     public static final int INT_THIRTEEN = 13;
     public static final int INT_TWENTY = 20;
     public static final int INT_TWENTY_THREE = 23;
+    public static final int INT_TWENTY_SIX = 26;
     public static final int INT_TWENTY_EIGHT = 28;
     public static final int INT_TWENTY_NINE = 29;
     public static final int INT_THIRTY = 30;
@@ -55,7 +56,9 @@ public class WidgetLibraryMagic {
     public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65F;
     public static final float FLOAT_ZERO_DOT_SEVEN = 0.7F;
     public static final float FLOAT_ZERO_DOT_EIGHT_FOUR = 0.84F;
+    public static final float FLOAT_ZERO_DOT_NINE = 0.9F;
     public static final float FLOAT_ONE_DOT_ZERO = 1.0F;
+    public static final float FLOAT_ONE_DOT_FIVE = 1.5F;
     public static final float FLOAT_TWO_DOT_ZERO = 2.0F;
     public static final float FLOAT_THREE_DOT_ZERO = 3.0F;
     public static final float FLOAT_FOUR_DOT_ZERO = 4.0F;
@@ -65,4 +68,11 @@ public class WidgetLibraryMagic {
      * Long
      */
     public static final long LONG_ONE_HUNDRED_TWENTY = 120L;
+    /**
+     * char
+     */
+    public static final char CHAR_A_CAPITAL = 'A';
+    public static final char CHAR_A_LOWER_CASE = 'a';
+    public static final char CHAR_Z_CAPITAL = 'Z';
+    public static final char CHAR_Z_LOWER_CASE = 'z';
 }

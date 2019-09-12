@@ -1,6 +1,8 @@
-package com.zsp.library.bottomappbar.bottomappbartopedgetreatment;
+package com.zsp.library.bottomappbar;
 
 import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
 import com.google.android.material.shape.ShapePath;
@@ -24,7 +26,7 @@ public class BottomAppBarCutCornersTopEdge extends BottomAppBarTopEdgeTreatment 
     }
 
     @Override
-    public void getEdgePath(float length, float center, float interpolation, ShapePath shapePath) {
+    public void getEdgePath(float length, float center, float interpolation, @NonNull ShapePath shapePath) {
         @SuppressLint("RestrictedApi") float fabDiameter = getFabDiameter();
         if (fabDiameter == 0) {
             shapePath.lineTo(length, 0);
