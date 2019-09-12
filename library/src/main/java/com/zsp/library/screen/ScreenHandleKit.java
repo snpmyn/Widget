@@ -63,27 +63,31 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     private void stepBottomSheetDialog() {
         @SuppressLint("InflateParams") View bottomSheetDialogView = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_dialog_screen, null);
+        // 重置
         MaterialButton bottomSheetDialogMemberScreenMbResetting = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenMbResetting);
         bottomSheetDialogMemberScreenMbResetting.setOnClickListener(this);
+        // 确定
         MaterialButton bottomSheetDialogMemberScreenMbEnsure = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenMbEnsure);
         bottomSheetDialogMemberScreenMbEnsure.setOnClickListener(this);
+        // RecyclerView
         bottomSheetDialogMemberScreenRv = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenRv);
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, bottomSheetDialogMemberScreenRv);
         recyclerViewConfigure.linearVerticalLayout(false, 0, false, false);
         bottomSheetDialogMemberScreenRv.setNestedScrollingEnabled(false);
+        // BottomSheetDialog
         bottomSheetDialog = new BottomSheetDialog(context);
         bottomSheetDialog.setContentView(bottomSheetDialogView);
     }
 
     /**
-     * 通字符串条件打包
+     * 打包字符串条件
      *
      * @param classification 类别
      * @param spanCount      跨距数
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void packByStringConditions(String classification, int spanCount, boolean singleSelect, String... conditions) {
+    public void packStringConditions(String classification, int spanCount, boolean singleSelect, String... conditions) {
         List<String> list = new ArrayList<>();
         list.add(classification);
         list.addAll(Arrays.asList(conditions));
@@ -93,14 +97,14 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
-     * 通集合条件打包
+     * 打包集合条件
      *
      * @param classification 类别
      * @param spanCount      跨距数
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void packByListConditions(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
+    public void packListConditions(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
         List<String> list = new ArrayList<>();
         list.add(classification);
         list.addAll(conditions);
@@ -110,11 +114,11 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
-     * 支持单选后取消
+     * 单选后可取消
      *
      * @param classifications 条件
      */
-    public void supportCancelAfterSingleSelect(String... classifications) {
+    public void canCancelAfterSingleSelect(String... classifications) {
         for (String classification : classifications) {
             if (canCancelAfterSingleSelectList.contains(classification)) {
                 return;
@@ -147,6 +151,13 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
+     * 重置
+     */
+    public void resetting() {
+        screenAdapter.resetting();
+    }
+
+    /**
      * Called when a view has been clicked.
      *
      * @param v The view that was clicked.
@@ -169,13 +180,6 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     public void setScreenHandleListener(ScreenHandleListener screenHandleListener) {
         this.screenHandleListener = screenHandleListener;
-    }
-
-    /**
-     * 重置
-     */
-    public void resetting() {
-        screenAdapter.resetting();
     }
 
     /**

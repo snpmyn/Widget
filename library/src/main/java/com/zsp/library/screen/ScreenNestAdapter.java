@@ -22,8 +22,8 @@ import java.util.List;
  */
 public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.ViewHolder> {
     private Context context;
-    private List<String> strings;
     private String classification;
+    private List<String> strings;
     private boolean singleSelect;
     private boolean canCancelAfterSingleSelect;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
@@ -33,15 +33,16 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     /**
      * constructor
      *
-     * @param context        上下文
-     * @param strings        数据
-     * @param classification 类别
-     * @param singleSelect   单选否
+     * @param context                    上下文
+     * @param classification             类别
+     * @param strings                    数据
+     * @param singleSelect               单选否
+     * @param canCancelAfterSingleSelect 单选后可取消
      */
-    ScreenNestAdapter(Context context, List<String> strings, String classification, boolean singleSelect, boolean canCancelAfterSingleSelect) {
+    ScreenNestAdapter(Context context, String classification, List<String> strings, boolean singleSelect, boolean canCancelAfterSingleSelect) {
         this.context = context;
-        this.strings = strings;
         this.classification = classification;
+        this.strings = strings;
         this.singleSelect = singleSelect;
         this.canCancelAfterSingleSelect = canCancelAfterSingleSelect;
     }

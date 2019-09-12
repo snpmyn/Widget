@@ -48,32 +48,18 @@ public class ScreenActivity extends AppCompatActivity {
         // ScreenHandleKit
         screenHandleKit = new ScreenHandleKit(this);
         screenHandleKit.setScreenHandleListener(new ScreenHandleKit.ScreenHandleListener() {
-            /**
-             * 点
-             *
-             * @param view           视图
-             * @param classification 类别
-             * @param condition      条件
-             * @param selected       选否
-             */
             @Override
             public void click(View view, String classification, String condition, boolean selected) {
                 ToastUtils.shortShow(ScreenActivity.this, classification + "    " + condition + "    " + selected);
                 screenActivityKit.screeningDistribution(classification, condition, selected);
             }
 
-            /**
-             * 重置
-             */
             @Override
             public void resetting() {
                 screenHandleKit.resetting();
                 screenActivityKit.resetting();
             }
 
-            /**
-             * 确定
-             */
             @Override
             public void ensure() {
                 screenHandleKit.dismiss();
@@ -91,21 +77,21 @@ public class ScreenActivity extends AppCompatActivity {
 
     private void bottomSheetDialog() {
         // 性别
-        screenHandleKit.packByStringConditions("性别", 3, true, "男", "女");
+        screenHandleKit.packStringConditions("性别", 3, true, "男", "女");
         // 年龄段
-        screenHandleKit.packByStringConditions("年龄段", 3, true,
+        screenHandleKit.packStringConditions("年龄段", 3, true,
                 "18岁以下", "18～40岁", "40～60岁", "60岁以上");
         // 消费周期
-        screenHandleKit.packByStringConditions("消费周期", 3, false,
+        screenHandleKit.packStringConditions("消费周期", 3, false,
                 "1个月", "3个月", "6个月");
         List<String> list = new ArrayList<>();
         list.add("1次");
         list.add("2次");
         list.add("3次");
         // 消费次数
-        screenHandleKit.packByListConditions("消费次数", 3, true, list);
+        screenHandleKit.packListConditions("消费次数", 3, true, list);
         // 支持单选后取消
-        screenHandleKit.supportCancelAfterSingleSelect("性别", "年龄段");
+        screenHandleKit.canCancelAfterSingleSelect("性别", "年龄段");
         // 关联
         screenHandleKit.associate();
     }

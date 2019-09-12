@@ -35,7 +35,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      *
      * @param context 上下文
      */
-    public ScreenAdapter(Context context) {
+    ScreenAdapter(Context context) {
         this.context = context;
     }
 
@@ -46,7 +46,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         this.screenNestAdapters = new ArrayList<>(map.size());
     }
 
-    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
+    void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
 
@@ -71,7 +71,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
         // 嵌套（适配器）
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context,
-                leftList.subList(1, leftList.size()), leftList.get(0), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));
+                leftList.get(0), leftList.subList(1, leftList.size()), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));
         screenNestAdapters.add(screenNestAdapter);
         // 嵌套（控件关联适配器）
         holder.screenItemRv.setAdapter(screenNestAdapter);
