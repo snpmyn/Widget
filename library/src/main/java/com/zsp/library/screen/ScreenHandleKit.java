@@ -38,8 +38,9 @@ public class ScreenHandleKit implements View.OnClickListener {
      * 筛选
      */
     private ScreenAdapter screenAdapter;
-    private Map<List<String>, Map<Integer, Boolean>> map;
+    private Map<List<String>, Map<Integer, Boolean>> subjectMap;
     private List<String> canCancelAfterSingleSelectList;
+    private Map<String, List<String>> defaultSelectMap;
     /**
      * 筛选操作接口
      */
@@ -53,8 +54,9 @@ public class ScreenHandleKit implements View.OnClickListener {
     public ScreenHandleKit(Context context) {
         this.context = context;
         this.screenAdapter = new ScreenAdapter(context);
-        this.map = new LinkedHashMap<>();
+        this.subjectMap = new LinkedHashMap<>();
         this.canCancelAfterSingleSelectList = new ArrayList<>();
+        this.defaultSelectMap = new LinkedHashMap<>();
         stepBottomSheetDialog();
     }
 
@@ -93,7 +95,7 @@ public class ScreenHandleKit implements View.OnClickListener {
         list.addAll(Arrays.asList(conditions));
         Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
-        this.map.put(list, map);
+        this.subjectMap.put(list, map);
     }
 
     /**
@@ -110,13 +112,13 @@ public class ScreenHandleKit implements View.OnClickListener {
         list.addAll(conditions);
         Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
-        this.map.put(list, map);
+        this.subjectMap.put(list, map);
     }
 
     /**
      * 单选后可取消
      *
-     * @param classifications 条件
+     * @param classifications 类别
      */
     public void canCancelAfterSingleSelect(String... classifications) {
         for (String classification : classifications) {
@@ -128,11 +130,24 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
+     * 默选
+     * <p>
+     * 单选仅默选一条件。
+     * 多选可默选多条件。
+     *
+     * @param classification 类别
+     * @param conditions     条件
+     */
+    public void defaultSelect(String classification, String... conditions) {
+        defaultSelectMap.put(classification, Arrays.asList(conditions));
+    }
+
+    /**
      * 关联
      */
     public void associate() {
         screenAdapter.setOnRecyclerViewItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
-        screenAdapter.setScreeningData(map, canCancelAfterSingleSelectList);
+        screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap);
         bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
     }
 

@@ -23,11 +23,12 @@ import java.util.List;
 public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.ViewHolder> {
     private Context context;
     private String classification;
-    private List<String> strings;
+    private List<String> conditions;
     private boolean singleSelect;
     private boolean canCancelAfterSingleSelect;
+    private List<Integer> defaultSelectIndexList;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
-    private int selectPosition = -1;
+    private int selectPosition;
     private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
 
     /**
@@ -35,16 +36,24 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      *
      * @param context                    上下文
      * @param classification             类别
-     * @param strings                    数据
+     * @param conditions                 条件
      * @param singleSelect               单选否
      * @param canCancelAfterSingleSelect 单选后可取消
+     * @param defaultSelectIndexList     默选下标数据
      */
-    ScreenNestAdapter(Context context, String classification, List<String> strings, boolean singleSelect, boolean canCancelAfterSingleSelect) {
+    ScreenNestAdapter(Context context,
+                      String classification,
+                      List<String> conditions,
+                      boolean singleSelect,
+                      boolean canCancelAfterSingleSelect,
+                      List<Integer> defaultSelectIndexList) {
         this.context = context;
         this.classification = classification;
-        this.strings = strings;
+        this.conditions = conditions;
         this.singleSelect = singleSelect;
         this.canCancelAfterSingleSelect = canCancelAfterSingleSelect;
+        this.defaultSelectIndexList = defaultSelectIndexList;
+        initDefaultSelect();
     }
 
     void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
@@ -60,14 +69,14 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
             if (singleSelect) {
                 if (selectPosition != position) {
                     selectPosition = position;
-                    onRecyclerViewItemClickListener.onItemClick(v, classification, strings.get(position), true);
+                    onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), true);
                 } else if (canCancelAfterSingleSelect) {
                     selectPosition = -1;
-                    onRecyclerViewItemClickListener.onItemClick(v, classification, strings.get(position), false);
+                    onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), false);
                 }
             } else {
                 boolean preSelected = sparseBooleanArray.get(position);
-                onRecyclerViewItemClickListener.onItemClick(v, classification, strings.get(position), !preSelected);
+                onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), !preSelected);
                 sparseBooleanArray.put(position, !preSelected);
             }
             notifyDataSetChanged();
@@ -79,7 +88,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         // 条件
-        holder.screenNestItemTv.setText(strings.get(position));
+        holder.screenNestItemTv.setText(conditions.get(position));
         // 选否
         if (singleSelect) {
             holder.screenNestItemTv.setSelected(selectPosition == position);
@@ -101,20 +110,36 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     }
 
     /**
+     * 初始默选
+     */
+    private void initDefaultSelect() {
+        boolean flag = defaultSelectIndexList != null && defaultSelectIndexList.size() > 0;
+        if (singleSelect) {
+            selectPosition = (flag ? defaultSelectIndexList.get(defaultSelectIndexList.size() - 1) : -1);
+        } else {
+            if (sparseBooleanArray.size() > 0) {
+                sparseBooleanArray.clear();
+            }
+            if (flag) {
+                for (Integer integer : defaultSelectIndexList) {
+                    sparseBooleanArray.append(integer, true);
+                }
+            }
+        }
+    }
+
+    /**
      * 重置
      */
     void resetting() {
-        selectPosition = -1;
-        if (sparseBooleanArray.size() > 0) {
-            sparseBooleanArray.clear();
-        }
+        initDefaultSelect();
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        if (null != strings && strings.size() != 0) {
-            return strings.size();
+        if (null != conditions && conditions.size() != 0) {
+            return conditions.size();
         }
         return 0;
     }

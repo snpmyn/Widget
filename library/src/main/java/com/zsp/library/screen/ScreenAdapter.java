@@ -23,11 +23,31 @@ import java.util.Map;
  * @desc 筛选适配器
  */
 public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder> {
+    /**
+     * 上下文
+     */
     private Context context;
-    private List<List<String>> keyList;
-    private List<Map<Integer, Boolean>> valueList;
+    /**
+     * 主体数据键值数据
+     */
+    private List<List<String>> subjectMapKeyList;
+    private List<Map<Integer, Boolean>> subjectMapValueList;
+    /**
+     * 单选后可取消数据
+     */
     private List<String> canCancelAfterSingleSelectList;
+    /**
+     * 默选数据、默选数据键数据
+     */
+    private Map<String, List<String>> defaultSelectMap;
+    private List<String> defaultSelectMapKeyList;
+    /**
+     * 短点监听
+     */
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
+    /**
+     * 筛选嵌套适配器数据
+     */
     private List<ScreenNestAdapter> screenNestAdapters;
 
     /**
@@ -39,11 +59,22 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         this.context = context;
     }
 
-    void setScreeningData(Map<List<String>, Map<Integer, Boolean>> map, List<String> list) {
-        this.keyList = new ArrayList<>(map.keySet());
-        this.valueList = new ArrayList<>(map.values());
-        this.canCancelAfterSingleSelectList = list;
-        this.screenNestAdapters = new ArrayList<>(map.size());
+    /**
+     * 设筛选数据
+     *
+     * @param subjectMap                     主体数据
+     * @param canCancelAfterSingleSelectList 单选后可取消数据
+     * @param defaultSelectMap               默选数据
+     */
+    void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
+                          List<String> canCancelAfterSingleSelectList,
+                          Map<String, List<String>> defaultSelectMap) {
+        this.subjectMapKeyList = new ArrayList<>(subjectMap.keySet());
+        this.subjectMapValueList = new ArrayList<>(subjectMap.values());
+        this.canCancelAfterSingleSelectList = canCancelAfterSingleSelectList;
+        this.defaultSelectMap = defaultSelectMap;
+        this.defaultSelectMapKeyList = new ArrayList<>(defaultSelectMap.keySet());
+        this.screenNestAdapters = new ArrayList<>(subjectMap.size());
     }
 
     void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
@@ -60,25 +91,28 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
-        List<String> leftList = keyList.get(position);
-        Map<Integer, Boolean> rightList = valueList.get(position);
-        List<Integer> integerList = new ArrayList<>(rightList.keySet());
-        List<Boolean> booleanList = new ArrayList<>(rightList.values());
+        List<String> leftList = subjectMapKeyList.get(position);
+        Map<Integer, Boolean> rightMap = subjectMapValueList.get(position);
+        List<Integer> integerList = new ArrayList<>(rightMap.keySet());
+        List<Boolean> booleanList = new ArrayList<>(rightMap.values());
         // 类别
-        holder.screenItemTv.setText(leftList.get(0));
+        String classification = leftList.get(0);
+        holder.screenItemTv.setText(classification);
         // 嵌套（控件）
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
         recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
         // 嵌套（适配器）
-        ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context,
-                leftList.get(0), leftList.subList(1, leftList.size()), booleanList.get(0), canCancelAfterSingleSelectList.contains(leftList.get(0)));
+        List<String> conditions = leftList.subList(1, leftList.size());
+        ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
+                booleanList.get(0), canCancelAfterSingleSelectList.contains(classification),
+                defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null);
         screenNestAdapters.add(screenNestAdapter);
         // 嵌套（控件关联适配器）
         holder.screenItemRv.setAdapter(screenNestAdapter);
         // 嵌套（监听）
-        screenNestAdapter.setOnRecyclerViewItemClickListener((view, classification, condition, selected) -> {
+        screenNestAdapter.setOnRecyclerViewItemClickListener((view, classification1, condition, selected) -> {
             if (onRecyclerViewItemClickListener != null) {
-                onRecyclerViewItemClickListener.onItemClick(view, classification, condition, selected);
+                onRecyclerViewItemClickListener.onItemClick(view, classification1, condition, selected);
             }
         });
     }
@@ -96,6 +130,28 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     }
 
     /**
+     * 下标提取
+     *
+     * @param comparedList      被比对数据
+     * @param needToCompareList 需比对数据
+     * @return 下标数据
+     */
+    private List<Integer> indexExtract(List<String> comparedList, List<String> needToCompareList) {
+        if (null == comparedList || null == needToCompareList) {
+            return null;
+        }
+        int size = needToCompareList.size();
+        List<Integer> indexList = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            String element = needToCompareList.get(i);
+            if (comparedList.contains(element)) {
+                indexList.add(comparedList.indexOf(element));
+            }
+        }
+        return indexList;
+    }
+
+    /**
      * 重置
      */
     void resetting() {
@@ -106,8 +162,8 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        if (null != keyList && keyList.size() != 0) {
-            return keyList.size();
+        if (null != subjectMapKeyList && subjectMapKeyList.size() != 0) {
+            return subjectMapKeyList.size();
         }
         return 0;
     }
