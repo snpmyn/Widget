@@ -14,6 +14,7 @@ import com.zsp.library.recyclerview.RecyclerViewDisplayKit;
 import com.zsp.library.recyclerview.RecyclerViewScrollKit;
 import com.zsp.library.sidebar.AcronymSorting;
 import com.zsp.library.sidebar.WaveSideBar;
+import com.zsp.utilone.list.ListUtils;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.utilone.view.ViewUtils;
@@ -26,6 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.contact.adapter.ContactAdapter;
+import value.WidgetConstant;
 
 /**
  * @decs: 联系人页
@@ -67,15 +69,28 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // ContactExtractor
+        /*
+          ContactExtractor
+         */
         contactExtractor.setContractExtractorListener(contactBeans -> {
             contactBeanList = acronymSorting(contactBeans);
             contactAdapter.setContactData(contactBeanList);
             RecyclerViewDisplayKit.display(contactActivityRv, contactAdapter);
             ViewUtils.showView(contactActivityWsb);
+            ListUtils.saveListToData(this, contactBeanList, WidgetConstant.CONTACT);
         });
-        // 检请权限
-        checkAndRequestPermission();
+        /*
+          判
+         */
+        contactBeanList = (List<ContactBean>) ListUtils.getListFromData(this, WidgetConstant.CONTACT);
+        if (null != contactBeanList && contactBeanList.size() > 0) {
+            contactAdapter.setContactData(contactBeanList);
+            RecyclerViewDisplayKit.display(contactActivityRv, contactAdapter);
+            ViewUtils.showView(contactActivityWsb);
+        } else {
+            // 检请权限
+            checkAndRequestPermission();
+        }
     }
 
     private void initConfiguration() {
