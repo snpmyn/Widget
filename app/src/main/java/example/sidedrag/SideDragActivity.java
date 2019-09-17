@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.recyclerview.RecyclerViewConfigure;
-import com.zsp.library.recyclerview.RecyclerViewDisplayKit;
+import com.zsp.library.recyclerview.RecyclerViewDisplayController;
 import com.zsp.library.sidedrag.callback.SimpleItemTouchHelperCallback;
 import com.zsp.library.sidedrag.listener.ItemDragListener;
 import com.zsp.widget.R;
@@ -75,7 +75,7 @@ public class SideDragActivity extends AppCompatActivity implements ItemDragListe
 
     private void startLogic() {
         sideDragAdapter.setSideDragData(list);
-        RecyclerViewDisplayKit.display(sideDragActivityRv, sideDragAdapter);
+        RecyclerViewDisplayController.display(sideDragActivityRv, sideDragAdapter);
     }
 
     /**

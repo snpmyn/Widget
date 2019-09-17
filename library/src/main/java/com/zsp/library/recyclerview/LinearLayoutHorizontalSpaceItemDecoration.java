@@ -22,9 +22,7 @@ public class LinearLayoutHorizontalSpaceItemDecoration extends RecyclerView.Item
 
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        outRect.top = space;
         outRect.right = space;
-        outRect.bottom = space;
         // Add left margin only for the first item to avoid double space between items.
         if (parent.getChildLayoutPosition(view) == 0) {
             outRect.left = space;

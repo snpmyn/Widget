@@ -8,9 +8,9 @@ import java.util.List;
  * Created on 2019/9/3.
  *
  * @author 郑少鹏
- * @desc RecyclerViewDisplayKit
+ * @desc RecyclerViewDisplayController
  */
-public class RecyclerViewDisplayKit {
+public class RecyclerViewDisplayController {
     /**
      * 展示
      *

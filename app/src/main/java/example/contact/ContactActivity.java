@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zsp.library.contact.bean.ContactBean;
 import com.zsp.library.contact.extractor.ContactExtractor;
 import com.zsp.library.recyclerview.RecyclerViewConfigure;
-import com.zsp.library.recyclerview.RecyclerViewDisplayKit;
-import com.zsp.library.recyclerview.RecyclerViewScrollKit;
+import com.zsp.library.recyclerview.RecyclerViewDisplayController;
+import com.zsp.library.recyclerview.RecyclerViewScrollController;
 import com.zsp.library.sidebar.AcronymSorting;
 import com.zsp.library.sidebar.WaveSideBar;
 import com.zsp.utilone.list.ListUtils;
@@ -53,9 +53,9 @@ public class ContactActivity extends AppCompatActivity {
     private List<ContactBean> contactBeanList;
     private ContactAdapter contactAdapter;
     /**
-     * RecyclerViewScrollKit
+     * RecyclerViewScrollController
      */
-    private RecyclerViewScrollKit recyclerViewScrollKit;
+    private RecyclerViewScrollController recyclerViewScrollController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class ContactActivity extends AppCompatActivity {
         contactExtractor.setContractExtractorListener(contactBeans -> {
             contactBeanList = acronymSorting(contactBeans);
             contactAdapter.setContactData(contactBeanList);
-            RecyclerViewDisplayKit.display(contactActivityRv, contactAdapter);
+            RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
             ViewUtils.showView(contactActivityWsb);
             ListUtils.saveListToData(this, contactBeanList, WidgetConstant.CONTACT);
         });
@@ -85,7 +85,7 @@ public class ContactActivity extends AppCompatActivity {
         contactBeanList = (List<ContactBean>) ListUtils.getListFromData(this, WidgetConstant.CONTACT);
         if (null != contactBeanList && contactBeanList.size() > 0) {
             contactAdapter.setContactData(contactBeanList);
-            RecyclerViewDisplayKit.display(contactActivityRv, contactAdapter);
+            RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
             ViewUtils.showView(contactActivityWsb);
         } else {
             // 检请权限
@@ -104,8 +104,8 @@ public class ContactActivity extends AppCompatActivity {
         // 展示
         contactBeanList = new ArrayList<>();
         contactAdapter = new ContactAdapter(this);
-        // RecyclerViewScrollKit
-        recyclerViewScrollKit = new RecyclerViewScrollKit();
+        // RecyclerViewScrollController
+        recyclerViewScrollController = new RecyclerViewScrollController();
     }
 
     private void setListener() {
@@ -116,7 +116,7 @@ public class ContactActivity extends AppCompatActivity {
             // 该字母首现位
             int position = contactAdapter.getPositionForSection(letter.charAt(0));
             if (position != -1) {
-                recyclerViewScrollKit.flatSlidToTargetPosition(contactActivityRv, position);
+                recyclerViewScrollController.smoothScrollToTargetPosition(contactActivityRv, position);
             }
         });
         /*
