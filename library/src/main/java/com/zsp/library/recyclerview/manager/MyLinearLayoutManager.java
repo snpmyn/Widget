@@ -1,4 +1,4 @@
-package com.zsp.library.recyclerview;
+package com.zsp.library.recyclerview.manager;
 
 import android.content.Context;
 
@@ -23,7 +23,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
      * @param context                  Current context, will be used to access resources.
      * @param onLayoutChildrenListener The listener of layout children
      */
-    MyLinearLayoutManager(Context context, OnLayoutChildrenListener onLayoutChildrenListener) {
+    public MyLinearLayoutManager(Context context, OnLayoutChildrenListener onLayoutChildrenListener) {
         super(context);
         this.onLayoutChildrenListener = onLayoutChildrenListener;
     }
@@ -35,7 +35,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
      * @param reverseLayout            When set to true, layouts from end to start.
      * @param onLayoutChildrenListener The listener of layout children
      */
-    MyLinearLayoutManager(Context context, int orientation, boolean reverseLayout, OnLayoutChildrenListener onLayoutChildrenListener) {
+    public MyLinearLayoutManager(Context context, int orientation, boolean reverseLayout, OnLayoutChildrenListener onLayoutChildrenListener) {
         super(context, orientation, reverseLayout);
         this.onLayoutChildrenListener = onLayoutChildrenListener;
     }
@@ -57,7 +57,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
     /**
      * 布局子控件监听
      */
-    interface OnLayoutChildrenListener {
+    public interface OnLayoutChildrenListener {
         /**
          * 布局子控件
          *

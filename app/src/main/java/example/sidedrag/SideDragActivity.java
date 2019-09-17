@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zsp.library.recyclerview.RecyclerViewConfigure;
-import com.zsp.library.recyclerview.RecyclerViewDisplayController;
+import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.controller.RecyclerViewDisplayController;
 import com.zsp.library.sidedrag.callback.SimpleItemTouchHelperCallback;
 import com.zsp.library.sidedrag.listener.ItemDragListener;
 import com.zsp.widget.R;

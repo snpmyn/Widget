@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zsp.library.recyclerview.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 import com.zsp.widget.R;
 
 import java.util.ArrayList;

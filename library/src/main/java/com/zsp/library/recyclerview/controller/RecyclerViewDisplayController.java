@@ -1,4 +1,4 @@
-package com.zsp.library.recyclerview;
+package com.zsp.library.recyclerview.controller;
 
 import androidx.recyclerview.widget.RecyclerView;
 

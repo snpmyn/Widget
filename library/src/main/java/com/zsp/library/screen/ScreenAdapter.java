@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
-import com.zsp.library.recyclerview.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.contact.bean.ContactBean;
 import com.zsp.library.contact.extractor.ContactExtractor;
-import com.zsp.library.recyclerview.RecyclerViewConfigure;
-import com.zsp.library.recyclerview.RecyclerViewDisplayController;
-import com.zsp.library.recyclerview.RecyclerViewScrollController;
+import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.controller.RecyclerViewDisplayController;
+import com.zsp.library.recyclerview.controller.RecyclerViewScrollController;
 import com.zsp.library.sidebar.AcronymSorting;
 import com.zsp.library.sidebar.WaveSideBar;
 import com.zsp.utilone.list.ListUtils;

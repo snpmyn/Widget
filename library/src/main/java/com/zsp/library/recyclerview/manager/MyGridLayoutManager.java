@@ -1,4 +1,4 @@
-package com.zsp.library.recyclerview;
+package com.zsp.library.recyclerview.manager;
 
 import android.content.Context;
 
@@ -28,7 +28,7 @@ public class MyGridLayoutManager extends GridLayoutManager {
      * @param spanCount                The number of columns in the grid
      * @param onLayoutChildrenListener The listener of layout children
      */
-    MyGridLayoutManager(Context context, int spanCount, OnLayoutChildrenListener onLayoutChildrenListener) {
+    public MyGridLayoutManager(Context context, int spanCount, OnLayoutChildrenListener onLayoutChildrenListener) {
         super(context, spanCount);
         this.onLayoutChildrenListener = onLayoutChildrenListener;
     }
@@ -58,7 +58,7 @@ public class MyGridLayoutManager extends GridLayoutManager {
     /**
      * 布局子控件监听
      */
-    interface OnLayoutChildrenListener {
+    public interface OnLayoutChildrenListener {
         /**
          * 布局子控件
          *

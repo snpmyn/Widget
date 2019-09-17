@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
-import com.zsp.library.recyclerview.RecyclerViewConfigure;
+import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.zsp.library.recyclerview;
+package com.zsp.library.recyclerview.configure;
 
 import android.content.Context;
 
@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.willowtreeapps.spruce.sort.LinearSort;
+import com.zsp.library.recyclerview.decoration.GridLayoutSpaceItemDecoration;
+import com.zsp.library.recyclerview.decoration.LinearLayoutHorizontalSpaceItemDecoration;
+import com.zsp.library.recyclerview.decoration.LinearLayoutVerticalSpaceItemDecoration;
+import com.zsp.library.recyclerview.manager.MyGridLayoutManager;
+import com.zsp.library.recyclerview.manager.MyLinearLayoutManager;
 import com.zsp.library.spruce.SpruceKit;
 
 /**

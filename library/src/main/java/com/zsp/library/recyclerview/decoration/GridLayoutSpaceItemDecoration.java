@@ -1,4 +1,4 @@
-package com.zsp.library.recyclerview;
+package com.zsp.library.recyclerview.decoration;
 
 import android.graphics.Rect;
 import android.view.View;
@@ -18,7 +18,7 @@ public class GridLayoutSpaceItemDecoration extends RecyclerView.ItemDecoration {
     private boolean firstRowHaveTopSpaceDecoration;
     private boolean includeEdge;
 
-    GridLayoutSpaceItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
+    public GridLayoutSpaceItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
         this.spanCount = spanCount;
         this.spacing = spacing;
         this.firstRowHaveTopSpaceDecoration = firstRowHaveTopSpaceDecoration;
