@@ -10,6 +10,7 @@ public class WidgetMagic {
     /**
      * int
      */
+    public static final int INT_TWO = 2;
     public static final int INT_THIRTY = 30;
     /**
      * String

@@ -1,8 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--PicturePreviewActivityStyle-->
     <style name="PicturePreviewActivityStyle" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <!--ProgressBarStyle-->
+    <style name="ProgressBarStyle" parent="Base.Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:indeterminateTintMode" tools:targetApi="lollipop">src_atop</item>
     </style>
     <!--BaseDialog-->
     <style name="BaseDialog" parent="@android:style/Theme.Dialog">

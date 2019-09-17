@@ -5,8 +5,10 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
+import com.zsp.library.status.manager.StatusManager;
 import com.zsp.utilone.timber.configure.TimberInitConfigure;
 import com.zsp.widget.BuildConfig;
+import com.zsp.widget.R;
 
 /**
  * Created on 2019/7/22.
@@ -18,6 +20,10 @@ public class WidgetApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        StatusManager.BASE_LOADING_LAYOUT_ID = R.layout.load_loading;
+        StatusManager.BASE_EMPTY_LAYOUT_ID = R.layout.load_empty;
+        StatusManager.BASE_RETRY_LAYOUT_ID = R.layout.load_retry;
+        // timber
         TimberInitConfigure.initTimber(BuildConfig.DEBUG);
     }
 

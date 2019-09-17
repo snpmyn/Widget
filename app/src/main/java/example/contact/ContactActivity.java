@@ -1,8 +1,11 @@
 package example.contact;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +17,10 @@ import com.zsp.library.recyclerview.controller.RecyclerViewDisplayController;
 import com.zsp.library.recyclerview.controller.RecyclerViewScrollController;
 import com.zsp.library.sidebar.AcronymSorting;
 import com.zsp.library.sidebar.WaveSideBar;
+import com.zsp.library.status.listener.BaseStatusListener;
+import com.zsp.library.status.manager.StatusManager;
 import com.zsp.utilone.list.ListUtils;
+import com.zsp.utilone.net.NetManager;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.utilone.view.ViewUtils;
@@ -28,6 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.contact.adapter.ContactAdapter;
 import value.WidgetConstant;
+import value.WidgetMagic;
 
 /**
  * @decs: 联系人页
@@ -53,6 +60,10 @@ public class ContactActivity extends AppCompatActivity {
     private List<ContactBean> contactBeanList;
     private ContactAdapter contactAdapter;
     /**
+     * 状态管理器
+     */
+    private StatusManager statusManager;
+    /**
      * RecyclerViewScrollController
      */
     private RecyclerViewScrollController recyclerViewScrollController;
@@ -63,34 +74,8 @@ public class ContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact);
         ButterKnife.bind(this);
         initConfiguration();
+        startLogic();
         setListener();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        /*
-          ContactExtractor
-         */
-        contactExtractor.setContractExtractorListener(contactBeans -> {
-            contactBeanList = acronymSorting(contactBeans);
-            contactAdapter.setContactData(contactBeanList);
-            RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
-            ViewUtils.showView(contactActivityWsb);
-            ListUtils.saveListToData(this, contactBeanList, WidgetConstant.CONTACT);
-        });
-        /*
-          判
-         */
-        contactBeanList = (List<ContactBean>) ListUtils.getListFromData(this, WidgetConstant.CONTACT);
-        if (null != contactBeanList && contactBeanList.size() > 0) {
-            contactAdapter.setContactData(contactBeanList);
-            RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
-            ViewUtils.showView(contactActivityWsb);
-        } else {
-            // 检请权限
-            checkAndRequestPermission();
-        }
     }
 
     private void initConfiguration() {
@@ -104,8 +89,41 @@ public class ContactActivity extends AppCompatActivity {
         // 展示
         contactBeanList = new ArrayList<>();
         contactAdapter = new ContactAdapter(this);
+        // 状态管理器
+        statusManager = StatusManager.generate(contactActivityRv, new BaseStatusListener() {
+            @Override
+            public void setRetryEvent(View retryView) {
+                View view = retryView.findViewById(R.id.mbLoadRetryClick);
+                view.setOnClickListener(v -> {
+                    // 1连接失败、2加载失败（0无网络）
+                    if (statusManager.flag == 1 || statusManager.flag == WidgetMagic.INT_TWO) {
+                        contact();
+                    } else {
+                        startActivityForResult(new Intent(Settings.ACTION_WIRELESS_SETTINGS), statusManager.requestCode);
+                    }
+                });
+            }
+        });
         // RecyclerViewScrollController
         recyclerViewScrollController = new RecyclerViewScrollController();
+    }
+
+    private void startLogic() {
+        // ContactExtractor
+        contactExtractor.setContractExtractorListener(contactBeans -> {
+            if (null == contactBeans || contactBeans.size() == 0) {
+                statusManager.showEmpty();
+                return;
+            }
+            contactBeanList = acronymSorting(contactBeans);
+            statusManager.showContent();
+            contactAdapter.setContactData(contactBeanList);
+            RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
+            ViewUtils.showView(contactActivityWsb);
+            ListUtils.saveListToData(this, contactBeanList, WidgetConstant.CONTACT);
+        });
+        // 联系人
+        contact();
     }
 
     private void setListener() {
@@ -123,6 +141,27 @@ public class ContactActivity extends AppCompatActivity {
           联系人适配器
          */
         contactAdapter.setOnItemClickListener((view, contactBean) -> ToastUtils.shortShow(ContactActivity.this, contactBean.getName()));
+    }
+
+    /**
+     * 联系人
+     */
+    private void contact() {
+        if (NetManager.isNetConnected(this)) {
+            statusManager.showLoading();
+            contactBeanList = (List<ContactBean>) ListUtils.getListFromData(this, WidgetConstant.CONTACT);
+            if (null != contactBeanList && contactBeanList.size() > 0) {
+                statusManager.showContent();
+                contactAdapter.setContactData(contactBeanList);
+                RecyclerViewDisplayController.display(contactActivityRv, contactAdapter);
+                ViewUtils.showView(contactActivityWsb);
+            } else {
+                // 检请权限
+                checkAndRequestPermission();
+            }
+        } else {
+            statusManager.showRetry(0);
+        }
     }
 
     /**
@@ -171,6 +210,14 @@ public class ContactActivity extends AppCompatActivity {
             // 首字母排序
             Collections.sort(sortList, new AcronymSorting());
             return sortList;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == statusManager.requestCode) {
+            contact();
         }
     }
 }

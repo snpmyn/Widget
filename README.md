@@ -44,6 +44,7 @@
 * android:name="android.permission.RECORD_AUDIO"（避重）
 * android:name="android.permission.READ_CONTACTS"（避重）
 * android:name="android.permission.SEND_SMS"（避重）
+* android:name="android.permission.ACCESS_NETWORK_STATE"（避重）
 
 ##### AndroidLibrary - Library
 * android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）
