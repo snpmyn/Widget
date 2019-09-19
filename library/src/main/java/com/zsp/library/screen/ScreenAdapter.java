@@ -33,9 +33,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     private List<List<String>> subjectMapKeyList;
     private List<Map<Integer, Boolean>> subjectMapValueList;
     /**
-     * 单选后可取消数据
+     * 单选后可反选数据
      */
-    private List<String> canCancelAfterSingleSelectList;
+    private List<String> canReverseSelectAfterSingleSelectList;
     /**
      * 默选数据、默选数据键数据
      */
@@ -62,16 +62,16 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     /**
      * 设筛选数据
      *
-     * @param subjectMap                     主体数据
-     * @param canCancelAfterSingleSelectList 单选后可取消数据
-     * @param defaultSelectMap               默选数据
+     * @param subjectMap                            主体数据
+     * @param canReverseSelectAfterSingleSelectList 单选后可反选数据
+     * @param defaultSelectMap                      默选数据
      */
     void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
-                          List<String> canCancelAfterSingleSelectList,
+                          List<String> canReverseSelectAfterSingleSelectList,
                           Map<String, List<String>> defaultSelectMap) {
         this.subjectMapKeyList = new ArrayList<>(subjectMap.keySet());
         this.subjectMapValueList = new ArrayList<>(subjectMap.values());
-        this.canCancelAfterSingleSelectList = canCancelAfterSingleSelectList;
+        this.canReverseSelectAfterSingleSelectList = canReverseSelectAfterSingleSelectList;
         this.defaultSelectMap = defaultSelectMap;
         this.defaultSelectMapKeyList = new ArrayList<>(defaultSelectMap.keySet());
         this.screenNestAdapters = new ArrayList<>(subjectMap.size());
@@ -104,7 +104,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 嵌套（适配器）
         List<String> conditions = leftList.subList(1, leftList.size());
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
-                booleanList.get(0), canCancelAfterSingleSelectList.contains(classification),
+                booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
                 defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null);
         screenNestAdapters.add(screenNestAdapter);
         // 嵌套（控件关联适配器）

@@ -56,8 +56,9 @@ public class ScreenActivity extends AppCompatActivity {
 
             @Override
             public void resetting() {
-                screenHandleKit.resetting();
+                // 有默选时如下顺序调避重置后无默选值
                 screenActivityKit.resetting();
+                screenHandleKit.resetting();
             }
 
             @Override
@@ -69,7 +70,6 @@ public class ScreenActivity extends AppCompatActivity {
                         screenActivityKit.numberOfConsumptionResult;
                 screenActivityTvResult.setText(result);
             }
-
         });
         // ScreenActivityKit
         screenActivityKit = new ScreenActivityKit();

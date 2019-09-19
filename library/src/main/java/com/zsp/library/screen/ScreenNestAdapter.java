@@ -25,7 +25,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     private String classification;
     private List<String> conditions;
     private boolean singleSelect;
-    private boolean canCancelAfterSingleSelect;
+    private boolean canReverseSelectAfterSingleSelect;
     private List<Integer> defaultSelectIndexList;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
     private int selectPosition;
@@ -34,30 +34,31 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     /**
      * constructor
      *
-     * @param context                    上下文
-     * @param classification             类别
-     * @param conditions                 条件
-     * @param singleSelect               单选否
-     * @param canCancelAfterSingleSelect 单选后可取消
-     * @param defaultSelectIndexList     默选下标数据
+     * @param context                           上下文
+     * @param classification                    类别
+     * @param conditions                        条件
+     * @param singleSelect                      单选否
+     * @param canReverseSelectAfterSingleSelect 单选后可反选
+     * @param defaultSelectIndexList            默选下标数据
      */
     ScreenNestAdapter(Context context,
                       String classification,
                       List<String> conditions,
                       boolean singleSelect,
-                      boolean canCancelAfterSingleSelect,
+                      boolean canReverseSelectAfterSingleSelect,
                       List<Integer> defaultSelectIndexList) {
         this.context = context;
         this.classification = classification;
         this.conditions = conditions;
         this.singleSelect = singleSelect;
-        this.canCancelAfterSingleSelect = canCancelAfterSingleSelect;
+        this.canReverseSelectAfterSingleSelect = canReverseSelectAfterSingleSelect;
         this.defaultSelectIndexList = defaultSelectIndexList;
-        initDefaultSelect();
+        selectMark();
     }
 
     void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
+        defaultSelectValue();
     }
 
     @NonNull
@@ -70,7 +71,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
                 if (selectPosition != position) {
                     selectPosition = position;
                     onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), true);
-                } else if (canCancelAfterSingleSelect) {
+                } else if (canReverseSelectAfterSingleSelect) {
                     selectPosition = -1;
                     onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), false);
                 }
@@ -110,21 +111,42 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     }
 
     /**
-     * 初始默选
+     * 选标记
      */
-    private void initDefaultSelect() {
-        boolean flag = defaultSelectIndexList != null && defaultSelectIndexList.size() > 0;
+    private void selectMark() {
+        selectPosition = -1;
+        if (sparseBooleanArray.size() > 0) {
+            sparseBooleanArray.clear();
+        }
+        // 无默选
+        boolean flag = (null != defaultSelectIndexList) && defaultSelectIndexList.size() > 0;
+        if (!flag) {
+            return;
+        }
+        // 有默选
         if (singleSelect) {
-            selectPosition = (flag ? defaultSelectIndexList.get(defaultSelectIndexList.size() - 1) : -1);
-        } else {
-            if (sparseBooleanArray.size() > 0) {
-                sparseBooleanArray.clear();
-            }
-            if (flag) {
-                for (Integer integer : defaultSelectIndexList) {
-                    sparseBooleanArray.append(integer, true);
-                }
-            }
+            selectPosition = (defaultSelectIndexList.get(defaultSelectIndexList.size() - 1));
+            return;
+        }
+        for (Integer integer : defaultSelectIndexList) {
+            sparseBooleanArray.append(integer, true);
+        }
+    }
+
+    /**
+     * 默选值
+     */
+    private void defaultSelectValue() {
+        boolean flag = (null != defaultSelectIndexList) && defaultSelectIndexList.size() > 0;
+        if (!flag) {
+            return;
+        }
+        if (singleSelect) {
+            onRecyclerViewItemClickListener.onItemClick(null, classification, conditions.get(defaultSelectIndexList.get(defaultSelectIndexList.size() - 1)), true);
+            return;
+        }
+        for (Integer integer : defaultSelectIndexList) {
+            onRecyclerViewItemClickListener.onItemClick(null, classification, conditions.get(integer), true);
         }
     }
 
@@ -132,8 +154,9 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      * 重置
      */
     void resetting() {
-        initDefaultSelect();
+        selectMark();
         notifyDataSetChanged();
+        defaultSelectValue();
     }
 
     @Override
