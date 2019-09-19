@@ -1,5 +1,6 @@
 package com.zsp.library.searchbox.one;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -71,6 +72,7 @@ public class SearchEditText extends AppCompatEditText {
         setCompoundDrawablesWithIntrinsicBounds(searchDrawable, null, visible ? clearDrawable : null, null);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // 手指抬起位于清除图区域即视为点清除图

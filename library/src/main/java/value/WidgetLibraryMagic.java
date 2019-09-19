@@ -44,6 +44,11 @@ public class WidgetLibraryMagic {
     public static final int INT_ZERO_X_FOUR_NINE_FOUR_NINE_TWO_A_ZERO_ZERO = 0x49492A00;
     public static final int INT_ZERO_X_FOUR_D_FOUR_D_ZERO_ZERO_TWO_A = 0x4D4D002A;
     /**
+     * String
+     */
+    public static final String STRING_DOT_DB = ".db";
+    public static final String STRING_UNDERLINE_DB = "_db";
+    /**
      * Float
      */
     public static final float FLOAT_ZERO_DOT_ZERO = 0.0F;

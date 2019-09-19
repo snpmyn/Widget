@@ -6,8 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.zsp.utilone.data.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import value.WidgetLibraryMagic;
 
 /**
  * @decs: 搜索历史记录数据库
@@ -16,26 +20,38 @@ import java.util.List;
  */
 public class SearchHistoryDataBase extends SQLiteOpenHelper {
     /**
-     * 数据库名
-     * SearchHistory_db于沙盒看显乱码
-     * SearchHistory.db于沙盒直查
-     */
-    public static final String DATA_BASE_NAME = "SearchHistory.db";
-    /**
      * 表名
      */
-    private static final String TABLE_NAME = "SearchHistory";
-    private static final String CREATE_TABLE_SQL = "create table if not exists " + TABLE_NAME +
-            "(" + "id integer primary key autoincrement, " + "history text)";
+    private String tableName;
+    /**
+     * 创表SQL
+     */
+    private String createTableSql;
 
+    /**
+     * constructor
+     *
+     * @param context 上下文
+     * @param name    数据库名
+     *                SearchHistory_db于沙盒看显乱码
+     *                SearchHistory.db于沙盒直查
+     * @param factory 游标工厂
+     * @param version 版本号
+     */
     public SearchHistoryDataBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        if (name.contains(WidgetLibraryMagic.STRING_DOT_DB)) {
+            this.tableName = StringUtils.appointForward(name, ".db");
+        } else if (name.contains(WidgetLibraryMagic.STRING_UNDERLINE_DB)) {
+            this.tableName = StringUtils.appointForward(name, "_db");
+        }
+        this.createTableSql = "create table if not exists " + tableName + "(" + "id integer primary key autoincrement, " + "history text)";
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // 创数据库建表
-        sqLiteDatabase.execSQL(CREATE_TABLE_SQL);
+        sqLiteDatabase.execSQL(createTableSql);
     }
 
     @Override
@@ -51,7 +67,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
         // 数据库对象
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         // 查表数据
-        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, null, null, null, null, null, "id desc");
+        Cursor cursor = sqLiteDatabase.query(tableName, null, null, null, null, null, "id desc");
         // 获name列索引
         for (cursor.moveToFirst(); !(cursor.isAfterLast()); cursor.moveToNext()) {
             String history = cursor.getString(1);
@@ -76,7 +92,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
             // 键值对存数据至ContentValues对象
             contentValues.put("history", keyword);
             // 插数据至数据库
-            sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+            sqLiteDatabase.insert(tableName, null, contentValues);
             // 关数据库
             sqLiteDatabase.close();
         }
@@ -88,7 +104,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
     public void delete(String keyword) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         // ContentValues对象
-        sqLiteDatabase.delete(TABLE_NAME, "history=?", new String[]{keyword});
+        sqLiteDatabase.delete(tableName, "history=?", new String[]{keyword});
         // 关数据库
         sqLiteDatabase.close();
     }
@@ -99,7 +115,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
     public void deleteAll() {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         // 删全数据
-        sqLiteDatabase.execSQL("delete from " + TABLE_NAME);
+        sqLiteDatabase.execSQL("delete from " + tableName);
         // 关数据库
         sqLiteDatabase.close();
     }

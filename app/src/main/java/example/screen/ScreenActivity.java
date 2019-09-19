@@ -90,8 +90,8 @@ public class ScreenActivity extends AppCompatActivity {
         list.add("3次");
         // 消费次数
         screenHandleKit.packListConditions("消费次数", 3, true, list);
-        // 单选后可取消
-        screenHandleKit.canCancelAfterSingleSelect("性别", "年龄段");
+        // 单选后可反选
+        screenHandleKit.canReverseSelectAfterSingleSelect("性别", "年龄段");
         // 默选
         screenHandleKit.defaultSelect("性别", "女");
         screenHandleKit.defaultSelect("消费周期", "1个月", "6个月");

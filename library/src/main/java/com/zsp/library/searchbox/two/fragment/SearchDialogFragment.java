@@ -33,6 +33,7 @@ import com.zsp.utilone.keyboard.KeyboardUtils;
 import com.zsp.utilone.toast.ToastUtils;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @decs: 搜索对话框碎片
@@ -116,12 +117,12 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
         // 监听绘制
         searchDialogFragmentIvSearch.getViewTreeObserver().addOnPreDrawListener(this);
         // 实例化数据库
-        searchHistoryDataBase = new SearchHistoryDataBase(getContext(), SearchHistoryDataBase.DATA_BASE_NAME, null, 1);
+        searchHistoryDataBase = new SearchHistoryDataBase(getContext(), "SearchHistory.db", null, 1);
         allHistories = searchHistoryDataBase.queryAllHistories();
         setAllHistories();
         // 初始RecyclerView
         searchDialogFragmentRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        searchHistoryAdapter = new SearchHistoryAdapter(getContext(), histories);
+        searchHistoryAdapter = new SearchHistoryAdapter(Objects.requireNonNull(getContext(), "must not be null"), histories);
         searchDialogFragmentRv.setAdapter(searchHistoryAdapter);
         // 监听单删记录
         searchHistoryAdapter.setOnItemClickListener(this);
@@ -159,7 +160,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
                 searchDialogFragmentViewDivider.setVisibility(View.GONE);
                 searchHistoryDataBase.deleteAll();
             } else {
-                ToastUtils.shortShow(getContext(), getString(R.string.noHistory));
+                ToastUtils.shortShow(Objects.requireNonNull(getContext(), "must not be null"), getString(R.string.noHistory));
             }
         }
     }
@@ -219,7 +220,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     @Override
     public void onAnimationShowEnd() {
         if (isVisible()) {
-            KeyboardUtils.openKeyboardThree(getContext(), searchDialogFragmentEt);
+            KeyboardUtils.openKeyboardThree(Objects.requireNonNull(getContext(), "must not be null"), searchDialogFragmentEt);
         }
     }
 
@@ -227,14 +228,14 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
      * 隐动画
      */
     private void hideAnimator() {
-        KeyboardUtils.closeKeyboard(getContext(), searchDialogFragmentEt);
+        KeyboardUtils.closeKeyboard(Objects.requireNonNull(getContext(), "must not be null"), searchDialogFragmentEt);
         circularRevealAnimator.hide(searchDialogFragmentIvSearch, view);
     }
 
     private void search() {
         String keyword = searchDialogFragmentEt.getText().toString();
         if (TextUtils.isEmpty(keyword)) {
-            ToastUtils.shortShow(getContext(), getString(R.string.enterSearchKeyword));
+            ToastUtils.shortShow(Objects.requireNonNull(getContext(), "must not be null"), getString(R.string.enterSearchKeyword));
         } else {
             // 接口回调
             onSearchClickListener.onSearchClick(keyword);

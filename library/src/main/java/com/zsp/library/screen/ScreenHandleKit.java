@@ -116,11 +116,11 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
-     * 单选后可取消
+     * 单选后可反选
      *
      * @param classifications 类别
      */
-    public void canCancelAfterSingleSelect(String... classifications) {
+    public void canReverseSelectAfterSingleSelect(String... classifications) {
         for (String classification : classifications) {
             if (canCancelAfterSingleSelectList.contains(classification)) {
                 return;
