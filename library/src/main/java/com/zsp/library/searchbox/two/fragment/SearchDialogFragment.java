@@ -47,6 +47,10 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     private View searchDialogFragmentViewDivider;
     private View view;
     /**
+     * DCL（Double Check Lock）式单例
+     */
+    private volatile static SearchDialogFragment searchDialogFragment;
+    /**
      * 动画
      */
     private CircularRevealAnimator circularRevealAnimator;
@@ -73,7 +77,14 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     private OnSearchDialogHideListener onSearchDialogHideListener;
 
     public static SearchDialogFragment newInstance() {
-        return new SearchDialogFragment();
+        if (searchDialogFragment == null) {
+            synchronized (SearchDialogFragment.class) {
+                if (searchDialogFragment == null) {
+                    searchDialogFragment = new SearchDialogFragment();
+                }
+            }
+        }
+        return searchDialogFragment;
     }
 
     @Override

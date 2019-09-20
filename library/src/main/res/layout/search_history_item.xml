@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -29,5 +28,5 @@
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/toDo"
         android:padding="@dimen/dp_12"
-        app:srcCompat="@drawable/ic_clear_to_search_edit_text_and_search_history_item_18dp_font_input" />
+        android:src="@drawable/search_box_close" />
 </RelativeLayout>
