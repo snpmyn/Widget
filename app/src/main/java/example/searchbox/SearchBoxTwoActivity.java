@@ -45,7 +45,7 @@ public class SearchBoxTwoActivity extends AppCompatActivity {
     }
 
     private void stepSearchDialogFragment() {
-        searchDialogFragment = SearchDialogFragment.newInstance();
+        searchDialogFragment = SearchDialogFragment.newInstance("WidgetSearchHistory.db");
         searchDialogFragment.setOnSearchClickListener(keyword -> ToastUtils.shortShow(this, keyword));
         searchDialogFragment.setOnSearchDialogHideListener(() -> searchBoxTwoActivityMt.getMenu().findItem(R.id.pharmaceuticalKnowledgeListActivityMenuSearch).setVisible(true));
     }

@@ -51,6 +51,10 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
      */
     private volatile static SearchDialogFragment searchDialogFragment;
     /**
+     * 数据库名
+     */
+    private static String name;
+    /**
      * 动画
      */
     private CircularRevealAnimator circularRevealAnimator;
@@ -76,7 +80,15 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
      */
     private OnSearchDialogHideListener onSearchDialogHideListener;
 
-    public static SearchDialogFragment newInstance() {
+    /**
+     * 单例
+     *
+     * @param name 数据库名
+     *             SearchHistory_db于沙盒看显乱码
+     *             SearchHistory.db于沙盒直查
+     * @return 单例
+     */
+    public static SearchDialogFragment newInstance(String name) {
         if (searchDialogFragment == null) {
             synchronized (SearchDialogFragment.class) {
                 if (searchDialogFragment == null) {
@@ -84,6 +96,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
                 }
             }
         }
+        SearchDialogFragment.name = name;
         return searchDialogFragment;
     }
 
@@ -128,7 +141,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
         // 监听绘制
         searchDialogFragmentIvSearch.getViewTreeObserver().addOnPreDrawListener(this);
         // 实例化数据库
-        searchHistoryDataBase = new SearchHistoryDataBase(getContext(), "SearchHistory.db", null, 1);
+        searchHistoryDataBase = new SearchHistoryDataBase(getContext(), name, null, 1);
         allHistories = searchHistoryDataBase.queryAllHistories();
         setAllHistories();
         // 初始RecyclerView
