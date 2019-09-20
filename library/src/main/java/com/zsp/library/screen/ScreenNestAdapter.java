@@ -29,7 +29,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     private List<Integer> defaultSelectIndexList;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
     private int selectPosition;
-    private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
+    private SparseBooleanArray sparseBooleanArray;
 
     /**
      * constructor
@@ -115,6 +115,9 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      */
     private void selectMark() {
         selectPosition = -1;
+        if (null == sparseBooleanArray) {
+            sparseBooleanArray = new SparseBooleanArray();
+        }
         if (sparseBooleanArray.size() > 0) {
             sparseBooleanArray.clear();
         }
