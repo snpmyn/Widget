@@ -28,9 +28,9 @@
     <string name="know">知道了</string>
     <string name="expanded">已展开</string>
     <string name="collapsed">已收起</string>
-    <string name="connectionFailureHint">连接失败，稍后重试</string>
-    <string name="loadFailHint">加载失败，稍后重试</string>
-    <string name="loadRetryNoNetworkHint">网络开小差啦</string>
+    <string name="serverExceptionAndTryAgainLater">服务器异常，稍后重试</string>
+    <string name="loadFailAndTryAgainLater">加载失败，稍后重试</string>
+    <string name="networkAnomaly">网络异常</string>
     <string name="checkSetting">检查设置</string>
     <string name="retry">重试</string>
     <string name="noData">暂无数据</string>

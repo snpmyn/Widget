@@ -23,14 +23,14 @@ public class StatusManager {
     public static int BASE_EMPTY_LAYOUT_ID = NO_LAYOUT_ID;
     public static int BASE_RETRY_LAYOUT_ID = NO_LAYOUT_ID;
     /**
-     * 0无网络、1连接失败、2加载失败、3加载、4空、5内容
+     * 状（0无网络、1连接失败、2加载失败、3加载、4空、5内容）
      */
-    public int flag;
+    public int status;
     /**
      * 请求码
      */
     public int requestCode = 101;
-    private StatusLayout mStatusLayout;
+    private StatusLayout statusLayout;
 
     private StatusManager(Object activityOrFragmentOrView, BaseStatusListener listener) {
         if (listener == null) {
@@ -87,7 +87,7 @@ public class StatusManager {
         listener.setLoadingEvent(statusLayout.getLoadingView());
         listener.setEmptyEvent(statusLayout.getEmptyView());
         listener.setRetryEvent(statusLayout.getRetryView());
-        mStatusLayout = statusLayout;
+        this.statusLayout = statusLayout;
     }
 
     public static StatusManager generate(Object activityOrFragment, BaseStatusListener listener) {
@@ -143,16 +143,16 @@ public class StatusManager {
      * 加载
      */
     public void showLoading() {
-        flag = 3;
-        mStatusLayout.showLoading();
+        status = 3;
+        statusLayout.showLoading();
     }
 
     /**
      * 空
      */
     public void showEmpty() {
-        flag = 4;
-        mStatusLayout.showEmpty();
+        status = 4;
+        statusLayout.showEmpty();
     }
 
     /**
@@ -161,15 +161,15 @@ public class StatusManager {
      * @param status 0无网络、1连接失败、2加载失败
      */
     public void showRetry(int status) {
-        mStatusLayout.showRetry(status);
-        flag = status;
+        statusLayout.showRetry(status);
+        this.status = status;
     }
 
     /**
      * 内容
      */
     public void showContent() {
-        flag = 5;
-        mStatusLayout.showContent();
+        status = 5;
+        statusLayout.showContent();
     }
 }

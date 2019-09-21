@@ -74,12 +74,12 @@ public class StatusLayout extends FrameLayout {
                 break;
             // 连接失败
             case 1:
-                ImageView ivLoadRetryHint = mRetryView.findViewById(R.id.ivLoadRetryHint);
-                TextView tvLoadRetryHint = mRetryView.findViewById(R.id.tvLoadRetryHint);
-                TextView tvLoadRetryClick = mRetryView.findViewById(R.id.mbLoadRetryClick);
-                ivLoadRetryHint.setImageResource(R.drawable.ic_load_fail);
-                tvLoadRetryHint.setText(R.string.connectionFailureHint);
-                tvLoadRetryClick.setText(R.string.retry);
+                ImageView statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
+                TextView statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
+                TextView statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
+                statusRetryIv.setImageResource(R.drawable.ic_status_fail);
+                statusRetryTv.setText(R.string.serverExceptionAndTryAgainLater);
+                statusRetryMb.setText(R.string.retry);
                 if (isMainThread()) {
                     showView(mRetryView);
                 } else {
@@ -88,12 +88,12 @@ public class StatusLayout extends FrameLayout {
                 break;
             // 加载失败
             case 2:
-                ivLoadRetryHint = mRetryView.findViewById(R.id.ivLoadRetryHint);
-                tvLoadRetryHint = mRetryView.findViewById(R.id.tvLoadRetryHint);
-                tvLoadRetryClick = mRetryView.findViewById(R.id.mbLoadRetryClick);
-                ivLoadRetryHint.setImageResource(R.drawable.ic_load_fail);
-                tvLoadRetryHint.setText(R.string.loadFailHint);
-                tvLoadRetryClick.setText(R.string.retry);
+                statusRetryIv = mRetryView.findViewById(R.id.statusRetryIv);
+                statusRetryTv = mRetryView.findViewById(R.id.statusRetryTv);
+                statusRetryMb = mRetryView.findViewById(R.id.statusRetryMb);
+                statusRetryIv.setImageResource(R.drawable.ic_status_fail);
+                statusRetryTv.setText(R.string.loadFailAndTryAgainLater);
+                statusRetryMb.setText(R.string.retry);
                 if (isMainThread()) {
                     showView(mRetryView);
                 } else {

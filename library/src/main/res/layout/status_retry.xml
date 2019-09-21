@@ -8,24 +8,24 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/ivLoadRetryHint"
+        android:id="@+id/statusRetryIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/toDo"
-        app:srcCompat="@drawable/ic_load_no_network" />
+        app:srcCompat="@drawable/ic_status_no_network" />
 
     <TextView
-        android:id="@+id/tvLoadRetryHint"
+        android:id="@+id/statusRetryTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_12"
         android:layout_marginBottom="@dimen/dp_12"
-        android:text="@string/loadRetryNoNetworkHint"
+        android:text="@string/networkAnomaly"
         android:textColor="@color/fontHint"
         android:textSize="@dimen/sp_10" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mbLoadRetryClick"
+        android:id="@+id/statusRetryMb"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dp_36"

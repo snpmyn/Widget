@@ -6,7 +6,6 @@
     android:gravity="center">
 
     <ProgressBar
-        android:id="@+id/mobSmsBuilderPb"
         style="@style/ProgressBarStyle"
         android:layout_width="@dimen/dp_24"
         android:layout_height="@dimen/dp_24" />

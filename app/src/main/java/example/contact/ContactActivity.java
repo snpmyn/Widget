@@ -93,10 +93,10 @@ public class ContactActivity extends AppCompatActivity {
         statusManager = StatusManager.generate(contactActivityRv, new BaseStatusListener() {
             @Override
             public void setRetryEvent(View retryView) {
-                View view = retryView.findViewById(R.id.mbLoadRetryClick);
+                View view = retryView.findViewById(R.id.statusRetryMb);
                 view.setOnClickListener(v -> {
                     // 1连接失败、2加载失败（0无网络）
-                    if (statusManager.flag == 1 || statusManager.flag == WidgetMagic.INT_TWO) {
+                    if (statusManager.status == 1 || statusManager.status == WidgetMagic.INT_TWO) {
                         contact();
                     } else {
                         startActivityForResult(new Intent(Settings.ACTION_WIRELESS_SETTINGS), statusManager.requestCode);
