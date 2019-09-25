@@ -1,0 +1,10 @@
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/materialIntroViewIv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/toDo"
+    android:src="@drawable/material_intro_view_dot"
+    android:visibility="invisible" />
+
+
+

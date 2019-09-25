@@ -23,6 +23,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.guide.GuideTwoActivity" />
+        <activity android:name="example.guide.GuideOneActivity" />
+        <activity android:name="example.guide.GuideActivity" />
         <activity android:name="example.animation.circular.CircularFlexContentActivity" />
         <activity android:name="example.animation.circular.CircularFlexActivity" />
         <activity android:name="example.focusresize.FocusResizeActivity" />

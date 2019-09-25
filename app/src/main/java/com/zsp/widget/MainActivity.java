@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
-import com.zsp.library.guide.GuideView;
 import com.zsp.utilone.intent.IntentUtils;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.utilone.toast.ToastUtils;
@@ -24,6 +22,7 @@ import example.contact.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
 import example.focusresize.FocusResizeActivity;
+import example.guide.GuideActivity;
 import example.layout.LayoutActivity;
 import example.location.LocationActivity;
 import example.picture.PictureActivity;
@@ -53,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
      * SoulPermissionUtils
      */
     private SoulPermissionUtils soulPermissionUtils;
-    /**
-     * 引导视图
-     */
-    private GuideView pictureGuideView;
-    private GuideView animationGuideView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,66 +63,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initConfiguration() {
-        /*
-          SoulPermissionUtils
-         */
         soulPermissionUtils = new SoulPermissionUtils();
-        /*
-          图片引导视图
-         */
-        pictureGuideView = GuideView.Builder
-                // 初始（必调）
-                .newInstance(this)
-                // 目标图（必调）
-                .setTargetView(mainActivityMbPicture)
-                // 引导图（ImageView或TextView）（必调）
-                .setCustomGuideView(GuideView.guideTextView(this, R.string.picture, ContextCompat.getColor(this, R.color.background)))
-                // 引导图状（圆形、椭圆、矩形，矩形可圆角矩形）
-                .setShape(GuideView.MyShape.CIRCULAR)
-                // 引导图相对目标图位（八种，不设默屏左上角）
-                .setDirection(GuideView.Direction.RIGHT_TOP)
-                // 圆形引导图透明区半径，矩形引导图圆角大小
-                .setRadius(170)
-                // 圆心（默目标图中心）
-                .setCenter(300, 300)
-                // 偏移（微调引导图位）
-                .setOffset(200, 60)
-                // 背景色（默透明）
-                .setBgColor(ContextCompat.getColor(this, R.color.blackCC))
-                // 点
-                .setOnClickListener(() -> {
-                    pictureGuideView.hide();
-                    animationGuideView.show();
-                })
-                // 显一次
-                .showOnce()
-                // Builder模式（返引导图实例）（必调）
-                .build();
-        /*
-          动画引导视图
-         */
-        animationGuideView = GuideView.Builder
-                .newInstance(this)
-                .setTargetView(mainActivityMbAnimation)
-                .setCustomGuideView(GuideView.guideTextView(this, R.string.animation, ContextCompat.getColor(this, R.color.background)))
-                .setShape(GuideView.MyShape.CIRCULAR)
-                .setDirection(GuideView.Direction.LEFT_TOP)
-                .setRadius(170)
-                .setBgColor(ContextCompat.getColor(this, R.color.blackCC))
-                .setOnClickListener(() -> {
-                    animationGuideView.hide();
-                    checkAndRequestPermission();
-                })
-                .showOnce()
-                .build();
     }
 
     private void startLogic() {
-        if (pictureGuideView.hasShown()) {
-            checkAndRequestPermission();
-        } else {
-            pictureGuideView.show();
-        }
+        checkAndRequestPermission();
     }
 
     private void checkAndRequestPermission() {
@@ -172,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbBanner,
             R.id.mainActivityMbRadarChart,
             R.id.mainActivityMbRadarCard,
-            R.id.mainActivityMbFocusResize})
+            R.id.mainActivityMbFocusResize,
+            R.id.mainActivityMbGuide})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -262,6 +202,10 @@ public class MainActivity extends AppCompatActivity {
             // 聚焦调整
             case R.id.mainActivityMbFocusResize:
                 IntentUtils.jumpNoBundle(this, FocusResizeActivity.class);
+                break;
+            // 引导
+            case R.id.mainActivityMbGuide:
+                IntentUtils.jumpNoBundle(this, GuideActivity.class);
                 break;
             default:
                 break;

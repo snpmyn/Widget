@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.guide.GuideTwoActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/guideTwoActivityMt"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_top_back_light_24dp_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/guideTwo"
+            android:textColor="@color/background"
+            android:textSize="@dimen/sp_16" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/guideTwoActivityMcv"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_90"
+        android:layout_margin="@dimen/dp_24"
+        app:cardElevation="@dimen/dp_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTwoActivityMt" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/guideTwoActivityMbButtonOne"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_24"
+        android:text="@string/buttonOne"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTwoActivityMcv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/guideTwoActivityMbButtonTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_24"
+        android:text="@string/buttonTwo"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTwoActivityMbButtonOne" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/guideTwoActivityMbResetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_24"
+        android:text="@string/resetting"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideTwoActivityMbButtonTwo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
