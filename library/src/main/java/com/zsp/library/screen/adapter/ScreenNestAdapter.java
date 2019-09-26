@@ -1,4 +1,4 @@
-package com.zsp.library.screen;
+package com.zsp.library.screen.adapter;
 
 import android.content.Context;
 import android.util.SparseBooleanArray;

@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zsp.library.screen.ScreenHandleKit;
+import com.zsp.library.screen.kit.ScreenHandleKit;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 

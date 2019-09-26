@@ -1,4 +1,4 @@
-package com.zsp.library.screen;
+package com.zsp.library.screen.kit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
+import com.zsp.library.screen.adapter.ScreenAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

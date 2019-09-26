@@ -1,6 +1,6 @@
 package example.screen.kit;
 
-import com.zsp.library.screen.ScreenDataKit;
+import com.zsp.library.screen.kit.ScreenDataKit;
 
 import java.util.ArrayList;
 import java.util.List;

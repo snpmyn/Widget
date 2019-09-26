@@ -1,4 +1,4 @@
-package com.zsp.library.screen;
+package com.zsp.library.screen.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -56,7 +56,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      *
      * @param context 上下文
      */
-    ScreenAdapter(Context context) {
+    public ScreenAdapter(Context context) {
         this.context = context;
     }
 
@@ -67,9 +67,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      * @param canReverseSelectAfterSingleSelectList 单选后可反选数据
      * @param defaultSelectMap                      默选数据
      */
-    void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
-                          List<String> canReverseSelectAfterSingleSelectList,
-                          Map<String, List<String>> defaultSelectMap) {
+    public void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
+                                 List<String> canReverseSelectAfterSingleSelectList,
+                                 Map<String, List<String>> defaultSelectMap) {
         this.subjectMapKeyList = new ArrayList<>(subjectMap.keySet());
         this.subjectMapValueList = new ArrayList<>(subjectMap.values());
         this.canReverseSelectAfterSingleSelectList = canReverseSelectAfterSingleSelectList;
@@ -83,7 +83,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      *
      * @param screenAdapterItemClickListener 筛选适配器条目短点监听
      */
-    void setScreenAdapterItemClickListener(ScreenAdapterItemClickListener screenAdapterItemClickListener) {
+    public void setScreenAdapterItemClickListener(ScreenAdapterItemClickListener screenAdapterItemClickListener) {
         this.screenAdapterItemClickListener = screenAdapterItemClickListener;
     }
 
@@ -148,7 +148,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     /**
      * 重置
      */
-    void resetting() {
+    public void resetting() {
         for (ScreenNestAdapter screenNestAdapter : screenNestAdapters) {
             screenNestAdapter.resetting();
         }
