@@ -93,8 +93,12 @@ public class ScreenActivity extends AppCompatActivity {
         // 年龄段
         screenHandleKit.packStringConditions("年龄段", 3, true,
                 "18岁以下", "18～40岁", "40～60岁", "60岁以上");
+        screenHandleKit.packStringConditions("年龄", 3, true,
+                "18岁以下", "18～40岁", "40～60岁", "60岁以上");
         // 消费周期
         screenHandleKit.packStringConditions("消费周期", 3, false,
+                "1个月", "3个月", "6个月");
+        screenHandleKit.packStringConditions("周期", 3, false,
                 "1个月", "3个月", "6个月");
         List<String> list = new ArrayList<>();
         list.add("1次");
@@ -102,6 +106,7 @@ public class ScreenActivity extends AppCompatActivity {
         list.add("3次");
         // 消费次数
         screenHandleKit.packListConditions("消费次数", 3, true, list);
+        screenHandleKit.packListConditions("消费", 3, true, list);
         // 单选后可反选
         screenHandleKit.canReverseSelectAfterSingleSelect("性别", "年龄段");
         // 默选
