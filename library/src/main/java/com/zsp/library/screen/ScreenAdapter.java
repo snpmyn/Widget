@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
+import com.zsp.library.screen.listener.ScreenAdapterItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +43,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     private Map<String, List<String>> defaultSelectMap;
     private List<String> defaultSelectMapKeyList;
     /**
-     * 短点监听
+     * 筛选适配器条目短点监听
      */
-    private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
+    private ScreenAdapterItemClickListener screenAdapterItemClickListener;
     /**
      * 筛选嵌套适配器数据
      */
@@ -77,8 +78,13 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         this.screenNestAdapters = new ArrayList<>(subjectMap.size());
     }
 
-    void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
-        this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
+    /**
+     * 设筛选适配器条目短点监听
+     *
+     * @param screenAdapterItemClickListener 筛选适配器条目短点监听
+     */
+    void setScreenAdapterItemClickListener(ScreenAdapterItemClickListener screenAdapterItemClickListener) {
+        this.screenAdapterItemClickListener = screenAdapterItemClickListener;
     }
 
     @NonNull
@@ -110,23 +116,11 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 嵌套（控件关联适配器）
         holder.screenItemRv.setAdapter(screenNestAdapter);
         // 嵌套（监听）
-        screenNestAdapter.setOnRecyclerViewItemClickListener((view, classification1, condition, selected) -> {
-            if (onRecyclerViewItemClickListener != null) {
-                onRecyclerViewItemClickListener.onItemClick(view, classification1, condition, selected);
+        screenNestAdapter.setScreenNestAdapterItemClickListener((view, classification1, condition, selected) -> {
+            if (screenAdapterItemClickListener != null) {
+                screenAdapterItemClickListener.onItemClick(view, classification1, condition, selected);
             }
         });
-    }
-
-    public interface OnRecyclerViewItemClickListener {
-        /**
-         * 短点
-         *
-         * @param view           视图
-         * @param classification 类别
-         * @param condition      条件
-         * @param selected       选否
-         */
-        void onItemClick(View view, String classification, String condition, boolean selected);
     }
 
     /**

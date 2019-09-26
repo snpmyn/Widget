@@ -146,7 +146,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * 关联
      */
     public void associate() {
-        screenAdapter.setOnRecyclerViewItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
+        screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
         screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap);
         bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
     }

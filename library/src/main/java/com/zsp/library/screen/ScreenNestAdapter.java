@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
+import com.zsp.library.screen.listener.ScreenNestAdapterItemClickListener;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     private boolean singleSelect;
     private boolean canReverseSelectAfterSingleSelect;
     private List<Integer> defaultSelectIndexList;
-    private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
+    private ScreenNestAdapterItemClickListener screenNestAdapterItemClickListener;
     private int selectPosition;
     private SparseBooleanArray sparseBooleanArray;
 
@@ -56,8 +57,8 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         selectMark();
     }
 
-    void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
-        this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
+    void setScreenNestAdapterItemClickListener(ScreenNestAdapterItemClickListener screenNestAdapterItemClickListener) {
+        this.screenNestAdapterItemClickListener = screenNestAdapterItemClickListener;
         defaultSelectValue();
     }
 
@@ -70,14 +71,14 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
             if (singleSelect) {
                 if (selectPosition != position) {
                     selectPosition = position;
-                    onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), true);
+                    screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), true);
                 } else if (canReverseSelectAfterSingleSelect) {
                     selectPosition = -1;
-                    onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), false);
+                    screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), false);
                 }
             } else {
                 boolean preSelected = sparseBooleanArray.get(position);
-                onRecyclerViewItemClickListener.onItemClick(v, classification, conditions.get(position), !preSelected);
+                screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), !preSelected);
                 sparseBooleanArray.put(position, !preSelected);
             }
             notifyDataSetChanged();
@@ -96,18 +97,6 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         } else {
             holder.screenNestItemTv.setSelected(sparseBooleanArray.get(position));
         }
-    }
-
-    public interface OnRecyclerViewItemClickListener {
-        /**
-         * 短点
-         *
-         * @param view           视图
-         * @param classification 类别
-         * @param condition      条件
-         * @param selected       选否
-         */
-        void onItemClick(View view, String classification, String condition, boolean selected);
     }
 
     /**
@@ -145,11 +134,11 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
             return;
         }
         if (singleSelect) {
-            onRecyclerViewItemClickListener.onItemClick(null, classification, conditions.get(defaultSelectIndexList.get(defaultSelectIndexList.size() - 1)), true);
+            screenNestAdapterItemClickListener.onItemClick(null, classification, conditions.get(defaultSelectIndexList.get(defaultSelectIndexList.size() - 1)), true);
             return;
         }
         for (Integer integer : defaultSelectIndexList) {
-            onRecyclerViewItemClickListener.onItemClick(null, classification, conditions.get(integer), true);
+            screenNestAdapterItemClickListener.onItemClick(null, classification, conditions.get(integer), true);
         }
     }
 
