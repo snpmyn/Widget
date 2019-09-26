@@ -12,7 +12,9 @@ import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 import com.zsp.library.screen.adapter.ScreenAdapter;
+import com.zsp.library.screen.bean.MutuallyExclusiveBean;
 import com.zsp.library.screen.listener.ScreenHandleListener;
+import com.zsp.utilone.data.IntUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,12 +39,26 @@ public class ScreenHandleKit implements View.OnClickListener {
     private BottomSheetDialog bottomSheetDialog;
     private RecyclerView bottomSheetDialogMemberScreenRv;
     /**
-     * 筛选
+     * 筛选适配器
      */
     private ScreenAdapter screenAdapter;
+    /**
+     * 主体数据
+     */
     private Map<List<String>, Map<Integer, Boolean>> subjectMap;
+    /**
+     * 单选后可反选数据
+     */
     private List<String> canCancelAfterSingleSelectList;
+    /**
+     * 默选数据
+     */
     private Map<String, List<String>> defaultSelectMap;
+    /**
+     * 互斥数据、互斥数据类别数据
+     */
+    private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
+    private List<String> mutuallyExclusiveBeanListClassificationList;
     /**
      * 筛选操作接口
      */
@@ -57,8 +73,6 @@ public class ScreenHandleKit implements View.OnClickListener {
         this.context = context;
         this.screenAdapter = new ScreenAdapter(context);
         this.subjectMap = new LinkedHashMap<>();
-        this.canCancelAfterSingleSelectList = new ArrayList<>();
-        this.defaultSelectMap = new LinkedHashMap<>();
         stepBottomSheetDialog();
     }
 
@@ -123,6 +137,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param classifications 类别
      */
     public void canReverseSelectAfterSingleSelect(String... classifications) {
+        canCancelAfterSingleSelectList = new ArrayList<>();
         for (String classification : classifications) {
             if (canCancelAfterSingleSelectList.contains(classification)) {
                 return;
@@ -141,7 +156,27 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param conditions     条件
      */
     public void defaultSelect(String classification, String... conditions) {
+        if (null == defaultSelectMap) {
+            defaultSelectMap = new LinkedHashMap<>();
+        }
         defaultSelectMap.put(classification, Arrays.asList(conditions));
+    }
+
+    /**
+     * 互斥
+     *
+     * @param strings 数据（组ID，类别、组ID，类别...）
+     */
+    public void mutuallyExclusive(String... strings) {
+        mutuallyExclusiveBeanList = new ArrayList<>();
+        mutuallyExclusiveBeanListClassificationList = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            if (IntUtils.even(i)) {
+                String classification = strings[i + 1];
+                mutuallyExclusiveBeanList.add(new MutuallyExclusiveBean(strings[i], classification));
+                mutuallyExclusiveBeanListClassificationList.add(classification);
+            }
+        }
     }
 
     /**
@@ -149,7 +184,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     public void associate() {
         screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
-        screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap);
+        screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap, mutuallyExclusiveBeanList, mutuallyExclusiveBeanListClassificationList);
         bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
     }
 

@@ -85,6 +85,10 @@ public class ScreenActivityKit {
      * @param selected  选否
      */
     private void ageGroupScreen(String condition, boolean selected) {
+        if (null == condition) {
+            ageGroupResultList.clear();
+            return;
+        }
         switch (condition) {
             case "18岁以下":
                 screenDataKit.singleSelectPack(ageGroupResultList, selected, 0, 18);
@@ -132,6 +136,10 @@ public class ScreenActivityKit {
      * @param selected  选否
      */
     private void numberOfConsumptionScreen(String condition, boolean selected) {
+        if (null == condition) {
+            numberOfConsumptionResult = null;
+            return;
+        }
         switch (condition) {
             case "1次":
                 numberOfConsumptionResult = selected ? 1 : null;

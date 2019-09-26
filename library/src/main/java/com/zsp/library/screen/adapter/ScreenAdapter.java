@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
+import com.zsp.library.screen.bean.MutuallyExclusiveBean;
 import com.zsp.library.screen.listener.ScreenAdapterItemClickListener;
 
 import java.util.ArrayList;
@@ -43,13 +44,18 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     private Map<String, List<String>> defaultSelectMap;
     private List<String> defaultSelectMapKeyList;
     /**
+     * 互斥数据、互斥数据类别数据
+     */
+    private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
+    private List<String> mutuallyExclusiveBeanListClassificationList;
+    /**
      * 筛选适配器条目短点监听
      */
     private ScreenAdapterItemClickListener screenAdapterItemClickListener;
     /**
      * 筛选嵌套适配器数据
      */
-    private List<ScreenNestAdapter> screenNestAdapters;
+    private List<ScreenNestAdapter> screenNestAdapterList;
 
     /**
      * constructor
@@ -63,19 +69,25 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     /**
      * 设筛选数据
      *
-     * @param subjectMap                            主体数据
-     * @param canReverseSelectAfterSingleSelectList 单选后可反选数据
-     * @param defaultSelectMap                      默选数据
+     * @param subjectMap                                  主体数据
+     * @param canReverseSelectAfterSingleSelectList       单选后可反选数据
+     * @param defaultSelectMap                            默选数据
+     * @param mutuallyExclusiveBeanList                   互斥数据
+     * @param mutuallyExclusiveBeanListClassificationList 互斥数据类别数据
      */
     public void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
                                  List<String> canReverseSelectAfterSingleSelectList,
-                                 Map<String, List<String>> defaultSelectMap) {
+                                 Map<String, List<String>> defaultSelectMap,
+                                 List<MutuallyExclusiveBean> mutuallyExclusiveBeanList,
+                                 List<String> mutuallyExclusiveBeanListClassificationList) {
         this.subjectMapKeyList = new ArrayList<>(subjectMap.keySet());
         this.subjectMapValueList = new ArrayList<>(subjectMap.values());
         this.canReverseSelectAfterSingleSelectList = canReverseSelectAfterSingleSelectList;
         this.defaultSelectMap = defaultSelectMap;
+        this.mutuallyExclusiveBeanList = mutuallyExclusiveBeanList;
+        this.mutuallyExclusiveBeanListClassificationList = mutuallyExclusiveBeanListClassificationList;
         this.defaultSelectMapKeyList = new ArrayList<>(defaultSelectMap.keySet());
-        this.screenNestAdapters = new ArrayList<>(subjectMap.size());
+        this.screenNestAdapterList = new ArrayList<>(subjectMap.size());
     }
 
     /**
@@ -111,8 +123,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         List<String> conditions = leftList.subList(1, leftList.size());
         ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
                 booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
-                defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null);
-        screenNestAdapters.add(screenNestAdapter);
+                defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
+                mutuallyExclusiveBeanListClassificationList.contains(classification));
+        screenNestAdapterList.add(screenNestAdapter);
         // 嵌套（控件关联适配器）
         holder.screenItemRv.setAdapter(screenNestAdapter);
         // 嵌套（监听）
@@ -121,6 +134,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
                 screenAdapterItemClickListener.onItemClick(view, classification1, condition, selected);
             }
         });
+        screenNestAdapter.setMutuallyExclusiveClickListener(this::mutuallyExclusive);
     }
 
     /**
@@ -146,10 +160,43 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     }
 
     /**
+     * 互斥
+     *
+     * @param classification 类别
+     */
+    private void mutuallyExclusive(String classification) {
+        String groupId = null;
+        List<String> classifications = new ArrayList<>();
+        // 互斥组ID
+        for (MutuallyExclusiveBean mutuallyExclusiveBean : mutuallyExclusiveBeanList) {
+            if (classification.equals(mutuallyExclusiveBean.getClassification())) {
+                groupId = mutuallyExclusiveBean.getGroupId();
+                break;
+            }
+        }
+        // 互斥类别
+        for (MutuallyExclusiveBean mutuallyExclusive : mutuallyExclusiveBeanList) {
+            if (groupId != null && groupId.equals(mutuallyExclusive.getGroupId())) {
+                classifications.add(mutuallyExclusive.getClassification());
+            }
+        }
+        // 除自身
+        classifications.remove(classification);
+        // 剩余互斥类别重置
+        for (ScreenNestAdapter otherScreenNestAdapter : screenNestAdapterList) {
+            boolean flag = classifications.contains(otherScreenNestAdapter.classification) &&
+                    (otherScreenNestAdapter.selectPosition != -1 || otherScreenNestAdapter.sparseBooleanArray.size() > 0);
+            if (flag) {
+                otherScreenNestAdapter.resetting();
+            }
+        }
+    }
+
+    /**
      * 重置
      */
     public void resetting() {
-        for (ScreenNestAdapter screenNestAdapter : screenNestAdapters) {
+        for (ScreenNestAdapter screenNestAdapter : screenNestAdapterList) {
             screenNestAdapter.resetting();
         }
     }

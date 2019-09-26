@@ -107,6 +107,8 @@ public class ScreenActivity extends AppCompatActivity {
         // 默选
         screenHandleKit.defaultSelect("性别", "女");
         screenHandleKit.defaultSelect("消费周期", "1个月", "6个月");
+        // 互斥
+        screenHandleKit.mutuallyExclusive("1", "年龄段", "1", "消费次数");
         // 关联
         screenHandleKit.associate();
     }
