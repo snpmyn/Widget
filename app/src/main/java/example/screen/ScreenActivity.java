@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.library.screen.kit.ScreenHandleKit;
+import com.zsp.library.screen.listener.ScreenHandleListener;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
@@ -41,13 +42,23 @@ public class ScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_screen);
         ButterKnife.bind(this);
         initConfiguration();
-        bottomSheetDialog();
+        startLogic();
+        setListener();
     }
 
     private void initConfiguration() {
         // ScreenHandleKit
         screenHandleKit = new ScreenHandleKit(this);
-        screenHandleKit.setScreenHandleListener(new ScreenHandleKit.ScreenHandleListener() {
+        // ScreenActivityKit
+        screenActivityKit = new ScreenActivityKit();
+    }
+
+    private void startLogic() {
+        bottomSheetDialog();
+    }
+
+    private void setListener() {
+        screenHandleKit.setScreenHandleListener(new ScreenHandleListener() {
             @Override
             public void click(View view, String classification, String condition, boolean selected) {
                 ToastUtils.shortShow(ScreenActivity.this, classification + "    " + condition + "    " + selected);
@@ -71,10 +82,11 @@ public class ScreenActivity extends AppCompatActivity {
                 screenActivityTvResult.setText(result);
             }
         });
-        // ScreenActivityKit
-        screenActivityKit = new ScreenActivityKit();
     }
 
+    /**
+     * BottomSheetDialog
+     */
     private void bottomSheetDialog() {
         // 性别
         screenHandleKit.packStringConditions("性别", 3, true, "男", "女");

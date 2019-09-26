@@ -12,6 +12,7 @@ import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 import com.zsp.library.screen.adapter.ScreenAdapter;
+import com.zsp.library.screen.listener.ScreenHandleListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -196,30 +197,5 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     public void setScreenHandleListener(ScreenHandleListener screenHandleListener) {
         this.screenHandleListener = screenHandleListener;
-    }
-
-    /**
-     * 筛选操作监听
-     */
-    public interface ScreenHandleListener {
-        /**
-         * 点
-         *
-         * @param view           视图
-         * @param classification 类别
-         * @param condition      条件
-         * @param selected       选否
-         */
-        void click(View view, String classification, String condition, boolean selected);
-
-        /**
-         * 重置
-         */
-        void resetting();
-
-        /**
-         * 确定
-         */
-        void ensure();
     }
 }
