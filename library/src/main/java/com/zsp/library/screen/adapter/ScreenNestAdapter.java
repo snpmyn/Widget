@@ -125,6 +125,10 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
                 if (selectPosition != position) {
                     selectPosition = position;
                     screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), true);
+                    // 互斥
+                    if (mutuallyExclusive) {
+                        mutuallyExclusiveClickListener.click(classification);
+                    }
                 } else if (canReverseSelectAfterSingleSelect) {
                     selectPosition = -1;
                     screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), false);
@@ -133,12 +137,12 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
                 boolean preSelected = sparseBooleanArray.get(position);
                 screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), !preSelected);
                 sparseBooleanArray.put(position, !preSelected);
+                // 互斥
+                if (!preSelected && mutuallyExclusive) {
+                    mutuallyExclusiveClickListener.click(classification);
+                }
             }
             notifyDataSetChanged();
-            // 互斥
-            if (mutuallyExclusive) {
-                mutuallyExclusiveClickListener.click(classification);
-            }
         });
         return new ViewHolder(view);
     }
