@@ -2,13 +2,14 @@ package com.zsp.library.card.transition
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
-import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.transition.Transition
 import android.transition.TransitionValues
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 
 /**
  * @decs: RotateX
@@ -16,7 +17,7 @@ import android.view.ViewGroup
  * @author: 郑少鹏
  * @date: 2019/9/2 14:34
  */
-@SuppressLint("NewApi")
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class RotateX(context: Context?, attrs: AttributeSet?) : Transition(context, attrs) {
     override fun getTransitionProperties(): Array<String> {
         return TRANSITION_PROPERTIES
@@ -41,8 +42,8 @@ class RotateX(context: Context?, attrs: AttributeSet?) : Transition(context, att
         if (startRotation == endRotation) return null
         val view = endValues.view
         // ensure the pivot is set
-        view.pivotX = view.width / 2f
-        view.pivotY = view.height / 2f
+        view.pivotX = view.width / 2.0f
+        view.pivotY = view.height / 2.0f
         return ObjectAnimator.ofFloat(view, View.ROTATION_X, startRotation, endRotation)
     }
 

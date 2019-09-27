@@ -13,11 +13,20 @@
         android:paddingRight="@dimen/dp_10"
         android:paddingBottom="@dimen/dp_4">
 
+        <View
+            android:id="@+id/screenBottomSheetDialogView"
+            android:layout_width="?actionBarSize"
+            android:layout_height="@dimen/dp_6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/gray_solid_semi_circle" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/screenBottomSheetDialogMbResetting"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/screenBottomSheetDialogView"
             android:text="@string/resetting"
             android:textSize="@dimen/sp_13" />
 
@@ -26,6 +35,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/screenBottomSheetDialogView"
             android:layout_alignParentEnd="true"
             android:text="@string/ensure"
             android:textSize="@dimen/sp_13"

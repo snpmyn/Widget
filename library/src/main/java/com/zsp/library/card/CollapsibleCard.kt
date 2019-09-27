@@ -75,7 +75,7 @@ class CollapsibleCard @JvmOverloads constructor(
         toggle.duration = if (expanded) 300L else 200L
         TransitionManager.beginDelayedTransition(root.parent as ViewGroup, toggle)
         collapsibleCardTvDescription.visibility = if (expanded) View.VISIBLE else View.GONE
-        collapsibleCardIv.rotationX = if (expanded) 180f else 0f
+        collapsibleCardIv.rotationX = if (expanded) 180.0f else 0.0f
         setTitleContentDescription(cardTitle)
     }
 
