@@ -58,6 +58,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
                 FocusGravity.CENTER,
                 Focus.ALL,
                 ShapeType.RECTANGLE,
+                false,
                 true,
                 this);
     }
@@ -89,6 +90,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
                     FocusGravity.LEFT,
                     Focus.NORMAL,
                     ShapeType.CIRCLE,
+                    false,
                     true,
                     this);
         } else if (materialIntroViewId.equals(String.valueOf(guideTwoActivityMbButtonOne.getId()))) {
@@ -100,6 +102,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
                     FocusGravity.RIGHT,
                     Focus.MINIMUM,
                     ShapeType.CIRCLE,
+                    false,
                     true,
                     this);
         } else if (materialIntroViewId.equals(String.valueOf(guideTwoActivityMbButtonTwo.getId()))) {
@@ -111,6 +114,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
                     FocusGravity.CENTER,
                     Focus.MINIMUM,
                     ShapeType.CIRCLE,
+                    false,
                     true,
                     this);
         } else if (materialIntroViewId.equals(String.valueOf(guideTwoActivityMt.getChildAt(0).getId()))) {
@@ -123,6 +127,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
                     FocusGravity.CENTER,
                     Focus.MINIMUM,
                     ShapeType.CIRCLE,
+                    false,
                     true,
                     this);
         }

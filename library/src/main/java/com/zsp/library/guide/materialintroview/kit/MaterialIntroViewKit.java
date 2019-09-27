@@ -29,7 +29,8 @@ public class MaterialIntroViewKit {
      * @param focusGravity          聚焦位
      * @param focus                 聚焦
      * @param shapeType             形状类型
-     * @param isDotAnimationEnabled 允点动画
+     * @param isPerformClick        点操作
+     * @param isDotAnimationEnabled 点动画
      * @param materialIntroListener MaterialIntroListener
      */
     public static void showMaterialIntroView(Activity activity,
@@ -40,9 +41,12 @@ public class MaterialIntroViewKit {
                                              FocusGravity focusGravity,
                                              Focus focus,
                                              ShapeType shapeType,
+                                             boolean isPerformClick,
                                              boolean isDotAnimationEnabled,
                                              MaterialIntroListener materialIntroListener) {
         new MaterialIntroView.Builder(activity)
+                // Trigger click operation when user click focused area.
+                .performClick(isPerformClick)
                 // Shows dot animation center of focus area.
                 // Default false.
                 .enableDotAnimation(isDotAnimationEnabled)
