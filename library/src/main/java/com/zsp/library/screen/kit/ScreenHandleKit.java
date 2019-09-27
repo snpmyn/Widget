@@ -37,7 +37,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * BottomSheetDialog
      */
     private BottomSheetDialog bottomSheetDialog;
-    private RecyclerView bottomSheetDialogMemberScreenRv;
+    private RecyclerView screenBottomSheetDialogRv;
     /**
      * 筛选适配器
      */
@@ -73,6 +73,10 @@ public class ScreenHandleKit implements View.OnClickListener {
         this.context = context;
         this.screenAdapter = new ScreenAdapter(context);
         this.subjectMap = new LinkedHashMap<>();
+        this.canCancelAfterSingleSelectList = new ArrayList<>();
+        this.defaultSelectMap = new LinkedHashMap<>();
+        this.mutuallyExclusiveBeanList = new ArrayList<>();
+        this.mutuallyExclusiveBeanListClassificationList = new ArrayList<>();
         stepBottomSheetDialog();
     }
 
@@ -80,18 +84,17 @@ public class ScreenHandleKit implements View.OnClickListener {
      * 初始BottomSheetDialog
      */
     private void stepBottomSheetDialog() {
-        @SuppressLint("InflateParams") View bottomSheetDialogView = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_dialog_screen, null);
+        @SuppressLint("InflateParams") View bottomSheetDialogView = LayoutInflater.from(context).inflate(R.layout.screen_bottom_sheet_dialog, null);
         // 重置
-        MaterialButton bottomSheetDialogMemberScreenMbResetting = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenMbResetting);
-        bottomSheetDialogMemberScreenMbResetting.setOnClickListener(this);
+        MaterialButton screenBottomSheetDialogMbResetting = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogMbResetting);
+        screenBottomSheetDialogMbResetting.setOnClickListener(this);
         // 确定
-        MaterialButton bottomSheetDialogMemberScreenMbEnsure = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenMbEnsure);
-        bottomSheetDialogMemberScreenMbEnsure.setOnClickListener(this);
+        MaterialButton screenBottomSheetDialogMbEnsure = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogMbEnsure);
+        screenBottomSheetDialogMbEnsure.setOnClickListener(this);
         // RecyclerView
-        bottomSheetDialogMemberScreenRv = bottomSheetDialogView.findViewById(R.id.bottomSheetDialogMemberScreenRv);
-        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, bottomSheetDialogMemberScreenRv);
+        screenBottomSheetDialogRv = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogRv);
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, screenBottomSheetDialogRv);
         recyclerViewConfigure.linearVerticalLayout(false, 0, false, false);
-//        bottomSheetDialogMemberScreenRv.setNestedScrollingEnabled(false);
         // BottomSheetDialog
         bottomSheetDialog = new BottomSheetDialog(context);
         bottomSheetDialog.setContentView(bottomSheetDialogView);
@@ -137,7 +140,6 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param classifications 类别
      */
     public void canReverseSelectAfterSingleSelect(String... classifications) {
-        canCancelAfterSingleSelectList = new ArrayList<>();
         for (String classification : classifications) {
             if (canCancelAfterSingleSelectList.contains(classification)) {
                 return;
@@ -156,9 +158,6 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param conditions     条件
      */
     public void defaultSelect(String classification, String... conditions) {
-        if (null == defaultSelectMap) {
-            defaultSelectMap = new LinkedHashMap<>();
-        }
         defaultSelectMap.put(classification, Arrays.asList(conditions));
     }
 
@@ -168,8 +167,6 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param strings 数据（组ID，类别、组ID，类别...）
      */
     public void mutuallyExclusive(String... strings) {
-        mutuallyExclusiveBeanList = new ArrayList<>();
-        mutuallyExclusiveBeanListClassificationList = new ArrayList<>();
         for (int i = 0; i < strings.length; i++) {
             if (IntUtils.even(i)) {
                 String classification = strings[i + 1];
@@ -185,7 +182,7 @@ public class ScreenHandleKit implements View.OnClickListener {
     public void associate() {
         screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
         screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap, mutuallyExclusiveBeanList, mutuallyExclusiveBeanListClassificationList);
-        bottomSheetDialogMemberScreenRv.setAdapter(screenAdapter);
+        screenBottomSheetDialogRv.setAdapter(screenAdapter);
     }
 
     /**
@@ -216,10 +213,10 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.bottomSheetDialogMemberScreenMbResetting) {
+        if (v.getId() == R.id.screenBottomSheetDialogMbResetting) {
             // 重置
             screenHandleListener.resetting();
-        } else if (v.getId() == R.id.bottomSheetDialogMemberScreenMbEnsure) {
+        } else if (v.getId() == R.id.screenBottomSheetDialogMbEnsure) {
             // 确定
             screenHandleListener.ensure();
         }

@@ -14,7 +14,7 @@
         android:paddingBottom="@dimen/dp_4">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bottomSheetDialogMemberScreenMbResetting"
+            android:id="@+id/screenBottomSheetDialogMbResetting"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:textSize="@dimen/sp_13" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bottomSheetDialogMemberScreenMbEnsure"
+            android:id="@+id/screenBottomSheetDialogMbEnsure"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bottomSheetDialogMemberScreenRv"
+        android:id="@+id/screenBottomSheetDialogRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none" />

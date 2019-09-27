@@ -116,25 +116,29 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 类别
         String classification = leftList.get(0);
         holder.screenItemTv.setText(classification);
-        // 嵌套（控件）
-        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
-        recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
-        // 嵌套（适配器）
-        List<String> conditions = leftList.subList(1, leftList.size());
-        ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
-                booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
-                defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
-                mutuallyExclusiveBeanListClassificationList.contains(classification));
-        screenNestAdapterList.add(screenNestAdapter);
-        // 嵌套（控件关联适配器）
-        holder.screenItemRv.setAdapter(screenNestAdapter);
-        // 嵌套（监听）
-        screenNestAdapter.setScreenNestAdapterItemClickListener((view, classification1, condition, selected) -> {
-            if (screenAdapterItemClickListener != null) {
-                screenAdapterItemClickListener.onItemClick(view, classification1, condition, selected);
-            }
-        });
-        screenNestAdapter.setMutuallyExclusiveClickListener(this::mutuallyExclusive);
+        // TODO: 2019/9/27 避内容充整屏滑时头/末项频繁重绘。头次滑至底部过程卡顿，待优化。
+        if (holder.screenItemRv.getItemDecorationCount() == 0) {
+            // 嵌套（控件）
+            RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
+            recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
+            holder.screenItemRv.setNestedScrollingEnabled(false);
+            // 嵌套（适配器）
+            List<String> conditions = leftList.subList(1, leftList.size());
+            ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
+                    booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
+                    defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
+                    mutuallyExclusiveBeanListClassificationList.contains(classification));
+            screenNestAdapterList.add(screenNestAdapter);
+            // 嵌套（控件关联适配器）
+            holder.screenItemRv.setAdapter(screenNestAdapter);
+            // 嵌套（监听）
+            screenNestAdapter.setScreenNestAdapterItemClickListener((view, classification1, condition, selected) -> {
+                if (screenAdapterItemClickListener != null) {
+                    screenAdapterItemClickListener.onItemClick(view, classification1, condition, selected);
+                }
+            });
+            screenNestAdapter.setMutuallyExclusiveClickListener(this::mutuallyExclusive);
+        }
     }
 
     /**
