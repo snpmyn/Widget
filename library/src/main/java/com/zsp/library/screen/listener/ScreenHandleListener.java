@@ -22,7 +22,7 @@ public interface ScreenHandleListener {
     /**
      * 重置
      */
-    void resetting();
+    void reset();
 
     /**
      * 确定

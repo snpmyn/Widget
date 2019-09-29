@@ -10,7 +10,7 @@ import android.view.View;
  */
 public interface ScreenNestAdapterItemClickListener {
     /**
-     * 短点
+     * 条目短点
      *
      * @param view           视图
      * @param classification 类别
@@ -18,4 +18,20 @@ public interface ScreenNestAdapterItemClickListener {
      * @param selected       选否
      */
     void onItemClick(View view, String classification, String condition, boolean selected);
+
+    /**
+     * 条目互斥短点
+     *
+     * @param classification 类别
+     */
+    void onItemMutuallyExclusiveClick(String classification);
+
+    /**
+     * 条目展开/折叠短点
+     *
+     * @param classification 类别
+     * @param condition      条件
+     * @param unfold         展开
+     */
+    void onItemUnfoldAndFoldClick(String classification, String condition, boolean unfold);
 }

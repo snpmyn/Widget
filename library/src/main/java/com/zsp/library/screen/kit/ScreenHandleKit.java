@@ -13,6 +13,7 @@ import com.zsp.library.R;
 import com.zsp.library.recyclerview.configure.RecyclerViewConfigure;
 import com.zsp.library.screen.adapter.ScreenAdapter;
 import com.zsp.library.screen.bean.MutuallyExclusiveBean;
+import com.zsp.library.screen.bean.UnfoldAndFoldBean;
 import com.zsp.library.screen.listener.ScreenHandleListener;
 import com.zsp.utilone.data.IntUtils;
 
@@ -39,10 +40,6 @@ public class ScreenHandleKit implements View.OnClickListener {
     private BottomSheetDialog bottomSheetDialog;
     private RecyclerView screenBottomSheetDialogRv;
     /**
-     * 筛选适配器
-     */
-    private ScreenAdapter screenAdapter;
-    /**
      * 主体数据
      */
     private Map<List<String>, Map<Integer, Boolean>> subjectMap;
@@ -60,6 +57,15 @@ public class ScreenHandleKit implements View.OnClickListener {
     private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
     private List<String> mutuallyExclusiveBeanListClassificationList;
     /**
+     * 展开/折叠数据、展开/折叠数据主控类别数据
+     */
+    private List<UnfoldAndFoldBean> unfoldAndFoldBeanList;
+    private List<String> unfoldAndFoldBeanListActiveControlClassificationList;
+    /**
+     * 筛选适配器
+     */
+    private ScreenAdapter screenAdapter;
+    /**
      * 筛选操作接口
      */
     private ScreenHandleListener screenHandleListener;
@@ -70,13 +76,21 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param context 上下文
      */
     public ScreenHandleKit(Context context) {
+        // 上下文
         this.context = context;
-        this.screenAdapter = new ScreenAdapter(context);
+        // 主体数据
         this.subjectMap = new LinkedHashMap<>();
+        // 单选后可反选数据
         this.canCancelAfterSingleSelectList = new ArrayList<>();
+        // 默选数据
         this.defaultSelectMap = new LinkedHashMap<>();
+        // 互斥数据、互斥数据类别数据
         this.mutuallyExclusiveBeanList = new ArrayList<>();
         this.mutuallyExclusiveBeanListClassificationList = new ArrayList<>();
+        // 展开/折叠数据、展开/折叠数据主控类别数据
+        this.unfoldAndFoldBeanList = new ArrayList<>();
+        this.unfoldAndFoldBeanListActiveControlClassificationList = new ArrayList<>();
+        // 初始BottomSheetDialog
         stepBottomSheetDialog();
     }
 
@@ -86,8 +100,8 @@ public class ScreenHandleKit implements View.OnClickListener {
     private void stepBottomSheetDialog() {
         @SuppressLint("InflateParams") View bottomSheetDialogView = LayoutInflater.from(context).inflate(R.layout.screen_bottom_sheet_dialog, null);
         // 重置
-        MaterialButton screenBottomSheetDialogMbResetting = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogMbResetting);
-        screenBottomSheetDialogMbResetting.setOnClickListener(this);
+        MaterialButton screenBottomSheetDialogMbReset = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogMbReset);
+        screenBottomSheetDialogMbReset.setOnClickListener(this);
         // 确定
         MaterialButton screenBottomSheetDialogMbEnsure = bottomSheetDialogView.findViewById(R.id.screenBottomSheetDialogMbEnsure);
         screenBottomSheetDialogMbEnsure.setOnClickListener(this);
@@ -109,12 +123,12 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param conditions     条件
      */
     public void packStringConditions(String classification, int spanCount, boolean singleSelect, String... conditions) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(1 + conditions.length);
         list.add(classification);
         list.addAll(Arrays.asList(conditions));
         Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
-        this.subjectMap.put(list, map);
+        subjectMap.put(list, map);
     }
 
     /**
@@ -126,12 +140,12 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param conditions     条件
      */
     public void packListConditions(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(1 + conditions.size());
         list.add(classification);
         list.addAll(conditions);
         Map<Integer, Boolean> map = new LinkedHashMap<>();
         map.put(spanCount, singleSelect);
-        this.subjectMap.put(list, map);
+        subjectMap.put(list, map);
     }
 
     /**
@@ -177,12 +191,32 @@ public class ScreenHandleKit implements View.OnClickListener {
     }
 
     /**
+     * 展开/折叠
+     *
+     * @param activeControlClassification   主控类别
+     * @param activeControlCondition        主控条件
+     * @param passiveControlClassifications 被控类别
+     */
+    public void unfoldAndFold(String activeControlClassification, String activeControlCondition, String... passiveControlClassifications) {
+        UnfoldAndFoldBean unfoldAndFoldBean = new UnfoldAndFoldBean(activeControlClassification, activeControlCondition, Arrays.asList(passiveControlClassifications));
+        unfoldAndFoldBeanList.add(unfoldAndFoldBean);
+        unfoldAndFoldBeanListActiveControlClassificationList.add(activeControlClassification);
+    }
+
+    /**
      * 关联
      */
     public void associate() {
-        screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
-        screenAdapter.setScreeningData(subjectMap, canCancelAfterSingleSelectList, defaultSelectMap, mutuallyExclusiveBeanList, mutuallyExclusiveBeanListClassificationList);
+        screenAdapter = new ScreenAdapter(context);
+        screenAdapter.setScreeningData(subjectMap,
+                canCancelAfterSingleSelectList,
+                defaultSelectMap,
+                mutuallyExclusiveBeanList,
+                mutuallyExclusiveBeanListClassificationList,
+                unfoldAndFoldBeanList,
+                unfoldAndFoldBeanListActiveControlClassificationList);
         screenBottomSheetDialogRv.setAdapter(screenAdapter);
+        screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
     }
 
     /**
@@ -202,8 +236,8 @@ public class ScreenHandleKit implements View.OnClickListener {
     /**
      * 重置
      */
-    public void resetting() {
-        screenAdapter.resetting();
+    public void reset() {
+        screenAdapter.reset();
     }
 
     /**
@@ -213,9 +247,9 @@ public class ScreenHandleKit implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.screenBottomSheetDialogMbResetting) {
+        if (v.getId() == R.id.screenBottomSheetDialogMbReset) {
             // 重置
-            screenHandleListener.resetting();
+            screenHandleListener.reset();
         } else if (v.getId() == R.id.screenBottomSheetDialogMbEnsure) {
             // 确定
             screenHandleListener.ensure();

@@ -1,5 +1,8 @@
 package com.zsp.library.recyclerview.controller;
 
+import android.view.View;
+import android.widget.LinearLayout;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,5 +40,37 @@ public class RecyclerViewDisplayController {
         adapter.notifyItemRemoved(position);
         adapter.notifyItemRangeChanged(position, list.size() - position);
         list.remove(position);
+    }
+
+    /**
+     * 条目视图可见
+     *
+     * @param itemView 条目视图
+     */
+    public static void itemViewVisible(View itemView) {
+        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) itemView.getLayoutParams();
+        if (layoutParams.width == LinearLayout.LayoutParams.MATCH_PARENT) {
+            return;
+        }
+        layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        itemView.setVisibility(View.VISIBLE);
+        itemView.setLayoutParams(layoutParams);
+    }
+
+    /**
+     * 条目视图不可见
+     *
+     * @param itemView 条目视图
+     */
+    public static void itemViewGone(View itemView) {
+        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) itemView.getLayoutParams();
+        if (layoutParams.width == 0) {
+            return;
+        }
+        itemView.setVisibility(View.GONE);
+        layoutParams.width = 0;
+        layoutParams.height = 0;
+        itemView.setLayoutParams(layoutParams);
     }
 }

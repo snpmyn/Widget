@@ -66,10 +66,10 @@ public class ScreenActivity extends AppCompatActivity {
             }
 
             @Override
-            public void resetting() {
-                // 有默选时如下顺序调避重置后无默选值
+            public void reset() {
+                // 存默选时如下顺序调避重置后无默选值
                 screenActivityKit.resetting();
-                screenHandleKit.resetting();
+                screenHandleKit.reset();
             }
 
             @Override
@@ -109,6 +109,8 @@ public class ScreenActivity extends AppCompatActivity {
         screenHandleKit.defaultSelect("消费周期", "1个月", "6个月");
         // 互斥
         screenHandleKit.mutuallyExclusive("1", "年龄段", "1", "消费次数");
+        // 展开/折叠
+        screenHandleKit.unfoldAndFold("年龄段", "18岁以下", "消费次数");
         // 关联
         screenHandleKit.associate();
     }

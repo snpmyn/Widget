@@ -14,7 +14,7 @@
     <string name="noHistory">暂无历史记录</string>
     <string name="loggingIn">LOGGING IN</string>
     <string name="success">SUCCESS</string>
-    <string name="resetting">重置</string>
+    <string name="reset">重置</string>
     <string name="recordDefaultTime">00:00</string>
     <string name="voiceRecord">录音_</string>
     <string name="record">录制</string>

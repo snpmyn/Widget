@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.R;
-import com.zsp.library.screen.listener.MutuallyExclusiveClickListener;
 import com.zsp.library.screen.listener.ScreenNestAdapterItemClickListener;
 
 import java.util.List;
@@ -24,25 +23,17 @@ import java.util.List;
  */
 public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.ViewHolder> {
     /**
-     * 类别
-     */
-    public String classification;
-    /**
-     * 选位
-     */
-    int selectPosition;
-    /**
-     * SparseBooleanArray
-     */
-    SparseBooleanArray sparseBooleanArray;
-    /**
      * 上下文
      */
     private Context context;
     /**
-     * 条件
+     * 类别
      */
-    private List<String> conditions;
+    String classification;
+    /**
+     * 选位
+     */
+    int selectPosition;
     /**
      * 单选
      */
@@ -60,24 +51,35 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      */
     private boolean mutuallyExclusive;
     /**
+     * SparseBooleanArray
+     */
+    SparseBooleanArray sparseBooleanArray;
+    /**
+     * 条件
+     */
+    private List<String> conditions;
+    /**
+     * 展开/折叠、展开/折叠主控条件数据
+     */
+    private boolean unfoldAndFold;
+    private List<String> unfoldAndFoldActiveControlConditionList;
+    /**
      * 筛选嵌套适配器条目短点监听
      */
     private ScreenNestAdapterItemClickListener screenNestAdapterItemClickListener;
-    /**
-     * 互斥点监听
-     */
-    private MutuallyExclusiveClickListener mutuallyExclusiveClickListener;
 
     /**
      * constructor
      *
-     * @param context                           上下文
-     * @param classification                    类别
-     * @param conditions                        条件
-     * @param singleSelect                      单选
-     * @param canReverseSelectAfterSingleSelect 单选后可反选
-     * @param defaultSelectIndexList            默选下标数据
-     * @param mutuallyExclusive                 互斥
+     * @param context                                 上下文
+     * @param classification                          类别
+     * @param conditions                              条件
+     * @param singleSelect                            单选
+     * @param canReverseSelectAfterSingleSelect       单选后可反选
+     * @param defaultSelectIndexList                  默选下标数据
+     * @param mutuallyExclusive                       互斥
+     * @param unfoldAndFold                           展开/折叠
+     * @param unfoldAndFoldActiveControlConditionList 展开/折叠主控条件数据
      */
     ScreenNestAdapter(Context context,
                       String classification,
@@ -85,14 +87,27 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
                       boolean singleSelect,
                       boolean canReverseSelectAfterSingleSelect,
                       List<Integer> defaultSelectIndexList,
-                      boolean mutuallyExclusive) {
+                      boolean mutuallyExclusive,
+                      boolean unfoldAndFold,
+                      List<String> unfoldAndFoldActiveControlConditionList) {
+        // 上下文
         this.context = context;
+        // 类别
         this.classification = classification;
+        // 条件
         this.conditions = conditions;
+        // 单选
         this.singleSelect = singleSelect;
+        // 单选后可反选
         this.canReverseSelectAfterSingleSelect = canReverseSelectAfterSingleSelect;
+        // 默选下标数据
         this.defaultSelectIndexList = defaultSelectIndexList;
+        // 互斥
         this.mutuallyExclusive = mutuallyExclusive;
+        // 展开/折叠、展开/折叠主控条件数据
+        this.unfoldAndFold = unfoldAndFold;
+        this.unfoldAndFoldActiveControlConditionList = unfoldAndFoldActiveControlConditionList;
+        // 选标记
         selectMark();
     }
 
@@ -106,40 +121,32 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         defaultSelectValue();
     }
 
-    /**
-     * 设互斥点监听
-     *
-     * @param mutuallyExclusiveClickListener 互斥点监听
-     */
-    void setMutuallyExclusiveClickListener(MutuallyExclusiveClickListener mutuallyExclusiveClickListener) {
-        this.mutuallyExclusiveClickListener = mutuallyExclusiveClickListener;
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.screen_nest_item, viewGroup, false);
         view.setOnClickListener(v -> {
             int position = (Integer) v.getTag();
+            String condition = conditions.get(position);
             if (singleSelect) {
                 if (selectPosition != position) {
                     selectPosition = position;
-                    screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), true);
-                    // 互斥
+                    screenNestAdapterItemClickListener.onItemClick(v, classification, condition, true);
+                    // 互斥（仅考虑选中状）
                     if (mutuallyExclusive) {
-                        mutuallyExclusiveClickListener.click(classification);
+                        screenNestAdapterItemClickListener.onItemMutuallyExclusiveClick(classification);
                     }
                 } else if (canReverseSelectAfterSingleSelect) {
                     selectPosition = -1;
-                    screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), false);
+                    screenNestAdapterItemClickListener.onItemClick(v, classification, condition, false);
                 }
             } else {
                 boolean preSelected = sparseBooleanArray.get(position);
-                screenNestAdapterItemClickListener.onItemClick(v, classification, conditions.get(position), !preSelected);
+                screenNestAdapterItemClickListener.onItemClick(v, classification, condition, !preSelected);
                 sparseBooleanArray.put(position, !preSelected);
-                // 互斥
+                // 互斥（仅考虑选中状）
                 if (!preSelected && mutuallyExclusive) {
-                    mutuallyExclusiveClickListener.click(classification);
+                    screenNestAdapterItemClickListener.onItemMutuallyExclusiveClick(classification);
                 }
             }
             notifyDataSetChanged();
@@ -150,13 +157,26 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
-        // 条件
-        holder.screenNestItemTv.setText(conditions.get(position));
-        // 选否
+        String condition = conditions.get(position);
+        /*
+          条件
+         */
+        holder.screenNestItemTv.setText(condition);
+        /*
+          选否
+         */
         if (singleSelect) {
             holder.screenNestItemTv.setSelected(selectPosition == position);
+            // 展开/折叠（需考虑非/选中状）
+            if (unfoldAndFold && unfoldAndFoldActiveControlConditionList.contains(condition)) {
+                screenNestAdapterItemClickListener.onItemUnfoldAndFoldClick(classification, condition, selectPosition == position);
+            }
         } else {
             holder.screenNestItemTv.setSelected(sparseBooleanArray.get(position));
+            // 展开/折叠（需考虑非/选中状）
+            if (unfoldAndFold && unfoldAndFoldActiveControlConditionList.contains(condition)) {
+                screenNestAdapterItemClickListener.onItemUnfoldAndFoldClick(classification, condition, sparseBooleanArray.get(position));
+            }
         }
     }
 
@@ -204,12 +224,12 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     }
 
     /**
-     * 重置
+     * 普通重置
      * <p>
-     * 场景一：左上角重置按钮；
+     * 场景一：左上角重置；
      * 场景二：互斥场景选中类别外类别重置。
      */
-    void resetting() {
+    void reset() {
         selectMark();
         notifyDataSetChanged();
         defaultSelectValue();

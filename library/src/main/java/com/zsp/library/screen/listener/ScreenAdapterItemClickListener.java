@@ -10,7 +10,7 @@ import android.view.View;
  */
 public interface ScreenAdapterItemClickListener {
     /**
-     * 短点
+     * 条目短点
      *
      * @param view           视图
      * @param classification 类别
