@@ -31,9 +31,9 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      */
     String classification;
     /**
-     * 选位
+     * 条件
      */
-    int selectPosition;
+    private List<String> conditions;
     /**
      * 单选
      */
@@ -51,18 +51,18 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
      */
     private boolean mutuallyExclusive;
     /**
-     * SparseBooleanArray
-     */
-    SparseBooleanArray sparseBooleanArray;
-    /**
-     * 条件
-     */
-    private List<String> conditions;
-    /**
      * 展开/折叠、展开/折叠主控条件数据
      */
     private boolean unfoldAndFold;
     private List<String> unfoldAndFoldActiveControlConditionList;
+    /**
+     * 选位
+     */
+    int selectPosition;
+    /**
+     * SparseBooleanArray
+     */
+    SparseBooleanArray sparseBooleanArray;
     /**
      * 筛选嵌套适配器条目短点监听
      */
@@ -158,6 +158,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(position);
         String condition = conditions.get(position);
+        boolean unfoldAndFoldActiveControlCondition = (null != unfoldAndFoldActiveControlConditionList) && unfoldAndFoldActiveControlConditionList.contains(condition);
         /*
           条件
          */
@@ -168,13 +169,13 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         if (singleSelect) {
             holder.screenNestItemTv.setSelected(selectPosition == position);
             // 展开/折叠（需考虑非/选中状）
-            if (unfoldAndFold && unfoldAndFoldActiveControlConditionList.contains(condition)) {
+            if (unfoldAndFold && unfoldAndFoldActiveControlCondition) {
                 screenNestAdapterItemClickListener.onItemUnfoldAndFoldClick(classification, condition, selectPosition == position);
             }
         } else {
             holder.screenNestItemTv.setSelected(sparseBooleanArray.get(position));
             // 展开/折叠（需考虑非/选中状）
-            if (unfoldAndFold && unfoldAndFoldActiveControlConditionList.contains(condition)) {
+            if (unfoldAndFold && unfoldAndFoldActiveControlCondition) {
                 screenNestAdapterItemClickListener.onItemUnfoldAndFoldClick(classification, condition, sparseBooleanArray.get(position));
             }
         }
@@ -233,7 +234,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         selectMark();
         notifyDataSetChanged();
         defaultSelectValue();
-        if (mutuallyExclusive) {
+        if (mutuallyExclusive || unfoldAndFold) {
             screenNestAdapterItemClickListener.onItemClick(null, classification, null, false);
         }
     }

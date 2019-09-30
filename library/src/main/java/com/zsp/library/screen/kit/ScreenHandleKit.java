@@ -57,10 +57,11 @@ public class ScreenHandleKit implements View.OnClickListener {
     private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
     private List<String> mutuallyExclusiveBeanListClassificationList;
     /**
-     * 展开/折叠数据、展开/折叠数据主控类别数据
+     * 展开/折叠数据、展开/折叠数据主控类别数据、展开/折叠数据被控类别数据
      */
     private List<UnfoldAndFoldBean> unfoldAndFoldBeanList;
     private List<String> unfoldAndFoldBeanListActiveControlClassificationList;
+    private List<String> unfoldAndFoldBeanListPassiveControlClassificationList;
     /**
      * 筛选适配器
      */
@@ -87,9 +88,10 @@ public class ScreenHandleKit implements View.OnClickListener {
         // 互斥数据、互斥数据类别数据
         this.mutuallyExclusiveBeanList = new ArrayList<>();
         this.mutuallyExclusiveBeanListClassificationList = new ArrayList<>();
-        // 展开/折叠数据、展开/折叠数据主控类别数据
+        // 展开/折叠数据、展开/折叠数据主控类别数据、展开/折叠数据被控类别数据
         this.unfoldAndFoldBeanList = new ArrayList<>();
         this.unfoldAndFoldBeanListActiveControlClassificationList = new ArrayList<>();
+        this.unfoldAndFoldBeanListPassiveControlClassificationList = new ArrayList<>();
         // 初始BottomSheetDialog
         stepBottomSheetDialog();
     }
@@ -198,9 +200,17 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param passiveControlClassifications 被控类别
      */
     public void unfoldAndFold(String activeControlClassification, String activeControlCondition, String... passiveControlClassifications) {
-        UnfoldAndFoldBean unfoldAndFoldBean = new UnfoldAndFoldBean(activeControlClassification, activeControlCondition, Arrays.asList(passiveControlClassifications));
+        List<String> list = Arrays.asList(passiveControlClassifications);
+        UnfoldAndFoldBean unfoldAndFoldBean = new UnfoldAndFoldBean(activeControlClassification, activeControlCondition, list);
         unfoldAndFoldBeanList.add(unfoldAndFoldBean);
-        unfoldAndFoldBeanListActiveControlClassificationList.add(activeControlClassification);
+        if (!unfoldAndFoldBeanListActiveControlClassificationList.contains(activeControlClassification)) {
+            unfoldAndFoldBeanListActiveControlClassificationList.add(activeControlClassification);
+        }
+        for (String string : list) {
+            if (!unfoldAndFoldBeanListPassiveControlClassificationList.contains(string)) {
+                unfoldAndFoldBeanListPassiveControlClassificationList.add(string);
+            }
+        }
     }
 
     /**
@@ -214,7 +224,8 @@ public class ScreenHandleKit implements View.OnClickListener {
                 mutuallyExclusiveBeanList,
                 mutuallyExclusiveBeanListClassificationList,
                 unfoldAndFoldBeanList,
-                unfoldAndFoldBeanListActiveControlClassificationList);
+                unfoldAndFoldBeanListActiveControlClassificationList,
+                unfoldAndFoldBeanListPassiveControlClassificationList);
         screenBottomSheetDialogRv.setAdapter(screenAdapter);
         screenAdapter.setScreenAdapterItemClickListener((view, classification, condition, selected) -> screenHandleListener.click(view, classification, condition, selected));
     }

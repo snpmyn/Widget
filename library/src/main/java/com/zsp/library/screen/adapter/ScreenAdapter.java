@@ -59,10 +59,11 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
     private List<String> mutuallyExclusiveBeanListClassificationList;
     /**
-     * 展开/折叠数据、展开/折叠数据主控类别数据
+     * 展开/折叠数据、展开/折叠数据主控类别数据、展开/折叠数据被控类别数据
      */
     private List<UnfoldAndFoldBean> unfoldAndFoldBeanList;
     private List<String> unfoldAndFoldBeanListActiveControlClassificationList;
+    private List<String> unfoldAndFoldBeanListPassiveControlClassificationList;
     /**
      * 筛选嵌套适配器数据
      */
@@ -85,13 +86,14 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     /**
      * 设筛选数据
      *
-     * @param subjectMap                                           主体数据
-     * @param canReverseSelectAfterSingleSelectList                单选后可反选数据
-     * @param defaultSelectMap                                     默选数据
-     * @param mutuallyExclusiveBeanList                            互斥数据
-     * @param mutuallyExclusiveBeanListClassificationList          互斥数据类别数据
-     * @param unfoldAndFoldBeanList                                展开/折叠数据
-     * @param unfoldAndFoldBeanListActiveControlClassificationList 展开/折叠数据主控类别数据
+     * @param subjectMap                                            主体数据
+     * @param canReverseSelectAfterSingleSelectList                 单选后可反选数据
+     * @param defaultSelectMap                                      默选数据
+     * @param mutuallyExclusiveBeanList                             互斥数据
+     * @param mutuallyExclusiveBeanListClassificationList           互斥数据类别数据
+     * @param unfoldAndFoldBeanList                                 展开/折叠数据
+     * @param unfoldAndFoldBeanListActiveControlClassificationList  展开/折叠数据主控类别数据
+     * @param unfoldAndFoldBeanListPassiveControlClassificationList 展开/折叠数据被控类别数据
      */
     public void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
                                  List<String> canReverseSelectAfterSingleSelectList,
@@ -99,7 +101,8 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
                                  List<MutuallyExclusiveBean> mutuallyExclusiveBeanList,
                                  List<String> mutuallyExclusiveBeanListClassificationList,
                                  List<UnfoldAndFoldBean> unfoldAndFoldBeanList,
-                                 List<String> unfoldAndFoldBeanListActiveControlClassificationList) {
+                                 List<String> unfoldAndFoldBeanListActiveControlClassificationList,
+                                 List<String> unfoldAndFoldBeanListPassiveControlClassificationList) {
         // 主体数据键值数据
         this.subjectMapKeyList = new ArrayList<>(subjectMap.keySet());
         this.subjectMapValueList = new ArrayList<>(subjectMap.values());
@@ -111,9 +114,10 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 互斥数据、互斥数据类别数据
         this.mutuallyExclusiveBeanList = mutuallyExclusiveBeanList;
         this.mutuallyExclusiveBeanListClassificationList = mutuallyExclusiveBeanListClassificationList;
-        // 展开/折叠数据、展开/折叠数据主控类别数据
+        // 展开/折叠数据、展开/折叠数据主控类别数据、展开/折叠数据被控类别数据
         this.unfoldAndFoldBeanList = unfoldAndFoldBeanList;
         this.unfoldAndFoldBeanListActiveControlClassificationList = unfoldAndFoldBeanListActiveControlClassificationList;
+        this.unfoldAndFoldBeanListPassiveControlClassificationList = unfoldAndFoldBeanListPassiveControlClassificationList;
         // 筛选嵌套适配器数据
         this.screenNestAdapterList = new ArrayList<>(subjectMap.size());
     }
@@ -152,11 +156,13 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
             holder.screenItemRv.setNestedScrollingEnabled(false);
             // 嵌套（适配器）
             List<String> conditions = leftList.subList(1, leftList.size());
+            boolean unfoldAndFold = (null != unfoldAndFoldBeanListActiveControlClassificationList && unfoldAndFoldBeanListActiveControlClassificationList.contains(classification)) ||
+                    null != unfoldAndFoldBeanListPassiveControlClassificationList && unfoldAndFoldBeanListPassiveControlClassificationList.contains(classification);
             ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
                     booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
                     defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
                     mutuallyExclusiveBeanListClassificationList.contains(classification),
-                    null != unfoldAndFoldBeanListActiveControlClassificationList && unfoldAndFoldBeanListActiveControlClassificationList.contains(classification),
+                    unfoldAndFold,
                     unfoldAndFoldActiveControlCondition(classification));
             screenNestAdapterList.add(screenNestAdapter);
             // 嵌套（控件关联适配器）
@@ -184,7 +190,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 条目试图数据
         itemViewMap.put(classification, holder.itemView);
         // 如第二类别条件同第三类别存展开/折叠
-        // 第二类别条件触发onItemUnfoldAndFoldClick时第三类别尚未加载致第三类别仍展开
+        // 第二类别条件触发onItemUnfoldAndFoldClick时第三类别尚未加载（或尚未加载完）致第三类别仍展开
         // 故头次所有类别初始后调预展开/折叠法避上况
         if (position == (subjectMapKeyList.size() - 1)) {
             preUnfoldAndFold();
