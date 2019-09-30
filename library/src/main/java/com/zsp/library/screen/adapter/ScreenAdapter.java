@@ -18,11 +18,9 @@ import com.zsp.library.screen.listener.ScreenAdapterItemClickListener;
 import com.zsp.library.screen.listener.ScreenNestAdapterItemClickListener;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created on 2019/5/24.
@@ -186,14 +184,10 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
                     unfoldAndFold(classification, condition, unfold);
                 }
             });
-        }
-        // 条目试图数据
-        itemViewMap.put(classification, holder.itemView);
-        // 如第二类别条件同第三类别存展开/折叠
-        // 第二类别条件触发onItemUnfoldAndFoldClick时第三类别尚未加载（或尚未加载完）致第三类别仍展开
-        // 故头次所有类别初始后调预展开/折叠法避上况
-        if (position == (subjectMapKeyList.size() - 1)) {
-            preUnfoldAndFold();
+            // 条目试图数据
+            itemViewMap.put(classification, holder.itemView);
+            // 预展开/折叠
+            preUnfoldAndFold(classification);
         }
     }
 
@@ -272,14 +266,12 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
 
     /**
      * 预展开/折叠
+     *
+     * @param classification 类别
      */
-    private void preUnfoldAndFold() {
-        Set<String> set = new HashSet<>();
-        for (UnfoldAndFoldBean unfoldAndFoldBean : unfoldAndFoldBeanList) {
-            set.addAll(unfoldAndFoldBean.getPassiveControlClassificationList());
-        }
-        for (String passiveControlClassification : set) {
-            View itemView = itemViewMap.get(passiveControlClassification);
+    private void preUnfoldAndFold(String classification) {
+        if (unfoldAndFoldBeanListPassiveControlClassificationList.contains(classification)) {
+            View itemView = itemViewMap.get(classification);
             if (itemView != null) {
                 RecyclerViewDisplayController.itemViewGone(itemView);
             }

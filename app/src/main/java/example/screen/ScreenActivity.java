@@ -96,12 +96,28 @@ public class ScreenActivity extends AppCompatActivity {
         // 消费周期
         screenHandleKit.packStringConditions("消费周期", 3, false,
                 "1个月", "3个月", "6个月");
+        // 消费次数
         List<String> list = new ArrayList<>();
         list.add("1次");
         list.add("2次");
         list.add("3次");
-        // 消费次数
         screenHandleKit.packListConditions("消费次数", 3, true, list);
+
+        // 回访状态
+        screenHandleKit.packStringConditions("回访状态", 2, true, "是", "否");
+        // 短信未回访
+        screenHandleKit.packStringConditions("短信未回访", 5, true,
+                "节日问候", "生日问候", "用药回访", "活动通知", "沉睡回访");
+        // 短信已回访
+        screenHandleKit.packStringConditions("短信已回访", 5, true,
+                "节日问候", "生日问候", "用药回访", "活动通知", "沉睡回访");
+        // 电话未回访
+        screenHandleKit.packStringConditions("电话未回访", 5, true,
+                "节日问候", "生日问候", "用药回访", "活动通知", "沉睡回访");
+        // 电话已回访
+        screenHandleKit.packStringConditions("电话已回访", 5, true,
+                "节日问候", "生日问候", "用药回访", "活动通知", "沉睡回访");
+
         // 单选后可反选
         screenHandleKit.canReverseSelectAfterSingleSelect("性别", "年龄段");
         // 默选
@@ -111,6 +127,9 @@ public class ScreenActivity extends AppCompatActivity {
         screenHandleKit.mutuallyExclusive("1", "年龄段", "1", "消费次数");
         // 展开/折叠
         screenHandleKit.unfoldAndFold("年龄段", "18岁以下", "消费次数");
+
+        screenHandleKit.unfoldAndFold("回访状态", "是", "短信已回访", "电话已回访");
+        screenHandleKit.unfoldAndFold("回访状态", "否", "短信未回访", "电话未回访");
         // 关联
         screenHandleKit.associate();
     }
