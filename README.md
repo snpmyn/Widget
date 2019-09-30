@@ -1,4 +1,4 @@
-<div align=center><img src="https://github.com/snpmyn/Util/raw/master/image.png"/></div>
+<div align=center><img src="https://github.com/snpmyn/Widget/raw/master/image.png"/></div>
 
 [![Build Status](https://travis-ci.org/snpmyn/Widget.svg?branch=master)](https://travis-ci.org/snpmyn/Widget)
 [![codecov.io](https://codecov.io/github/snpmyn/Widget/branch/master/graph/badge.svg)](https://codecov.io/github/snpmyn/Widget)
