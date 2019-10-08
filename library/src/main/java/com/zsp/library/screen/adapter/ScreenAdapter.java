@@ -146,49 +146,49 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         // 类别
         String classification = leftList.get(0);
         holder.screenItemTv.setText(classification);
+        // 嵌套（控件）
+        RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
         // 避内容充整屏滑时头/末项频繁重绘
         if (holder.screenItemRv.getItemDecorationCount() == 0) {
-            // 嵌套（控件）
-            RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(context, holder.screenItemRv);
             recyclerViewConfigure.gridLayout(integerList.get(0), 36, true, false, false);
-            holder.screenItemRv.setNestedScrollingEnabled(false);
-            // 嵌套（适配器）
-            List<String> conditions = leftList.subList(1, leftList.size());
-            boolean unfoldAndFold = (null != unfoldAndFoldBeanListActiveControlClassificationList && unfoldAndFoldBeanListActiveControlClassificationList.contains(classification)) ||
-                    null != unfoldAndFoldBeanListPassiveControlClassificationList && unfoldAndFoldBeanListPassiveControlClassificationList.contains(classification);
-            ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
-                    booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
-                    defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
-                    mutuallyExclusiveBeanListClassificationList.contains(classification),
-                    unfoldAndFold,
-                    unfoldAndFoldActiveControlCondition(classification));
-            screenNestAdapterList.add(screenNestAdapter);
-            // 嵌套（控件关联适配器）
-            holder.screenItemRv.setAdapter(screenNestAdapter);
-            // 嵌套（监听）
-            screenNestAdapter.setScreenNestAdapterItemClickListener(new ScreenNestAdapterItemClickListener() {
-                @Override
-                public void onItemClick(View view, String classification, String condition, boolean selected) {
-                    if (screenAdapterItemClickListener != null) {
-                        screenAdapterItemClickListener.onItemClick(view, classification, condition, selected);
-                    }
-                }
-
-                @Override
-                public void onItemMutuallyExclusiveClick(String classification) {
-                    mutuallyExclusive(classification);
-                }
-
-                @Override
-                public void onItemUnfoldAndFoldClick(String classification, String condition, boolean unfold) {
-                    unfoldAndFold(classification, condition, unfold);
-                }
-            });
-            // 条目试图数据
-            itemViewMap.put(classification, holder.itemView);
-            // 预展开/折叠
-            preUnfoldAndFold(classification);
         }
+        holder.screenItemRv.setNestedScrollingEnabled(false);
+        // 嵌套（适配器）
+        List<String> conditions = leftList.subList(1, leftList.size());
+        boolean unfoldAndFold = (null != unfoldAndFoldBeanListActiveControlClassificationList && unfoldAndFoldBeanListActiveControlClassificationList.contains(classification)) ||
+                null != unfoldAndFoldBeanListPassiveControlClassificationList && unfoldAndFoldBeanListPassiveControlClassificationList.contains(classification);
+        ScreenNestAdapter screenNestAdapter = new ScreenNestAdapter(context, classification, conditions,
+                booleanList.get(0), canReverseSelectAfterSingleSelectList.contains(classification),
+                defaultSelectMapKeyList.contains(classification) ? indexExtract(conditions, defaultSelectMap.get(classification)) : null,
+                mutuallyExclusiveBeanListClassificationList.contains(classification),
+                unfoldAndFold,
+                unfoldAndFoldActiveControlCondition(classification));
+        screenNestAdapterList.add(screenNestAdapter);
+        // 嵌套（控件关联适配器）
+        holder.screenItemRv.setAdapter(screenNestAdapter);
+        // 嵌套（监听）
+        screenNestAdapter.setScreenNestAdapterItemClickListener(new ScreenNestAdapterItemClickListener() {
+            @Override
+            public void onItemClick(View view, String classification, String condition, boolean selected) {
+                if (screenAdapterItemClickListener != null) {
+                    screenAdapterItemClickListener.onItemClick(view, classification, condition, selected);
+                }
+            }
+
+            @Override
+            public void onItemMutuallyExclusiveClick(String classification) {
+                mutuallyExclusive(classification);
+            }
+
+            @Override
+            public void onItemUnfoldAndFoldClick(String classification, String condition, boolean unfold) {
+                unfoldAndFold(classification, condition, unfold);
+            }
+        });
+        // 条目试图数据
+        itemViewMap.put(classification, holder.itemView);
+        // 预展开/折叠
+        preUnfoldAndFold(classification);
     }
 
     /**
