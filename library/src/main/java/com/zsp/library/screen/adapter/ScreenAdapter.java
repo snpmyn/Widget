@@ -187,8 +187,8 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         });
         // 条目试图数据
         itemViewMap.put(classification, holder.itemView);
-        // 预展开/折叠
-        preUnfoldAndFold(classification);
+        // 预折叠
+        preFold(classification);
     }
 
     /**
@@ -265,11 +265,11 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     }
 
     /**
-     * 预展开/折叠
+     * 预折叠
      *
      * @param classification 类别
      */
-    private void preUnfoldAndFold(String classification) {
+    private void preFold(String classification) {
         if (unfoldAndFoldBeanListPassiveControlClassificationList.contains(classification)) {
             View itemView = itemViewMap.get(classification);
             if (itemView != null) {
