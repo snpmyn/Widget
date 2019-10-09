@@ -46,7 +46,7 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     // 正编辑文字行数
     private var mEditTextRow = 1
     // 光标[0]：x坐标、[1]：文字基准线
-    private var mCursor = arrayOf(-1f, -1f)
+    private var mCursor = arrayOf(-1.0f, -1.0f)
     // 光标所在文字索引
     private var mCursorIndex = 0
     // 光标闪烁标志
@@ -64,13 +64,13 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     // 光标画笔
     private val mCursorPain = Paint()
     // 光标宽1dp
-    private var mCursorWidth = 1f
+    private var mCursorWidth = 1.0f
     // 一汉字宽
-    private var mOneWordWidth = 0f
+    private var mOneWordWidth = 0.0f
     // 一行最大文字数
     private var mMaxSizeOneLine = 0
     // 字体大小
-    private var mTextSize = sp2px(16f).toFloat()
+    private var mTextSize = sp2px(16.0f).toFloat()
     // 当前绘至第几行
     private var mCurDrawRow = 1
     // 文字起始位
@@ -82,12 +82,12 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     // 一行含字段（普通字段、可编辑字段）
     private var mOneRowTexts = arrayListOf<AText>()
     // 默行距2dp（最小行距，设行距于此基础上叠加。即2 + cst）
-    private var mRowSpace = dp2px(2f).toFloat()
+    private var mRowSpace = dp2px(2.0f).toFloat()
     // 显下划线否
     private var mUnderlineVisible = false
     // 下划线画笔
     private val mUnderlinePain = Paint().apply {
-        strokeWidth = dp2px(1f).toFloat()
+        strokeWidth = dp2px(1.0f).toFloat()
         color = Color.BLACK
         isAntiAlias = true
     }
@@ -112,7 +112,7 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
         mText = mText.append(ta.getText(R.styleable.FillTextView_filledText) ?: "")
         mNormalColor = ta.getColor(R.styleable.FillTextView_normalColor, Color.BLACK)
         mFillColor = ta.getColor(R.styleable.FillTextView_fillColor, Color.BLACK)
-        mRowSpace += ta.getDimension(R.styleable.FillTextView_rowSpace, 0f)
+        mRowSpace += ta.getDimension(R.styleable.FillTextView_rowSpace, 0.0f)
         ta.recycle()
     }
 
