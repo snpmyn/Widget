@@ -15,7 +15,7 @@
 ##### app
 * implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar"
 * implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-* implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+* implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
 
 ##### AndroidLibrary - Library
 * implementation 'androidx.core:core-ktx:1.2.0-alpha04'
