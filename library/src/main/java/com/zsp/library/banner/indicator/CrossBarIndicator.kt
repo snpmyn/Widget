@@ -159,17 +159,17 @@ class CrossBarIndicator @JvmOverloads constructor(
                 mItemWidth =
                         a.getDimension(
                                 R.styleable.CrossBarIndicator_cbi_itemWidth,
-                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_WIDTH)
+                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_WIDTH).toFloat()
                         )
                 mItemHeight =
                         a.getDimension(
                                 R.styleable.CrossBarIndicator_cbi_itemHeight,
-                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_HEIGHT)
+                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_HEIGHT).toFloat()
                         )
                 mItemSpace =
                         a.getDimension(
                                 R.styleable.CrossBarIndicator_cbi_itemSpace,
-                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_SPACE)
+                                DensityUtils.dipToPxByFloat(context, DEFAULT_ITEM_SPACE).toFloat()
                         )
                 mItemBackgroundColor =
                         a.getColor(

@@ -106,12 +106,12 @@ class ShadowLayout @JvmOverloads constructor(
         try {
             a.run {
                 mShadowColor = getColor(R.styleable.ShadowLayout_sl_shadowColor, default_shadowColor)
-                mShadowRadius = getDimension(R.styleable.ShadowLayout_sl_shadowRadius, DensityUtils.dipToPxByFloat(context, default_shadowRadius))
+                mShadowRadius = getDimension(R.styleable.ShadowLayout_sl_shadowRadius, DensityUtils.dipToPxByFloat(context, default_shadowRadius).toFloat())
                 mDx = getDimension(R.styleable.ShadowLayout_sl_dx, default_dx)
                 mDy = getDimension(R.styleable.ShadowLayout_sl_dy, default_dy)
-                mCornerRadius = getDimension(R.styleable.ShadowLayout_sl_cornerRadius, DensityUtils.dipToPxByFloat(context, default_cornerRadius))
+                mCornerRadius = getDimension(R.styleable.ShadowLayout_sl_cornerRadius, DensityUtils.dipToPxByFloat(context, default_cornerRadius).toFloat())
                 mBorderColor = getColor(R.styleable.ShadowLayout_sl_borderColor, default_borderColor)
-                mBorderWidth = getDimension(R.styleable.ShadowLayout_sl_borderWidth, DensityUtils.dipToPxByFloat(context, default_borderWidth))
+                mBorderWidth = getDimension(R.styleable.ShadowLayout_sl_borderWidth, DensityUtils.dipToPxByFloat(context, default_borderWidth).toFloat())
                 mShadowSides = getInt(R.styleable.ShadowLayout_sl_shadowSides, default_shadowSides)
             }
         } finally {

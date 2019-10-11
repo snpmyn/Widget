@@ -220,10 +220,10 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
         val a = context.obtainStyledAttributes(attrs, R.styleable.RadarChart)
         try {
             a.run {
-                mWebRadius = a.getDimension(R.styleable.RadarChart_rc_webRadius, DensityUtils.dipToPxByFloat(context, default_webRadius))
+                mWebRadius = a.getDimension(R.styleable.RadarChart_rc_webRadius, DensityUtils.dipToPxByFloat(context, default_webRadius).toFloat())
                 mWebMaxProgress = a.getInt(R.styleable.RadarChart_rc_webMaxProgress, default_webMaxProgress)
                 mWebLineColor = a.getColor(R.styleable.RadarChart_rc_webLineColor, default_webLineColor)
-                mWebLineWidth = a.getDimension(R.styleable.RadarChart_rc_webLineWidth, DensityUtils.dipToPxByFloat(context, default_webLineWidth))
+                mWebLineWidth = a.getDimension(R.styleable.RadarChart_rc_webLineWidth, DensityUtils.dipToPxByFloat(context, default_webLineWidth).toFloat())
                 mTextArrayedColor = a.getColor(R.styleable.RadarChart_rc_textArrayedColor, default_textArrayedColor)
                 mTextArrayedFontPath = a.getString(R.styleable.RadarChart_rc_textArrayedFontPath)
                 mAreaColor = a.getColor(R.styleable.RadarChart_rc_areaColor, default_areaColor)
@@ -270,7 +270,7 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
      * 初始绘制相关属性
      */
     private fun initDrawAttributes() {
-        DensityUtils.dipToPxByFloat(context, 2.0f).run {
+        DensityUtils.dipToPxByFloat(context, 2.0f).toFloat().run {
             mDashPathEffect = DashPathEffect(floatArrayOf(this, this), this)
         }
         mPointArray = Array(mTextArray.size) { PointF(0.0f, 0.0f) }
@@ -583,7 +583,7 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
         // 绘辅助线
         if (debug) {
             mHelperPaint.color = Color.RED
-            mHelperPaint.strokeWidth = DensityUtils.dipToPxByFloat(context, 1.0f)
+            mHelperPaint.strokeWidth = DensityUtils.dipToPxByFloat(context, 1.0f).toFloat()
             canvas.drawLine(-mWidth, 0.0f, mWidth, 0.0f, mHelperPaint)
             mHelperPaint.resetPaint()
         }

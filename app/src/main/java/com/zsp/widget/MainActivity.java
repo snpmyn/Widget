@@ -36,6 +36,7 @@ import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
 import example.telephony.TelephonyActivity;
 import example.textview.TextViewActivity;
+import example.toolbar.ToolbarActivity;
 import example.voice.VoiceActivity;
 
 /**
@@ -112,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbRadarChart,
             R.id.mainActivityMbRadarCard,
             R.id.mainActivityMbFocusResize,
-            R.id.mainActivityMbGuide})
+            R.id.mainActivityMbGuide,
+            R.id.mainActivityMbToolbar})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -206,6 +208,10 @@ public class MainActivity extends AppCompatActivity {
             // 引导
             case R.id.mainActivityMbGuide:
                 IntentUtils.jumpNoBundle(this, GuideActivity.class);
+                break;
+            // 工具栏
+            case R.id.mainActivityMbToolbar:
+                IntentUtils.jumpNoBundle(this, ToolbarActivity.class);
                 break;
             default:
                 break;
