@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.zsp.library.toolbar.Dip;
 import com.zsp.library.toolbar.WaterfallToolbar;
 import com.zsp.widget.R;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  */
 public class ToolbarActivity extends AppCompatActivity {
     @BindView(R.id.toolbarActivityMt)
-    Toolbar toolbarActivityMt;
+    MaterialToolbar toolbarActivityMt;
     @BindView(R.id.toolbarActivityWt)
     WaterfallToolbar toolbarActivityWt;
     @BindView(R.id.toolbarActivitySv)
@@ -32,18 +32,16 @@ public class ToolbarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toolbar);
         ButterKnife.bind(this);
         stepUi();
-        startLogic();
         setListener();
     }
 
     private void stepUi() {
+        // MaterialToolbar
         setSupportActionBar(toolbarActivityMt);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-    }
-
-    private void startLogic() {
+        // WaterfallToolbar
         toolbarActivityWt.setInitialElevation(new Dip(0).toPx());
         toolbarActivityWt.setFinalElevation(new Dip(20).toPx());
         toolbarActivityWt.setScrollFinalPosition(6);
