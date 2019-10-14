@@ -66,6 +66,7 @@
         <activity android:name="example.textview.TextViewActivity" />
         <activity android:name="example.searchbox.SearchBoxOneActivity" />
         <activity android:name="example.searchbox.SearchBoxTwoActivity" />
+        <activity android:name="example.searchbox.SearchBoxThreeActivity" />
         <activity android:name="example.searchbox.SearchBoxActivity" />
         <activity android:name="example.picture.LubanCompressActivity" />
         <activity android:name="example.picture.PreviewExampleActivity" />

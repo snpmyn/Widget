@@ -13,6 +13,9 @@
     <color name="warning">#F8BB86</color>
     <color name="successSign">#A5DC86</color>
     <color name="successCircle">#33A5DC86</color>
+    <color name="color6d6d6d">#6d6d6d</color>
+    <color name="color565656">#565656</color>
+    <color name="color464646">#464646</color>
     <color name="black60">#60000000</color>
     <color name="blackCC">#CC000000</color>
 </resources>

@@ -8,6 +8,7 @@
     <string name="searchBox">搜索框</string>
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>
+    <string name="searchBoxThree">搜索框三</string>
     <string name="textView">TextView</string>
     <string name="timer">计时器</string>
     <string name="fill">填</string>

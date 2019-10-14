@@ -24,7 +24,9 @@ public class SearchBoxActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.searchBoxActivityMbSearchBoxOne, R.id.searchBoxActivityMbSearchBoxTwo})
+    @OnClick({R.id.searchBoxActivityMbSearchBoxOne,
+            R.id.searchBoxActivityMbSearchBoxTwo,
+            R.id.searchBoxActivityMbSearchBoxThree})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 搜索框一
@@ -34,6 +36,10 @@ public class SearchBoxActivity extends AppCompatActivity {
             // 搜索框二
             case R.id.searchBoxActivityMbSearchBoxTwo:
                 IntentUtils.jumpNoBundle(this, SearchBoxTwoActivity.class);
+                break;
+            // 搜索框三
+            case R.id.searchBoxActivityMbSearchBoxThree:
+                IntentUtils.jumpNoBundle(this, SearchBoxThreeActivity.class);
                 break;
             default:
                 break;

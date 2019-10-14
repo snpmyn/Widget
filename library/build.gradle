@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 // kotlin
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+// Kotlin用DataBinding添
+apply plugin: "kotlin-kapt"
 
 android {
     compileSdkVersion 29
@@ -30,6 +32,9 @@ android {
     }
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+    dataBinding {
+        enabled = true
     }
 }
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/rootlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/dp_16">
+
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:enabled="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapSentences"
+            android:maxLength="15"
+            android:paddingTop="@dimen/dp_12"
+            android:paddingEnd="8dp"
+            android:paddingBottom="@dimen/dp_12"
+            android:textColorHint="@color/fontHint"
+            android:textSize="@dimen/sp_14"
+            android:theme="@style/MultiSearchViewEditTextStyle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/dp_4"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_clear_to_multi_search_view_24dp_color6d6d6d" />
+    </LinearLayout>
+</layout>
