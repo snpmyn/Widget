@@ -35,5 +35,20 @@
     </style>
     <!--PuddingMaterialButtonStyle-->
     <style name="PuddingMaterialButtonStyle" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
+    <!--MultiSearchViewEditTextStyle-->
+    <style name="MultiSearchViewEditTextStyle">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:enabled">true</item>
+        <item name="android:hint">Search</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:maxLength">15</item>
+        <item name="android:inputType">textCapSentences</item>
+        <item name="android:textColorHint">@color/fontHint</item>
+        <item name="android:textColor">@color/fontInput</item>
+        <item name="colorControlNormal">@color/color565656</item>
+        <item name="colorControlActivated">@color/fontInput</item>
+    </style>
 
 </resources>
