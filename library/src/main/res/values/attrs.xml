@@ -183,4 +183,11 @@
     <declare-styleable name="MultiSearchView">
         <attr name="searchTextStyle" format="reference" />
     </declare-styleable>
+    <!--ProgressLayout-->
+    <declare-styleable name="ProgressLayout">
+        <attr name="emptyColor" format="color" />
+        <attr name="loadedColor" format="color" />
+        <attr name="maxProgress" format="integer" />
+        <attr name="autoProgress" format="boolean" />
+    </declare-styleable>
 </resources>

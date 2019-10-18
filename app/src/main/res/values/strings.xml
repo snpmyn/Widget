@@ -113,6 +113,10 @@
     <string name="percentLayoutHintOne">宽占父布局宽50%\n\n高占父布局高40%</string>
     <string name="percentLayoutHintTwo">宽占父布局高80%\n\n高占父布局高60%</string>
     <string name="shadowLayout">阴影布局</string>
+    <string name="progressLayout">进度布局</string>
+    <string name="start">开始</string>
+    <string name="stop">停止</string>
+    <string name="complete">完成</string>
     <string name="sideDrag">侧拖</string>
     <string name="banner">轮播</string>
     <string name="add">add</string>
@@ -139,6 +143,7 @@
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
     <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
     <string name="pictureParameters">原始参数：%1$s\n压缩后参数：%2$s</string>
+    <string name="second">%1$d秒</string>
     <!--string-array-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>

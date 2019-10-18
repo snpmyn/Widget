@@ -27,7 +27,8 @@ public class LayoutActivity extends AppCompatActivity {
     @OnClick({R.id.voiceActivityMbPercentLayout,
             R.id.voiceActivityMbShadowLayout,
             R.id.voiceActivityMbRippleLayout,
-            R.id.voiceActivityMbCircularRevealLayout})
+            R.id.voiceActivityMbCircularRevealLayout,
+            R.id.voiceActivityMbProgressLayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 百分比布局
@@ -45,6 +46,10 @@ public class LayoutActivity extends AppCompatActivity {
             // 循环揭示布局
             case R.id.voiceActivityMbCircularRevealLayout:
                 IntentUtils.jumpNoBundle(this, CircularRevealActivity.class);
+                break;
+            // 进度布局
+            case R.id.voiceActivityMbProgressLayout:
+                IntentUtils.jumpNoBundle(this, ProgressLayoutActivity.class);
                 break;
             default:
                 break;

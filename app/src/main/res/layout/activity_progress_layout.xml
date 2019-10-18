@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.layout.ProgressLayoutActivity">
+
+    <com.zsp.library.layout.progress.ProgressLayout
+        android:id="@+id/progressLayoutActivityPl"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        app:autoProgress="true"
+        app:emptyColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:loadedColor="@color/gray"
+        app:maxProgress="100" />
+
+    <TextView
+        android:id="@+id/progressLayoutActivityTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/content"
+        android:textColor="@color/background"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/progressLayoutActivityMbStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="@string/start"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/progressLayoutActivityMbStop" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/progressLayoutActivityMbStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="@string/stop"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/progressLayoutActivityMbStart"
+        app:layout_constraintRight_toLeftOf="@+id/progressLayoutActivityMbCancel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/progressLayoutActivityMbCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="@string/cancel"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/progressLayoutActivityMbStop"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
