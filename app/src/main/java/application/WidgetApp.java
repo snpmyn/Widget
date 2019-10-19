@@ -23,7 +23,14 @@ public class WidgetApp extends Application {
         StatusManager.BASE_LOADING_LAYOUT_ID = R.layout.status_loading;
         StatusManager.BASE_EMPTY_LAYOUT_ID = R.layout.status_empty;
         StatusManager.BASE_RETRY_LAYOUT_ID = R.layout.status_retry;
-        // timber
+        // 初始化配置
+        initConfiguration();
+    }
+
+    /**
+     * 初始化配置
+     */
+    private void initConfiguration() {
         TimberInitConfigure.initTimber(BuildConfig.DEBUG);
     }
 
