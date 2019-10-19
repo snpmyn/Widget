@@ -10,6 +10,8 @@
     <color name="graySelect">#cacaca</color>
     <color name="fontHint">#B9B9B9</color>
     <color name="fontInput">#585858</color>
+    <color name="red">#d84315</color>
+    <color name="green">#22FF99</color>
     <color name="warning">#F8BB86</color>
     <color name="successSign">#A5DC86</color>
     <color name="successCircle">#33A5DC86</color>

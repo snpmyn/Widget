@@ -190,4 +190,10 @@
         <attr name="maxProgress" format="integer" />
         <attr name="autoProgress" format="boolean" />
     </declare-styleable>
+    <!--ConnectionStatusView-->
+    <declare-styleable name="ConnectionStatusView">
+        <attr name="complete" format="reference" />
+        <attr name="error" format="reference" />
+        <attr name="loading" format="reference" />
+    </declare-styleable>
 </resources>

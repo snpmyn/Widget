@@ -23,6 +23,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.connection.ConnectionActivity" />
         <activity android:name="example.toolbar.ToolbarActivity" />
         <activity android:name="example.guide.GuideTwoActivity" />
         <activity android:name="example.guide.GuideOneActivity" />

@@ -138,6 +138,10 @@
     <string name="buttonOne">按钮一</string>
     <string name="buttonTwo">按钮二</string>
     <string name="toolbar">工具栏</string>
+    <string name="connection">连接</string>
+    <string name="error">错误</string>
+    <string name="connecting">连接中</string>
+    <string name="idle">空闲</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

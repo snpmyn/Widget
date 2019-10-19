@@ -3,7 +3,7 @@ package com.zsp.library.searchbox.three.helper
 import android.animation.Animator
 
 /**
- * @decs: SimpleAnimationListener
+ * @decs: BaseAnimationListener
  * @author: 郑少鹏
  * @date: 2019/10/12 17:57
  */

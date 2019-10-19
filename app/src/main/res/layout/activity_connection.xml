@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.connection.ConnectionActivity">
+
+    <com.zsp.library.conection.DefaultConnectionConnectionStatusView
+        android:id="@+id/connectionActivityDccsv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44" />
+
+    <com.zsp.library.conection.ConnectionStatusView
+        android:id="@+id/connectionActivityCcsv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="?actionBarSize"
+        app:complete="@layout/connection_custom_complete"
+        app:error="@layout/connection_custom_error"
+        app:loading="@layout/connection_custom_loading" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dp_4"
+        android:paddingRight="@dimen/dp_4">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/connectionActivityMbComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/complete"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/connectionActivityMbError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4"
+            android:text="@string/error"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/connectionActivityMbConnecting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:text="@string/connecting"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/connectionActivityMbIdle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idle"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+    </LinearLayout>
+</RelativeLayout>

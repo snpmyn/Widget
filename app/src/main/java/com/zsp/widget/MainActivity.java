@@ -18,6 +18,7 @@ import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
 import example.card.CardActivity;
 import example.chart.RadarChartActivity;
+import example.connection.ConnectionActivity;
 import example.contact.ContactActivity;
 import example.dialog.DialogActivity;
 import example.floatingactionbutton.CounterActivity;
@@ -114,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbRadarCard,
             R.id.mainActivityMbFocusResize,
             R.id.mainActivityMbGuide,
-            R.id.mainActivityMbToolbar})
+            R.id.mainActivityMbToolbar,
+            R.id.mainActivityMbConnection})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -212,6 +214,10 @@ public class MainActivity extends AppCompatActivity {
             // 工具栏
             case R.id.mainActivityMbToolbar:
                 IntentUtils.jumpNoBundle(this, ToolbarActivity.class);
+                break;
+            // 连接
+            case R.id.mainActivityMbConnection:
+                IntentUtils.jumpNoBundle(this, ConnectionActivity.class);
                 break;
             default:
                 break;

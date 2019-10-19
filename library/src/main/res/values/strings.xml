@@ -35,6 +35,9 @@
     <string name="retry">重试</string>
     <string name="noData">暂无数据</string>
     <string name="search">Search</string>
+    <string name="connecting">连接中…</string>
+    <string name="connectionSuccess">连接成功</string>
+    <string name="connectionError">连接失败</string>
     <!--format-->
     <string name="earlyLateDiffer" formatted="true">%1$s秒</string>
 </resources>
