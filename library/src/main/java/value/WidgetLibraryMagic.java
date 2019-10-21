@@ -49,30 +49,30 @@ public class WidgetLibraryMagic {
     public static final String STRING_DOT_DB = ".db";
     public static final String STRING_UNDERLINE_DB = "_db";
     /**
-     * Float
+     * float
      */
-    public static final float FLOAT_ZERO_DOT_ZERO = 0.0F;
-    public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25F;
-    public static final float FLOAT_ZERO_DOT_FOUR = 0.4F;
-    public static final float FLOAT_ZERO_DOT_FIVE = 0.5F;
-    public static final float FLOAT_ZERO_DOT_FIVE_FOUR = 0.54F;
-    public static final float FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE = 0.5625F;
-    public static final float FLOAT_ZERO_DOT_SIX = 0.6F;
-    public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65F;
-    public static final float FLOAT_ZERO_DOT_SEVEN = 0.7F;
-    public static final float FLOAT_ZERO_DOT_EIGHT_FOUR = 0.84F;
-    public static final float FLOAT_ZERO_DOT_NINE = 0.9F;
-    public static final float FLOAT_ONE_DOT_ZERO = 1.0F;
-    public static final float FLOAT_ONE_DOT_FIVE = 1.5F;
-    public static final float FLOAT_TWO_DOT_ZERO = 2.0F;
-    public static final float FLOAT_THREE_DOT_ZERO = 3.0F;
-    public static final float FLOAT_FOUR_DOT_ZERO = 4.0F;
-    public static final float FLOAT_TWENTY_DOT_ZERO = 20.0F;
-    public static final float FLOAT_TWO_THOUSAND_DOT_ZERO = 2000.0F;
+    public static final float FLOAT_ZERO_DOT_ZERO = 0.0f;
+    public static final float FLOAT_ZERO_DOT_TWO_FIVE = 0.25f;
+    public static final float FLOAT_ZERO_DOT_FOUR = 0.4f;
+    public static final float FLOAT_ZERO_DOT_FIVE = 0.5f;
+    public static final float FLOAT_ZERO_DOT_FIVE_FOUR = 0.54f;
+    public static final float FLOAT_ZERO_DOT_FIVE_SIX_TWO_FIVE = 0.5625f;
+    public static final float FLOAT_ZERO_DOT_SIX = 0.6f;
+    public static final float FLOAT_ZERO_DOT_SIX_FIVE = 0.65f;
+    public static final float FLOAT_ZERO_DOT_SEVEN = 0.7f;
+    public static final float FLOAT_ZERO_DOT_EIGHT_FOUR = 0.84f;
+    public static final float FLOAT_ZERO_DOT_NINE = 0.9f;
+    public static final float FLOAT_ONE_DOT_ZERO = 1.0f;
+    public static final float FLOAT_ONE_DOT_FIVE = 1.5f;
+    public static final float FLOAT_TWO_DOT_ZERO = 2.0f;
+    public static final float FLOAT_THREE_DOT_ZERO = 3.0f;
+    public static final float FLOAT_FOUR_DOT_ZERO = 4.0f;
+    public static final float FLOAT_TWENTY_DOT_ZERO = 20.0f;
+    public static final float FLOAT_TWO_THOUSAND_DOT_ZERO = 2000.0f;
     /**
-     * Long
+     * long
      */
-    public static final long LONG_ONE_HUNDRED_TWENTY = 120L;
+    public static final long LONG_ONE_HUNDRED_TWENTY = 120;
     /**
      * char
      */
