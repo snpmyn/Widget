@@ -45,7 +45,7 @@ public class FocusResizeActivity extends AppCompatActivity {
     private void initConfiguration() {
         // 控件
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, focusResizeActivityRv);
-        recyclerViewConfigure.linearVerticalLayout(true, 36, false, false);
+        recyclerViewConfigure.linearVerticalLayout(true, 36, false, false, false);
         // 聚焦调整默适配器
         FocusResizeDefaultAdapter focusResizeDefaultAdapter = new FocusResizeDefaultAdapter(this, (int) getResources().getDimension(R.dimen.dp_100));
         focusResizeDefaultAdapter.setDefaultData(addItems());

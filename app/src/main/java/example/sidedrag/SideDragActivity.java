@@ -52,7 +52,7 @@ public class SideDragActivity extends AppCompatActivity implements ItemDragListe
     private void initConfiguration() {
         // RecyclerViewConfigure
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, sideDragActivityRv);
-        recyclerViewConfigure.linearVerticalLayout(true, 36, false, false);
+        recyclerViewConfigure.linearVerticalLayout(true, 36, false, false, false);
         // 侧拖适配器
         sideDragAdapter = new SideDragAdapter(this, this);
         // 数据

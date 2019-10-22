@@ -47,8 +47,8 @@ public class RecyclerViewConfigure {
         this.context = context;
         this.recyclerView = recyclerView;
         this.spruceKit = new SpruceKit();
-        this.interObjectDelay = 100L;
-        this.duration = 800L;
+        this.interObjectDelay = 100;
+        this.duration = 800;
         this.reversed = false;
         this.direction = LinearSort.Direction.TOP_TO_BOTTOM;
     }
@@ -56,7 +56,7 @@ public class RecyclerViewConfigure {
     /**
      * SpruceKit配置
      * <p>
-     * {@link #linearHorizontalLayout(boolean, int, boolean, boolean)}前调。
+     * {@link #linearHorizontalLayout(boolean, int, boolean, boolean, boolean)}前调。
      * {@link #linearVerticalLayout(boolean, int, boolean, boolean, boolean)}前调。
      * {@link #gridLayout(int, int, boolean, boolean, boolean)}前调。
      *
@@ -77,12 +77,13 @@ public class RecyclerViewConfigure {
      * <p>
      * {@link #spruceKitConfigure(long, long, boolean, LinearSort.Direction)}后调。
      *
-     * @param needSpace    需间距
-     * @param space        间距
-     * @param hasFixedSize 已固定大小
-     * @param spruce       spruce否
+     * @param needSpace          需间距
+     * @param space              间距
+     * @param topAndBottomOffset 上下偏移
+     * @param hasFixedSize       已固定大小
+     * @param spruce             spruce否
      */
-    public void linearHorizontalLayout(boolean needSpace, int space, boolean hasFixedSize, boolean spruce) {
+    public void linearHorizontalLayout(boolean needSpace, int space, boolean topAndBottomOffset, boolean hasFixedSize, boolean spruce) {
         // false头至尾/true尾至头（默false）
         recyclerView.setLayoutManager(new MyLinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false, (recycler, state) -> {
             if (spruce) {
@@ -92,7 +93,7 @@ public class RecyclerViewConfigure {
         // 固定RecyclerView高（避RecyclerView重measure）
         recyclerView.setHasFixedSize(hasFixedSize);
         if (needSpace) {
-            recyclerView.addItemDecoration(new LinearLayoutHorizontalSpaceItemDecoration(space));
+            recyclerView.addItemDecoration(new LinearLayoutHorizontalSpaceItemDecoration(space, topAndBottomOffset));
         }
     }
 

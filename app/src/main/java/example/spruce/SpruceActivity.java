@@ -42,7 +42,7 @@ public class SpruceActivity extends AppCompatActivity {
     private void initConfiguration() {
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, spruceActivityRv);
         recyclerViewConfigure.spruceKitConfigure(50L, 800L, false, com.willowtreeapps.spruce.sort.LinearSort.Direction.TOP_TO_BOTTOM);
-        recyclerViewConfigure.linearVerticalLayout(false, 0, false, true);
+        recyclerViewConfigure.linearVerticalLayout(false, 0, false, false, true);
     }
 
     private void initData() {

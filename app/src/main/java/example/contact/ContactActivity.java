@@ -81,7 +81,7 @@ public class ContactActivity extends AppCompatActivity {
     private void initConfiguration() {
         // RecyclerViewConfigure
         RecyclerViewConfigure recyclerViewConfigure = new RecyclerViewConfigure(this, contactActivityRv);
-        recyclerViewConfigure.linearVerticalLayout(false, 0, false, true);
+        recyclerViewConfigure.linearVerticalLayout(false, 0, false, false, true);
         // SoulPermissionUtils
         soulPermissionUtils = new SoulPermissionUtils();
         // ContactExtractor
