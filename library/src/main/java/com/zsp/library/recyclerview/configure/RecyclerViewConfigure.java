@@ -57,7 +57,7 @@ public class RecyclerViewConfigure {
      * SpruceKit配置
      * <p>
      * {@link #linearHorizontalLayout(boolean, int, boolean, boolean)}前调。
-     * {@link #linearVerticalLayout(boolean, int, boolean, boolean)}前调。
+     * {@link #linearVerticalLayout(boolean, int, boolean, boolean, boolean)}前调。
      * {@link #gridLayout(int, int, boolean, boolean, boolean)}前调。
      *
      * @param interObjectDelay 实体整型延迟
@@ -101,12 +101,13 @@ public class RecyclerViewConfigure {
      * <p>
      * {@link #spruceKitConfigure(long, long, boolean, LinearSort.Direction)}后调。
      *
-     * @param needSpace    需间距
-     * @param space        间距
-     * @param hasFixedSize 已固定大小
-     * @param spruce       spruce否
+     * @param needSpace          需间距
+     * @param space              间距
+     * @param leftAndRightOffset 左右偏移
+     * @param hasFixedSize       已固定大小
+     * @param spruce             spruce否
      */
-    public void linearVerticalLayout(boolean needSpace, int space, boolean hasFixedSize, boolean spruce) {
+    public void linearVerticalLayout(boolean needSpace, int space, boolean leftAndRightOffset, boolean hasFixedSize, boolean spruce) {
         recyclerView.setLayoutManager(new MyLinearLayoutManager(context, (recycler, state) -> {
             if (spruce) {
                 spruceKit.defaultSort(recyclerView, interObjectDelay, duration);
@@ -115,7 +116,7 @@ public class RecyclerViewConfigure {
         // 固定RecyclerView高（避RecyclerView重measure）
         recyclerView.setHasFixedSize(hasFixedSize);
         if (needSpace) {
-            recyclerView.addItemDecoration(new LinearLayoutVerticalSpaceItemDecoration(space));
+            recyclerView.addItemDecoration(new LinearLayoutVerticalSpaceItemDecoration(space, leftAndRightOffset));
         }
     }
 

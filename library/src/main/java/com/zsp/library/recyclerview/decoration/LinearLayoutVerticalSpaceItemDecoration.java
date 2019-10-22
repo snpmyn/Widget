@@ -14,15 +14,33 @@ import androidx.recyclerview.widget.RecyclerView;
  * 头条目上间距，其后都下间距。
  */
 public class LinearLayoutVerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
+    /**
+     * 间距
+     */
     private int space;
+    /**
+     * 左右偏移
+     */
+    private boolean leftAndRightOffset;
 
-    public LinearLayoutVerticalSpaceItemDecoration(int space) {
+    /**
+     * constructor
+     *
+     * @param space              间距
+     * @param leftAndRightOffset 左右偏移
+     */
+    public LinearLayoutVerticalSpaceItemDecoration(int space, boolean leftAndRightOffset) {
         this.space = space;
+        this.leftAndRightOffset = leftAndRightOffset;
     }
 
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         outRect.bottom = space;
+        if (leftAndRightOffset) {
+            outRect.left = space;
+            outRect.right = space;
+        }
         // Add top margin only for the first item to avoid double space between items.
         if (parent.getChildLayoutPosition(view) == 0) {
             outRect.top = space;
