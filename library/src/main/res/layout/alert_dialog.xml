@@ -148,7 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_36"
-            android:backgroundTint="@color/graySelect"
+            android:backgroundTint="@color/gray"
             android:text="@string/cancel"
             android:textSize="@dimen/sp_13"
             android:visibility="gone"

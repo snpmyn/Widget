@@ -84,7 +84,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         wheelOptions.setTypeface(pickerOptions.font);
         setOutSideCancelable(pickerOptions.cancelable);
         // 自定
-        wheelOptions.setDividerColor(ContextCompat.getColor(context, R.color.graySelect));
+        wheelOptions.setDividerColor(ContextCompat.getColor(context, R.color.gray));
         wheelOptions.setDividerType(pickerOptions.dividerType);
         wheelOptions.setLineSpacingMultiplier(pickerOptions.lineSpacingMultiplier);
         // 自定

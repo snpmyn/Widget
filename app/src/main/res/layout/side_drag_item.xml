@@ -23,5 +23,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:contentDescription="@string/toDo"
-        app:srcCompat="@drawable/ic_reorder_24dp_gray_select" />
+        app:srcCompat="@drawable/ic_reorder_24dp_gray" />
 </com.google.android.material.card.MaterialCardView>

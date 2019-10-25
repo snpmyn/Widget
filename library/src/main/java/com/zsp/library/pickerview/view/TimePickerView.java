@@ -129,7 +129,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         setOutSideCancelable(pickerOptions.cancelable);
         wheelTime.setCyclic(pickerOptions.cyclic);
         // 自定
-        wheelTime.setDividerColor(ContextCompat.getColor(context, R.color.graySelect));
+        wheelTime.setDividerColor(ContextCompat.getColor(context, R.color.gray));
         wheelTime.setDividerType(pickerOptions.dividerType);
         wheelTime.setLineSpacingMultiplier(pickerOptions.lineSpacingMultiplier);
         // 自定
@@ -250,7 +250,10 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         try {
             int year, month, day, hours, minute, seconds;
             Calendar calendar = Calendar.getInstance();
-            calendar.setTime(WheelTime.dateFormat.parse(wheelTime.getTime()));
+            Date date = WheelTime.dateFormat.parse(wheelTime.getTime());
+            if (date != null) {
+                calendar.setTime(date);
+            }
             year = calendar.get(Calendar.YEAR);
             month = calendar.get(Calendar.MONTH);
             day = calendar.get(Calendar.DAY_OF_MONTH);
