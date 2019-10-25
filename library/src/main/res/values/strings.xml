@@ -25,7 +25,7 @@
     <string name="tryFirst">先试试</string>
     <string name="gpsHintContent">前往定位服务开启GPS\n建议选择混合定位模式</string>
     <string name="goToSet">去设置</string>
-    <string name="know">知道了</string>
+    <string name="ok">好的</string>
     <string name="expanded">已展开</string>
     <string name="collapsed">已收起</string>
     <string name="serverExceptionAndTryAgainLater">服务器异常，稍后重试</string>

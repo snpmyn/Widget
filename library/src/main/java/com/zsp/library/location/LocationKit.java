@@ -39,7 +39,7 @@ public class LocationKit {
             // 无定位
             new MaterialAlertDialogBuilder(weakReference.get())
                     .setMessage(R.string.locationHintContent)
-                    .setPositiveButton(R.string.know, (dialog, which) -> Location.openGpsSettings())
+                    .setPositiveButton(R.string.ok, (dialog, which) -> Location.openGpsSettings())
                     .show();
         } else if (!Location.isGpsEnabled() && Location.isNetWorkEnabled()) {
             // 网络定位
