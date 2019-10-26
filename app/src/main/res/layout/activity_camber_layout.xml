@@ -19,10 +19,10 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="lollipop">
 
-        <LinearLayout
+        <com.zsp.library.picture.easing.view.EasingView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent" />
+            android:src="@drawable/image_one" />
     </com.zsp.library.layout.camber.CamberContainer>
 
     <com.zsp.library.layout.camber.CamberImageView
@@ -31,7 +31,7 @@
         android:layout_height="@dimen/dp_200"
         android:elevation="@dimen/dp_20"
         android:scaleType="centerCrop"
-        android:src="@drawable/image_one"
+        android:src="@drawable/image_two"
         app:CamberImageViewCamberTintAlpha="50"
         app:CamberImageViewCamberTintColor="@color/background"
         app:CamberImageViewCamberTintMode="manual"

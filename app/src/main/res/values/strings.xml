@@ -5,6 +5,11 @@
     <string name="lubanCompression">鲁班压缩</string>
     <string name="syncCompress">同步压缩</string>
     <string name="asyncCompress">异步压缩</string>
+    <string name="easing">缓动</string>
+    <string name="pause">暂停</string>
+    <string name="resume">恢复</string>
+    <string name="restart">重启</string>
+    <string name="changeInterpolator">改内插器</string>
     <string name="searchBox">搜索框</string>
     <string name="searchBoxOne">搜索框一</string>
     <string name="searchBoxTwo">搜索框二</string>

@@ -24,7 +24,9 @@ public class PictureActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.pictureActivityMbPreviewExample, R.id.pictureActivityMbLubanCompression})
+    @OnClick({R.id.pictureActivityMbPreviewExample,
+            R.id.pictureActivityMbLubanCompression,
+            R.id.pictureActivityMbEasing})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 预览示例页
@@ -34,6 +36,10 @@ public class PictureActivity extends AppCompatActivity {
             // 鲁班压缩页
             case R.id.pictureActivityMbLubanCompression:
                 IntentUtils.jumpNoBundle(this, LubanCompressActivity.class);
+                break;
+            // 缓动页
+            case R.id.pictureActivityMbEasing:
+                IntentUtils.jumpNoBundle(this, EasingActivity.class);
                 break;
             default:
                 break;

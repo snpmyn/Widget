@@ -23,6 +23,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.picture.EasingActivity" />
         <activity android:name="example.layout.CamberLayoutActivity" />
         <activity android:name="example.connection.ConnectionActivity" />
         <activity android:name="example.toolbar.ToolbarActivity" />
