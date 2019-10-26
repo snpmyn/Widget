@@ -28,7 +28,8 @@ public class LayoutActivity extends AppCompatActivity {
             R.id.voiceActivityMbShadowLayout,
             R.id.voiceActivityMbRippleLayout,
             R.id.voiceActivityMbCircularRevealLayout,
-            R.id.voiceActivityMbProgressLayout})
+            R.id.voiceActivityMbProgressLayout,
+            R.id.voiceActivityMbCamberLayout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 百分比布局
@@ -50,6 +51,10 @@ public class LayoutActivity extends AppCompatActivity {
             // 进度布局
             case R.id.voiceActivityMbProgressLayout:
                 IntentUtils.jumpNoBundle(this, ProgressLayoutActivity.class);
+                break;
+            // 弧形布局页
+            case R.id.voiceActivityMbCamberLayout:
+                IntentUtils.jumpNoBundle(this, CamberLayoutActivity.class);
                 break;
             default:
                 break;

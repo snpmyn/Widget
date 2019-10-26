@@ -26,6 +26,7 @@ public class WidgetLibraryMagic {
     public static final int INT_TWENTY_NINE = 29;
     public static final int INT_THIRTY = 30;
     public static final int INT_THIRTY_ONE = 31;
+    public static final int INT_TWO_HUNDRED_FIFTY_FIVE = 255;
     public static final int INT_THREE_HUNDRED_SIXTY = 360;
     public static final int INT_ONE_THOUSAND_SIX_HUNDRED_SIXTY_FOUR = 1664;
     public static final int INT_ONE_THOUSAND_NINE_HUNDRED = 1900;

@@ -20,6 +20,7 @@
 ##### AndroidLibrary - Library
 * implementation 'androidx.core:core-ktx:1.2.0-beta01'
 * implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version"
+* implementation 'androidx.palette:palette:1.0.0'
 * api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）
 * api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）
 

@@ -196,4 +196,56 @@
         <attr name="error" format="reference" />
         <attr name="loading" format="reference" />
     </declare-styleable>
+    <!--CamberContainer-->
+    <declare-styleable name="CamberContainer">
+        <attr name="CamberContainerCurvature" format="dimension" />
+        <attr name="CamberContainerGravity" format="integer">
+            <flag name="top" value="0" />
+            <flag name="bottom" value="1" />
+        </attr>
+        <attr name="CamberContainerCurvatureDirection" format="integer">
+            <flag name="outward" value="0" />
+            <flag name="inward" value="1" />
+        </attr>
+        <attr name="CamberContainerCamberTintMode" format="integer">
+            <flag name="automatic" value="0" />
+            <flag name="manual" value="1" />
+        </attr>
+        <attr name="CamberContainerCamberTintColor" format="color" />
+        <attr name="CamberContainerCamberTintAlpha" format="integer" />
+        <attr name="CamberContainerGradientDirection" format="integer">
+            <flag name="top_to_bottom" value="0" />
+            <flag name="bottom_to_top" value="1" />
+            <flag name="left_to_right" value="2" />
+            <flag name="right_to_left" value="3" />
+        </attr>
+        <attr name="CamberContainerGradientStartColor" format="color" />
+        <attr name="CamberContainerGradientEndColor" format="color" />
+    </declare-styleable>
+    <!--CamberImageView-->
+    <declare-styleable name="CamberImageView">
+        <attr name="CamberImageViewCurvature" format="dimension" />
+        <attr name="CamberImageViewGravity" format="integer">
+            <flag name="top" value="0" />
+            <flag name="bottom" value="1" />
+        </attr>
+        <attr name="CamberImageViewCurvatureDirection" format="integer">
+            <flag name="outward" value="0" />
+            <flag name="inward" value="1" />
+        </attr>
+        <attr name="CamberImageViewCamberTintMode" format="integer">
+            <flag name="automatic" value="0" />
+            <flag name="manual" value="1" />
+        </attr>
+        <attr name="CamberImageViewCamberTintColor" format="color" />
+        <attr name="CamberImageViewCamberTintAlpha" format="integer" />
+        <attr name="CamberImageViewGradientDirection" format="integer">
+            <flag name="top_to_bottom" value="0" />
+            <flag name="bottom_to_top" value="1" />
+            <flag name="left_to_right" value="2" />
+            <flag name="right_to_left" value="3" />
+        </attr>
+        <attr name="CamberImageViewGradientStartColor" format="color" />
+        <attr name="CamberImageViewGradientEndColor" format="color" />
+    </declare-styleable>
 </resources>

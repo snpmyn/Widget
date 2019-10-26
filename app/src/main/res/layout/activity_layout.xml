@@ -43,4 +43,11 @@
         android:layout_height="wrap_content"
         android:text="@string/progressLayout"
         android:textAppearance="?android:attr/textAppearanceInverse" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/voiceActivityMbCamberLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camberLayout"
+        android:textAppearance="?android:attr/textAppearanceInverse" />
 </LinearLayout>
