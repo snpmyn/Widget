@@ -16,9 +16,6 @@
 | app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
 | app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
-
-| 模块 | 依赖 |
-|:-:|:-:|
 | 一方库(Library) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
 | 一方库(Library) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库(Library) | implementation 'androidx.palette:palette:1.0.0' |
@@ -26,9 +23,6 @@
 | 一方库(Library) | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
 | 一方库(Matisse) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
 | 一方库(Matisse) | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
-
-| 模块 | 依赖 |
-|:-:|:-:|
 | 二方库(Util-UtilOne) | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
 | 二方库(Util-UtilOne) | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
 | 二方库(Util-UtilOne) | api 'io.reactivex:rxandroid:1.2.1'（避重）|
@@ -52,9 +46,6 @@
 | app | android:name="android.permission.ACCESS_COARSE_LOCATION" |
 | app | android:name="android.permission.ACCESS_FINE_LOCATION" |
 | app | android:name="android.permission.CAMERA" |
-
-| 模块 | 依赖 |
-|:-:|:-:|
 | 二方库(Util-app) | android:name="android.permission.WRITE_EXTERNAL_STORAGE" |
 | 二方库(Util-app) | android:name="android.permission.READ_EXTERNAL_STORAGE" |
 
