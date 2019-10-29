@@ -35,11 +35,11 @@ public class Transition {
     /**
      * Precomputed X offset between the center points of {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float mCenterXDiff;
+    private float xCenterDiff;
     /**
      * Precomputed Y offset between the center points of {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float mCenterYDiff;
+    private float yCenterDiff;
     /**
      * The duration of the transition in milliseconds.
      * The default duration is 5000 ms.
@@ -61,8 +61,8 @@ public class Transition {
         // Pre computes a few variables to avoid doing it in onDraw().
         mWidthDiff = dstRect.width() - srcRect.width();
         mHeightDiff = dstRect.height() - srcRect.height();
-        mCenterXDiff = dstRect.centerX() - srcRect.centerX();
-        mCenterYDiff = dstRect.centerY() - srcRect.centerY();
+        xCenterDiff = dstRect.centerX() - srcRect.centerX();
+        yCenterDiff = dstRect.centerY() - srcRect.centerY();
     }
 
     /**
@@ -94,8 +94,8 @@ public class Transition {
         float interpolation = mInterpolator.getInterpolation(interpolationProgress);
         float currentWidth = mSrcRect.width() + (interpolation * mWidthDiff);
         float currentHeight = mSrcRect.height() + (interpolation * mHeightDiff);
-        float xCurrentCenter = mSrcRect.centerX() + (interpolation * mCenterXDiff);
-        float yCurrentCenter = mSrcRect.centerY() + (interpolation * mCenterYDiff);
+        float xCurrentCenter = mSrcRect.centerX() + (interpolation * xCenterDiff);
+        float yCurrentCenter = mSrcRect.centerY() + (interpolation * yCenterDiff);
         float left = xCurrentCenter - (currentWidth / 2);
         float top = yCurrentCenter - (currentHeight / 2);
         float right = left + currentWidth;

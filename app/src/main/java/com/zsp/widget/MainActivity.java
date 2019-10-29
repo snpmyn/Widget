@@ -26,6 +26,7 @@ import example.focusresize.FocusResizeActivity;
 import example.guide.GuideActivity;
 import example.layout.LayoutActivity;
 import example.location.LocationActivity;
+import example.matisse.MatisseExampleActivity;
 import example.picture.PictureActivity;
 import example.progressbar.ProgressBarActivity;
 import example.pudding.PuddingActivity;
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbFocusResize,
             R.id.mainActivityMbGuide,
             R.id.mainActivityMbToolbar,
-            R.id.mainActivityMbConnection})
+            R.id.mainActivityMbConnection,
+            R.id.mainActivityMbMatisse})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -218,6 +220,10 @@ public class MainActivity extends AppCompatActivity {
             // 连接
             case R.id.mainActivityMbConnection:
                 IntentUtils.jumpNoBundle(this, ConnectionActivity.class);
+                break;
+            // Matisse示例
+            case R.id.mainActivityMbMatisse:
+                IntentUtils.jumpNoBundle(this, MatisseExampleActivity.class);
                 break;
             default:
                 break;

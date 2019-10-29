@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <dist:module dist:instant="true" />
 
@@ -23,6 +26,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.matisse.MatisseExampleActivity" />
         <activity android:name="example.picture.EasingActivity" />
         <activity android:name="example.layout.CamberLayoutActivity" />
         <activity android:name="example.connection.ConnectionActivity" />
@@ -78,10 +82,19 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- provider -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/fileProviderAuthorities"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
         <!-- 录音服务 -->
         <service android:name="com.zsp.library.voice.service.VoiceRecordService" />
         <!-- 电话服务 -->

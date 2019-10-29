@@ -148,6 +148,9 @@
     <string name="error">错误</string>
     <string name="connecting">连接中</string>
     <string name="idle">空闲</string>
+    <string name="matisse">Matisse</string>
+    <string name="select">选择</string>
+    <string name="fileProviderAuthorities">com.zsp.widget.fileprovider</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

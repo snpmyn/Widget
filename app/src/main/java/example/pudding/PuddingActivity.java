@@ -175,8 +175,8 @@ public class PuddingActivity extends AppCompatActivity {
         Pudding.create(this, choco -> {
             choco.setTitle("按钮");
             choco.setText("待调试");
-            choco.addMaterialButton("ok", R.style.PuddingMaterialButtonStyle, view -> ToastUtils.shortShow(PuddingActivity.this, "ok"));
-            choco.addMaterialButton("cancel", R.style.PuddingMaterialButtonStyle, view -> ToastUtils.shortShow(PuddingActivity.this, "cancel"));
+            choco.addMaterialButton("ok", R.style.Widget_MaterialComponents_Button_UnelevatedButton, view -> ToastUtils.shortShow(PuddingActivity.this, "ok"));
+            choco.addMaterialButton("cancel", R.style.Widget_MaterialComponents_Button_UnelevatedButton, view -> ToastUtils.shortShow(PuddingActivity.this, "cancel"));
             return null;
         }).show();
     }

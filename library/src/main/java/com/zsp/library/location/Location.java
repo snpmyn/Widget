@@ -180,37 +180,40 @@ public class Location {
         // 位置管理器
         locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         // 位置提供器（GPS或NetWork）
-        List<String> providers = locationManager.getProviders(true);
-        String locationProvider;
-        // 下if-else语句确定先GPS定位
-        if (providers.contains(LocationManager.GPS_PROVIDER)) {
-            // GPS提供器
-            locationProvider = LocationManager.GPS_PROVIDER;
-            Timber.d("位置提供器：%s", "gps");
-        } else if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
-            // 网络提供器
-            locationProvider = LocationManager.NETWORK_PROVIDER;
-            Timber.d("位置提供器：%s", "network");
-        } else {
-            Timber.d("位置提供器：%s", "无可用位置提供器");
-            return;
+        List<String> providers;
+        if (locationManager != null) {
+            providers = locationManager.getProviders(true);
+            String locationProvider;
+            // 下if-else语句确定先GPS定位
+            if (providers.contains(LocationManager.GPS_PROVIDER)) {
+                // GPS提供器
+                locationProvider = LocationManager.GPS_PROVIDER;
+                Timber.d("位置提供器：%s", "gps");
+            } else if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
+                // 网络提供器
+                locationProvider = LocationManager.NETWORK_PROVIDER;
+                Timber.d("位置提供器：%s", "network");
+            } else {
+                Timber.d("位置提供器：%s", "无可用位置提供器");
+                return;
+            }
+            // 需查权限（否编译错）
+            // 抽成方法仍错，只能如下重复
+            if (Build.VERSION.SDK_INT >= WidgetLibraryMagic.INT_TWENTY_THREE &&
+                    ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            // 获上次位（通头次运行null）
+            android.location.Location location = locationManager.getLastKnownLocation(locationProvider);
+            setLocation(location);
+            // 监视地理位变（二/三参为更新最短时minTime/最短距minDistance）
+            locationManager.requestLocationUpdates(locationProvider, 3000, 0, locationListener);
         }
-        // 需查权限（否编译错）
-        // 抽成方法仍错，只能如下重复
-        if (Build.VERSION.SDK_INT >= WidgetLibraryMagic.INT_TWENTY_THREE &&
-                ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        // 获上次位（通头次运行null）
-        android.location.Location location = locationManager.getLastKnownLocation(locationProvider);
-        setLocation(location);
-        // 监视地理位变（二/三参为更新最短时minTime/最短距minDistance）
-        locationManager.requestLocationUpdates(locationProvider, 3000, 0, locationListener);
     }
 
     /**
