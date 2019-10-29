@@ -11,6 +11,7 @@
 部件
 
 ### 依赖
+
 | 模块 | 依赖 |
 |:-:|:-:|
 | app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
@@ -36,6 +37,7 @@
 | 二方库(Util-UtilTwo) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
 ### 权限
+
 | 模块 | 依赖 |
 |:-:|:-:|
 | app | android:name="android.permission.INTERNET" |
