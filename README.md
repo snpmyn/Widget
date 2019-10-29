@@ -8,9 +8,9 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 ### 介绍
-部件
-
-### 依赖
+部件。分两部分：
+* 本地示例
+* 三方库示例
 
 | 模块 | 依赖 |
 |:-:|:-:|
@@ -36,9 +36,7 @@
 | 二方库(Util-UtilTwo) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
 | 二方库(Util-UtilTwo) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
-### 权限
-
-| 模块 | 依赖 |
+| 模块 | 权限 |
 |:-:|:-:|
 | app | android:name="android.permission.INTERNET" |
 | app | android:name="android.permission.RECORD_AUDIO" |
