@@ -8,13 +8,16 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 ### 介绍
-部件。含本地示例、三方库示例。
+部件。
+
+### 说明
+包含示例app、一方库Library、一方库Matisse。
 
 | 模块 | 依赖 |
 |:-:|:-:|
-| app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
-| app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
-| app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
+| 示例app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
+| 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
+| 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
 | 一方库(Library) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
 | 一方库(Library) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库(Library) | implementation 'androidx.palette:palette:1.0.0' |
@@ -36,16 +39,70 @@
 
 | 模块 | 权限 |
 |:-:|:-:|
-| app | android:name="android.permission.INTERNET" |
-| app | android:name="android.permission.RECORD_AUDIO" |
-| app | android:name="android.permission.READ_CONTACTS" |
-| app | android:name="android.permission.SEND_SMS" |
-| app | android:name="android.permission.ACCESS_NETWORK_STATE" |
-| app | android:name="android.permission.ACCESS_COARSE_LOCATION" |
-| app | android:name="android.permission.ACCESS_FINE_LOCATION" |
-| app | android:name="android.permission.CAMERA" |
+| 示例app | android:name="android.permission.INTERNET" |
+| 示例app | android:name="android.permission.RECORD_AUDIO" |
+| 示例app | android:name="android.permission.READ_CONTACTS" |
+| 示例app | android:name="android.permission.SEND_SMS" |
+| 示例app | android:name="android.permission.ACCESS_NETWORK_STATE" |
+| 示例app | android:name="android.permission.ACCESS_COARSE_LOCATION" |
+| 示例app | android:name="android.permission.ACCESS_FINE_LOCATION" |
+| 示例app | android:name="android.permission.CAMERA" |
 | 二方库(Util-app) | android:name="android.permission.WRITE_EXTERNAL_STORAGE" |
 | 二方库(Util-app) | android:name="android.permission.READ_EXTERNAL_STORAGE" |
+
+### 使用
+build.gradle(module)
+```
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {   
+    repositories {
+        google()
+        jcenter()       
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }             
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+build.gradle(app)
+```
+apply plugin: 'com.android.application'
+
+android {
+    ...
+    defaultConfig {
+        ...      
+    }       
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
+dependencies {
+    implementation 'com.github.snpmyn.Widget:library:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
+}
+```
 
 ### License
 ```
