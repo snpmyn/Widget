@@ -1,4 +1,4 @@
-package com.zsp.library.card
+package com.zsp.library.card.collapsible
 
 import android.content.Context
 import android.os.Parcel

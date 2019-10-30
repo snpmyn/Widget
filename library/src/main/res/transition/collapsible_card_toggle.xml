@@ -4,7 +4,7 @@
     android:interpolator="@android:interpolator/fast_out_slow_in"
     tools:ignore="NewApi">
     <transition
-        class="com.zsp.library.card.transition.RotateX"
+        class="com.zsp.library.card.collapsible.transition.RotateX"
         android:targetId="@id/collapsibleCardIv" />
     <changeBounds />
 </transitionSet>

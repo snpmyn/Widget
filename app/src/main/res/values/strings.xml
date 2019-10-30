@@ -151,11 +151,14 @@
     <string name="matisse">Matisse</string>
     <string name="select">选择</string>
     <string name="fileProviderAuthorities">com.zsp.widget.fileprovider</string>
+    <string name="collapsibleCard">折叠卡片</string>
+    <string name="elasticCardView">弹性卡片视图</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
     <string name="hangUpTheCallEndTime">挂断通话 结束时间：%1$d</string>
     <string name="pictureParameters">原始参数：%1$s\n压缩后参数：%2$s</string>
+    <string name="flexibility">Flexibility is %1$ff</string>
     <string name="second">%1$d秒</string>
     <!--string-array-->
     <string-array name="progressValueOptions">

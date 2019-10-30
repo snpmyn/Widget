@@ -1,4 +1,4 @@
-package com.zsp.library.card.transition
+package com.zsp.library.card.collapsible.transition
 
 import android.animation.Animator
 import android.animation.ObjectAnimator

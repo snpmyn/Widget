@@ -8,9 +8,7 @@
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
 ### 介绍
-部件。分两部分：
-* 本地示例
-* 三方库示例
+部件。含本地示例、三方库示例。
 
 | 模块 | 依赖 |
 |:-:|:-:|

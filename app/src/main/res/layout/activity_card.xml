@@ -6,14 +6,28 @@
     android:layout_height="match_parent"
     tools:context="example.card.CardActivity">
 
-    <com.zsp.library.card.CollapsibleCard
-        android:id="@+id/travel_what_to_bring"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cardActivityMbCollapsibleCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardDescription="@string/description"
-        app:cardTitle="@string/title"
+        android:layout_margin="@dimen/dp_12"
+        android:text="@string/collapsibleCard"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toTopOf="@+id/cardActivityMbElasticCardView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cardActivityMbElasticCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_12"
+        android:text="@string/elasticCardView"
+        android:textAppearance="?android:attr/textAppearanceInverse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cardActivityMbCollapsibleCard" />
 </androidx.constraintlayout.widget.ConstraintLayout>

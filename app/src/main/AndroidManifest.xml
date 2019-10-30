@@ -37,6 +37,8 @@
         <activity android:name="example.animation.circular.CircularFlexContentActivity" />
         <activity android:name="example.animation.circular.CircularFlexActivity" />
         <activity android:name="example.focusresize.FocusResizeActivity" />
+        <activity android:name="example.card.collapsible.CollapsibleCardActivity" />
+        <activity android:name="example.card.elastic.ElasticCardViewActivity" />
         <activity android:name="example.card.CardActivity" />
         <activity android:name="example.layout.CircularRevealActivity" />
         <activity android:name="example.layout.ProgressLayoutActivity" />
@@ -82,6 +84,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

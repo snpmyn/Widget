@@ -248,4 +248,8 @@
         <attr name="CamberImageViewGradientStartColor" format="color" />
         <attr name="CamberImageViewGradientEndColor" format="color" />
     </declare-styleable>
+    <!--ElasticCardView-->
+    <declare-styleable name="ElasticCardView">
+        <attr name="flexibility" format="float" />
+    </declare-styleable>
 </resources>
