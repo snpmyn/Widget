@@ -1,1 +1,1 @@
-include ':app', ':library', ':matisse'
+include ':app', ':library', ':matisse', ':ucrop'

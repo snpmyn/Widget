@@ -37,8 +37,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
     /*官方*/
     implementation project(path: ':library')
-    implementation project(path: ':matisse')
     /*library*/
+    implementation project(path: ':matisse')
+    /*matisse*/
+    implementation project(path: ':ucrop')
+    /*ucrop*/
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     /*ButterKnife*/

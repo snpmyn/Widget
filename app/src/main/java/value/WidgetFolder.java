@@ -13,4 +13,8 @@ public class WidgetFolder {
      * 压缩图
      */
     public static String COMPRESS_PICTURE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/widget/CompressPicture/";
+    /**
+     * 裁剪图
+     */
+    public static String CROP_PICTURE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/widget/CropPicture/";
 }

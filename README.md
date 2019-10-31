@@ -17,6 +17,7 @@
 | 示例app | 用法举例 |
 | 一方库Library | 纯本地实现 |
 | 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 |
+| 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 |
 
 ### 依赖、权限
 
@@ -30,8 +31,9 @@
 | 一方库(Library) | implementation 'androidx.palette:palette:1.0.0' |
 | 一方库(Library) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
 | 一方库(Library) | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库(Matisse) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库(Matisse) | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
 | 一方库(Matisse) | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
+| 一方库(Ucrop) | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 二方库(Util-UtilOne) | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
 | 二方库(Util-UtilOne) | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
 | 二方库(Util-UtilOne) | api 'io.reactivex:rxandroid:1.2.1'（避重）|

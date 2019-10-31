@@ -151,6 +151,7 @@
     <string name="matisse">Matisse</string>
     <string name="select">选择</string>
     <string name="fileProviderAuthorities">com.zsp.widget.fileprovider</string>
+    <string name="uploadSuccess">上传成功</string>
     <string name="collapsibleCard">折叠卡片</string>
     <string name="elasticCardView">弹性卡片视图</string>
     <string name="clock">时钟</string>
