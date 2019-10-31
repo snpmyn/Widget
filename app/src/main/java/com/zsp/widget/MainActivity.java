@@ -18,6 +18,7 @@ import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
 import example.card.CardActivity;
 import example.chart.RadarChartActivity;
+import example.clock.ClockActivity;
 import example.connection.ConnectionActivity;
 import example.contact.ContactActivity;
 import example.dialog.DialogActivity;
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbGuide,
             R.id.mainActivityMbToolbar,
             R.id.mainActivityMbConnection,
+            R.id.mainActivityMbClock,
             R.id.mainActivityMbMatisse})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -220,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
             // 连接
             case R.id.mainActivityMbConnection:
                 IntentUtils.jumpNoBundle(this, ConnectionActivity.class);
+                break;
+            // 时钟
+            case R.id.mainActivityMbClock:
+                IntentUtils.jumpNoBundle(this, ClockActivity.class);
                 break;
             // Matisse示例
             case R.id.mainActivityMbMatisse:

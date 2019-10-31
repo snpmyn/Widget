@@ -10,8 +10,15 @@
 ### 介绍
 部件。
 
-### 说明
-包含示例app、一方库Library、一方库Matisse。
+### 架构
+
+| 模块 | 说明 |
+|:-:|:-:|
+| 示例app | 用法举例 |
+| 一方库Library | 纯本地实现 |
+| 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 |
+
+### 依赖、权限
 
 | 模块 | 依赖 |
 |:-:|:-:|

@@ -153,6 +153,7 @@
     <string name="fileProviderAuthorities">com.zsp.widget.fileprovider</string>
     <string name="collapsibleCard">折叠卡片</string>
     <string name="elasticCardView">弹性卡片视图</string>
+    <string name="clock">时钟</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

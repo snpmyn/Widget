@@ -26,6 +26,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.clock.ClockActivity" />
         <activity android:name="example.matisse.MatisseExampleActivity" />
         <activity android:name="example.picture.EasingActivity" />
         <activity android:name="example.layout.CamberLayoutActivity" />
