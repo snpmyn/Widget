@@ -110,6 +110,7 @@ android {
 dependencies {
     implementation 'com.github.snpmyn.Widget:library:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
 }
 ```
 
