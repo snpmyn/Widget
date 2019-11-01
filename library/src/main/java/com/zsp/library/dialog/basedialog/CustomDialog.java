@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
  * @date: 2018/4/4 13:43
  */
 public class CustomDialog extends BaseDialog {
-    private BaseViewConvertListener convertListener;
+    private BaseViewConvertListener baseViewConvertListener;
 
     public static CustomDialog init() {
         return new CustomDialog();
@@ -25,8 +25,8 @@ public class CustomDialog extends BaseDialog {
 
     @Override
     public void convertView(ViewHolder holder, BaseDialog dialog) {
-        if (convertListener != null) {
-            convertListener.convertView(holder, dialog);
+        if (baseViewConvertListener != null) {
+            baseViewConvertListener.convertView(holder, dialog);
         }
     }
 
@@ -35,8 +35,8 @@ public class CustomDialog extends BaseDialog {
         return this;
     }
 
-    public CustomDialog setConvertListener(BaseViewConvertListener convertListener) {
-        this.convertListener = convertListener;
+    public CustomDialog setBaseViewConvertListener(BaseViewConvertListener baseViewConvertListener) {
+        this.baseViewConvertListener = baseViewConvertListener;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class CustomDialog extends BaseDialog {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
-            convertListener = savedInstanceState.getParcelable("listener");
+            baseViewConvertListener = savedInstanceState.getParcelable("listener");
         }
     }
 
@@ -56,6 +56,6 @@ public class CustomDialog extends BaseDialog {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("listener", convertListener);
+        outState.putParcelable("listener", baseViewConvertListener);
     }
 }

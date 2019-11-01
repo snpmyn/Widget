@@ -18,6 +18,8 @@ import com.zsp.library.R;
 import com.zsp.utilone.density.DensityUtils;
 import com.zsp.utilone.screen.ScreenUtils;
 
+import java.util.Objects;
+
 /**
  * @decs: BaseDialog
  * @author: 郑少鹏
@@ -33,6 +35,9 @@ public abstract class BaseDialog extends DialogFragment {
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
     private static final String CENTER = "show_center";
+    /**
+     * 布局ID
+     */
     int layoutId;
     /**
      * 左右边距
@@ -60,7 +65,7 @@ public abstract class BaseDialog extends DialogFragment {
     private boolean outCancel = true;
     private int animStyle;
     /**
-     * 中间显示
+     * 中间显
      */
     private boolean showCenter;
 
@@ -154,9 +159,9 @@ public abstract class BaseDialog extends DialogFragment {
                 }
                 // Dialog宽
                 if (width == 0) {
-                    lp.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(getContext(), margin);
+                    lp.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), margin);
                 } else {
-                    lp.width = DensityUtils.dipToPxByFloat(getContext(), width);
+                    lp.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
                 }
                 // Dialog高
                 if (height == 0) {

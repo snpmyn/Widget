@@ -79,7 +79,7 @@ public class DialogTwoActivity extends AppCompatActivity {
     private void share() {
         CustomDialog.init()
                 .setLayoutId(R.layout.base_dialog_share)
-                .setConvertListener(new BaseViewConvertListener() {
+                .setBaseViewConvertListener(new BaseViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseDialog dialog) {
                         holder.setOnClickListener(R.id.baseDialogDctvWechat, v -> ToastUtils.shortShow(DialogTwoActivity.this, "分享成功"));
@@ -96,7 +96,7 @@ public class DialogTwoActivity extends AppCompatActivity {
     private void friendSetting() {
         CustomDialog.init()
                 .setLayoutId(R.layout.base_dialog_friend_setting)
-                .setConvertListener(new BaseViewConvertListener() {
+                .setBaseViewConvertListener(new BaseViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseDialog dialog) {
 
@@ -113,7 +113,7 @@ public class DialogTwoActivity extends AppCompatActivity {
     private void comment() {
         CustomDialog.init()
                 .setLayoutId(R.layout.base_dialog_comment)
-                .setConvertListener(new BaseViewConvertListener() {
+                .setBaseViewConvertListener(new BaseViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseDialog dialog) {
                         final EditText editText = holder.getView(R.id.baseDialogCommentEt);
@@ -130,7 +130,7 @@ public class DialogTwoActivity extends AppCompatActivity {
     private void redPacket() {
         CustomDialog.init()
                 .setLayoutId(R.layout.base_dialog_red_packet)
-                .setConvertListener(new BaseViewConvertListener() {
+                .setBaseViewConvertListener(new BaseViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseDialog dialog) {
                         holder.setOnClickListener(R.id.baseDialogRedPacketClose, v -> dialog.dismiss());
