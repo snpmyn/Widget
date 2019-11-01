@@ -26,38 +26,38 @@
 | 示例app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
-| 一方库(Library) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
-| 一方库(Library) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
-| 一方库(Library) | implementation 'androidx.palette:palette:1.0.0' |
-| 一方库(Library) | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
-| 一方库(Library) | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库(Matisse) | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
-| 一方库(Matisse) | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
-| 一方库(Ucrop) | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
-| 二方库(Util-UtilOne) | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
-| 二方库(Util-UtilOne) | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
-| 二方库(Util-UtilOne) | api 'io.reactivex:rxandroid:1.2.1'（避重）|
-| 二方库(Util-UtilOne) | api 'io.reactivex:rxjava:1.3.8'（避重）|
-| 二方库(Util-UtilOne) | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
-| 二方库(Util-UtilOne) | api 'com.tencent:mmkv-static:1.0.23'（避重）|
-| 二方库(Util-UtilOne) | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
-| 二方库(Util-UtilOne) | implementation 'com.qw:soulpermission:1.2.2_x' |
-| 二方库(Util-UtilOne) | implementation 'org.apache.commons:commons-lang3:3.9' |
-| 二方库(Util-UtilTwo) | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
-| 二方库(Util-UtilTwo) | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
+| 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
+| 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
+| 一方库Library | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
+| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
+| 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
+| 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
+| 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
+| 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
+| 二方库Util-UtilOne | api 'io.reactivex:rxjava:1.3.8'（避重）|
+| 二方库Util-UtilOne | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
+| 二方库Util-UtilOne | api 'com.tencent:mmkv-static:1.0.23'（避重）|
+| 二方库Util-UtilOne | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
+| 二方库Util-UtilOne | implementation 'com.qw:soulpermission:1.2.2_x' |
+| 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.9' |
+| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 二方库Util-UtilTwo | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
 | 模块 | 权限 |
 |:-:|:-:|
-| 示例app | android:name="android.permission.INTERNET" |
-| 示例app | android:name="android.permission.RECORD_AUDIO" |
-| 示例app | android:name="android.permission.READ_CONTACTS" |
-| 示例app | android:name="android.permission.SEND_SMS" |
-| 示例app | android:name="android.permission.ACCESS_NETWORK_STATE" |
-| 示例app | android:name="android.permission.ACCESS_COARSE_LOCATION" |
-| 示例app | android:name="android.permission.ACCESS_FINE_LOCATION" |
-| 示例app | android:name="android.permission.CAMERA" |
-| 二方库(Util-app) | android:name="android.permission.WRITE_EXTERNAL_STORAGE" |
-| 二方库(Util-app) | android:name="android.permission.READ_EXTERNAL_STORAGE" |
+| 示例app | android:name="android.permission.INTERNET"（避重）|
+| 示例app | android:name="android.permission.RECORD_AUDIO"（避重）|
+| 示例app | android:name="android.permission.READ_CONTACTS"（避重）|
+| 示例app | android:name="android.permission.SEND_SMS"（避重）|
+| 示例app | android:name="android.permission.ACCESS_NETWORK_STATE"（避重）|
+| 示例app | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
+| 示例app | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
+| 示例app | android:name="android.permission.CAMERA"（避重）|
+| 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
+| 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
 
 ### 使用
 build.gradle(module)
