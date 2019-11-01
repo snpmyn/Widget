@@ -14,7 +14,7 @@
             android:id="@+id/searchViewEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gray_solid_c4"
+            android:background="@drawable/background_two_solid_c4"
             android:drawableStart="@drawable/ic_search_to_search_edit_text_and_search_view_24dp_font_input"
             android:drawablePadding="@dimen/dp_10"
             android:gravity="start|center_vertical"
