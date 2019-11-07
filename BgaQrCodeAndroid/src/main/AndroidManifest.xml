@@ -4,6 +4,7 @@
 
     <application android:theme="@style/AppTheme">
         <activity android:name=".activity.ScanBarCodeActivity" />
+        <activity android:name=".activity.ScanQrCodeActivity" />
         <!-- provider -->
         <provider
             android:name="androidx.core.content.FileProvider"

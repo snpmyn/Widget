@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zsp.scancode.activity.ScanBarCodeActivity;
+import com.zsp.scancode.activity.ScanQrCodeActivity;
 import com.zsp.scancode.listener.ScanCodeListener;
 import com.zsp.utilone.permission.SoulPermissionUtils;
 import com.zsp.utilone.toast.ToastUtils;
@@ -52,6 +53,7 @@ public class ScanCodeActivity extends AppCompatActivity implements ScanCodeListe
                 break;
             // 扫条形码
             case R.id.scanCodeActivityMbScanBarCode:
+                scanBarCode();
                 break;
             default:
                 break;
@@ -62,6 +64,32 @@ public class ScanCodeActivity extends AppCompatActivity implements ScanCodeListe
      * 扫二维码
      */
     private void scanQrCode() {
+        soulPermissionUtils.checkAndRequestPermission(this, Manifest.permission.CAMERA, soulPermissionUtils,
+                false, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
+                    @Override
+                    public void onPermissionOk() {
+                        ScanQrCodeActivity.setScanCodeListener(ScanCodeActivity.this);
+                        Intent intent = new Intent(ScanCodeActivity.this, ScanQrCodeActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                    }
+
+                    @Override
+                    public void onPermissionDeniedNotRationaleInMiUi(String s) {
+                        ToastUtils.shortShow(ScanCodeActivity.this, s);
+                    }
+
+                    @Override
+                    public void onPermissionDeniedNotRationaleWithoutLoopHint(String s) {
+                        ToastUtils.shortShow(ScanCodeActivity.this, s);
+                    }
+                });
+    }
+
+    /**
+     * 扫条形码
+     */
+    private void scanBarCode() {
         soulPermissionUtils.checkAndRequestPermission(this, Manifest.permission.CAMERA, soulPermissionUtils,
                 false, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
                     @Override
