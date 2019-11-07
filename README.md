@@ -18,7 +18,7 @@
 | 一方库Library | 纯本地实现 | 无 |
 | 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 | 无 |
 | 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
-| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop |
+| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 无 |
 
 ### 依赖、权限
 
@@ -128,7 +128,6 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:bgaqrcodeandroid:master-SNAPSHOT'
-    <!--含一方库Ucrop-->
 }
 ```
 
