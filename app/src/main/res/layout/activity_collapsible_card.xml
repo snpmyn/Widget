@@ -7,7 +7,6 @@
     tools:context="example.card.collapsible.CollapsibleCardActivity">
 
     <com.zsp.library.card.collapsible.CollapsibleCard
-        android:id="@+id/travel_what_to_bring"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardDescription="@string/description"

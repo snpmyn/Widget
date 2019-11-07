@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <dist:module dist:instant="true" />
 
@@ -26,9 +27,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name="example.clock.ClockActivity" />
+        <activity android:name="example.bgaqrcodeandroid.ScanCodeActivity" />
         <activity android:name="com.yalantis.ucrop.UCropActivity" />
         <activity android:name="example.matisse.MatisseExampleActivity" />
+        <activity android:name="example.clock.ClockActivity" />
         <activity android:name="example.picture.EasingActivity" />
         <activity android:name="example.layout.CamberLayoutActivity" />
         <activity android:name="example.connection.ConnectionActivity" />

@@ -155,6 +155,10 @@
     <string name="collapsibleCard">折叠卡片</string>
     <string name="elasticCardView">弹性卡片视图</string>
     <string name="clock">时钟</string>
+    <string name="scanCode">扫码</string>
+    <string name="scanQrCode">扫二维码</string>
+    <string name="scanBarCode">扫条形码</string>
+    <string name="errorOpeningTheCamera">打开相机出错</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

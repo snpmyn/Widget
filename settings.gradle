@@ -1,1 +1,1 @@
-include ':app', ':library', ':matisse', ':ucrop'
+include ':app', ':library', ':matisse', ':ucrop', ':BgaQrCodeAndroid'

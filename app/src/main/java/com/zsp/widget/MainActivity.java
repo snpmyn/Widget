@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.animation.AnimationActivity;
 import example.banner.BannerActivity;
+import example.bgaqrcodeandroid.ScanCodeActivity;
 import example.card.CardActivity;
 import example.chart.RadarChartActivity;
 import example.clock.ClockActivity;
@@ -120,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbToolbar,
             R.id.mainActivityMbConnection,
             R.id.mainActivityMbClock,
-            R.id.mainActivityMbMatisse})
+            R.id.mainActivityMbMatisse,
+            R.id.mainActivityMbScanCode})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 图片
@@ -230,6 +232,10 @@ public class MainActivity extends AppCompatActivity {
             // Matisse示例
             case R.id.mainActivityMbMatisse:
                 IntentUtils.jumpNoBundle(this, MatisseExampleActivity.class);
+                break;
+            // 扫码
+            case R.id.mainActivityMbScanCode:
+                IntentUtils.jumpNoBundle(this, ScanCodeActivity.class);
                 break;
             default:
                 break;

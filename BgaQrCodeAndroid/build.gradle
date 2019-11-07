@@ -1,17 +1,21 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.zsp.widget"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,31 +26,21 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-    dataBinding {
-        enabled = true
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
     /*自带*/
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
-    /*官方*/
-    implementation project(path: ':library')
-    /*library*/
     implementation project(path: ':matisse')
     /*matisse*/
-    implementation project(path: ':ucrop')
-    /*ucrop*/
-    implementation project(path: ':BgaQrCodeAndroid')
-    /*BgaQrCodeAndroid*/
-    implementation 'com.jakewharton:butterknife:10.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-    /*ButterKnife*/
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
-    /*LeakCanary*/
+    implementation 'com.github.snpmyn:Util:master-SNAPSHOT'
+    /*util*/
+    api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'
+    /*BgaQrCodeZXing*/
 }

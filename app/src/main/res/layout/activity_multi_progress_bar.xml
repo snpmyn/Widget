@@ -27,7 +27,6 @@
         tools:targetApi="lollipop" />
 
     <com.zsp.library.progressbar.MultiProgressBar
-        android:id="@+id/bpbDownloadProgressDialog"
         style="@android:style/Widget.Material.ProgressBar.Horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

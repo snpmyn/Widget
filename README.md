@@ -12,12 +12,13 @@
 
 ### 架构
 
-| 模块 | 说明 |
-|:-:|:-:|
-| 示例app | 用法举例 |
-| 一方库Library | 纯本地实现 |
-| 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 |
-| 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 |
+| 模块 | 说明 | 补充 |
+|:-:|:-:|:-:|
+| 示例app | 用法举例 | 无 |
+| 一方库Library | 纯本地实现 | 无 |
+| 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 | 无 |
+| 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
+| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop |
 
 ### 依赖、权限
 
@@ -26,6 +27,10 @@
 | 示例app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
+| 示例app | implementation project(path: ':library') |
+| 示例app | implementation project(path: ':matisse') |
+| 示例app | implementation project(path: ':ucrop') |
+| 示例app | implementation project(path: ':BgaQrCodeAndroid') |
 | 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
@@ -34,6 +39,9 @@
 | 一方库Matisse | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
+| 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库BgaQrCodeAndroid | api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'（避重）|
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
 | 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
@@ -56,8 +64,15 @@
 | 示例app | android:name="android.permission.ACCESS_COARSE_LOCATION"（避重）|
 | 示例app | android:name="android.permission.ACCESS_FINE_LOCATION"（避重）|
 | 示例app | android:name="android.permission.CAMERA"（避重）|
+| 示例app | android:name="android.permission.VIBRATE"（避重）|
+| 一方库Library | 无 |
+| 一方库Matisse | 无 |
+| 一方库Ucrop | 无 |
+| 一方库BgaQrCodeAndroid | 无 |
 | 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
+| 二方库Util-UtilOne | 无 |
+| 二方库Util-UtilTwo | 无 |
 
 ### 使用
 build.gradle(module)
