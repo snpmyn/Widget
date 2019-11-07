@@ -142,7 +142,7 @@ public class ScanQrCodeActivity extends AppCompatActivity implements View.OnClic
      * @param scanCodeListener 扫码监听
      */
     public static void setScanCodeListener(ScanCodeListener scanCodeListener) {
-        ScanBarCodeActivity.scanCodeListener = scanCodeListener;
+        ScanQrCodeActivity.scanCodeListener = scanCodeListener;
     }
 
     /**
