@@ -127,6 +127,8 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:library:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:bgaqrcodeandroid:master-SNAPSHOT'
+    <!--含一方库Ucrop-->
 }
 ```
 
