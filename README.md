@@ -18,7 +18,7 @@
 | 一方库Library | 纯本地实现 | 无 |
 | 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 | 无 |
 | 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
-| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 无 |
+| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop（限一方库BgaQrCodeAndroid使用）|
 
 ### 依赖、权限
 
@@ -42,6 +42,8 @@
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
 | 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
 | 一方库BgaQrCodeAndroid | api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'（避重）|
+| 二方库Util-示例app | implementation project(path: ':utilone') |
+| 二方库Util-示例app | implementation project(path: ':utiltwo') |
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
 | 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
