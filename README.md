@@ -31,7 +31,7 @@
 | 示例app | implementation project(path: ':matisse') |
 | 示例app | implementation project(path: ':ucrop') |
 | 示例app | implementation project(path: ':BgaQrCodeAndroid') |
-| 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
 | 一方库Library | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
@@ -51,7 +51,7 @@
 | 二方库Util-UtilOne | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
 | 二方库Util-UtilOne | implementation 'com.qw:soulpermission:1.2.2_x' |
 | 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.9' |
-| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.2.0-beta01' |
+| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
 | 二方库Util-UtilTwo | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
 | 模块 | 权限 |
@@ -127,7 +127,7 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:library:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:bgaqrcodeandroid:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:master-SNAPSHOT'
 }
 ```
 
