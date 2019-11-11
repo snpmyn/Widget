@@ -16,6 +16,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Created on 2017/11/3.
@@ -27,18 +28,12 @@ class OptAnimationLoader {
     static Animation loadAnimation(Context context, int id) throws Resources.NotFoundException {
         try (XmlResourceParser parser = context.getResources().getAnimation(id)) {
             return createAnimationFromXml(context, parser);
-        } catch (XmlPullParserException ex) {
-            Resources.NotFoundException rnf = null;
+        } catch (XmlPullParserException | IOException ex) {
+            Resources.NotFoundException notFoundException = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                rnf = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(id), ex);
+                notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(id), ex);
             }
-            throw rnf;
-        } catch (IOException ex) {
-            Resources.NotFoundException rnf = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                rnf = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(id), ex);
-            }
-            throw rnf;
+            throw Objects.requireNonNull(notFoundException, "must not be null");
         }
     }
 

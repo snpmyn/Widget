@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.dialog.sweetalertdialog.SweetAlertDialog;
-import com.zsp.library.dialog.sweetalertdialog.listener.DialogValueListener;
+import com.zsp.library.dialog.sweetalertdialog.listener.SweetAlertDialogValueListener;
 import com.zsp.widget.R;
 
 import butterknife.ButterKnife;
@@ -19,7 +19,7 @@ import butterknife.OnClick;
  * @author: 郑少鹏
  * @date: 2019/6/18 11:48
  */
-public class DialogOneActivity extends AppCompatActivity implements DialogValueListener {
+public class DialogOneActivity extends AppCompatActivity implements SweetAlertDialogValueListener {
     /**
      * 对话框
      */
@@ -87,25 +87,15 @@ public class DialogOneActivity extends AppCompatActivity implements DialogValueL
                 i++;
                 switch (i) {
                     case 0:
+                    case 2:
+                    case 4:
+                    case 6:
                         showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorPrimary));
                         break;
                     case 1:
-                        showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorAccent));
-                        break;
-                    case 2:
-                        showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorPrimary));
-                        break;
                     case 3:
-                        showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorAccent));
-                        break;
-                    case 4:
-                        showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorPrimary));
-                        break;
                     case 5:
                         showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorAccent));
-                        break;
-                    case 6:
-                        showMaterialProgressSweetAlertDialog.getProgressHelper().setBarColor(ContextCompat.getColor(DialogOneActivity.this, R.color.colorPrimary));
                         break;
                     default:
                         break;

@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.zsp.library.R;
-import com.zsp.library.dialog.sweetalertdialog.listener.DialogValueListener;
+import com.zsp.library.dialog.sweetalertdialog.listener.SweetAlertDialogValueListener;
 
 /**
  * Created on 2017/11/3.
@@ -67,9 +67,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private OnSweetClickListener mConfirmClickListener;
     private boolean mCloseFromCancel;
     /**
-     * 接口
+     * SweetAlertDialog值监听
      */
-    private DialogValueListener value;
+    private SweetAlertDialogValueListener mSweetAlertDialogValueListener;
 
     public SweetAlertDialog(Context context) {
         this(context, NORMAL_TYPE);
@@ -348,8 +348,8 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         mCloseFromCancel = fromCancel;
         mConfirmButton.startAnimation(mOverlayOutAnim);
         mDialogView.startAnimation(mModalOutAnim);
-        if (value != null) {
-            value.dialogDismiss(1);
+        if (mSweetAlertDialogValueListener != null) {
+            mSweetAlertDialogValueListener.dialogDismiss(1);
         }
     }
 
@@ -375,12 +375,12 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     /**
-     * init interface
+     * 设SweetAlertDialog值监听
      *
-     * @param v 视图
+     * @param sweetAlertDialogValueListener SweetAlertDialog值监听
      */
-    public void setListener(DialogValueListener v) {
-        value = v;
+    public void setListener(SweetAlertDialogValueListener sweetAlertDialogValueListener) {
+        mSweetAlertDialogValueListener = sweetAlertDialogValueListener;
     }
 
     public interface OnSweetClickListener {

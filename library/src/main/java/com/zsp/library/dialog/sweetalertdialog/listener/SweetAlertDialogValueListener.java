@@ -1,12 +1,12 @@
 package com.zsp.library.dialog.sweetalertdialog.listener;
 
 /**
- * Created on 2017/11/6.
+ * Created on 2019/11/11.
  *
  * @author 郑少鹏
- * @desc 对话框值监听
+ * @desc SweetAlertDialog值监听
  */
-public interface DialogValueListener {
+public interface SweetAlertDialogValueListener {
     /**
      * 关对话框
      *
