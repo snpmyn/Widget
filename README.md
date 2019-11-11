@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/snpmyn/Widget.svg?branch=master)](https://travis-ci.org/snpmyn/Widget)
 [![codecov.io](https://codecov.io/github/snpmyn/Widget/branch/master/graph/badge.svg)](https://codecov.io/github/snpmyn/Widget)
 [![SNAPSHOT](https://jitpack.io/v/Jaouan/Revealator.svg)](https://jitpack.io/#snpmyn/Widget)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1c9a1b1d1ce4ca7a201ab93492bf6e0)](https://app.codacy.com/project/snpmyn/Widget/dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0674f8455af24734b1749a94cf94da93)](https://www.codacy.com/manual/snpmyn/Widget?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=snpmyn/Widget&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 
@@ -26,7 +26,7 @@
 |:-:|:-:|
 | 示例app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
-| 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.13' |
+| 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.14' |
 | 示例app | implementation project(path: ':library') |
 | 示例app | implementation project(path: ':matisse') |
 | 示例app | implementation project(path: ':ucrop') |
@@ -85,7 +85,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-                
+        maven { url 'https://jitpack.io' }  
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.2'           
