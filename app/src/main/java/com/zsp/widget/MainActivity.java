@@ -40,6 +40,7 @@ import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
 import example.telephony.TelephonyActivity;
 import example.textview.TextViewActivity;
+import example.tipview.TipViewActivity;
 import example.toolbar.ToolbarActivity;
 import example.voice.VoiceActivity;
 
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbToolbar,
             R.id.mainActivityMbConnection,
             R.id.mainActivityMbClock,
+            R.id.mainActivityMbTipView,
             R.id.mainActivityMbMatisse,
             R.id.mainActivityMbScanCode})
     public void onViewClicked(View view) {
@@ -228,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
             // 时钟
             case R.id.mainActivityMbClock:
                 IntentUtils.jumpNoBundle(this, ClockActivity.class);
+                break;
+            // 提示视图
+            case R.id.mainActivityMbTipView:
+                IntentUtils.jumpNoBundle(this, TipViewActivity.class);
                 break;
             // Matisse示例
             case R.id.mainActivityMbMatisse:

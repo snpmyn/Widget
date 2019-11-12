@@ -159,6 +159,12 @@
     <string name="scanQrCode">扫二维码</string>
     <string name="scanBarCode">扫条形码</string>
     <string name="errorOpeningTheCamera">打开相机出错</string>
+    <string name="tipView">提示视图</string>
+    <string name="exampleAnchoredView">Example Anchored View</string>
+    <string name="tipTitleOne">Title</string>
+    <string name="tipMessageOne">ToolBar Title</string>
+    <string name="tipTitleTwo">ToolBar Title</string>
+    <string name="tipMessageTwo">ToolTip Message sample. Lorem ipsum dolor sit amet lorem ipsum.</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>

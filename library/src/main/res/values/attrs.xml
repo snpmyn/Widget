@@ -252,4 +252,28 @@
     <declare-styleable name="ElasticCardView">
         <attr name="flexibility" format="float" />
     </declare-styleable>
+    <!--TipView-->
+    <declare-styleable name="TipView">
+        <attr name="tipTitle" format="string" />
+        <attr name="tipMessage" format="string" />
+        <attr name="tipTextColor" format="color" />
+        <attr name="anchoredView" format="reference" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="tipBackgroundColor" format="color" />
+        <attr name="arrowHeight" format="dimension" />
+        <attr name="arrowWidth" format="dimension" />
+        <attr name="closeButtonVisibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="1" />
+        </attr>
+        <attr name="closeButtonGravity" format="integer">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="arrowLocation" format="integer">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>

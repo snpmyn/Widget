@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tipViewActivityLl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_12"
+    tools:context="example.tipview.TipViewActivity">
+
+    <TextView
+        android:id="@+id/tipViewActivityTvOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:text="@string/exampleAnchoredView"
+        android:textColor="@color/background"
+        android:textSize="@dimen/sp_12" />
+
+    <com.zsp.library.tipview.TipView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:anchoredView="@+id/tipViewActivityTvOne"
+        app:arrowLocation="top"
+        app:closeButtonGravity="top"
+        app:cornerRadius="@dimen/dp_4"
+        app:tipBackgroundColor="@color/colorFF415AFF"
+        app:tipMessage="@string/tipMessageOne"
+        app:tipTitle="@string/tipTitleOne" />
+
+    <com.zsp.library.tipview.TipView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_4"
+        app:anchoredView="@+id/tipViewActivityTvTwo"
+        app:arrowLocation="bottom"
+        app:closeButtonGravity="top"
+        app:closeButtonVisibility="gone"
+        app:cornerRadius="@dimen/dp_4"
+        app:tipBackgroundColor="@color/colorPrimary"
+        app:tipMessage="@string/tipMessageTwo"
+        app:tipTitle="@string/tipTitleTwo" />
+
+    <TextView
+        android:id="@+id/tipViewActivityTvTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/red"
+        android:text="@string/exampleAnchoredView"
+        android:textColor="@color/background"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/tipViewActivityTvThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@color/red"
+        android:text="@string/exampleAnchoredView"
+        android:textColor="@color/background"
+        android:textSize="@dimen/sp_12" />
+</LinearLayout>
