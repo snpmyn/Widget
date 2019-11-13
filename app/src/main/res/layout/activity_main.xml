@@ -203,6 +203,13 @@
             android:textAppearance="?android:attr/textAppearanceInverse" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainActivityMbTagView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tagView"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/mainActivityMbMatisse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

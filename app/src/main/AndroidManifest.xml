@@ -27,6 +27,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.tagview.TagViewActivity" />
         <activity android:name="example.tipview.TipViewActivity" />
         <activity android:name="example.bgaqrcodeandroid.ScanCodeActivity" />
         <activity android:name="com.yalantis.ucrop.UCropActivity" />

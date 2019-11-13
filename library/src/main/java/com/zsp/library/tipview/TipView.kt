@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat
 import com.zsp.library.R
 
 /**
- * @decs: TipView
+ * @decs: 提示视图
  * @author: 郑少鹏
  * @date: 2019/11/12 10:51
  */

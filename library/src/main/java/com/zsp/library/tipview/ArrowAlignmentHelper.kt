@@ -4,7 +4,7 @@ import android.graphics.RectF
 import android.view.View
 
 /**
- * @decs: ArrowAlignmentHelper
+ * @decs: 角对准帮助器
  * @author: 郑少鹏
  * @date: 2019/11/12 10:50
  */

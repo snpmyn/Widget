@@ -165,6 +165,10 @@
     <string name="tipMessageOne">ToolBar Title</string>
     <string name="tipTitleTwo">ToolBar Title</string>
     <string name="tipMessageTwo">ToolTip Message sample. Lorem ipsum dolor sit amet lorem ipsum.</string>
+    <string name="tagView">标签视图</string>
+    <string name="tagViewDeleteHint">Will be delete. Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <!--format-->
     <string name="callStateRingingStartTime">响铃 开始时间：%1$d</string>
     <string name="callOutStartTime">呼出 开始时间：%1$d</string>
@@ -172,6 +176,7 @@
     <string name="pictureParameters">原始参数：%1$s\n压缩后参数：%2$s</string>
     <string name="flexibility">Flexibility is %1$ff</string>
     <string name="second">%1$d秒</string>
+    <string name="restore">restore</string>
     <!--string-array-->
     <string-array name="progressValueOptions">
         <item>Cycle between 0% and 100%</item>

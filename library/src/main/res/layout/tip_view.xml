@@ -40,5 +40,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/toDo"
-        android:src="@drawable/tip_close" />
+        android:src="@drawable/tip_view_close" />
 </LinearLayout>

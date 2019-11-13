@@ -38,6 +38,7 @@ import example.sidedrag.SideDragActivity;
 import example.sms.SmsActivity;
 import example.spannablestringbuilder.SpannableStringBuilderActivity;
 import example.spruce.SpruceActivity;
+import example.tagview.TagViewActivity;
 import example.telephony.TelephonyActivity;
 import example.textview.TextViewActivity;
 import example.tipview.TipViewActivity;
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.mainActivityMbConnection,
             R.id.mainActivityMbClock,
             R.id.mainActivityMbTipView,
+            R.id.mainActivityMbTagView,
             R.id.mainActivityMbMatisse,
             R.id.mainActivityMbScanCode})
     public void onViewClicked(View view) {
@@ -234,6 +236,10 @@ public class MainActivity extends AppCompatActivity {
             // 提示视图
             case R.id.mainActivityMbTipView:
                 IntentUtils.jumpNoBundle(this, TipViewActivity.class);
+                break;
+            // 标签视图
+            case R.id.mainActivityMbTagView:
+                IntentUtils.jumpNoBundle(this, TagViewActivity.class);
                 break;
             // Matisse示例
             case R.id.mainActivityMbMatisse:
