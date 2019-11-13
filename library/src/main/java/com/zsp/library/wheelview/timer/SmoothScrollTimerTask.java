@@ -29,7 +29,7 @@ public final class SmoothScrollTimerTask extends TimerTask {
             realTotalOffset = offset;
         }
         // 将要滚动范围细分10小份，按10小份单位重绘
-        realOffset = (int) ((float) realTotalOffset * 0.1F);
+        realOffset = (int) ((float) realTotalOffset * 0.1f);
         if (realOffset == 0) {
             if (realTotalOffset < 0) {
                 realOffset = -1;
