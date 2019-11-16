@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,13 +48,9 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     private View searchDialogFragmentViewDivider;
     private View view;
     /**
-     * DCL（Double Check Lock）式单例
-     */
-    private volatile static SearchDialogFragment searchDialogFragment;
-    /**
      * 数据库名
      */
-    private static String name;
+    private String name;
     /**
      * 动画
      */
@@ -81,23 +78,42 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     private OnSearchDialogHideListener onSearchDialogHideListener;
 
     /**
-     * 单例
+     * constructor
      *
      * @param name 数据库名
      *             SearchHistory_db于沙盒看显乱码
      *             SearchHistory.db于沙盒直查
-     * @return 单例
      */
-    public static SearchDialogFragment newInstance(String name) {
-        if (searchDialogFragment == null) {
-            synchronized (SearchDialogFragment.class) {
-                if (searchDialogFragment == null) {
-                    searchDialogFragment = new SearchDialogFragment();
-                }
+    public SearchDialogFragment(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Remove dialog.
+     */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (null != onSearchClickListener) {
+            onSearchClickListener = null;
+        }
+        if (null != onSearchDialogHideListener) {
+            onSearchClickListener = null;
+        }
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (null != getDialog()) {
+            try {
+                // 解决内存泄漏
+                getDialog().setOnDismissListener(null);
+                getDialog().setOnCancelListener(null);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        SearchDialogFragment.name = name;
-        return searchDialogFragment;
     }
 
     @Override

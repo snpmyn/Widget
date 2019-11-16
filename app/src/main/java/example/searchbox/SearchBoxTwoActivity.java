@@ -39,13 +39,13 @@ public class SearchBoxTwoActivity extends AppCompatActivity {
         searchBoxTwoActivityMt.setNavigationOnClickListener(v -> finish());
         searchBoxTwoActivityMt.setOnMenuItemClickListener(item -> {
             searchBoxTwoActivityMt.getMenu().findItem(R.id.pharmaceuticalKnowledgeListActivityMenuSearch).setVisible(false);
-            searchDialogFragment.showFragment(getSupportFragmentManager(), "SearchDialogFragment");
+            searchDialogFragment.showFragment(getSupportFragmentManager(), SearchDialogFragment.TAG);
             return true;
         });
     }
 
     private void stepSearchDialogFragment() {
-        searchDialogFragment = SearchDialogFragment.newInstance("WidgetSearchHistory.db");
+        searchDialogFragment = new SearchDialogFragment("WidgetSearchHistory.db");
         searchDialogFragment.setOnSearchClickListener(keyword -> ToastUtils.shortShow(this, keyword));
         searchDialogFragment.setOnSearchDialogHideListener(() -> searchBoxTwoActivityMt.getMenu().findItem(R.id.pharmaceuticalKnowledgeListActivityMenuSearch).setVisible(true));
     }

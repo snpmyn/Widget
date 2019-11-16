@@ -24,7 +24,7 @@
 
 | 模块 | 依赖 |
 |:-:|:-:|
-| 示例app | implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" |
+| 示例app | implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.60@jar' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.14' |
 | 示例app | implementation project(path: ':library') |
@@ -77,6 +77,9 @@
 | 二方库Util-UtilTwo | 无 |
 
 ### 使用
+> 版本快速迭代中，暂时使用`master-SNAPSHOT`版。<br>
+> 如获取不成功，请暂时查看源码。
+
 build.gradle(module)
 ```
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
