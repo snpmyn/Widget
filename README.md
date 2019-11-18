@@ -145,8 +145,8 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:banner:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:AutoSize:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:SmartRefreshLayout:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:autosize:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:smartrefreshlayout:master-SNAPSHOT'
 }
 ```
 
