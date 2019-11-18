@@ -1,4 +1,4 @@
-package example.bgaqrcodeandroid;
+package example.tripartitelibrary.bgaqrcodeandroid;
 
 import android.Manifest;
 import android.content.Intent;

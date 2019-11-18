@@ -27,11 +27,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="example.tripartitelibrary.TripartiteLibraryExampleActivity" />
+        <activity android:name="example.onepartylibrary.OnePartyLibraryExampleActivity" />
+        <activity android:name="example.tripartitelibrary.banner.BannerActivity" />
         <activity android:name="example.tagview.TagViewActivity" />
         <activity android:name="example.tipview.TipViewActivity" />
-        <activity android:name="example.bgaqrcodeandroid.ScanCodeActivity" />
+        <activity android:name="example.tripartitelibrary.bgaqrcodeandroid.ScanCodeActivity" />
         <activity android:name="com.yalantis.ucrop.UCropActivity" />
-        <activity android:name="example.matisse.MatisseExampleActivity" />
+        <activity android:name="example.tripartitelibrary.matisse.MatisseExampleActivity" />
         <activity android:name="example.clock.ClockActivity" />
         <activity android:name="example.picture.EasingActivity" />
         <activity android:name="example.layout.CamberLayoutActivity" />

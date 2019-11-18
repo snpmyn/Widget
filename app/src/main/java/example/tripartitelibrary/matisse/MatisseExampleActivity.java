@@ -1,4 +1,4 @@
-package example.matisse;
+package example.tripartitelibrary.matisse;
 
 import android.Manifest;
 import android.content.Intent;

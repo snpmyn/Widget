@@ -1,226 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityMbOnePartyLibraryExample"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:padding="@dimen/dp_12">
+        android:layout_margin="@dimen/dp_12"
+        android:text="@string/onePartyLibraryExample"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivityMbTripartiteLibraryExample"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbPicture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/picture"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSearchBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/searchBox"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textView"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/animation"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dialog"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSpannableStringBuilder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/spannableStringBuilder"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbScreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/screen"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSpruce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/spruce"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbVoice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/voice"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/location"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbPudding"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pudding"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbCounter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/counter"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sms"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/contact"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbTelephony"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/telephony"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbProgressBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/progressBar"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/layout"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbSideDrag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sideDrag"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbBanner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/banner"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbRadarChart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radarChart"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbRadarCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/card"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbFocusResize"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/focusResize"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbGuide"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/guide"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/toolbar"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbConnection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/connection"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbClock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/clock"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbTipView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tipView"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbTagView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tagView"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbMatisse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/matisse"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainActivityMbScanCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/scanCode"
-            android:textAppearance="?android:attr/textAppearanceInverse" />
-    </LinearLayout>
-</ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mainActivityMbTripartiteLibraryExample"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_12"
+        android:text="@string/tripartiteLibraryExample"
+        android:textAppearance="?android:attr/textAppearanceInverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityMbOnePartyLibraryExample" />
+</androidx.constraintlayout.widget.ConstraintLayout>

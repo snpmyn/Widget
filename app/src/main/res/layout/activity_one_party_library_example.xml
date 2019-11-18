@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="example.onepartylibrary.OnePartyLibraryExampleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_12">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbPicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/picture"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbSearchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/searchBox"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textView"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/animation"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbSpannableStringBuilder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spannableStringBuilder"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/screen"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbSpruce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spruce"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbVoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/voice"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/location"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbPudding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pudding"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbSms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sms"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbTelephony"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/telephony"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/progressBar"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layout"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbSideDrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sideDrag"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/banner"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbRadarChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radarChart"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbRadarCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbFocusResize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/focusResize"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guide"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/toolbar"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/connection"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clock"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbTipView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tipView"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/onePartyLibraryExampleActivityMbTagView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tagView"
+            android:textAppearance="?android:attr/textAppearanceInverse" />
+    </LinearLayout>
+</ScrollView>
