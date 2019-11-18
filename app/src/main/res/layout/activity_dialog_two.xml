@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.dialog.DialogTwoActivity">
+    tools:context="example.onepartylibrary.dialog.DialogTwoActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/dialogTwoActivityMbShare"

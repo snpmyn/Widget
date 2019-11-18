@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.contact.ContactActivity">
+    tools:context="example.onepartylibrary.contact.ContactActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactActivityRv"

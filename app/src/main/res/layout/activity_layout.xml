@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.layout.LayoutActivity">
+    tools:context="example.onepartylibrary.layout.LayoutActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/voiceActivityMbPercentLayout"

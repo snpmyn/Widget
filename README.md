@@ -18,7 +18,7 @@
 | 一方库Library | 纯本地实现 | 无 |
 | 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 | 无 |
 | 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
-| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop（限一方库BgaQrCodeAndroid使用）|
+| 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop（限一方库BgaQrCodeAndroid用）|
 
 ### 依赖、权限
 
@@ -31,16 +31,18 @@
 | 示例app | implementation project(path: ':matisse') |
 | 示例app | implementation project(path: ':ucrop') |
 | 示例app | implementation project(path: ':BgaQrCodeAndroid') |
+| 示例app | implementation project(path: ':banner') |
 | 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
-| 一方库Library | api 'com.github.snpmyn:*Util*:master-SNAPSHOT'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:master-SNAPSHOT'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
 | 一方库Matisse | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
-| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT' |
 | 一方库BgaQrCodeAndroid | api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'（避重）|
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
@@ -78,7 +80,7 @@
 
 ### 使用
 > 版本快速迭代中，暂时使用`master-SNAPSHOT`版。<br>
-> 如获取不成功，请暂时查看源码。
+> 获取不成功请暂时查看源码。
 
 build.gradle(module)
 ```
@@ -133,6 +135,7 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:banner:master-SNAPSHOT'
 }
 ```
 

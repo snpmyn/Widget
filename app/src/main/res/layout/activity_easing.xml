@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.picture.EasingActivity">
+    tools:context="example.onepartylibrary.picture.EasingActivity">
 
     <com.zsp.library.picture.easing.view.EasingView
         android:id="@+id/easingActivityEv"

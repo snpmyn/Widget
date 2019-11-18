@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="example.animation.login.LoginOneActivity">
+    tools:context="example.onepartylibrary.animation.login.LoginOneActivity">
 
     <com.zsp.library.animation.login.one.ProgressButton
         android:id="@+id/loginOneActivityPb"

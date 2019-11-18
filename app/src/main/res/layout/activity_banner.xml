@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.banner.BannerActivity">
+    tools:context="example.onepartylibrary.banner.BannerActivity">
 
     <com.zsp.library.banner.view.BannerView
         android:id="@+id/bannerActivityBvInterval"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="example.clock.ClockActivity">
+    tools:context="example.onepartylibrary.clock.ClockActivity">
 
     <com.zsp.library.clock.ClockView
         android:layout_width="@dimen/dp_290"

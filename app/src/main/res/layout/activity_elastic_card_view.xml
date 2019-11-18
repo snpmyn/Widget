@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.card.elastic.ElasticCardViewActivity">
+    tools:context="example.onepartylibrary.card.elastic.ElasticCardViewActivity">
 
     <com.zsp.library.card.elastic.ElasticCardView
         android:id="@+id/elasticCardViewActivityEcv"

@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.guide.GuideActivity">
+    tools:context="example.onepartylibrary.guide.GuideActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/guideActivityMbGuideOne"

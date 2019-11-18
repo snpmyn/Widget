@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.location.LocationActivity">
+    tools:context="example.onepartylibrary.location.LocationActivity">
 
     <TextView
         android:id="@+id/locationActivityTvResult"

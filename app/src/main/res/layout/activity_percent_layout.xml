@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.layout.PercentLayoutActivity">
+    tools:context="example.onepartylibrary.layout.PercentLayoutActivity">
 
     <com.zsp.library.layout.percent.layout.PercentLinearLayout
         android:layout_width="wrap_content"

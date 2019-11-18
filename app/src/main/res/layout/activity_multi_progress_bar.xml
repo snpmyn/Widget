@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="example.progressbar.MultiProgressBarActivity">
+    tools:context="example.onepartylibrary.progressbar.MultiProgressBarActivity">
 
     <com.zsp.library.progressbar.MultiProgressBar
         style="@android:style/Widget.Material.ProgressBar.Horizontal"

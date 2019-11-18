@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.textview.FillActivity">
+    tools:context="example.onepartylibrary.textview.FillActivity">
 
     <com.zsp.library.textview.FillTextView
         android:id="@+id/fillActivityFtv"

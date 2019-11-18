@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.toolbar.ToolbarActivity">
+    tools:context="example.onepartylibrary.toolbar.ToolbarActivity">
 
     <com.zsp.library.toolbar.WaterfallToolbar
         android:id="@+id/toolbarActivityWt"

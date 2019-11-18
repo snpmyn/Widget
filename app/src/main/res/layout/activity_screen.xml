@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.screen.ScreenActivity">
+    tools:context="example.onepartylibrary.screen.ScreenActivity">
 
     <TextView
         android:id="@+id/screenActivityTvResult"

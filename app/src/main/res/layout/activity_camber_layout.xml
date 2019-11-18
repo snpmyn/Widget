@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.layout.CamberLayoutActivity">
+    tools:context="example.onepartylibrary.layout.CamberLayoutActivity">
 
     <com.zsp.library.layout.camber.CamberContainer
         android:id="@+id/camberLayoutActivityCc"

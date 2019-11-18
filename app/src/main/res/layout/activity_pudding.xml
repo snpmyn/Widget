@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/dp_12"
-    tools:context="example.pudding.PuddingActivity">
+    tools:context="example.onepartylibrary.pudding.PuddingActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/puddingActivityJavaExampleOne"

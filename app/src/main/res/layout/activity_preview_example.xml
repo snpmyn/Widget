@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="example.picture.PreviewExampleActivity">
+    tools:context="example.onepartylibrary.picture.PreviewExampleActivity">
 
     <ImageView
         android:id="@+id/previewExampleActivityIv"

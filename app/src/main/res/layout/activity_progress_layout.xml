@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.layout.ProgressLayoutActivity">
+    tools:context="example.onepartylibrary.layout.ProgressLayoutActivity">
 
     <com.zsp.library.layout.progress.ProgressLayout
         android:id="@+id/progressLayoutActivityPl"
