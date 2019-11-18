@@ -46,6 +46,8 @@ dependencies {
     /*BgaQrCodeAndroid*/
     implementation project(path: ':banner')
     /*banner*/
+    implementation project(path: ':autosize')
+    /*AutoSize*/
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     /*ButterKnife*/

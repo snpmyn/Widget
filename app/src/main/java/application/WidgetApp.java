@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
 
+import com.zsp.autosize.AutoSizeInitConfigure;
 import com.zsp.library.status.manager.StatusManager;
 import com.zsp.utilone.activity.ActivitySuperviseManager;
 import com.zsp.utilone.timber.configure.TimberInitConfigure;
@@ -37,6 +38,8 @@ public class WidgetApp extends Application {
     private void initConfiguration() {
         // timber
         TimberInitConfigure.initTimber(BuildConfig.DEBUG);
+        // AutoSize
+        AutoSizeInitConfigure.initAutoSize(this);
         // 全局监听Activity生命周期
         registerActivityListener();
     }

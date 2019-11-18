@@ -10,9 +10,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BgaQrCodeAndroid" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/autosize" />
             <option value="$PROJECT_DIR$/banner" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/matisse" />
+            <option value="$PROJECT_DIR$/smartrefreshlayout" />
             <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>

@@ -19,6 +19,9 @@
 | 一方库Matisse | 据三方库[Matisse](https://github.com/zhihu/Matisse)实现 | 无 |
 | 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
 | 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop（限一方库BgaQrCodeAndroid用）|
+| 一方库Banner | 据三方库[banner](https://github.com/youth5201314/banner)实现 | 无 |
+| 一方库SmartRefreshLayout | 据三方库[SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)实现 | 无 |
+| 一方库AutoSize | 据三方库[AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)实现 | 无 |
 
 ### 依赖、权限
 
@@ -43,7 +46,10 @@
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
 | 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT' |
-| 一方库BgaQrCodeAndroid | api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'（避重）|
+| 一方库Banner | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
+| 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
+| 一方库SmartRefreshLayout | implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0' |
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
@@ -73,6 +79,9 @@
 | 一方库Matisse | 无 |
 | 一方库Ucrop | 无 |
 | 一方库BgaQrCodeAndroid | 无 |
+| 一方库Banner | 无 |
+| 一方库AutoSize | 无 |
+| 一方库SmartRefreshLayout | 无 |
 | 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-UtilOne | 无 |
@@ -136,6 +145,8 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:master-SNAPSHOT'
     implementation 'com.github.snpmyn.Widget:banner:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:AutoSize:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:SmartRefreshLayout:master-SNAPSHOT'
 }
 ```
 
