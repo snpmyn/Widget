@@ -38,15 +38,15 @@
 | 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
-| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT'（避重）|
-| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:master-SNAPSHOT'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v1.0.1'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v1.0.1'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
-| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:master-SNAPSHOT' |
-| 一方库Banner | implementation 'com.github.snpmyn:*Util*:master-SNAPSHOT' |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v1.0.1' |
+| 一方库Banner | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
 | 一方库SmartRefreshLayout | implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0' |
@@ -88,8 +88,8 @@
 | 二方库Util-UtilTwo | 无 |
 
 ### 使用
-> 版本快速迭代中，暂时使用`master-SNAPSHOT`版。<br>
-> 获取不成功请暂时查看源码。
+> [SECURITY](https://github.com/snpmyn/Widget/blob/master/SECURITY.md)<br>
+> 版本快速迭代中，拉取失败暂时查看源码。
 
 build.gradle(module)
 ```
@@ -140,13 +140,13 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn.Widget:library:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:matisse:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:ucrop:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:banner:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:autosize:master-SNAPSHOT'
-    implementation 'com.github.snpmyn.Widget:smartrefreshlayout:master-SNAPSHOT'
+    implementation 'com.github.snpmyn.Widget:library:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:matisse:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:ucrop:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:banner:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:autosize:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:smartrefreshlayout:v1.0.1'
 }
 ```
 
