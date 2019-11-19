@@ -20,7 +20,6 @@
 | 一方库Ucrop | 据三方库[uCrop](https://github.com/Yalantis/uCrop)实现 | 无 |
 | 一方库BgaQrCodeAndroid | 据三方库[BGAQRCode-Android](https://github.com/bingoogolapple/BGAQRCode-Android)实现 | 含一方库Ucrop（限一方库BgaQrCodeAndroid用）|
 | 一方库Banner | 据三方库[banner](https://github.com/youth5201314/banner)实现 | 无 |
-| 一方库SmartRefreshLayout | 据三方库[SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)实现 | 无 |
 | 一方库AutoSize | 据三方库[AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)实现 | 无 |
 
 ### 依赖、权限
@@ -50,7 +49,6 @@
 | 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v1.0.1' |
 | 一方库Banner | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
-| 一方库SmartRefreshLayout | api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
@@ -82,7 +80,6 @@
 | 一方库Ucrop | 无 |
 | 一方库BgaQrCodeAndroid | 无 |
 | 一方库Banner | 无 |
-| 一方库SmartRefreshLayout | 无 |
 | 一方库AutoSize | 无 |
 | 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
@@ -148,7 +145,6 @@ dependencies {
     implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v1.0.1'
     implementation 'com.github.snpmyn.Widget:banner:v1.0.1'
     implementation 'com.github.snpmyn.Widget:autosize:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:smartrefreshlayout:v1.0.1'
 }
 ```
 

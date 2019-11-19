@@ -1,1 +1,1 @@
-include ':app', ':library', ':matisse', ':ucrop', ':BgaQrCodeAndroid', ':banner', ':smartrefreshlayout', ':autosize'
+include ':app', ':library', ':matisse', ':ucrop', ':BgaQrCodeAndroid', ':banner', ':autosize'

@@ -46,8 +46,6 @@ dependencies {
     /*BgaQrCodeAndroid*/
     implementation project(path: ':banner')
     /*banner*/
-    implementation project(path: ':smartrefreshlayout')
-    /*SmartRefreshFragment*/
     implementation project(path: ':autosize')
     /*AutoSize*/
     implementation 'com.jakewharton:butterknife:10.2.0'
