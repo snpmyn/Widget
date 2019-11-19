@@ -49,7 +49,7 @@
 | 一方库Banner | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
-| 一方库SmartRefreshLayout | implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0' |
+| 一方库SmartRefreshLayout | api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'（避重）|
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|

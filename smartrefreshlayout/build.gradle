@@ -29,6 +29,6 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     /*自带*/
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     /*SmartRefreshLayout*/
 }

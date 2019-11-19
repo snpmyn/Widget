@@ -108,8 +108,9 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
         if (null != getDialog()) {
             try {
                 // 解决内存泄漏
-                getDialog().setOnDismissListener(null);
+                getDialog().setOnShowListener(null);
                 getDialog().setOnCancelListener(null);
+                getDialog().setOnDismissListener(null);
             } catch (Exception e) {
                 e.printStackTrace();
             }

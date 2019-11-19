@@ -50,7 +50,7 @@ public class BannerActivity extends AppCompatActivity {
      * 开始逻辑
      */
     private void startLogic() {
-        List<Integer> integerList = new ArrayList<>();
+        List<Integer> integerList = new ArrayList<>(3);
         integerList.add(R.drawable.image_one);
         integerList.add(R.drawable.image_two);
         integerList.add(R.drawable.image_three);
