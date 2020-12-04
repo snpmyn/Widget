@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
  * @desc 表格布局条目间距装饰
  */
 public class GridLayoutSpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int spanCount;
-    private int spacing;
-    private boolean firstRowHaveTopSpaceDecoration;
-    private boolean includeEdge;
+    private final int spanCount;
+    private final int spacing;
+    private final boolean firstRowHaveTopSpaceDecoration;
+    private final boolean includeEdge;
 
     public GridLayoutSpaceItemDecoration(int spanCount, int spacing, boolean firstRowHaveTopSpaceDecoration, boolean includeEdge) {
         this.spanCount = spanCount;

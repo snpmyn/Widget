@@ -17,11 +17,11 @@ public class LinearLayoutVerticalSpaceItemDecoration extends RecyclerView.ItemDe
     /**
      * 间距
      */
-    private int space;
+    private final int space;
     /**
      * 左右偏移
      */
-    private boolean leftAndRightOffset;
+    private final boolean leftAndRightOffset;
 
     /**
      * constructor

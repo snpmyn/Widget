@@ -1,5 +1,6 @@
 package com.zsp.library.concaveconvex;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -31,15 +32,15 @@ public class LowerConvexView extends View {
     /**
      * 弧高
      */
-    private int arcHeight;
+    private final int arcHeight;
     /**
      * 背景色
      */
-    private int backgroundColor;
+    private final int backgroundColor;
     /**
      * 画笔
      */
-    private Paint paint;
+    private final Paint paint;
 
     public LowerConvexView(Context context) {
         this(context, null);
@@ -58,6 +59,7 @@ public class LowerConvexView extends View {
         paint = new Paint();
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

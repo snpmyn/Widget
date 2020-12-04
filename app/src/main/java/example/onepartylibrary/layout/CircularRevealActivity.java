@@ -1,6 +1,7 @@
 package example.onepartylibrary.layout;
 
 import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
  * @date: 2019/8/27 11:54
  */
 public class CircularRevealActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularRevealActivityTv)
     TextView circularRevealActivityTv;
 

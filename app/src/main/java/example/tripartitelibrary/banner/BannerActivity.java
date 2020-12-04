@@ -1,5 +1,6 @@
 package example.tripartitelibrary.banner;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
  * @date: 2019/11/18 11:09
  */
 public class BannerActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.bannerActivityBanner)
     Banner bannerActivityBanner;
     /**

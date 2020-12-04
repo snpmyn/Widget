@@ -1,5 +1,6 @@
 package example.onepartylibrary.dialog;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class DialogTwoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.dialogTwoActivityMbShare,
             R.id.dialogTwoActivityMbFriendSetting,
             R.id.dialogTwoActivityMbComment,

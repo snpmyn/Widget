@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,11 +48,11 @@ public class WaveSideBar extends View {
     /**
      * 字母列表画笔
      */
-    private Paint mLettersPaint = new Paint();
+    private final Paint mLettersPaint = new Paint();
     /**
      * 提示字母画笔
      */
-    private Paint mTextPaint = new Paint();
+    private final Paint mTextPaint = new Paint();
     /**
      * 波浪画笔
      */
@@ -66,11 +67,11 @@ public class WaveSideBar extends View {
     /**
      * 波浪路径
      */
-    private Path mWavePath = new Path();
+    private final Path mWavePath = new Path();
     /**
      * 圆形路径
      */
-    private Path mCirclePath = new Path();
+    private final Path mCirclePath = new Path();
     /**
      * 手指滑Y点作中心点
      */
@@ -212,8 +213,8 @@ public class WaveSideBar extends View {
         RectF fRect = new RectF();
         fRect.left = xPoint - mTextSize;
         fRect.right = xPoint + mTextSize;
-        fRect.top = mTextSize / 2;
-        fRect.bottom = mHeight - mTextSize / 2;
+        fRect.top = new BigDecimal(mTextSize / 2).floatValue();
+        fRect.bottom = mHeight - new BigDecimal(mTextSize / 2).floatValue();
         mLettersPaint.reset();
         mLettersPaint.setStyle(Paint.Style.FILL);
         mLettersPaint.setColor(Color.parseColor("#F9F9F9"));

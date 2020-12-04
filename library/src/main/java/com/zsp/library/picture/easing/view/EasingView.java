@@ -68,7 +68,7 @@ public class EasingView extends ImageView {
      * Indicates whether the parent constructor was already called.
      * This is needed to distinguish if the image is being set before or after the super class constructor returns.
      */
-    private boolean mInitialized;
+    private final boolean mInitialized;
 
     public EasingView(Context context) {
         this(context, null);

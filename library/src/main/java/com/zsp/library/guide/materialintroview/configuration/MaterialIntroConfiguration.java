@@ -20,7 +20,7 @@ public class MaterialIntroConfiguration {
     private boolean dismissOnTouch;
     private int colorTextViewInfo;
     private boolean isDotViewEnabled;
-    private boolean isImageViewEnabled;
+    private final boolean isImageViewEnabled;
 
     public MaterialIntroConfiguration() {
         maskColor = 0x70000000;

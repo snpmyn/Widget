@@ -19,7 +19,7 @@ public class MyGridLayoutManager extends GridLayoutManager {
     /**
      * 布局子控件监听
      */
-    private OnLayoutChildrenListener onLayoutChildrenListener;
+    private final OnLayoutChildrenListener onLayoutChildrenListener;
 
     /**
      * Creates a vertical GridLayoutManager

@@ -10,7 +10,7 @@ import android.view.View;
  * @date: 2019/9/24 14:54
  */
 public class ViewTarget implements Target {
-    private View view;
+    private final View view;
 
     public ViewTarget(View view) {
         this.view = view;

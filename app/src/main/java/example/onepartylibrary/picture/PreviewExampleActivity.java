@@ -1,5 +1,6 @@
 package example.onepartylibrary.picture;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.SharedElementCallback;
 import android.content.Context;
@@ -35,6 +36,7 @@ import value.WidgetLibraryRxBusConstant;
  * @date: 2019/6/9 11:22
  */
 public class PreviewExampleActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.previewExampleActivityIv)
     ImageView pictureActivityIv;
     /**
@@ -129,6 +131,7 @@ public class PreviewExampleActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.previewExampleActivityIv)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.previewExampleActivityIv) {

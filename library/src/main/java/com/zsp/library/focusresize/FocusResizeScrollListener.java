@@ -15,13 +15,13 @@ import timber.log.Timber;
  * @date: 2019/9/5 17:16
  */
 public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends RecyclerView.OnScrollListener {
-    private int heightCollapsedItem;
-    private int heightExpandedItem;
+    private final int heightCollapsedItem;
+    private final int heightExpandedItem;
     private int itemToResize;
     private boolean init = false;
-    private LinearLayoutManager mLinearLayoutManager;
+    private final LinearLayoutManager mLinearLayoutManager;
     private int dyAbs;
-    private T adapter;
+    private final T adapter;
 
     /**
      * constructor

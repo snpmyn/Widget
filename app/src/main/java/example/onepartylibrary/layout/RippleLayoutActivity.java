@@ -1,5 +1,6 @@
 package example.onepartylibrary.layout;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,6 +20,7 @@ import butterknife.OnClick;
  * @date: 2019/8/26 18:02
  */
 public class RippleLayoutActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rippleLayoutActivityRl)
     RippleLayout rippleLayoutActivityRl;
 
@@ -34,6 +36,7 @@ public class RippleLayoutActivity extends AppCompatActivity {
         rippleLayoutActivityRl.setOnRippleCompleteListener(rippleLayout -> ToastUtils.shortShow(RippleLayoutActivity.this, "onComplete"));
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.rippleLayoutActivityRl)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.rippleLayoutActivityRl) {

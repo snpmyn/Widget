@@ -18,8 +18,8 @@ import com.zsp.utilone.screen.ScreenUtils;
  */
 public abstract class BaseFocusResizeAdapter<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
     private static final int VIEW_TYPE_FOOTER = 1;
-    private Context context;
-    private int height;
+    private final Context context;
+    private final int height;
 
     public BaseFocusResizeAdapter(Context context, int height) {
         this.context = context;

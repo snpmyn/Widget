@@ -1,5 +1,6 @@
 package example.onepartylibrary.dialog;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class DialogActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.dialogActivityMbDialogOne, R.id.dialogActivityMbDialogTwo})
     public void onViewClicked(View view) {
         switch (view.getId()) {

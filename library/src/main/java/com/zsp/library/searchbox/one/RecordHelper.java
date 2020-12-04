@@ -10,11 +10,11 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @date: 2019/4/22 11:56
  */
 public class RecordHelper extends SQLiteOpenHelper {
-    private static String name = "SearchRecord.db";
-    private static Integer version = 1;
+    private static final String NAME = "SearchRecord.db";
+    private static final Integer VERSION = 1;
 
     RecordHelper(Context context) {
-        super(context, name, null, version);
+        super(context, NAME, null, VERSION);
     }
 
     @Override

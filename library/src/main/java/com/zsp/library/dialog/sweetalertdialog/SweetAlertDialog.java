@@ -34,13 +34,13 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     public static final int PROGRESS_TYPE = 5;
     private static final int NORMAL_TYPE = 0;
     private View mDialogView;
-    private AnimationSet mModalInAnim;
-    private AnimationSet mModalOutAnim;
-    private Animation mOverlayOutAnim;
-    private Animation mErrorInAnim;
-    private AnimationSet xErrorInAnim;
-    private AnimationSet mSuccessLayoutAnimSet;
-    private Animation mSuccessBowAnim;
+    private final AnimationSet mModalInAnim;
+    private final AnimationSet mModalOutAnim;
+    private final Animation mOverlayOutAnim;
+    private final Animation mErrorInAnim;
+    private final AnimationSet xErrorInAnim;
+    private final AnimationSet mSuccessLayoutAnimSet;
+    private final Animation mSuccessBowAnim;
     private TextView mTitleTextView;
     private TextView mContentTextView;
     private String mTitleText;
@@ -61,7 +61,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private ImageView mCustomImage;
     private MaterialButton mConfirmButton;
     private MaterialButton mCancelButton;
-    private ProgressHelper mProgressHelper;
+    private final ProgressHelper mProgressHelper;
     private FrameLayout mWarningFrame;
     private OnSweetClickListener mCancelClickListener;
     private OnSweetClickListener mConfirmClickListener;
@@ -218,7 +218,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         }
     }
 
-    public int getAlerType() {
+    public int getAlertType() {
         return mAlertType;
     }
 
@@ -258,8 +258,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     public SweetAlertDialog setContentText(String text) {
         mContentText = text;
         if (mContentTextView != null && mContentText != null) {
-            showContentText(true);
+            mShowContent = true;
             mContentTextView.setText(mContentText);
+            mContentTextView.setVisibility(mShowContent ? View.VISIBLE : View.GONE);
         }
         return this;
     }
@@ -278,14 +279,6 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
 
     public boolean isShowContentText() {
         return mShowContent;
-    }
-
-    private SweetAlertDialog showContentText(boolean isShow) {
-        mShowContent = isShow;
-        if (mContentTextView != null) {
-            mContentTextView.setVisibility(mShowContent ? View.VISIBLE : View.GONE);
-        }
-        return this;
     }
 
     public String getCancelText() {

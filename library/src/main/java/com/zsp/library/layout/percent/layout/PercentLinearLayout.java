@@ -19,7 +19,7 @@ import com.zsp.library.layout.percent.helper.PercentLayoutHelper;
  * @desc PercentLinearLayout
  */
 public class PercentLinearLayout extends LinearLayout {
-    private PercentLayoutHelper percentLayoutHelper;
+    private final PercentLayoutHelper percentLayoutHelper;
 
     public PercentLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);

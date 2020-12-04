@@ -1,5 +1,6 @@
 package example.onepartylibrary.guide;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -19,8 +20,10 @@ import butterknife.ButterKnife;
  * @date: 2019/9/24 11:29
  */
 public class GuideOneActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideOneActivityIvOne)
     ImageView guideOneActivityIvOne;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideOneActivityIvTwo)
     ImageView guideOneActivityIvTwo;
     /**

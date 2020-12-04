@@ -20,11 +20,11 @@ import value.WidgetLibraryMagic;
  * @date: 2019/8/28 19:03
  */
 class Engine {
-    private InputStreamProvider srcImg;
-    private File tagImg;
+    private final InputStreamProvider srcImg;
+    private final File tagImg;
     private int srcWidth;
     private int srcHeight;
-    private boolean focusAlpha;
+    private final boolean focusAlpha;
 
     Engine(InputStreamProvider srcImg, File tagImg, boolean focusAlpha) throws IOException {
         this.tagImg = tagImg;

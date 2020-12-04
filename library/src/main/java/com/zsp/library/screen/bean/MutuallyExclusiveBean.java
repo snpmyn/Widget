@@ -10,11 +10,11 @@ public class MutuallyExclusiveBean {
     /**
      * 组ID
      */
-    private String groupId;
+    private final String groupId;
     /**
      * 类别
      */
-    private String classification;
+    private final String classification;
 
     /**
      * constructor

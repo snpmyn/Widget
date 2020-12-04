@@ -79,7 +79,7 @@ public class LunarCalendar {
             /*2091-2099*/
             0x0D5252, 0x0DAA47, 0x66B53B, 0x056D4F, 0x04AE45, 0x4A4EB9, 0x0A4D4C, 0x0D1541, 0x2D92B5
     };
-    private static int[] solar_1_1 = {1887, 0xec04c, 0xec23f, 0xec435, 0xec649,
+    private static final int[] SOLAR_1_1 = {1887, 0xec04c, 0xec23f, 0xec435, 0xec649,
             0xec83e, 0xeca51, 0xecc46, 0xece3a, 0xed04d, 0xed242, 0xed436,
             0xed64a, 0xed83f, 0xeda53, 0xedc48, 0xede3d, 0xee050, 0xee244,
             0xee439, 0xee64d, 0xee842, 0xeea36, 0xeec4a, 0xeee3e, 0xef052,
@@ -113,7 +113,7 @@ public class LunarCalendar {
             0x105e45, 0x106039, 0x10624c, 0x106441, 0x106635, 0x106849,
             0x106a3d, 0x106c51, 0x106e47, 0x10703c, 0x10724f, 0x107444,
             0x107638, 0x10784c, 0x107a3f, 0x107c53, 0x107e48};
-    private static int[] lunar_month_days = {1887, 0x1694, 0x16aa, 0x4ad5,
+    private static final int[] LUNAR_MONTH_DAYS = {1887, 0x1694, 0x16aa, 0x4ad5,
             0xab6, 0xc4b7, 0x4ae, 0xa56, 0xb52a, 0x1d2a, 0xd54, 0x75aa, 0x156a,
             0x1096d, 0x95c, 0x14ae, 0xaa4d, 0x1a4c, 0x1b2a, 0x8d55, 0xad4,
             0x135a, 0x495d, 0x95c, 0xd49b, 0x149a, 0x1a4a, 0xbaa5, 0x16a8,
@@ -212,11 +212,7 @@ public class LunarCalendar {
                 if (dayOffset > iPos) {
                     solarInfo[2] = dayOffset - iPos;
                 } else if (dayOffset == iPos) {
-                    if (year % 4 == 0 && i == 2) {
-                        solarInfo[2] = DAYS_BEFORE_MONTH[i] - DAYS_BEFORE_MONTH[i - 1] + 1;
-                    } else {
-                        solarInfo[2] = DAYS_BEFORE_MONTH[i] - DAYS_BEFORE_MONTH[i - 1];
-                    }
+                    solarInfo[2] = DAYS_BEFORE_MONTH[i] - DAYS_BEFORE_MONTH[i - 1];
                 } else {
                     solarInfo[2] = dayOffset;
                 }
@@ -229,20 +225,20 @@ public class LunarCalendar {
 
     public static int[] solarToLunar(int year, int month, int monthDay) {
         int[] lunarDate = new int[4];
-        int index = year - solar_1_1[0];
+        int index = year - SOLAR_1_1[0];
         int data = (year << 9) | (month << 5) | (monthDay);
         int solar11;
-        if (solar_1_1[index] > data) {
+        if (SOLAR_1_1[index] > data) {
             index--;
         }
-        solar11 = solar_1_1[index];
+        solar11 = SOLAR_1_1[index];
         int y = getBitInt(solar11, 12, 9);
         int m = getBitInt(solar11, 4, 5);
         int d = getBitInt(solar11, 5, 0);
         long offset = solarToInt(year, month, monthDay) - solarToInt(y, m, d);
-        int days = lunar_month_days[index];
+        int days = LUNAR_MONTH_DAYS[index];
         int leap = getBitInt(days, 4, 13);
-        int yLunar = index + solar_1_1[0];
+        int yLunar = index + SOLAR_1_1[0];
         int mLunar = 1;
         int dLunar;
         offset += 1;

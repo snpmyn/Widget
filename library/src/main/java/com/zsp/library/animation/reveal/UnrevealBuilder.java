@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
  * @date: 2019/8/27 11:06
  */
 public class UnrevealBuilder {
-    private View mViewToUnreveal;
+    private final View mViewToUnreveal;
     private int mUnrevealDuration = 250;
     private int mTranslateDuration = 250;
     private float mShowFromViewInterpolatedDuration = 0.2F;
@@ -121,15 +121,12 @@ public class UnrevealBuilder {
         );
         // - If to view exists, show and translate the "to view".
         if (this.mToView != null) {
-            RevealHelper.showAndTranslateView(this.mToView, this.mViewToUnreveal, (int) (this.mUnrevealDuration * 0.9f), this.mTranslateDuration, this.mCurvedTranslation, this.mCurveControlPoint, this.mShowFromViewInterpolatedDuration, new Runnable() {
-                        @Override
-                        public void run() {
-                            // - Fire end action if necessary.
-                            if (mEndAction != null) {
-                                mEndAction.run();
-                            }
-                        }
-                    }
+            RevealHelper.showAndTranslateView(this.mToView, this.mViewToUnreveal, (int) (this.mUnrevealDuration * 0.9f), this.mTranslateDuration, this.mCurvedTranslation, this.mCurveControlPoint, this.mShowFromViewInterpolatedDuration, () -> {
+                // - Fire end action if necessary.
+                if (mEndAction != null) {
+                    mEndAction.run();
+                }
+            }
             );
         }
     }

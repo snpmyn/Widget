@@ -33,7 +33,7 @@ public class ScreenHandleKit implements View.OnClickListener {
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * BottomSheetDialog
      */
@@ -42,26 +42,26 @@ public class ScreenHandleKit implements View.OnClickListener {
     /**
      * 主体数据
      */
-    private Map<List<String>, Map<Integer, Boolean>> subjectMap;
+    private final Map<List<String>, Map<Integer, Boolean>> subjectMap;
     /**
      * 单选后可反选数据
      */
-    private List<String> canCancelAfterSingleSelectList;
+    private final List<String> canCancelAfterSingleSelectList;
     /**
      * 默选数据
      */
-    private Map<String, List<String>> defaultSelectMap;
+    private final Map<String, List<String>> defaultSelectMap;
     /**
      * 互斥数据、互斥数据类别数据
      */
-    private List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
-    private List<String> mutuallyExclusiveBeanListClassificationList;
+    private final List<MutuallyExclusiveBean> mutuallyExclusiveBeanList;
+    private final List<String> mutuallyExclusiveBeanListClassificationList;
     /**
      * 展开/折叠数据、展开/折叠数据主控类别数据、展开/折叠数据被控类别数据
      */
-    private List<UnfoldAndFoldBean> unfoldAndFoldBeanList;
-    private List<String> unfoldAndFoldBeanListActiveControlClassificationList;
-    private List<String> unfoldAndFoldBeanListPassiveControlClassificationList;
+    private final List<UnfoldAndFoldBean> unfoldAndFoldBeanList;
+    private final List<String> unfoldAndFoldBeanListActiveControlClassificationList;
+    private final List<String> unfoldAndFoldBeanListPassiveControlClassificationList;
     /**
      * 筛选适配器
      */

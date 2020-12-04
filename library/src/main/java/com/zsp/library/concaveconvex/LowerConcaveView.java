@@ -25,7 +25,7 @@ public class LowerConcaveView extends ImageView {
     /**
      * 弧高
      */
-    private int arcHeight;
+    private final int arcHeight;
 
     public LowerConcaveView(Context context) {
         this(context, null);
@@ -42,6 +42,7 @@ public class LowerConcaveView extends ImageView {
         typedArray.recycle();
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         Path path = new Path();

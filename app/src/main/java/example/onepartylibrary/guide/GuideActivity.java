@@ -1,5 +1,6 @@
 package example.onepartylibrary.guide;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class GuideActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.guideActivityMbGuideOne, R.id.guideActivityMbGuideTwo})
     public void onViewClicked(View view) {
         switch (view.getId()) {

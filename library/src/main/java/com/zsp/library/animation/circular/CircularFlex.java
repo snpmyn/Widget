@@ -137,11 +137,12 @@ public class CircularFlex {
     }
 
     public static class VisibleBuilder {
-        private View mAnimView, mTriggerView;
+        private final View mAnimView;
+        private View mTriggerView;
         private Float mStartRadius, mEndRadius;
         private Point mTriggerPoint;
         private long mDurationMills = getPerfectMills();
-        private boolean isShow;
+        private final boolean isShow;
         private OnAnimatorDeployListener mOnAnimatorDeployListener;
         private OnAnimationEndListener mOnAnimationEndListener;
 
@@ -272,8 +273,8 @@ public class CircularFlex {
     }
 
     public static class FullActivityBuilder {
-        private Activity mActivity;
-        private Point mTriggerPoint;
+        private final Activity mActivity;
+        private final Point mTriggerPoint;
         private float mStartRadius = MINI_RADIUS;
         private int mColorOrImageResource = getColorOrImageRes();
         private Drawable mDrawable;

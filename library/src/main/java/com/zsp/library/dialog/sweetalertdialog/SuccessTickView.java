@@ -69,14 +69,12 @@ public class SuccessTickView extends View {
         if (mLeftRectGrowMode) {
             leftRect.left = 0;
             leftRect.right = leftRect.left + mLeftRectWidth;
-            leftRect.top = (hTotal + CONST_RIGHT_RECT_W) / 2;
-            leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
         } else {
             leftRect.right = (wTotal + CONST_LEFT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
             leftRect.left = leftRect.right - mLeftRectWidth;
-            leftRect.top = (hTotal + CONST_RIGHT_RECT_W) / 2;
-            leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
         }
+        leftRect.top = (hTotal + CONST_RIGHT_RECT_W) / 2;
+        leftRect.bottom = leftRect.top + CONST_RECT_WEIGHT;
         canvas.drawRoundRect(leftRect, CONST_RADIUS, CONST_RADIUS, mPaint);
         RectF rightRect = new RectF();
         rightRect.bottom = (hTotal + CONST_RIGHT_RECT_W) / 2 + CONST_RECT_WEIGHT - 1;
@@ -114,7 +112,7 @@ public class SuccessTickView extends View {
                     // shorten LEFT rect from RIGHT, still grow RIGHT rect
                     mLeftRectGrowMode = false;
                     mLeftRectWidth = mMaxLeftRectWidth * (1 - ((interpolatedTime - 0.7f) / 0.14f));
-                    mLeftRectWidth = mLeftRectWidth < MIN_LEFT_RECT_W ? MIN_LEFT_RECT_W : mLeftRectWidth;
+                    mLeftRectWidth = Math.max(mLeftRectWidth, MIN_LEFT_RECT_W);
                     mRightRectWidth = MAX_RIGHT_RECT_W * ((interpolatedTime - 0.65f) / 0.19f);
                     invalidate();
                 } else if (WidgetLibraryMagic.FLOAT_ZERO_DOT_EIGHT_FOUR < interpolatedTime && 1 >= interpolatedTime) {

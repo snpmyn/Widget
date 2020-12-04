@@ -22,7 +22,7 @@ public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendList
     /**
      * 上下文
      */
-    private WeakReference<Context> weakReference;
+    private final WeakReference<Context> weakReference;
     /**
      * 短信广播接收器
      */
@@ -30,8 +30,8 @@ public class SmsKit implements SmsBroadcastReceiver.SmsBroadcastReceiverSendList
     /**
      * 意图
      */
-    private PendingIntent smsSendPendingIntent;
-    private PendingIntent smsDeliverPendingIntent;
+    private final PendingIntent smsSendPendingIntent;
+    private final PendingIntent smsDeliverPendingIntent;
     /**
      * 滤值
      */

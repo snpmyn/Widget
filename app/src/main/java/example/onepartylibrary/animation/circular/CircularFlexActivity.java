@@ -1,5 +1,6 @@
 package example.onepartylibrary.animation.circular;
 
+import android.annotation.SuppressLint;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.zsp.library.animation.circular.CircularFlex;
 import com.zsp.utilone.intent.IntentUtils;
 import com.zsp.widget.R;
 
+import java.math.BigDecimal;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,20 +28,22 @@ import butterknife.OnClick;
  * @date: 2019/9/10 17:03
  */
 public class CircularFlexActivity extends AppCompatActivity {
-    @BindView(R.id.circularFlexActivityMbStartActivityWithPicture)
-    MaterialButton circularFlexActivityMbStartActivityWithPicture;
-    @BindView(R.id.circularFlexActivityMbStartActivityWithColor)
-    MaterialButton circularFlexActivityMbStartActivityWithColor;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityPbChange)
     ProgressBar circularFlexActivityPbChange;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityMbChange)
     MaterialButton circularFlexActivityMbChange;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityLogin)
     ProgressBar circularFlexActivityLogin;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityMbLogin)
     MaterialButton circularFlexActivityMbLogin;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityTvContent)
     TextView circularFlexActivityTvContent;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.circularFlexActivityIv)
     ImageView circularFlexActivityIv;
     /**
@@ -53,6 +58,7 @@ public class CircularFlexActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.circularFlexActivityMbStartActivityWithPicture,
             R.id.circularFlexActivityMbStartActivityWithColor,
             R.id.circularFlexActivityMbChange,
@@ -130,7 +136,7 @@ public class CircularFlexActivity extends AppCompatActivity {
      */
     private void login() {
         CircularFlex.hide(circularFlexActivityMbLogin)
-                .endRadius(circularFlexActivityLogin.getHeight() / 2)
+                .endRadius(new BigDecimal(circularFlexActivityLogin.getHeight() / 2).floatValue())
                 .go(() -> {
                     circularFlexActivityLogin.setVisibility(View.VISIBLE);
                     circularFlexActivityLogin.postDelayed(() -> CircularFlex.fullActivity(CircularFlexActivity.this, circularFlexActivityLogin)

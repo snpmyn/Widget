@@ -77,7 +77,7 @@ public class ChinaDate {
     private final static String[] GAN = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
     private final static String[] ZHI = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
     private final static String[] ANIMALS = new String[]{"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日 EEEEE", Locale.US);
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy年M月d日 EEEEE", Locale.US);
 
     /**
      * 传回农历
@@ -303,7 +303,7 @@ public class ChinaDate {
         int date = today.get(Calendar.DATE);
         long[] l = calElement(year, month, date);
         StringBuilder sToday = new StringBuilder();
-        sToday.append(sdf.format(today.getTime()));
+        sToday.append(SIMPLE_DATE_FORMAT.format(today.getTime()));
         sToday.append(" 农历");
         sToday.append(cyclical(year));
         sToday.append('(');

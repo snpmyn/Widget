@@ -2,6 +2,8 @@ package com.zsp.library.layout.camber;
 
 import android.graphics.Path;
 
+import java.math.BigDecimal;
+
 /**
  * 路径提供器
  */
@@ -12,33 +14,31 @@ class PathProvider {
             if (gravity == CamberImageView.Gravity.TOP) {
                 mPath.moveTo(0, 0);
                 mPath.lineTo(0, height - curvatureHeight);
-                mPath.quadTo(width / 2, height + curvatureHeight, width, height - curvatureHeight);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), height + curvatureHeight, width, height - curvatureHeight);
                 mPath.lineTo(width, 0);
                 mPath.lineTo(0, 0);
-                mPath.close();
             } else {
                 mPath.moveTo(0, height);
                 mPath.lineTo(0, curvatureHeight);
-                mPath.quadTo(width / 2, -curvatureHeight, width, curvatureHeight);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), -curvatureHeight, width, curvatureHeight);
                 mPath.lineTo(width, height);
-                mPath.close();
             }
+            mPath.close();
         } else if (direction == CamberImageView.CurvatureDirection.INWARD) {
             if (gravity == CamberImageView.Gravity.TOP) {
                 mPath.moveTo(0, 0);
                 mPath.lineTo(0, height);
-                mPath.quadTo(width / 2, height - curvatureHeight, width, height);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), height - curvatureHeight, width, height);
                 mPath.lineTo(width, 0);
                 mPath.lineTo(0, 0);
-                mPath.close();
             } else {
                 mPath.moveTo(0, height);
                 mPath.lineTo(0, 0);
-                mPath.cubicTo(0, 0, width / 2, curvatureHeight, width, curvatureHeight);
+                mPath.cubicTo(0, 0, new BigDecimal(width / 2).floatValue(), curvatureHeight, width, curvatureHeight);
                 mPath.lineTo(width, height);
                 mPath.lineTo(0, height);
-                mPath.close();
             }
+            mPath.close();
         }
         return mPath;
     }
@@ -48,33 +48,30 @@ class PathProvider {
         if (direction == CamberImageView.CurvatureDirection.OUTWARD) {
             if (gravity == CamberImageView.Gravity.TOP) {
                 mPath.moveTo(0, height - curvatureHeight);
-                mPath.quadTo(width / 2, height + curvatureHeight, width, height - curvatureHeight);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), height + curvatureHeight, width, height - curvatureHeight);
                 mPath.lineTo(width, 0);
                 mPath.lineTo(width, height);
                 mPath.lineTo(0, height);
-                mPath.close();
             } else {
                 mPath.moveTo(0, 0);
                 mPath.lineTo(width, 0);
                 mPath.lineTo(width, curvatureHeight);
-                mPath.quadTo(width / 2, -curvatureHeight, 0, curvatureHeight);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), -curvatureHeight, 0, curvatureHeight);
                 mPath.lineTo(0, 0);
-                mPath.close();
             }
         } else {
             if (gravity == CamberImageView.Gravity.TOP) {
                 mPath.moveTo(0, height);
-                mPath.quadTo(width / 2, height - 2 * curvatureHeight, width, height);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), height - 2 * curvatureHeight, width, height);
                 mPath.lineTo(width, height);
-                mPath.close();
             } else {
                 mPath.moveTo(0, 0);
                 mPath.lineTo(width, 0);
-                mPath.quadTo(width / 2, 2 * curvatureHeight, 0, 0);
+                mPath.quadTo(new BigDecimal(width / 2).floatValue(), 2 * curvatureHeight, 0, 0);
                 mPath.lineTo(0, 0);
-                mPath.close();
             }
         }
+        mPath.close();
         return mPath;
     }
 }

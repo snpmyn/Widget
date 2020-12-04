@@ -31,7 +31,7 @@ public class SpannableStringBuilderCreator {
     }
 
     public static class Builder {
-        private SpannableStringBuilder spannableStringBuilder;
+        private final SpannableStringBuilder spannableStringBuilder;
         private ClickableSpanListener clickableSpanListener;
 
         Builder(String source) {

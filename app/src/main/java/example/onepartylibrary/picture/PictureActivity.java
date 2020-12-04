@@ -1,5 +1,6 @@
 package example.onepartylibrary.picture;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class PictureActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.pictureActivityMbPreviewExample,
             R.id.pictureActivityMbLubanCompression,
             R.id.pictureActivityMbEasing})

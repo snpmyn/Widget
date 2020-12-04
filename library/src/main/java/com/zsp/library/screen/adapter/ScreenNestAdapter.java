@@ -25,7 +25,7 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * 类别
      */
@@ -33,28 +33,28 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
     /**
      * 条件
      */
-    private List<String> conditions;
+    private final List<String> conditions;
     /**
      * 单选
      */
-    private boolean singleSelect;
+    private final boolean singleSelect;
     /**
      * 单选后可反选
      */
-    private boolean canReverseSelectAfterSingleSelect;
+    private final boolean canReverseSelectAfterSingleSelect;
     /**
      * 默选下标数据
      */
-    private List<Integer> defaultSelectIndexList;
+    private final List<Integer> defaultSelectIndexList;
     /**
      * 互斥
      */
-    private boolean mutuallyExclusive;
+    private final boolean mutuallyExclusive;
     /**
      * 展开/折叠、展开/折叠主控条件数据
      */
-    private boolean unfoldAndFold;
-    private List<String> unfoldAndFoldActiveControlConditionList;
+    private final boolean unfoldAndFold;
+    private final List<String> unfoldAndFoldActiveControlConditionList;
     /**
      * 选位
      */
@@ -247,8 +247,8 @@ public class ScreenNestAdapter extends RecyclerView.Adapter<ScreenNestAdapter.Vi
         return 0;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView screenNestItemTv;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView screenNestItemTv;
 
         private ViewHolder(@NonNull View view) {
             super(view);

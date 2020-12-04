@@ -18,9 +18,9 @@ import java.util.List;
  */
 public class WheelOptions<T> {
     private View view;
-    private WheelView wvOption1;
-    private WheelView wvOption2;
-    private WheelView wvOption3;
+    private final WheelView wvOption1;
+    private final WheelView wvOption2;
+    private final WheelView wvOption3;
     private List<T> mOptions1Items;
     private List<List<T>> mOptions2Items;
     private List<List<List<T>>> mOptions3Items;
@@ -31,7 +31,7 @@ public class WheelOptions<T> {
     /**
      * 切换时还原第一项
      */
-    private boolean isRestoreItem;
+    private final boolean isRestoreItem;
     private OnItemSelectedListener wheelListenerOption2;
     private OnOptionsSelectChangeListener optionsSelectChangeListener;
     /**
@@ -115,7 +115,7 @@ public class WheelOptions<T> {
                     // 上一opt2选中位
                     opt2Select = wvOption2.getCurrentItem();
                     // 新opt2位，旧位没超数据范围则沿用旧位，否选最后一项
-                    opt2Select = opt2Select >= mOptions2Items.get(index).size() - 1 ? mOptions2Items.get(index).size() - 1 : opt2Select;
+                    opt2Select = Math.min(opt2Select, mOptions2Items.get(index).size() - 1);
                 }
                 wvOption2.setAdapter(new ArrayWheelAdapter(mOptions2Items.get(index)));
                 wvOption2.setCurrentItem(opt2Select);
@@ -132,14 +132,13 @@ public class WheelOptions<T> {
         wheelListenerOption2 = index -> {
             if (mOptions3Items != null) {
                 int opt1Select = wvOption1.getCurrentItem();
-                opt1Select = opt1Select >= mOptions3Items.size() - 1 ? mOptions3Items.size() - 1 : opt1Select;
-                index = index >= mOptions2Items.get(opt1Select).size() - 1 ? mOptions2Items.get(opt1Select).size() - 1 : index;
+                opt1Select = Math.min(opt1Select, mOptions3Items.size() - 1);
+                index = Math.min(index, mOptions2Items.get(opt1Select).size() - 1);
                 int opt3 = 0;
                 if (!isRestoreItem) {
                     // wv_option3.getCurrentItem()上一opt3选中位
                     // 新opt3位，旧位没超数据范围则用旧位，否选最后一项
-                    opt3 = wvOption3.getCurrentItem() >= mOptions3Items.get(opt1Select).get(index).size() - 1 ?
-                            mOptions3Items.get(opt1Select).get(index).size() - 1 : wvOption3.getCurrentItem();
+                    opt3 = Math.min(wvOption3.getCurrentItem(), mOptions3Items.get(opt1Select).get(index).size() - 1);
                 }
                 wvOption3.setAdapter(new ArrayWheelAdapter(mOptions3Items.get(wvOption1.getCurrentItem()).get(index)));
                 wvOption3.setCurrentItem(opt3);

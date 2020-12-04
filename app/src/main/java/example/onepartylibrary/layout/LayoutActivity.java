@@ -1,5 +1,6 @@
 package example.onepartylibrary.layout;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class LayoutActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.voiceActivityMbPercentLayout,
             R.id.voiceActivityMbShadowLayout,
             R.id.voiceActivityMbRippleLayout,

@@ -1,5 +1,6 @@
 package example.onepartylibrary.focusresize.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ public class FocusResizeDefaultAdapter extends BaseFocusResizeAdapter<RecyclerVi
     /**
      * 数据
      */
-    private List<FocusResizeBean> focusResizeBeans;
+    private final List<FocusResizeBean> focusResizeBeans;
 
     /**
      * constructor
@@ -95,11 +96,14 @@ public class FocusResizeDefaultAdapter extends BaseFocusResizeAdapter<RecyclerVi
 
     }
 
-    class DefaultCustomViewHolder extends RecyclerView.ViewHolder {
+    static class DefaultCustomViewHolder extends RecyclerView.ViewHolder {
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemIv)
         ImageView focusResizeItemIv;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemTvTitle)
         TextView focusResizeItemTvTitle;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemTvSubtitle)
         TextView focusResizeItemTvSubtitle;
 

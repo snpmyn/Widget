@@ -1,5 +1,6 @@
 package example.onepartylibrary.toolbar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ScrollView;
 
@@ -19,10 +20,13 @@ import butterknife.ButterKnife;
  * @date: 2019/10/10 17:54
  */
 public class ToolbarActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.toolbarActivityMt)
     MaterialToolbar toolbarActivityMt;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.toolbarActivityWt)
     WaterfallToolbar toolbarActivityWt;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.toolbarActivitySv)
     ScrollView toolbarActivitySv;
 

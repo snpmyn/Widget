@@ -47,7 +47,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
     /**
      * handler
      */
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     /**
      * 播放器
      */
@@ -68,7 +68,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
     /**
      * 更新进度条
      */
-    private Runnable mRunnable = new Runnable() {
+    private final Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
             if (mMediaPlayer != null) {

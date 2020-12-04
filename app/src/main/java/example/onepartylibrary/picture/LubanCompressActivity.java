@@ -1,5 +1,6 @@
 package example.onepartylibrary.picture;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -39,8 +40,10 @@ import value.WidgetFolder;
  * @date: 2019/8/28 19:33
  */
 public class LubanCompressActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.lubanCompressActivityTv)
     TextView lubanCompressActivityTv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.lubanCompressActivityIv)
     ImageView lubanCompressActivityIv;
     /**
@@ -81,6 +84,7 @@ public class LubanCompressActivity extends AppCompatActivity {
         uris = FileUtils.assetsToUris(LubanCompressActivity.this, 1, "img_", "assets_transferred");
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.lubanCompressActivityMbSyncCompress, R.id.lubanCompressActivityMbAsyncCompress})
     public void onViewClicked(View view) {
         switch (view.getId()) {

@@ -1,5 +1,6 @@
 package example.onepartylibrary.textview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -21,8 +22,10 @@ import butterknife.OnClick;
  * @date: 2019/7/19 11:02
  */
 public class FillActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.fillActivityFtv)
     FillTextView fillActivityFtv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.fillActivityTv)
     TextView fillActivityTv;
 
@@ -46,6 +49,7 @@ public class FillActivity extends AppCompatActivity {
         fillActivityFtv.setUnderlineColor(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.fillActivityMbFilledIn,
             R.id.fillActivityMbOriginalText,
             R.id.fillActivityMbTextPassage})

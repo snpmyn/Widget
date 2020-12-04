@@ -1,5 +1,6 @@
 package example.onepartylibrary.textview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import timber.log.Timber;
  * @date: 2019/6/18 11:11
  */
 public class TimerActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.timerActivityTtv)
     TimerTextView timerActivityTtv;
 

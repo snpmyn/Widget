@@ -1,5 +1,6 @@
 package example.onepartylibrary.spruce;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ import example.onepartylibrary.spruce.adapter.SpruceAdapter;
  * @date: 2019/6/26 15:18
  */
 public class SpruceActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spruceActivityRv)
     RecyclerView spruceActivityRv;
     /**

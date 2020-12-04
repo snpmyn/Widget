@@ -8,32 +8,32 @@ import value.WidgetLibraryMagic;
  * @date: 2019/9/12 16:17
  */
 public class FirstLetter {
-    private static int END = 63486;
+    private static final int END = 63486;
     /**
      * 按声母表示，该表是GB2312码出现头个汉字（【啊】为首字母头个汉字）
      * i、u、v不做声母（自定规则随前字母）
      */
-    private static char[] charTable = {'啊', '芭', '擦', '搭', '蛾', '发', '噶', '哈', '哈', '击', '喀', '垃',
+    private static final char[] CHAR_TABLE = {'啊', '芭', '擦', '搭', '蛾', '发', '噶', '哈', '哈', '击', '喀', '垃',
             '妈', '拿', '哦', '啪', '期', '然', '撒', '塌', '塌', '塌', '挖', '昔', '压', '匝',};
     /**
      * 二十六字母区间对应二十七端点
      * GB2312码汉字区间十进制
      */
-    private static int[] table = new int[27];
+    private static final int[] TABLE = new int[27];
     /**
      * 对应首字母区间表
      */
-    private static char[] initialTable = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'h', 'j', 'k', 'l',
+    private static final char[] INITIAL_TABLE = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'h', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 't', 't', 'w', 'x', 'y', 'z',};
 
     // 初始
     static {
         for (int i = 0; i < WidgetLibraryMagic.INT_TWENTY_SIX; i++) {
             // GB2312码首字母区间端点表（十进制）
-            table[i] = gbValue(charTable[i]);
+            TABLE[i] = gbValue(CHAR_TABLE[i]);
         }
         // 区间表结尾
-        table[26] = END;
+        TABLE[26] = END;
     }
 
     private FirstLetter() {
@@ -102,7 +102,7 @@ public class FirstLetter {
         int i;
         for (i = 0; i < WidgetLibraryMagic.INT_TWENTY_SIX; i++) {
             // 判匹配码表区间（形如“[,)”），匹配则break
-            if ((gb >= table[i]) && (gb < table[i + 1])) {
+            if ((gb >= TABLE[i]) && (gb < TABLE[i + 1])) {
                 break;
             }
         }
@@ -111,7 +111,7 @@ public class FirstLetter {
             i = 25;
         }
         // 码表区间中返首字母
-        return initialTable[i];
+        return INITIAL_TABLE[i];
     }
 
     /**

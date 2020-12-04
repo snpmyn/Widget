@@ -1,6 +1,7 @@
 package com.zsp.widget;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.mainActivityMbOnePartyLibraryExample, R.id.mainActivityMbTripartiteLibraryExample})
     public void onViewClicked(View view) {
         switch (view.getId()) {

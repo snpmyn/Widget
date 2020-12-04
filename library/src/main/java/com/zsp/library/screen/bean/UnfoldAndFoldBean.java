@@ -12,15 +12,15 @@ public class UnfoldAndFoldBean {
     /**
      * 主控类别
      */
-    private String activeControlClassification;
+    private final String activeControlClassification;
     /**
      * 主控条件
      */
-    private String activeControlCondition;
+    private final String activeControlCondition;
     /**
      * 被控类别数据
      */
-    private List<String> passiveControlClassificationList;
+    private final List<String> passiveControlClassificationList;
 
     /**
      * constructor

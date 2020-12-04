@@ -195,12 +195,11 @@ public class CamberImageView extends AppCompatImageView {
                         tintPaint.setColor(Color.WHITE);
                     }
                 }
-                tintPaint.setAlpha(tintAmount);
             } else {
                 tintPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
                 tintPaint.setColor(tintColor);
-                tintPaint.setAlpha(tintAmount);
             }
+            tintPaint.setAlpha(tintAmount);
         });
     }
 

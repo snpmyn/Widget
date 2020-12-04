@@ -17,7 +17,7 @@ import java.util.List;
  * @date: 2019/8/27 11:05
  */
 public class RevealBuilder {
-    private View mViewToReveal;
+    private final View mViewToReveal;
     private View mFromView;
     private int mTranslateDuration = 250;
     private int mRevealDuration = 250;

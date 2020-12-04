@@ -1,5 +1,6 @@
 package example.onepartylibrary.telephony;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import value.WidgetMagic;
  * @date: 2019/7/28 10:18
  */
 public class TelephonyActivity extends AppCompatActivity implements TelephonyService.TelephonyServiceListener {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.telephonyActivityTv)
     TextView telephonyActivityTv;
     /**

@@ -1,5 +1,6 @@
 package example.onepartylibrary.spruce.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,12 @@ import example.onepartylibrary.spruce.bean.SpruceBean;
  * @desc spruce适配器
  */
 public class SpruceAdapter extends RecyclerView.Adapter<SpruceAdapter.ViewHolder> {
-    private RecyclerView recyclerView;
-    private List<SpruceBean> spruceBeans;
-    private SpruceKit spruceKit;
+    private final RecyclerView recyclerView;
+    private final List<SpruceBean> spruceBeans;
+    private final SpruceKit spruceKit;
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.spruceItemRl)
         RelativeLayout spruceItemRl;
 

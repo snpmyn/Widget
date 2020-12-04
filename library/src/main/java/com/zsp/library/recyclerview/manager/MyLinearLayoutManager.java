@@ -15,7 +15,7 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
     /**
      * 布局子控件监听
      */
-    private OnLayoutChildrenListener onLayoutChildrenListener;
+    private final OnLayoutChildrenListener onLayoutChildrenListener;
 
     /**
      * Creates a vertical LinearLayoutManager

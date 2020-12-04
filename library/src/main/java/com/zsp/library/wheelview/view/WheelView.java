@@ -62,7 +62,7 @@ public class WheelView extends View {
     /**
      * Timer mTimer
      */
-    private ScheduledExecutorService mExecutor = ThreadManager.stepScheduledExecutorService();
+    private final ScheduledExecutorService mExecutor = ThreadManager.stepScheduledExecutorService();
     private ScheduledFuture<?> mFuture;
     private Paint paintOuterText;
     private Paint paintCenterText;
@@ -123,7 +123,7 @@ public class WheelView extends View {
     /**
      * 绘几个条目，实际第一和最后一项Y轴压缩成0%，故可见实际数9
      */
-    private int itemsVisible = 11;
+    private final int itemsVisible = 11;
     /**
      * 控件高
      */

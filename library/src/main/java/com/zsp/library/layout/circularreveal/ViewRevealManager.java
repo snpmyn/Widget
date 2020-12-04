@@ -229,7 +229,7 @@ public class ViewRevealManager {
     public static class PathTransformation implements ViewTransformation {
         // Android Canvas is tricky, we cannot clip circles directly with Canvas API but it is allowed using Path, therefore we use it :|.
         private final Path path = new Path();
-        private Region.Op op = Region.Op.REPLACE;
+        private final Region.Op op = Region.Op.REPLACE;
 
         @Override
         public boolean transform(Canvas canvas, View child, RevealValues values) {
@@ -268,9 +268,9 @@ public class ViewRevealManager {
      * As class name cue's it changes layer type of {@link View} on animation createAnimator in order to improve animation smooth & performance and returns original value on animation end.
      */
     static class ChangeViewLayerTypeAdapter extends AnimatorListenerAdapter {
-        private RevealValues viewData;
-        private int featuredLayerType;
-        private int originalLayerType;
+        private final RevealValues viewData;
+        private final int featuredLayerType;
+        private final int originalLayerType;
 
         ChangeViewLayerTypeAdapter(RevealValues viewData, int layerType) {
             this.viewData = viewData;

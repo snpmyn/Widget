@@ -34,11 +34,11 @@ public class MultiProgressBar extends ProgressBar {
     private boolean mIsHiddenText;
     private int mRadius;
     private int xMaxUnReachedEnd;
-    private int mMaxStrokeWidth;
+    private final int mMaxStrokeWidth;
     private int mTextHeight;
     private int mTextWidth;
     private RectF fArcRect;
-    private Rect mTextRect = new Rect();
+    private final Rect mTextRect = new Rect();
     private String mText;
 
     public MultiProgressBar(Context context) {

@@ -1,5 +1,6 @@
 package example.onepartylibrary.layout;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -21,8 +22,10 @@ import butterknife.OnClick;
  * @date: 2019/10/18 10:28
  */
 public class ProgressLayoutActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressLayoutActivityPl)
     ProgressLayout progressLayoutActivityPl;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressLayoutActivityTv)
     TextView progressLayoutActivityTv;
 
@@ -60,6 +63,7 @@ public class ProgressLayoutActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.progressLayoutActivityMbStart, R.id.progressLayoutActivityMbStop, R.id.progressLayoutActivityMbCancel})
     public void onViewClicked(View view) {
         switch (view.getId()) {

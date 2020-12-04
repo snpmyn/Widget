@@ -4,13 +4,13 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import timber.log.Timber;
 import value.WidgetLibraryMagic;
 
 /**
@@ -81,7 +81,7 @@ public class DragFloatingActionButton extends FloatingActionButton {
                 setY(y);
                 xLast = xRaw;
                 yLast = yRaw;
-                Log.e("ACTION_MOVE", "isDrag=" + isDrag + "getX=" + getX() + "; getY=" + getY() + "; parentWidth=" + parentWidth);
+                Timber.e("isDrag=" + isDrag + "getX=" + getX() + "; getY=" + getY() + "; parentWidth=" + parentWidth);
                 break;
             case MotionEvent.ACTION_UP:
                 if (isNotDrag()) {

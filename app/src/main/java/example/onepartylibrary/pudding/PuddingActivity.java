@@ -1,5 +1,6 @@
 package example.onepartylibrary.pudding;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ public class PuddingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.puddingActivityJavaExampleOne,
             R.id.puddingActivityJavaExampleTwo,
             R.id.puddingActivityJavaExampleThree,

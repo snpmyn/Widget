@@ -14,10 +14,10 @@ public class BezierTranslateAnimation extends Animation {
     private int xToType = ABSOLUTE;
     private int yFromType = ABSOLUTE;
     private int yToType = ABSOLUTE;
-    private float xFromValue;
-    private float xToValue;
-    private float yFromValue;
-    private float yToValue;
+    private final float xFromValue;
+    private final float xToValue;
+    private final float yFromValue;
+    private final float yToValue;
     private PointF mStart;
     private PointF mControl;
     private PointF mEnd;

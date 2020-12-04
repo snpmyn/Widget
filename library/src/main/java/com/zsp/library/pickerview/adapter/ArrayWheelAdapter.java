@@ -13,7 +13,7 @@ public class ArrayWheelAdapter<T> implements WheelAdapter {
     /**
      * 条目
      */
-    private List<T> items;
+    private final List<T> items;
 
     /**
      * Constructor

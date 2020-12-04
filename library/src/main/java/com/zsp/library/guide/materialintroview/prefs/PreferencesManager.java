@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
  */
 public class PreferencesManager {
     private static final String PREFERENCES_NAME = "material_intro_view_preferences";
-    private SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
 
     /**
      * constructor

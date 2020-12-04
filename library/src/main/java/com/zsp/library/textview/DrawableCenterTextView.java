@@ -16,7 +16,7 @@ import androidx.appcompat.widget.AppCompatTextView;
  * 左右图居中（xml设android:gravity="center_vertical"）背景自白
  */
 public class DrawableCenterTextView extends AppCompatTextView {
-    private Rect rect;
+    private final Rect rect;
 
     public DrawableCenterTextView(Context context, AttributeSet attrs) {
         super(context, attrs);

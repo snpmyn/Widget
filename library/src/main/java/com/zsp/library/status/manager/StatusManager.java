@@ -30,7 +30,7 @@ public class StatusManager {
      * 请求码
      */
     public int requestCode = 101;
-    private StatusLayout statusLayout;
+    private final StatusLayout statusLayout;
 
     private StatusManager(Object activityOrFragmentOrView, BaseStatusListener listener) {
         if (listener == null) {

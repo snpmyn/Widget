@@ -22,7 +22,7 @@ import java.util.concurrent.ScheduledExecutorService;
  * @desc LocationKit
  */
 public class LocationKit {
-    private WeakReference<Context> weakReference;
+    private final WeakReference<Context> weakReference;
     public android.location.Location location;
     public double longitude;
     public double latitude;

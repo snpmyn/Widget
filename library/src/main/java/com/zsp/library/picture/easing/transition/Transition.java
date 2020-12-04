@@ -15,11 +15,11 @@ public class Transition {
     /**
      * The rect the transition will start from.
      */
-    private RectF mSrcRect;
+    private final RectF mSrcRect;
     /**
      * The rect the transition will end at.
      */
-    private RectF mDstRect;
+    private final RectF mDstRect;
     /**
      * An intermediary rect that changes in every frame according to the transition progress.
      */
@@ -27,28 +27,28 @@ public class Transition {
     /**
      * Precomputed width difference between {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float mWidthDiff;
+    private final float mWidthDiff;
     /**
      * Precomputed height difference between {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float mHeightDiff;
+    private final float mHeightDiff;
     /**
      * Precomputed X offset between the center points of {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float xCenterDiff;
+    private final float xCenterDiff;
     /**
      * Precomputed Y offset between the center points of {@link #mSrcRect} and {@link #mDstRect}.
      */
-    private float yCenterDiff;
+    private final float yCenterDiff;
     /**
      * The duration of the transition in milliseconds.
      * The default duration is 5000 ms.
      */
-    private long mDuration;
+    private final long mDuration;
     /**
      * The {@link Interpolator} used to perform the transitions between rects.
      */
-    private Interpolator mInterpolator;
+    private final Interpolator mInterpolator;
 
     public Transition(RectF srcRect, RectF dstRect, long duration, Interpolator interpolator) {
         if (!MathUtils.haveSameAspectRatio(srcRect, dstRect)) {

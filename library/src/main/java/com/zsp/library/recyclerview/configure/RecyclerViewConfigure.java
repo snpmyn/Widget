@@ -23,15 +23,15 @@ public class RecyclerViewConfigure {
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * 控件
      */
-    private RecyclerView recyclerView;
+    private final RecyclerView recyclerView;
     /**
      * SpruceKit
      */
-    private SpruceKit spruceKit;
+    private final SpruceKit spruceKit;
     private long interObjectDelay;
     private long duration;
     private boolean reversed;

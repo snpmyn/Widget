@@ -30,10 +30,10 @@ public class BasePickerView {
     ViewGroup contentContainer;
     PickerOptions pickerOptions;
     /**
-     * 通哪View弹出
+     * 通点View弹出
      */
     View clickView;
-    private Context context;
+    private final Context context;
     /**
      * 附加View之根View
      */
@@ -59,8 +59,8 @@ public class BasePickerView {
         }
         return false;
     };
-    private int animGravity = Gravity.BOTTOM;
-    private View.OnKeyListener onKeyBackListener = (v, keyCode, event) -> {
+    private final int animGravity = Gravity.BOTTOM;
+    private final View.OnKeyListener onKeyBackListener = (v, keyCode, event) -> {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == MotionEvent.ACTION_DOWN && isShowing()) {
             dismiss();
             return true;
@@ -252,7 +252,7 @@ public class BasePickerView {
         }
     }
 
-    BasePickerView setOutSideCancelable(boolean isCancelable) {
+    void setOutSideCancelable(boolean isCancelable) {
         if (rootView != null) {
             View view = rootView.findViewById(R.id.basePickerViewFl);
             if (isCancelable) {
@@ -261,7 +261,6 @@ public class BasePickerView {
                 view.setOnTouchListener(null);
             }
         }
-        return this;
     }
 
     /**

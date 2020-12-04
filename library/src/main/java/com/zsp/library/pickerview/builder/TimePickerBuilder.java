@@ -21,7 +21,7 @@ public class TimePickerBuilder {
     /**
      * 配置类
      */
-    private PickerOptions mPickerOptions;
+    private final PickerOptions mPickerOptions;
 
     /**
      * Required

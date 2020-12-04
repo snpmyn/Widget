@@ -1,5 +1,6 @@
 package com.zsp.library.card.elastic
 
+import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 
@@ -8,6 +9,7 @@ import android.view.View
  * @author: 郑少鹏
  * @date: 2019/10/29 17:21
  */
+@SuppressLint("ClickableViewAccessibility")
 internal abstract class CentrePointProvider(protected val parentView: View) {
     private val screenOffDistance = -300.0f
     protected var cx = screenOffDistance

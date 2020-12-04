@@ -26,44 +26,54 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
      * 画边缘线
      */
     private val mPaintOutCircle = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画边缘文字
      */
     private val mPaintOutText = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画进度条
      */
     private val mPaintProgressBg = Paint(Paint.ANTI_ALIAS_FLAG)
     private val mPaintProgress = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画三角形
      */
     private val mPaintTriangle = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画时针
      */
     private val mPaintHour = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画分针
      */
     private val mPaintMinute = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 画中间小球
      */
     private val mPaintBall = Paint(Paint.ANTI_ALIAS_FLAG)
+
     /**
      * 半透明白色
      */
     private val colorHalfWhite: Int = Color.argb(255 - 180, 255, 255, 255)
+
     /**
      * 纯白色
      */
     private val colorWhite: Int = Color.parseColor("#FFFFFF")
+
     /**
      * 宽高
      */
     private var mWidth: Int = 0
     private var mHeight: Int = 0
+
     /**
      * 中心坐标
      */
@@ -75,46 +85,57 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     private var mMinuteDegress: Int = 0
     private var mSecondMillsDegress: Float = 0.0f
     private var mSecondDegress: Int = 0
+
     /**
      * 时钟半径（不含padding）
      */
     private var mRadius: Float = 0.toFloat()
+
     /**
      * 手指松开时时钟晃动动画
      */
     private var mShakeAnim: ValueAnimator? = null
+
     /**
      * 触摸时作用于Camera的矩阵
      */
     private val mCameraMatrix: Matrix by lazy { Matrix() }
+
     /**
      * 照相机（旋转时钟实现3D效果）
      */
     private val mCamera: Camera by lazy { Camera() }
+
     /**
      * Camera绕X轴旋转角度
      */
     private var mCameraRotateX: Float = 0.0f
+
     /**
      * Camera绕Y轴旋转角度
      */
     private var mCameraRotateY: Float = 0.0f
+
     /**
      * Camera旋转最大角度
      */
     private val mMaxCameraRotate = 10.0f
+
     /**
      * 指针于X轴位移
      */
     private var mCanvasTranslateX: Float = 0.0f
+
     /**
      * 指针于Y轴位移
      */
     private var mCanvasTranslateY: Float = 0.0f
+
     /**
      * 指针最大位移
      */
     private var mMaxCanvasTranslate: Float = 0.0f
+
     /**
      * 画布
      */

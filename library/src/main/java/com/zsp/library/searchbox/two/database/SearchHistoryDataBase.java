@@ -26,7 +26,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
     /**
      * 创表SQL
      */
-    private String createTableSql;
+    private final String createTableSql;
 
     /**
      * constructor

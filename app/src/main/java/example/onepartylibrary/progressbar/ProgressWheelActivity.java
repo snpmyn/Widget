@@ -1,5 +1,6 @@
 package example.onepartylibrary.progressbar;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -29,20 +31,28 @@ import value.WidgetLibraryMagic;
  * @date: 2019/8/12 16:56
  */
 public class ProgressWheelActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivitySpinnerProgressColorOptions)
     Spinner progressWheelActivitySpinnerProgressColorOptions;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivitySpinnerWheelColorOptions)
     Spinner progressWheelActivitySpinnerWheelColorOptions;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivityPw)
     ProgressWheel progressWheelActivityPw;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivitySpinnerProgressValueOptions)
     Spinner progressWheelActivitySpinnerProgressValueOptions;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivityPwInterpolated)
     ProgressWheel progressWheelActivityPwInterpolated;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivityTvInterpolatedValue)
     TextView progressWheelActivityTvInterpolatedValue;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivityPwLinear)
     ProgressWheel progressWheelActivityPwLinear;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.progressWheelActivityTvLinearValue)
     TextView progressWheelActivityTvLinearValue;
 
@@ -177,6 +187,7 @@ public class ProgressWheelActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.progressWheelActivityMbAbout)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.progressWheelActivityMbAbout) {
@@ -214,7 +225,7 @@ public class ProgressWheelActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Handle action bar item clicks here.
         // The action bar will automatically handle clicks on the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         return super.onOptionsItemSelected(item);

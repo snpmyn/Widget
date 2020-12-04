@@ -1,5 +1,6 @@
 package example.onepartylibrary.animation.login;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.loginActivityMbLoginOne, R.id.loginActivityMbLoginTwo})
     public void onViewClicked(View view) {
         switch (view.getId()) {

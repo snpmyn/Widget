@@ -8,8 +8,8 @@ import com.zsp.library.wheelview.adapter.WheelAdapter;
  * @date: 2018/4/3 16:57
  */
 public class NumericWheelAdapter implements WheelAdapter {
-    private int minValue;
-    private int maxValue;
+    private final int minValue;
+    private final int maxValue;
 
     /**
      * Constructor

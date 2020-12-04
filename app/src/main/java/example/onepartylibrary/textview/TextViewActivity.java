@@ -1,5 +1,6 @@
 package example.onepartylibrary.textview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class TextViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.textViewActivityMbFill, R.id.textViewActivityMbTimer})
     public void onViewClicked(View view) {
         switch (view.getId()) {

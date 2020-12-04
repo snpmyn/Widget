@@ -7,9 +7,9 @@ package example.onepartylibrary.focusresize.bean;
  * @desc FocusResizeBean
  */
 public class FocusResizeBean {
-    private String title;
-    private String subTitle;
-    private int drawable;
+    private final String title;
+    private final String subTitle;
+    private final int drawable;
 
     /**
      * constructor

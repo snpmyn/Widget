@@ -23,9 +23,9 @@
                 android:contentDescription="@string/toDo"
                 android:paddingLeft="@dimen/dp_12"
                 android:paddingRight="@dimen/dp_12"
-                android:tint="@color/fontInput"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_top_back_light_24dp_background" />
+                app:srcCompat="@drawable/ic_top_back_light_24dp_background"
+                app:tint="@color/fontInput" />
 
             <EditText
                 android:id="@+id/searchDialogFragmentEt"

@@ -1,5 +1,6 @@
 package example.onepartylibrary.card;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,6 +27,7 @@ public class CardActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.cardActivityMbCollapsibleCard, R.id.cardActivityMbElasticCardView})
     public void onViewClicked(View view) {
         switch (view.getId()) {

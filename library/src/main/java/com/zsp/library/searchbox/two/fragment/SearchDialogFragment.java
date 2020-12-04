@@ -50,7 +50,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     /**
      * 数据库名
      */
-    private String name;
+    private final String name;
     /**
      * 动画
      */
@@ -62,7 +62,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     /**
      * 历史搜索记录
      */
-    private ArrayList<String> histories = new ArrayList<>();
+    private final ArrayList<String> histories = new ArrayList<>();
     private ArrayList<String> allHistories = new ArrayList<>();
     /**
      * 适配器

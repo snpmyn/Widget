@@ -1,5 +1,6 @@
 package example.onepartylibrary.sidedrag;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import example.onepartylibrary.sidedrag.adapter.SideDragAdapter;
  * @date: 2019/8/16 14:11
  */
 public class SideDragActivity extends AppCompatActivity implements ItemDragListener {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.sideDragActivityRv)
     RecyclerView sideDragActivityRv;
     /**

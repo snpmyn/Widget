@@ -15,7 +15,6 @@
 部件。
 
 ### 架构
-
 | 模块 | 说明 | 补充 |
 |:-:|:-:|:-:|
 | 示例app | 用法举例 | 无 |
@@ -27,10 +26,9 @@
 | 一方库AutoSize | 据三方库[AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)实现 | 无 |
 
 ### 依赖、权限
-
 | 模块 | 依赖 |
 |:-:|:-:|
-| 示例app | implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.60@jar' |
+| 示例app | implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.0@jar' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.14' |
 | 示例app | implementation project(path: ':library') |
@@ -40,9 +38,9 @@
 | 示例app | implementation project(path: ':banner') |
 | 示例app | implementation project(path: ':smartrefreshlayout') |
 | 示例app | implementation project(path: ':autosize') |
-| 一方库Library | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
+| 一方库Library | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
-| 一方库Library | implementation 'androidx.palette:palette:1.0.0' |
+| 一方库Library | implementation 'androidx.palette:palette-ktx:1.0.0' |
 | 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v1.0.1'（避重）|
 | 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v1.0.1'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
@@ -57,7 +55,7 @@
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
-| 二方库Util-UtilOne | api 'com.google.android.material:material:1.2.0-alpha01'（避重）|
+| 二方库Util-UtilOne | api 'com.google.android.material:material:1.3.0-alpha04''（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxjava:1.3.8'（避重）|
 | 二方库Util-UtilOne | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
@@ -65,7 +63,7 @@
 | 二方库Util-UtilOne | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
 | 二方库Util-UtilOne | implementation 'com.qw:soulpermission:1.2.2_x' |
 | 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.9' |
-| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.2.0-beta02' |
+| 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 二方库Util-UtilTwo | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
 | 模块 | 权限 |

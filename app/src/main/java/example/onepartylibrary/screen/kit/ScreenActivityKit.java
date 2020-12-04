@@ -22,7 +22,7 @@ public class ScreenActivityKit {
     /**
      * ScreenDataKit
      */
-    private ScreenDataKit screenDataKit;
+    private final ScreenDataKit screenDataKit;
 
     /**
      * constructor

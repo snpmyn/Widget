@@ -1,5 +1,6 @@
 package example.onepartylibrary.tipview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -19,6 +20,7 @@ import static com.zsp.library.tipview.TipView.LOCATION_TOP;
  * @date: 2019/11/12 10:59
  */
 public class TipViewActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tipViewActivityLl)
     LinearLayout tipViewActivityLl;
 

@@ -17,7 +17,7 @@ public abstract class BaseShape {
     protected Target target;
     protected int padding;
     Focus focus;
-    private FocusGravity focusGravity;
+    private final FocusGravity focusGravity;
 
     BaseShape(Target target) {
         this(target, Focus.MINIMUM);

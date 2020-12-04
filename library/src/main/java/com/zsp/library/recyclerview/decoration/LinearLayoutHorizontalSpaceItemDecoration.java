@@ -17,11 +17,11 @@ public class LinearLayoutHorizontalSpaceItemDecoration extends RecyclerView.Item
     /**
      * 间距
      */
-    private int space;
+    private final int space;
     /**
      * 上下偏移
      */
-    private boolean topAndBottomOffset;
+    private final boolean topAndBottomOffset;
 
     /**
      * constructor

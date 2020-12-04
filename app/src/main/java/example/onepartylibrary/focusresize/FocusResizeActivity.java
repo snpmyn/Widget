@@ -1,5 +1,6 @@
 package example.onepartylibrary.focusresize;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import example.onepartylibrary.focusresize.bean.FocusResizeBean;
  * @date: 2019/9/5 17:20
  */
 public class FocusResizeActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.focusResizeActivityRv)
     RecyclerView focusResizeActivityRv;
     /**

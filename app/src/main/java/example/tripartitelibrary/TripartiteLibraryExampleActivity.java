@@ -1,5 +1,6 @@
 package example.tripartitelibrary;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -27,6 +28,7 @@ public class TripartiteLibraryExampleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.tripartiteLibraryExampleActivityMbMatisse,
             R.id.tripartiteLibraryExampleActivityMbScanCode,
             R.id.tripartiteLibraryExampleActivityMbBanner})

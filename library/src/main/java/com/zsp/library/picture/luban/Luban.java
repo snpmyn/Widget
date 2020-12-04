@@ -39,13 +39,13 @@ public class Luban implements Handler.Callback {
     private static final int MSG_COMPRESS_ERROR = 2;
     private String mTargetDir;
     private boolean focusAlpha;
-    private int mLeastCompressSize;
-    private OnRenameListener mRenameListener;
-    private OnCompressListener mCompressListener;
-    private CompressionPredicate mCompressionPredicate;
-    private List<InputStreamProvider> mStreamProviders;
-    private Handler mHandler;
-    private Random random = new Random();
+    private final int mLeastCompressSize;
+    private final OnRenameListener mRenameListener;
+    private final OnCompressListener mCompressListener;
+    private final CompressionPredicate mCompressionPredicate;
+    private final List<InputStreamProvider> mStreamProviders;
+    private final Handler mHandler;
+    private final Random random = new Random();
 
     private Luban(Builder builder) {
         this.mTargetDir = builder.mTargetDir;
@@ -124,19 +124,22 @@ public class Luban implements Handler.Callback {
         if (flag) {
             mCompressListener.onError(new NullPointerException("image file cannot be null"));
         }
-        Iterator<InputStreamProvider> iterator = mStreamProviders.iterator();
-        while (iterator.hasNext()) {
-            final InputStreamProvider path = iterator.next();
-            AsyncTask.SERIAL_EXECUTOR.execute(() -> {
-                try {
-                    mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_START));
-                    File result = compress(context, path);
-                    mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_SUCCESS, result));
-                } catch (IOException e) {
-                    mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_ERROR, e));
-                }
-            });
-            iterator.remove();
+        Iterator<InputStreamProvider> iterator;
+        if (mStreamProviders != null) {
+            iterator = mStreamProviders.iterator();
+            while (iterator.hasNext()) {
+                final InputStreamProvider path = iterator.next();
+                AsyncTask.SERIAL_EXECUTOR.execute(() -> {
+                    try {
+                        mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_START));
+                        File result = compress(context, path);
+                        mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_SUCCESS, result));
+                    } catch (IOException e) {
+                        mHandler.sendMessage(mHandler.obtainMessage(MSG_COMPRESS_ERROR, e));
+                    }
+                });
+                iterator.remove();
+            }
         }
     }
 
@@ -218,14 +221,14 @@ public class Luban implements Handler.Callback {
     }
 
     public static class Builder {
-        private Context context;
+        private final Context context;
         private String mTargetDir;
         private boolean focusAlpha;
         private int mLeastCompressSize = 100;
         private OnRenameListener mRenameListener;
         private OnCompressListener mCompressListener;
         private CompressionPredicate mCompressionPredicate;
-        private List<InputStreamProvider> mStreamProviders;
+        private final List<InputStreamProvider> mStreamProviders;
 
         Builder(Context context) {
             this.context = context;
@@ -241,7 +244,7 @@ public class Luban implements Handler.Callback {
             return this;
         }
 
-        Builder load(final File file) {
+        void load(final File file) {
             mStreamProviders.add(new BaseInputStreamAdapter() {
                 @Override
                 public InputStream openInternal() throws IOException {
@@ -253,10 +256,9 @@ public class Luban implements Handler.Callback {
                     return file.getAbsolutePath();
                 }
             });
-            return this;
         }
 
-        Builder load(final String string) {
+        void load(final String string) {
             mStreamProviders.add(new BaseInputStreamAdapter() {
                 @Override
                 public InputStream openInternal() throws IOException {
@@ -268,7 +270,6 @@ public class Luban implements Handler.Callback {
                     return string;
                 }
             });
-            return this;
         }
 
         public <T> Builder load(List<T> list) {
@@ -286,7 +287,7 @@ public class Luban implements Handler.Callback {
             return this;
         }
 
-        Builder load(final Uri uri) {
+        void load(final Uri uri) {
             mStreamProviders.add(new BaseInputStreamAdapter() {
                 @Override
                 public InputStream openInternal() throws IOException {
@@ -298,7 +299,6 @@ public class Luban implements Handler.Callback {
                     return uri.getPath();
                 }
             });
-            return this;
         }
 
         public Builder putGear(int gear) {

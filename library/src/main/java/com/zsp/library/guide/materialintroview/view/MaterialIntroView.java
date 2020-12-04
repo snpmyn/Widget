@@ -525,9 +525,9 @@ public class MaterialIntroView extends RelativeLayout {
      * 建造者模式。
      */
     public static class Builder {
-        private Activity activity;
-        private MaterialIntroView materialIntroView;
-        private Focus focusType = Focus.MINIMUM;
+        private final Activity activity;
+        private final MaterialIntroView materialIntroView;
+        private final Focus focusType = Focus.MINIMUM;
 
         public Builder(Activity activity) {
             this.activity = activity;

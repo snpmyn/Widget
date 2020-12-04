@@ -3,6 +3,8 @@ package com.zsp.library.layout.camber;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 
+import java.math.BigDecimal;
+
 /**
  * 弧形提供器
  */
@@ -18,7 +20,7 @@ class GradientProvider {
             case CamberImageView.Gradient.RIGHT_TO_LEFT:
                 return new LinearGradient(width, 0, 0, 0, gradientStartColor, gradientEndColor, Shader.TileMode.CLAMP);
             default:
-                return new LinearGradient(0, 0, height, 0, gradientStartColor, gradientEndColor, Shader.TileMode.CLAMP);
+                return new LinearGradient(0, 0, new BigDecimal(height).floatValue(), 0, gradientStartColor, gradientEndColor, Shader.TileMode.CLAMP);
         }
     }
 }

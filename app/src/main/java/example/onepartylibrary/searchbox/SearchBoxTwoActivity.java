@@ -1,5 +1,6 @@
 package example.onepartylibrary.searchbox;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
  * @date: 2019/4/29 18:57
  */
 public class SearchBoxTwoActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.searchBoxTwoActivityMt)
     MaterialToolbar searchBoxTwoActivityMt;
     /**

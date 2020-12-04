@@ -22,8 +22,8 @@ import java.util.ArrayList;
  * @date: 2019/4/23 11:21
  */
 public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder> {
-    private Context context;
-    private ArrayList<String> histories;
+    private final Context context;
+    private final ArrayList<String> histories;
     private OnItemClickOrDeleteClickListener onItemClickOrDeleteClickListener;
 
     /**
@@ -60,9 +60,9 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdap
         this.onItemClickOrDeleteClickListener = onItemClickOrDeleteClickListener;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView searchHistoryItemTvName;
-        private ImageView searchHistoryItemIvDelete;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView searchHistoryItemTvName;
+        private final ImageView searchHistoryItemIvDelete;
 
         ViewHolder(View view) {
             super(view);

@@ -23,10 +23,10 @@ import com.zsp.utilone.density.DensityUtils;
  */
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private final ItemTouchHelperAdapter mAdapter;
-    private Context context;
-    private int color;
-    private int drawable;
-    private Paint paint = new Paint();
+    private final Context context;
+    private final int color;
+    private final int drawable;
+    private final Paint paint = new Paint();
 
     /**
      * constructor

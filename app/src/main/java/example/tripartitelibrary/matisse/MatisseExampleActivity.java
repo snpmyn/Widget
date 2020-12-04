@@ -1,6 +1,7 @@
 package example.tripartitelibrary.matisse;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ import value.WidgetFolder;
  * @date: 2019/10/28 10:01
  */
 public class MatisseExampleActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.matisseExampleActivityIv)
     ImageView matisseExampleActivityIv;
     /**
@@ -67,6 +69,7 @@ public class MatisseExampleActivity extends AppCompatActivity {
         compositeDisposable = new CompositeDisposable();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.matisseExampleActivityMb)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.matisseExampleActivityMb) {

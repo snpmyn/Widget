@@ -34,9 +34,9 @@ import butterknife.ButterKnife;
  * @desc 侧拖适配器
  */
 public class SideDragAdapter extends RecyclerView.Adapter<SideDragAdapter.ViewHolder> implements ItemTouchHelperAdapter {
-    private Context context;
+    private final Context context;
     private List<String> list;
-    private ItemDragListener dragStartListener;
+    private final ItemDragListener dragStartListener;
 
     /**
      * constructor
@@ -79,11 +79,14 @@ public class SideDragAdapter extends RecyclerView.Adapter<SideDragAdapter.ViewHo
         return list.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.sideDragItemTv)
         TextView sideDragItemTv;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.sideDragItemIv)
         ImageView sideDragItemIv;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.sideDragItemMcv)
         MaterialCardView sideDragItemMcv;
 

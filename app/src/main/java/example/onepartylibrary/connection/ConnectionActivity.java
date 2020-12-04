@@ -1,5 +1,6 @@
 package example.onepartylibrary.connection;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,8 +22,10 @@ import butterknife.OnClick;
  * @date: 2019/10/18 17:34
  */
 public class ConnectionActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.connectionActivityDccsv)
     DefaultConnectionConnectionStatusView connectionActivityDccsv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.connectionActivityCcsv)
     ConnectionStatusView connectionActivityCcsv;
 
@@ -46,6 +49,7 @@ public class ConnectionActivity extends AppCompatActivity {
         connectionActivityCcsv.setOnLoadingClickListener(onLoadingClickListener);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.connectionActivityMbComplete,
             R.id.connectionActivityMbError,
             R.id.connectionActivityMbConnecting,

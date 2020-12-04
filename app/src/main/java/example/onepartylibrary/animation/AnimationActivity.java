@@ -1,5 +1,6 @@
 package example.onepartylibrary.animation;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -27,6 +28,7 @@ public class AnimationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.loginActivityMbLogin,
             R.id.loginActivityMbReveal,
             R.id.loginActivityMbCircularFlex})

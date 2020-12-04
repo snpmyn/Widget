@@ -1,5 +1,6 @@
 package example.onepartylibrary.searchbox;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class SearchBoxActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.searchBoxActivityMbSearchBoxOne,
             R.id.searchBoxActivityMbSearchBoxTwo,
             R.id.searchBoxActivityMbSearchBoxThree})

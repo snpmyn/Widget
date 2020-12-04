@@ -1,5 +1,6 @@
 package example.onepartylibrary.spannablestringbuilder;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -22,6 +23,7 @@ import butterknife.ButterKnife;
  * @date: 2019/6/24 17:03
  */
 public class SpannableStringBuilderActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spannableStringBuilderActivityTv)
     TextView spannableStringBuilderActivityTv;
 

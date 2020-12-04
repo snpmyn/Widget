@@ -1,5 +1,6 @@
 package example.onepartylibrary.picture;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -22,6 +23,7 @@ import butterknife.OnClick;
  * @date: 2019/10/26 17:10
  */
 public class EasingActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.easingActivityEv)
     EasingView easingActivityEv;
 
@@ -47,6 +49,7 @@ public class EasingActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.easingActivityMbPause,
             R.id.easingActivityMbResume,
             R.id.easingActivityMbRestart,

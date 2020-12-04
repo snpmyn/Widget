@@ -25,10 +25,11 @@ import butterknife.OnClick;
  * @date: 2019/6/18 11:35
  */
 public class LoginOneActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.loginOneActivityPb)
     ProgressButton loginOneActivityPb;
     @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler() {
+    private final Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -51,6 +52,7 @@ public class LoginOneActivity extends AppCompatActivity {
         loginOneActivityPb.setBgColor(ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.loginOneActivityPb)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.loginOneActivityPb) {

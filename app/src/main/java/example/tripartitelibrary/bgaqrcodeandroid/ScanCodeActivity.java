@@ -1,6 +1,7 @@
 package example.tripartitelibrary.bgaqrcodeandroid;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +45,7 @@ public class ScanCodeActivity extends AppCompatActivity implements ScanCodeListe
         soulPermissionUtils = new SoulPermissionUtils();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.scanCodeActivityMbScanQrCode, R.id.scanCodeActivityMbScanBarCode})
     public void onViewClicked(View view) {
         switch (view.getId()) {

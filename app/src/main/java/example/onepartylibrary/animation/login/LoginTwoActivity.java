@@ -1,5 +1,6 @@
 package example.onepartylibrary.animation.login;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,6 +21,7 @@ import butterknife.OnClick;
  * @date: 2019/7/31 10:04
  */
 public class LoginTwoActivity extends AppCompatActivity implements TransitionView.OnAnimationEndListener {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.loginTwoActivityTv)
     TransitionView loginTwoActivityTv;
     /**
@@ -39,6 +41,7 @@ public class LoginTwoActivity extends AppCompatActivity implements TransitionVie
         loginTwoActivityTv.setOnAnimationEndListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.loginTwoActivityMbLogin)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.loginTwoActivityMbLogin) {

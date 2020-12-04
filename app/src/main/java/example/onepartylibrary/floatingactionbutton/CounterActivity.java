@@ -1,5 +1,6 @@
 package example.onepartylibrary.floatingactionbutton;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
@@ -18,10 +19,13 @@ import butterknife.ButterKnife;
  * @date: 2019/7/19 14:10
  */
 public class CounterActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.counterActivityMt)
     MaterialToolbar counterActivityMt;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.counterActivityRg)
     RadioGroup counterActivityRg;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.counterActivityCfab)
     CounterFloatingActionButton counterActivityCfab;
 
@@ -38,6 +42,7 @@ public class CounterActivity extends AppCompatActivity {
         setSupportActionBar(counterActivityMt);
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void setListener() {
         // RadioGroup
         counterActivityRg.setOnCheckedChangeListener((radioGroup, i) -> {

@@ -1,5 +1,6 @@
 package example.onepartylibrary.contact.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ import butterknife.ButterKnife;
  * @desc 联系人适配器
  */
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
-    private Context context;
+    private final Context context;
     private List<ContactBean> contactBeans;
     private OnRecyclerViewItemClickListener onItemClickListener;
 
@@ -114,11 +115,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         void onItemClick(View view, ContactBean contactBean);
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.contractItemTvStickyDecoration)
         TextView contractItemTvStickyDecoration;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.contractItemTvName)
         TextView contractItemTvName;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.contractItemTvCellPhoneNumber)
         TextView contractItemTvCellPhoneNumber;
 

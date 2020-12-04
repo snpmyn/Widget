@@ -1,5 +1,6 @@
 package example.onepartylibrary.card.elastic;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -19,10 +20,13 @@ import butterknife.ButterKnife;
  * @date: 2019/10/29 17:29
  */
 public class ElasticCardViewActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.elasticCardViewActivityEcv)
     ElasticCardView elasticCardViewActivityEcv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.elasticCardViewActivityTv)
     TextView elasticCardViewActivityTv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.elasticCardViewActivityAcsb)
     AppCompatSeekBar elasticCardViewActivityAcsb;
 

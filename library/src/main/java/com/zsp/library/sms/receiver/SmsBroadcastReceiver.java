@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.telephony.SmsManager;
 
 import com.zsp.library.sms.kit.SmsKit;
+import com.zsp.utilone.toast.ToastUtils;
 
 /**
  * Created on 2018/1/11.
@@ -38,8 +39,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         smsBroadcastReceiverSendListener.sendResultErrorCenericFailure();
                         break;
                     case SmsManager.RESULT_ERROR_RADIO_OFF:
+                        ToastUtils.shortShow(context, "RESULT_ERROR_RADIO_OFF");
                         break;
                     case SmsManager.RESULT_ERROR_NULL_PDU:
+                        ToastUtils.shortShow(context, "RESULT_ERROR_NULL_PDU");
                         break;
                     default:
                         break;
@@ -53,8 +56,10 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                         smsBroadcastReceiverDeliverListener.deliverResultErrorCenericFailure();
                         break;
                     case SmsManager.RESULT_ERROR_RADIO_OFF:
+                        ToastUtils.shortShow(context, "RESULT_ERROR_RADIO_OFF");
                         break;
                     case SmsManager.RESULT_ERROR_NULL_PDU:
+                        ToastUtils.shortShow(context, "RESULT_ERROR_NULL_PDU");
                         break;
                     default:
                         break;

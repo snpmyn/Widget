@@ -1,5 +1,6 @@
 package example.onepartylibrary.dialog;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -43,6 +44,7 @@ public class DialogOneActivity extends AppCompatActivity implements SweetAlertDi
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.dialogOneActivityMbShowMaterialProgress, R.id.dialogOneActivityMbBasicMessage, R.id.dialogOneActivityMbTitleWithTextUnder, R.id.dialogOneActivityMbShowErrorMessage, R.id.dialogOneActivityMbSuccessMessage, R.id.dialogOneActivityMbWarningMessageWithConfirmButton, R.id.dialogOneActivityMbWarningMessageWithCancelAndConfirmButton, R.id.dialogOneActivityMbMessageWithCustomImage})
     public void onViewClicked(View view) {
         switch (view.getId()) {

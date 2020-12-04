@@ -1,6 +1,7 @@
 package example.onepartylibrary.sms;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -59,6 +60,7 @@ public class SmsActivity extends AppCompatActivity implements SmsKit.SmsKitSendL
         smsKit.setSmsKitDeliverListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.smsActivitySingleShot, R.id.smsActivityMass})
     public void onViewClicked(View view) {
         switch (view.getId()) {

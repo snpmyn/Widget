@@ -1,5 +1,6 @@
 package example.onepartylibrary.screen;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import example.onepartylibrary.screen.kit.ScreenActivityKit;
  * @date: 2019/6/26 9:57
  */
 public class ScreenActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.screenActivityTvResult)
     TextView screenActivityTvResult;
     /**
@@ -131,6 +133,7 @@ public class ScreenActivity extends AppCompatActivity {
         screenHandleKit.associate();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.screenActivityMbScreen)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.screenActivityMbScreen) {

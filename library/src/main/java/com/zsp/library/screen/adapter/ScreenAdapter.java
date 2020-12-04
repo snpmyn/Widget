@@ -32,11 +32,11 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * 条目视图数据
      */
-    private Map<String, View> itemViewMap;
+    private final Map<String, View> itemViewMap;
     /**
      * 主体数据键值数据
      */
@@ -325,9 +325,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
         return 0;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView screenItemTv;
-        private RecyclerView screenItemRv;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView screenItemTv;
+        private final RecyclerView screenItemRv;
 
         private ViewHolder(@NonNull View view) {
             super(view);

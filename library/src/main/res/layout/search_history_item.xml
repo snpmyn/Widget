@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -11,7 +12,6 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/dp_12"
         android:layout_toStartOf="@+id/searchHistoryItemIvDelete"
-        android:drawableStart="@drawable/ic_history_to_search_history_item_18dp_font_input"
         android:drawablePadding="@dimen/dp_10"
         android:ellipsize="end"
         android:maxLines="1"
@@ -19,6 +19,7 @@
         android:paddingBottom="@dimen/dp_12"
         android:textColor="@color/fontHint"
         android:textSize="@dimen/sp_13"
+        app:drawableStartCompat="@drawable/ic_history_to_search_history_item_18dp_font_input"
         tools:text="历史记录" />
 
     <ImageView

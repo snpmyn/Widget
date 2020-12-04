@@ -1,6 +1,7 @@
 package example.onepartylibrary.voice;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -37,6 +38,7 @@ public class VoiceActivity extends AppCompatActivity {
         soulPermissionUtils = new SoulPermissionUtils();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.voiceActivityMbRecord, R.id.voiceActivityMbPlay})
     public void onViewClicked(View view) {
         switch (view.getId()) {

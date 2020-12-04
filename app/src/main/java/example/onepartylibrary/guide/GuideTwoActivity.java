@@ -1,5 +1,6 @@
 package example.onepartylibrary.guide;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,12 +27,16 @@ import butterknife.OnClick;
  * @date: 2019/9/24 11:30
  */
 public class GuideTwoActivity extends AppCompatActivity implements MaterialIntroListener {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideTwoActivityMt)
     MaterialToolbar guideTwoActivityMt;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideTwoActivityMcv)
     MaterialCardView guideTwoActivityMcv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideTwoActivityMbButtonOne)
     MaterialButton guideTwoActivityMbButtonOne;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.guideTwoActivityMbButtonTwo)
     MaterialButton guideTwoActivityMbButtonTwo;
 
@@ -67,6 +72,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
         guideTwoActivityMt.setNavigationOnClickListener(v -> finish());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.guideTwoActivityMbResetting)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.guideTwoActivityMbResetting) {

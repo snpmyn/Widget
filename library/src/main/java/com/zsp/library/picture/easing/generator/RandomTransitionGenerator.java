@@ -90,15 +90,16 @@ public class RandomTransitionGenerator implements TransitionGenerator {
         float drawableRatio = MathUtils.getRectRatio(drawableBounds);
         float viewportRectRatio = MathUtils.getRectRatio(viewportRect);
         RectF maxCrop;
+        float r;
+        float b;
         if (drawableRatio > viewportRectRatio) {
-            float r = (drawableBounds.height() / viewportRect.height()) * viewportRect.width();
-            float b = drawableBounds.height();
-            maxCrop = new RectF(0, 0, r, b);
+            r = (drawableBounds.height() / viewportRect.height()) * viewportRect.width();
+            b = drawableBounds.height();
         } else {
-            float r = drawableBounds.width();
-            float b = (drawableBounds.width() / viewportRect.width()) * viewportRect.height();
-            maxCrop = new RectF(0, 0, r, b);
+            r = drawableBounds.width();
+            b = (drawableBounds.width() / viewportRect.width()) * viewportRect.height();
         }
+        maxCrop = new RectF(0, 0, r, b);
         float randomFloat = MathUtils.truncate(mRandom.nextFloat(), 2);
         float factor = MIN_RECT_FACTOR + ((1 - MIN_RECT_FACTOR) * randomFloat);
         float width = factor * maxCrop.width();

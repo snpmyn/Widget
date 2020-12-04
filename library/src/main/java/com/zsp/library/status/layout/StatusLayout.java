@@ -23,7 +23,7 @@ public class StatusLayout extends FrameLayout {
     private View mEmptyView;
     private View mRetryView;
     private View mContentView;
-    private LayoutInflater mLayoutInflater;
+    private final LayoutInflater mLayoutInflater;
 
     public StatusLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);

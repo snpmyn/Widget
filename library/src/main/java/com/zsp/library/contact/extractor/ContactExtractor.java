@@ -17,9 +17,9 @@ import java.util.List;
  * @desc 联系人提取器
  */
 public class ContactExtractor {
-    private Context context;
-    private List<ContactBean> contactBeans;
-    private ContactThread contactThread;
+    private final Context context;
+    private final List<ContactBean> contactBeans;
+    private final ContactThread contactThread;
     private ContractExtractorListener contractExtractorListener;
 
     /**
@@ -37,7 +37,7 @@ public class ContactExtractor {
      * 提取
      */
     public void extract() {
-        contactThread.run();
+        contactThread.start();
     }
 
     /**

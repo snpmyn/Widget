@@ -1,5 +1,6 @@
 package example.onepartylibrary.banner;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -31,8 +32,10 @@ import timber.log.Timber;
  * @date: 2019/8/20 14:38
  */
 public class BannerActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.bannerActivityBvInterval)
     BannerView bannerActivityBvInterval;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.bannerActivityBvSmooth)
     BannerView bannerActivityBvSmooth;
     /**
@@ -150,6 +153,7 @@ public class BannerActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.bannerActivityMbClear, R.id.bannerActivityMbAdd})
     public void onViewClicked(View view) {
         switch (view.getId()) {

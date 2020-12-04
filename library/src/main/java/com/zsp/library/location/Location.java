@@ -33,7 +33,7 @@ public class Location {
     /**
      * 定位监听
      */
-    private LocationListener locationListener = new LocationListener() {
+    private final LocationListener locationListener = new LocationListener() {
         /**
          * provider于可用、暂时不可用和无服务三状态直切触发此函数
          * @param provider 提供者
@@ -221,9 +221,7 @@ public class Location {
      */
     public void removeLocationUpdatesListener() {
         if (locationManager != null) {
-            if (locationListener != null) {
-                locationManager.removeUpdates(locationListener);
-            }
+            locationManager.removeUpdates(locationListener);
             locationManager = null;
         }
     }

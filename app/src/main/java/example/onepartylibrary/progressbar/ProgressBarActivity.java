@@ -1,5 +1,6 @@
 package example.onepartylibrary.progressbar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,7 @@ public class ProgressBarActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.progressBarActivityMbMultiProgressBar, R.id.progressBarActivityMbProgressWheel})
     public void onViewClicked(View view) {
         switch (view.getId()) {

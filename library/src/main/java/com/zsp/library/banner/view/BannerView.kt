@@ -2,6 +2,7 @@ package com.zsp.library.banner.view
 
 import android.content.Context
 import android.graphics.*
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewTreeObserver
@@ -30,30 +31,37 @@ class BannerView @JvmOverloads constructor(
      * 小等0时Match Parent
      */
     private var mViewHeight: Float = 0f
+
     /**
      * 视图圆角半径
      */
     private var mViewCornerRadius: Float = 0f
+
     /**
      * 据百分百设条目宽
      */
     private var mItemViewWidthRatio: Float = 0f
+
     /**
      * 设条目间距
      */
     private var mItemViewMargin: Float = 0f
+
     /**
      * 轮换时
      */
     private var mIntervalInMillis: Int = 0
+
     /**
      * 滑后页停时（仅SMOOTH模式生效）
      */
     private var mPageHoldInMillis: Int = DEFAULT_PAGE_HOLD_IN_MILLIS
+
     /**
      * 滚模式
      */
     private var mScrollMode: Int = DEFAULT_SCROLL_MODE
+
     /**
      * 条目视图对齐方式
      */
@@ -65,10 +73,12 @@ class BannerView @JvmOverloads constructor(
      * 全局画笔
      */
     private val mPaint = createPaint(color = Color.WHITE)
+
     /**
      * 全局Path
      */
     private val mPath = Path()
+
     /**
      * PagerView实例
      */
@@ -80,18 +90,22 @@ class BannerView @JvmOverloads constructor(
      * 视图宽
      */
     private var mWidth: Float = -1f
+
     /**
      * 视图高
      */
     private var mHeight: Float by Delegates.notNull()
+
     /**
      * 视图区坐标
      */
     private var mViewRectF: RectF = RectF()
+
     /**
      * 自滚标识位
      */
     private var mFlagAutoScroll: Boolean = false
+
     /**
      * 指示器实例
      */
@@ -286,7 +300,11 @@ class BannerView @JvmOverloads constructor(
             return
         }
         // 一开图层
-        canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null, Canvas.ALL_SAVE_FLAG)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null)
+        } else {
+            canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null, Canvas.ALL_SAVE_FLAG)
+        }
         // 二绘子视图
         super.dispatchDraw(canvas)
         // 三裁剪合成

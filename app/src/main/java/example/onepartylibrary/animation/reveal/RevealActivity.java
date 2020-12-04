@@ -1,5 +1,6 @@
 package example.onepartylibrary.animation.reveal;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -22,8 +23,10 @@ import butterknife.OnClick;
  * @date: 2019/8/27 11:15
  */
 public class RevealActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.revealActivityFab)
     FloatingActionButton revealActivityFab;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.revealActivityRfl)
     RevealFrameLayout revealActivityRfl;
 
@@ -34,6 +37,7 @@ public class RevealActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.revealActivityFab, R.id.revealActivityTvPackUp})
     public void onViewClicked(View view) {
         switch (view.getId()) {

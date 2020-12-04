@@ -1,5 +1,6 @@
 package example.onepartylibrary;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -52,6 +53,7 @@ public class OnePartyLibraryExampleActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.onePartyLibraryExampleActivityMbPicture,
             R.id.onePartyLibraryExampleActivityMbSearchBox,
             R.id.onePartyLibraryExampleActivityMbTextView,

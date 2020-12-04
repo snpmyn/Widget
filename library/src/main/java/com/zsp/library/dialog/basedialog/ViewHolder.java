@@ -10,8 +10,8 @@ import android.widget.TextView;
  * @date: 2018/4/4 13:52
  */
 public class ViewHolder {
-    private SparseArray<View> views;
-    private View convertView;
+    private final SparseArray<View> views;
+    private final View convertView;
 
     private ViewHolder(View view) {
         convertView = view;

@@ -1,5 +1,6 @@
 package com.zsp.library.searchbox.one;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
@@ -29,7 +30,7 @@ import com.zsp.utilone.view.ViewUtils;
  * @date: 2019/4/22 12:02
  */
 public class SearchView extends LinearLayout {
-    private Context context;
+    private final Context context;
     /**
      * 搜索键
      */
@@ -232,7 +233,7 @@ public class SearchView extends LinearLayout {
      */
     private boolean hasData(String temporaryName) {
         // 从数据库Record表找到name=tempName之id
-        Cursor cursor = recordHelper.getReadableDatabase().rawQuery("select id as _id,name from record where name =?", new String[]{temporaryName});
+        @SuppressLint("Recycle") Cursor cursor = recordHelper.getReadableDatabase().rawQuery("select id as _id,name from record where name =?", new String[]{temporaryName});
         // 判有下一个否
         return cursor.moveToNext();
     }

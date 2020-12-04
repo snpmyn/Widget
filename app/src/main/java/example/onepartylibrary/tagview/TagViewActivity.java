@@ -1,5 +1,6 @@
 package example.onepartylibrary.tagview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,6 +26,7 @@ import value.WidgetMagic;
  * @date: 2019/11/12 15:02
  */
 public class TagViewActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.tagViewActivityTv)
     TagView tagViewActivityTv;
 
@@ -74,6 +76,7 @@ public class TagViewActivity extends AppCompatActivity {
                 .show());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick({R.id.tagViewActivityMbRestore, R.id.tagViewActivityMbClear})
     public void onViewClicked(View view) {
         switch (view.getId()) {

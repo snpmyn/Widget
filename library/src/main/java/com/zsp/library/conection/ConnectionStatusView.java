@@ -45,7 +45,7 @@ public class ConnectionStatusView extends RelativeLayout {
     /**
      * auto dismiss on complete
      */
-    private Runnable autoDismissOnComplete = new Runnable() {
+    private final Runnable autoDismissOnComplete = new Runnable() {
         @Override
         public void run() {
             exitAnimation(getCurrentView(currentStatus));

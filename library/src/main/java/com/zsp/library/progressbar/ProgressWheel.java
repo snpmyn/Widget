@@ -50,8 +50,8 @@ public class ProgressWheel extends View {
     /**
      * paints
      */
-    private Paint barPaint = new Paint();
-    private Paint rimPaint = new Paint();
+    private final Paint barPaint = new Paint();
+    private final Paint rimPaint = new Paint();
     /**
      * rectangles
      */

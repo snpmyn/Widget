@@ -53,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/dp_12"
+                android:contentDescription="@string/toDo"
                 android:src="@drawable/voice_play"
                 app:borderWidth="@dimen/dp_0"
                 app:elevation="@dimen/dp_6"

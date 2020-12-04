@@ -10,8 +10,8 @@
     <sweet:com.zsp.library.dialog.sweetalertdialog.Rotate3dAnimation
         android:duration="400"
         sweet:fromDeg="100"
-        sweet:pivotX="50%"
-        sweet:pivotY="50%"
         sweet:rollType="x"
-        sweet:toDeg="0" />
+        sweet:toDeg="0"
+        sweet:valuePivotX="50%"
+        sweet:valuePivotY="50%" />
 </set>

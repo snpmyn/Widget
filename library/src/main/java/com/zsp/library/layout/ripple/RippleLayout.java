@@ -24,6 +24,8 @@ import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
 
+import java.math.BigDecimal;
+
 import value.WidgetLibraryMagic;
 
 /**
@@ -181,7 +183,7 @@ public class RippleLayout extends RelativeLayout {
         super.onSizeChanged(width, height, oldWidth, oldHeight);
         this.width = width;
         this.height = height;
-        scaleAnimation = new ScaleAnimation(1.0f, zoomScale, 1.0f, zoomScale, width / 2, height / 2);
+        scaleAnimation = new ScaleAnimation(1.0f, zoomScale, 1.0f, zoomScale, new BigDecimal(width / 2).floatValue(), new BigDecimal(height / 2).floatValue());
         scaleAnimation.setDuration(zoomDuration);
         scaleAnimation.setRepeatMode(Animation.REVERSE);
         scaleAnimation.setRepeatCount(1);
@@ -223,8 +225,8 @@ public class RippleLayout extends RelativeLayout {
             }
             radiusMax -= ripplePadding;
             if (isCentered || rippleType == 1) {
-                this.x = getMeasuredWidth() / 2;
-                this.y = getMeasuredHeight() / 2;
+                this.x = new BigDecimal(getMeasuredWidth() / 2).floatValue();
+                this.y = new BigDecimal(getMeasuredHeight() / 2).floatValue();
             } else {
                 this.x = x;
                 this.y = y;

@@ -39,8 +39,8 @@ public class WheelTime {
     private WheelView wvHours;
     private WheelView wvMinutes;
     private WheelView wvSeconds;
-    private int gravity;
-    private boolean[] type;
+    private final int gravity;
+    private final boolean[] type;
     private int startYear = DEFAULT_START_YEAR;
     private int endYear = DEFAULT_END_YEAR;
     private int startMonth = DEFAULT_START_MONTH;
@@ -51,7 +51,7 @@ public class WheelTime {
      */
     private int endDay = DEFAULT_END_DAY;
     private int currentYear;
-    private int textSize;
+    private final int textSize;
     /**
      * 文本/分割线色
      */
@@ -282,13 +282,12 @@ public class WheelTime {
                     if (endDay > WidgetLibraryMagic.INT_TWENTY_NINE) {
                         endDay = 29;
                     }
-                    wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
                 } else {
                     if (endDay > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
                         endDay = 28;
                     }
-                    wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
                 }
+                wvDay.setAdapter(new NumericWheelAdapter(startDay, endDay));
             }
             wvDay.setCurrentItem(day - startDay);
         } else if (year == startYear && month + 1 == startMonth) {
@@ -309,49 +308,49 @@ public class WheelTime {
                 }
             }
             wvDay.setCurrentItem(day - startDay);
-        } else if (year == endYear && month + 1 == endMonth) {
-            // 终止日期天数控制
-            if (listBig.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetLibraryMagic.INT_THIRTY_ONE) {
-                    endDay = 31;
-                }
-                wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
-            } else if (listLittle.contains(String.valueOf(month + 1))) {
-                if (endDay > WidgetLibraryMagic.INT_THIRTY) {
-                    endDay = 30;
-                }
-                wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
-            } else {
-                // 闰年
-                boolean flagLeft = (year % 4 == 0) && (year % 100 != 0);
-                boolean flagRight = year % 400 == 0;
-                boolean flag = flagLeft || flagRight;
-                if (flag) {
-                    if (endDay > WidgetLibraryMagic.INT_TWENTY_NINE) {
-                        endDay = 29;
-                    }
-                    wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
-                } else {
-                    if (endDay > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
-                        endDay = 28;
-                    }
-                    wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
-                }
-            }
-            wvDay.setCurrentItem(day - 1);
         } else {
-            // 判大小月及闰年否，来确定"日"数据
-            if (listBig.contains(String.valueOf(month + 1))) {
-                wvDay.setAdapter(new NumericWheelAdapter(1, 31));
-            } else if (listLittle.contains(String.valueOf(month + 1))) {
-                wvDay.setAdapter(new NumericWheelAdapter(1, 30));
-            } else {
-                // 闰年
-                boolean flag = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
-                if (flag) {
-                    wvDay.setAdapter(new NumericWheelAdapter(1, 29));
+            if (year == endYear && month + 1 == endMonth) {
+                // 终止日期天数控制
+                if (listBig.contains(String.valueOf(month + 1))) {
+                    if (endDay > WidgetLibraryMagic.INT_THIRTY_ONE) {
+                        endDay = 31;
+                    }
+                    wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
+                } else if (listLittle.contains(String.valueOf(month + 1))) {
+                    if (endDay > WidgetLibraryMagic.INT_THIRTY) {
+                        endDay = 30;
+                    }
+                    wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
                 } else {
-                    wvDay.setAdapter(new NumericWheelAdapter(1, 28));
+                    // 闰年
+                    boolean flagLeft = (year % 4 == 0) && (year % 100 != 0);
+                    boolean flagRight = year % 400 == 0;
+                    boolean flag = flagLeft || flagRight;
+                    if (flag) {
+                        if (endDay > WidgetLibraryMagic.INT_TWENTY_NINE) {
+                            endDay = 29;
+                        }
+                    } else {
+                        if (endDay > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
+                            endDay = 28;
+                        }
+                    }
+                    wvDay.setAdapter(new NumericWheelAdapter(1, endDay));
+                }
+            } else {
+                // 判大小月及闰年否，来确定"日"数据
+                if (listBig.contains(String.valueOf(month + 1))) {
+                    wvDay.setAdapter(new NumericWheelAdapter(1, 31));
+                } else if (listLittle.contains(String.valueOf(month + 1))) {
+                    wvDay.setAdapter(new NumericWheelAdapter(1, 30));
+                } else {
+                    // 闰年
+                    boolean flag = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+                    if (flag) {
+                        wvDay.setAdapter(new NumericWheelAdapter(1, 29));
+                    } else {
+                        wvDay.setAdapter(new NumericWheelAdapter(1, 28));
+                    }
                 }
             }
             wvDay.setCurrentItem(day - 1);
@@ -524,15 +523,14 @@ public class WheelTime {
                 if (dEnd > WidgetLibraryMagic.INT_TWENTY_NINE) {
                     dEnd = 29;
                 }
-                wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
                 // maxItem = endD;
             } else {
                 if (dEnd > WidgetLibraryMagic.INT_TWENTY_EIGHT) {
                     dEnd = 28;
                 }
-                wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
                 // maxItem = endD;
             }
+            wvDay.setAdapter(new NumericWheelAdapter(dStart, dEnd));
         }
         if (currentItem > wvDay.getAdapter().getItemsCount() - 1) {
             currentItem = wvDay.getAdapter().getItemsCount() - 1;

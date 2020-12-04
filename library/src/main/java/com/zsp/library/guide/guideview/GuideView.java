@@ -32,7 +32,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * 目标图前缀（SHOW_GUIDE_PREFIX + targetView.getId()作为存于SP文件key）
      */

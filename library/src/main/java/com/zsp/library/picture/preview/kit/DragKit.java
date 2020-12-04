@@ -51,7 +51,7 @@ public class DragKit {
     /**
      * ViewConfiguration
      */
-    private ViewConfiguration viewConfiguration;
+    private final ViewConfiguration viewConfiguration;
     private int yMaxExit = MAX_EXIT_Y;
     private float minScaleSize = MIN_SCALE_SIZE;
     /**
@@ -84,7 +84,7 @@ public class DragKit {
     private boolean isShareElementMode = false;
     private View vParent, vChild;
     private DragCloseListener dragCloseListener;
-    private Context mContext;
+    private final Context mContext;
 
     public DragKit(Context mContext) {
         this.mContext = mContext;

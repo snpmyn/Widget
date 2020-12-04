@@ -1,5 +1,6 @@
 package example.onepartylibrary.focusresize.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -40,11 +41,11 @@ public class FocusResizeCustomAdapter extends BaseFocusResizeAdapter<RecyclerVie
     /**
      * 上下文
      */
-    private Context context;
+    private final Context context;
     /**
      * 数据
      */
-    private List<FocusResizeBean> focusResizeBeans;
+    private final List<FocusResizeBean> focusResizeBeans;
 
     /**
      * constructor
@@ -88,17 +89,9 @@ public class FocusResizeCustomAdapter extends BaseFocusResizeAdapter<RecyclerVie
 
     @Override
     public void onItemBigResize(RecyclerView.ViewHolder viewHolder, int position, int dyAbs) {
-        if (((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() + (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()) >= context.getResources().getDimension(R.dimen.sp_32)) {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.sp_32));
-        } else {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() + (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()));
-        }
+        ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.min(((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() + (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()), context.getResources().getDimension(R.dimen.sp_32)));
         float alpha = dyAbs / OFFSET_TEXT_ALPHA;
-        if (((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() + alpha >= ALPHA_SUBTITLE) {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(ALPHA_SUBTITLE);
-        } else {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() + alpha);
-        }
+        ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(Math.min(((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() + alpha, ALPHA_SUBTITLE));
     }
 
     @Override
@@ -115,17 +108,9 @@ public class FocusResizeCustomAdapter extends BaseFocusResizeAdapter<RecyclerVie
 
     @Override
     public void onItemSmallResize(RecyclerView.ViewHolder viewHolder, int position, int dyAbs) {
-        if (((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() - (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()) <= context.getResources().getDimension(R.dimen.sp_16)) {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.sp_16));
-        } else {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() - (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()));
-        }
+        ((CustomViewHolder) viewHolder).focusResizeItemTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, Math.max(((CustomViewHolder) viewHolder).focusResizeItemTvTitle.getTextSize() - (Integer.valueOf(dyAbs / OFFSET_TEXT_SIZE).floatValue()), context.getResources().getDimension(R.dimen.sp_16)));
         float alpha = dyAbs / OFFSET_TEXT_ALPHA;
-        if (((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() - alpha < ALPHA_SUBTITLE_HIDE) {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(ALPHA_SUBTITLE_HIDE);
-        } else {
-            ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() - alpha);
-        }
+        ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(Math.max(((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.getAlpha() - alpha, ALPHA_SUBTITLE_HIDE));
     }
 
     @Override
@@ -134,11 +119,14 @@ public class FocusResizeCustomAdapter extends BaseFocusResizeAdapter<RecyclerVie
         ((CustomViewHolder) viewHolder).focusResizeItemTvSubtitle.setAlpha(ALPHA_SUBTITLE);
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemIv)
         ImageView focusResizeItemIv;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemTvTitle)
         TextView focusResizeItemTvTitle;
+        @SuppressLint("NonConstantResourceId")
         @BindView(R.id.focusResizeItemTvSubtitle)
         TextView focusResizeItemTvSubtitle;
 

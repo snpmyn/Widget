@@ -1,5 +1,6 @@
 package example.onepartylibrary.chart;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,6 +22,7 @@ import butterknife.OnClick;
  * @date: 2019/8/21 15:41
  */
 public class RadarChartActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.radarChartActivityRc)
     RadarChart radarChartActivityRc;
     /**
@@ -84,6 +86,7 @@ public class RadarChartActivity extends AppCompatActivity {
         finallyProgressList.add(30);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.radarChartActivityRc)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.radarChartActivityRc) {

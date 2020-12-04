@@ -1,6 +1,7 @@
 package example.onepartylibrary.contact;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -42,8 +43,10 @@ import value.WidgetMagic;
  * @date: 2019/7/22 17:37
  */
 public class ContactActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.contactActivityRv)
     RecyclerView contactActivityRv;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.contactActivityWsb)
     WaveSideBar contactActivityWsb;
     /**

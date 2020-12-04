@@ -1,6 +1,7 @@
 package example.onepartylibrary.location;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import butterknife.OnClick;
  * @date: 2019/7/1 10:54
  */
 public class LocationActivity extends AppCompatActivity {
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.locationActivityTvResult)
     TextView locationActivityTvResult;
     /**
@@ -87,6 +89,7 @@ public class LocationActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.locationActivityMbLocationResult)
     public void onViewClicked(View view) {
         if (view.getId() == R.id.locationActivityMbLocationResult) {
