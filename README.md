@@ -28,7 +28,7 @@
 ### 依赖、权限
 | 模块 | 依赖 |
 |:-:|:-:|
-| 示例app | implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.0@jar' |
+| 示例app | implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21@jar' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' |
 | 示例app | implementation 'io.reactivex.rxjava2:rxandroid:2.2.14' |
 | 示例app | implementation project(path: ':library') |
@@ -41,20 +41,20 @@
 | 一方库Library | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette-ktx:1.0.0' |
-| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v1.0.1'（避重）|
-| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v1.0.1'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v0.1.1'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v0.1.1'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
+| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:v0.1.1' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
-| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v1.0.1' |
-| 一方库Banner | implementation 'com.github.snpmyn:*Util*:v1.0.1' |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v0.1.1' |
+| 一方库Banner | implementation 'com.github.snpmyn:*Util*:v0.1.1' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
-| 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.10.0'（避重）|
+| 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.11.0'（避重）|
 | 二方库Util-UtilOne | api 'com.google.android.material:material:1.3.0-alpha04''（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxjava:1.3.8'（避重）|
@@ -62,7 +62,7 @@
 | 二方库Util-UtilOne | api 'com.tencent:mmkv-static:1.0.23'（避重）|
 | 二方库Util-UtilOne | implementation 'com.getkeepsafe.relinker:relinker:1.3.1' |
 | 二方库Util-UtilOne | implementation 'com.qw:soulpermission:1.2.2_x' |
-| 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.9' |
+| 二方库Util-UtilOne | implementation 'org.apache.commons:commons-lang3:3.11' |
 | 二方库Util-UtilTwo | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 二方库Util-UtilTwo | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 
@@ -83,8 +83,8 @@
 | 一方库BgaQrCodeAndroid | 无 |
 | 一方库Banner | 无 |
 | 一方库AutoSize | 无 |
-| 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-app | android:name="android.permission.READ_EXTERNAL_STORAGE"（避重）|
+| 二方库Util-app | android:name="android.permission.WRITE_EXTERNAL_STORAGE"（避重）|
 | 二方库Util-UtilOne | 无 |
 | 二方库Util-UtilTwo | 无 |
 
@@ -103,7 +103,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'           
+        classpath 'com.android.tools.build:gradle:4.1.1'            
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -141,12 +141,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn.Widget:library:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:matisse:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:ucrop:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:banner:v1.0.1'
-    implementation 'com.github.snpmyn.Widget:autosize:v1.0.1'
+    implementation 'com.github.snpmyn.Widget:library:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:matisse:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:ucrop:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:banner:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:autosize:v0.1.1'
 }
 ```
 

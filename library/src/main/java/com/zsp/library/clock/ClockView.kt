@@ -327,14 +327,11 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         mSecondMillsDegress = second * 6 + secondMills * 0.006f
         mSecondDegress = second * 6
         // 因每2°旋转一刻度，故此处据毫秒算
-        when (secondMills * 0.006f) {
-            in 2 until 4 -> {
-                mSecondDegress += 2
-            }
-            in 4 until 6 -> {
-                mSecondDegress += 4
-            }
-        }
+        // FIXME: 2020/12/15 Using 'contains(Float): Boolean' is an error. This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.
+        /*when (secondMills * 0.006f) {
+            in 2 until 4 -> mSecondDegress += 2
+            in 4 until 6 -> mSecondDegress += 4
+        }*/
     }
 
     /**

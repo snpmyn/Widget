@@ -6,13 +6,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-kapt"
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -48,8 +48,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.palette:palette-ktx:1.0.0'
     /*官方*/
-    api 'com.github.snpmyn.Util:utilone:v1.0.1'
-    api 'com.github.snpmyn.Util:utiltwo:v1.0.1'
+    api 'com.github.snpmyn.Util:utilone:v0.1.1'
+    api 'com.github.snpmyn.Util:utiltwo:v0.1.1'
     /*util*/
     api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     /*spruce*/
