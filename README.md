@@ -41,21 +41,21 @@
 | 一方库Library | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette-ktx:1.0.0' |
-| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v0.1.1'（避重）|
-| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v0.1.1'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v0.1.2'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v0.1.2'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库Matisse | implementation 'com.github.snpmyn:*Util*:v0.1.1' |
+| 一方库Matisse | implementation 'com.github.snpmyn.Util:utilone:v0.1.2' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
-| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v0.1.1' |
-| 一方库Banner | implementation 'com.github.snpmyn:*Util*:v0.1.1' |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v0.1.2' |
+| 一方库Banner | implementation 'com.github.snpmyn.Util:utilone:v0.1.2' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
 | 二方库Util-示例app | implementation project(path: ':utilone') |
 | 二方库Util-示例app | implementation project(path: ':utiltwo') |
 | 二方库Util-UtilOne | api 'com.github.bumptech.glide:glide:4.11.0'（避重）|
-| 二方库Util-UtilOne | api 'com.google.android.material:material:1.3.0-alpha04''（避重）|
+| 二方库Util-UtilOne | api 'com.google.android.material:material:1.3.0-beta01'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxandroid:1.2.1'（避重）|
 | 二方库Util-UtilOne | api 'io.reactivex:rxjava:1.3.8'（避重）|
 | 二方库Util-UtilOne | api 'com.jakewharton.timber:timber:4.7.1'（避重）|
@@ -132,8 +132,8 @@ android {
         ...      
     }       
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
@@ -141,12 +141,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn.Widget:library:v0.1.1'
-    implementation 'com.github.snpmyn.Widget:matisse:v0.1.1'
-    implementation 'com.github.snpmyn.Widget:ucrop:v0.1.1'
-    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.1.1'
-    implementation 'com.github.snpmyn.Widget:banner:v0.1.1'
-    implementation 'com.github.snpmyn.Widget:autosize:v0.1.1'
+    implementation 'com.github.snpmyn.Widget:library:v0.1.2'
+    implementation 'com.github.snpmyn.Widget:matisse:v0.1.2'
+    implementation 'com.github.snpmyn.Widget:ucrop:v0.1.2'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.1.2'
+    implementation 'com.github.snpmyn.Widget:banner:v0.1.2'
+    implementation 'com.github.snpmyn.Widget:autosize:v0.1.2'
 }
 ```
 

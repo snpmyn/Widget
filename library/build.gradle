@@ -27,8 +27,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
@@ -48,8 +48,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.palette:palette-ktx:1.0.0'
     /*官方*/
-    api 'com.github.snpmyn.Util:utilone:v0.1.1'
-    api 'com.github.snpmyn.Util:utiltwo:v0.1.1'
+    api 'com.github.snpmyn.Util:utilone:v0.1.2'
+    api 'com.github.snpmyn.Util:utiltwo:v0.1.2'
     /*util*/
     api 'com.willowtreeapps.spruce:spruce-android:1.0.1'
     /*spruce*/
