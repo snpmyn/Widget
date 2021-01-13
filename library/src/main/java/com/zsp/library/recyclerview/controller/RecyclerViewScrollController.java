@@ -23,7 +23,7 @@ public class RecyclerViewScrollController {
      * @param recyclerView 控件
      * @param position     位
      */
-    public void smoothScrollToTargetPosition(RecyclerView recyclerView, int position) {
+    public void smoothScrollToTargetPosition(@NonNull RecyclerView recyclerView, int position) {
         LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (manager != null) {
             // 滑至指定位
@@ -81,7 +81,7 @@ public class RecyclerViewScrollController {
      *                       据子视图当前位与父布局关系定子视图从头到尾跟随否。
      *                       子视图实际于RecyclerView左侧，SNAP_TO_ANY和SNAP_TO_START无差别。
      */
-    public void smoothScrollToTargetPositionWithScrollMode(RecyclerView recyclerView, int targetPosition, int scrollMode) {
+    public void smoothScrollToTargetPositionWithScrollMode(@NonNull RecyclerView recyclerView, int targetPosition, int scrollMode) {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (null == linearLayoutManager) {
             return;
@@ -109,7 +109,7 @@ public class RecyclerViewScrollController {
      * @param recyclerView 控件
      * @param position     位
      */
-    public void itemScrollToCenter(RecyclerView recyclerView, int position) {
+    public void itemScrollToCenter(@NonNull RecyclerView recyclerView, int position) {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager != null) {
             int firstPosition = linearLayoutManager.findFirstVisibleItemPosition();

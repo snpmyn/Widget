@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zsp.library.focusresize.BaseFocusResizeAdapter;
@@ -54,7 +55,7 @@ public class FocusResizeDefaultAdapter extends BaseFocusResizeAdapter<RecyclerVi
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateFooterViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateFooterViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.focus_resize_item, parent, false);
         return new DefaultCustomViewHolder(v);
     }
@@ -65,7 +66,7 @@ public class FocusResizeDefaultAdapter extends BaseFocusResizeAdapter<RecyclerVi
         fill((DefaultCustomViewHolder) holder, focusResizeBean);
     }
 
-    private void fill(DefaultCustomViewHolder holder, FocusResizeBean focusResizeBean) {
+    private void fill(@NonNull DefaultCustomViewHolder holder, @NonNull FocusResizeBean focusResizeBean) {
         holder.focusResizeItemIv.setImageResource(focusResizeBean.getDrawable());
         holder.focusResizeItemTvTitle.setText(focusResizeBean.getTitle());
         holder.focusResizeItemTvSubtitle.setText(focusResizeBean.getSubTitle());

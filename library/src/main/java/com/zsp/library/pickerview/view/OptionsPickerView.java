@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
@@ -26,7 +27,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     private static final String TAG_CANCEL = "bill_cancel";
     private WheelOptions wheelOptions;
 
-    public OptionsPickerView(PickerOptions pickerOptions) {
+    public OptionsPickerView(@NonNull PickerOptions pickerOptions) {
         super(pickerOptions.context);
         this.pickerOptions = pickerOptions;
         initView(pickerOptions.context);
@@ -162,7 +163,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(@NonNull View v) {
         String tag = (String) v.getTag();
         if (tag.equals(TAG_SUBMIT)) {
             returnData();

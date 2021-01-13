@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.zsp.library.R;
@@ -44,7 +45,7 @@ public class LowerConcaveView extends ImageView {
 
     @SuppressLint("DrawAllocation")
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         Path path = new Path();
         path.moveTo(0, 0);
         path.lineTo(0, getHeight());

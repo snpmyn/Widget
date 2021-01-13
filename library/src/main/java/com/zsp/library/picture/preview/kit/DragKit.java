@@ -11,6 +11,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.LinearInterpolator;
 
 import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 
 import com.zsp.library.R;
@@ -288,7 +289,7 @@ public class DragKit {
      *
      * @param event 触摸事件
      */
-    private void reset(MotionEvent event) {
+    private void reset(@NonNull MotionEvent event) {
         isSwipingToClose = false;
         yLast = event.getY();
         xLast = event.getX();

@@ -3,8 +3,7 @@ package com.zsp.library.layout.circularreveal;
 import android.animation.Animator;
 import android.view.View;
 
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
+import androidx.annotation.NonNull;
 
 /**
  * @decs: CircularRevealAnimation
@@ -12,7 +11,7 @@ import static android.os.Build.VERSION_CODES.LOLLIPOP;
  * @date: 2019/8/27 11:42
  */
 public final class CircularRevealAnimation {
-    private final static boolean LOLLIPOP_PLUS = SDK_INT >= LOLLIPOP;
+    private final static boolean LOLLIPOP_PLUS = true;
 
     /**
      * Returns an Animator which can animate a clipping circle.
@@ -57,7 +56,7 @@ public final class CircularRevealAnimation {
      * @param layerType   View layer type {@link View#LAYER_TYPE_HARDWARE} or {@link
      *                    View#LAYER_TYPE_SOFTWARE}
      */
-    private static Animator createCircularReveal(View view, int xCenter, int yCenter, float startRadius, float endRadius, int layerType) {
+    private static Animator createCircularReveal(@NonNull View view, int xCenter, int yCenter, float startRadius, float endRadius, int layerType) {
         if (!(view.getParent() instanceof RevealViewGroup)) {
             throw new IllegalArgumentException("Parent must be instance of RevealViewGroup");
         }

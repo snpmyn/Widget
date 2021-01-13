@@ -12,6 +12,8 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 
+import androidx.annotation.NonNull;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -41,7 +43,7 @@ class OptAnimationLoader {
         return createAnimationFromXml(c, parser, null, Xml.asAttributeSet(parser));
     }
 
-    private static Animation createAnimationFromXml(Context c, XmlPullParser parser, AnimationSet parent, AttributeSet attrs) throws XmlPullParserException, IOException {
+    private static Animation createAnimationFromXml(Context c, @NonNull XmlPullParser parser, AnimationSet parent, AttributeSet attrs) throws XmlPullParserException, IOException {
         Animation anim = null;
         // Make sure we are on a start tag.
         int type;

@@ -3,6 +3,10 @@ package com.zsp.library.popuwindow;
 import android.content.Context;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
+
 /**
  * @decs: EasyPopupWindow
  * @author: 郑少鹏
@@ -19,10 +23,14 @@ public class EasyPopupWindow extends BasePopupWindow<EasyPopupWindow> {
         setContext(context);
     }
 
+    @NonNull
+    @Contract(" -> new")
     public static EasyPopupWindow create() {
         return new EasyPopupWindow();
     }
 
+    @NonNull
+    @Contract("_ -> new")
     public static EasyPopupWindow create(Context context) {
         return new EasyPopupWindow(context);
     }

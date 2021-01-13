@@ -2,7 +2,6 @@ package com.zsp.library.banner.view
 
 import android.content.Context
 import android.graphics.*
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewTreeObserver
@@ -300,11 +299,7 @@ class BannerView @JvmOverloads constructor(
             return
         }
         // 一开图层
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null)
-        } else {
-            canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null, Canvas.ALL_SAVE_FLAG)
-        }
+        canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), null)
         // 二绘子视图
         super.dispatchDraw(canvas)
         // 三裁剪合成

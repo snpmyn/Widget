@@ -3,6 +3,7 @@ package example.onepartylibrary.focusresize;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -69,6 +70,7 @@ public class FocusResizeActivity extends AppCompatActivity {
      *
      * @return 条目集
      */
+    @NonNull
     private List<FocusResizeBean> addItems() {
         List<FocusResizeBean> items = new ArrayList<>();
         items.add(new FocusResizeBean("Possibility", "The Hill", R.drawable.image_one));

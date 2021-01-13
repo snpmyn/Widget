@@ -27,6 +27,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 import androidx.core.widget.PopupWindowCompat;
 
+import org.jetbrains.annotations.Nullable;
+
 import timber.log.Timber;
 
 /**
@@ -669,7 +671,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         applyDim(mDimView);
     }
 
-    private void applyDim(Activity activity) {
+    private void applyDim(@NonNull Activity activity) {
         ViewGroup parent = (ViewGroup) activity.getWindow().getDecorView().getRootView();
         // activity根布局
         /*ViewGroup parent = (ViewGroup) parent1.getChildAt(0);*/
@@ -680,7 +682,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         overlay.add(dimDrawable);
     }
 
-    private void applyDim(ViewGroup dimView) {
+    private void applyDim(@NonNull ViewGroup dimView) {
         Drawable dimDrawable = new ColorDrawable(mDimColor);
         dimDrawable.setBounds(0, 0, dimView.getWidth(), dimView.getHeight());
         dimDrawable.setAlpha((int) (255 * mDimValue));
@@ -697,7 +699,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         }
     }
 
-    private void clearDim(Activity activity) {
+    private void clearDim(@NonNull Activity activity) {
         ViewGroup parent = (ViewGroup) activity.getWindow().getDecorView().getRootView();
         // activity根布局
         /*ViewGroup parent = (ViewGroup) parent1.getChildAt(0);*/
@@ -705,7 +707,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
         overlay.clear();
     }
 
-    private void clearDim(ViewGroup dimView) {
+    private void clearDim(@NonNull ViewGroup dimView) {
         ViewGroupOverlay overlay = dimView.getOverlay();
         overlay.clear();
     }
@@ -715,7 +717,7 @@ public abstract class BasePopupWindow<T extends BasePopupWindow> implements Popu
      *
      * @return 加载view
      */
-    private View getContentView() {
+    private @Nullable View getContentView() {
         if (mPopupWindow != null) {
             return mPopupWindow.getContentView();
         } else {

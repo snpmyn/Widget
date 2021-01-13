@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -95,7 +96,7 @@ public class SearchView extends LinearLayout {
      * @param context 上下文
      * @param attrs   自定属性
      */
-    private void stepAttributeSet(Context context, AttributeSet attrs) {
+    private void stepAttributeSet(@NonNull Context context, AttributeSet attrs) {
         // 控件资源名
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SearchView);
         // 搜索框高（px）、色

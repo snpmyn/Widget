@@ -12,9 +12,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.zsp.library.R;
+
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @decs: 连状图
@@ -184,7 +188,8 @@ public class ConnectionStatusView extends RelativeLayout {
         return this.currentStatus;
     }
 
-    private View getCurrentView(Status status) {
+    @Contract(pure = true)
+    private @Nullable View getCurrentView(Status status) {
         if (status == Status.IDLE) {
             return null;
         } else if (status == Status.COMPLETE) {
@@ -197,7 +202,7 @@ public class ConnectionStatusView extends RelativeLayout {
         return null;
     }
 
-    private void switchAnimation(final View exitView, final View enterView) {
+    private void switchAnimation(@NonNull final View exitView, final View enterView) {
         clearAnimation();
         exitView.setVisibility(View.VISIBLE);
         exitView.startAnimation(slideOut);

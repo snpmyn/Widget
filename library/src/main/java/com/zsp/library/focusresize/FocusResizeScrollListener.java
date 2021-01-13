@@ -29,7 +29,7 @@ public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends
      * @param adapter             T
      * @param linearLayoutManager LinearLayoutManager
      */
-    public FocusResizeScrollListener(T adapter, LinearLayoutManager linearLayoutManager) {
+    public FocusResizeScrollListener(@NonNull T adapter, LinearLayoutManager linearLayoutManager) {
         this.adapter = adapter;
         heightCollapsedItem = adapter.getHeight();
         heightExpandedItem = heightCollapsedItem * 3;
@@ -68,7 +68,7 @@ public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends
         }
     }
 
-    private void onItemSmallResize(View view, RecyclerView recyclerView) {
+    private void onItemSmallResize(@NonNull View view, RecyclerView recyclerView) {
         if (view.getLayoutParams().height - dyAbs <= heightCollapsedItem) {
             view.getLayoutParams().height = heightCollapsedItem;
         } else if (view.getLayoutParams().height >= heightCollapsedItem) {
@@ -77,7 +77,7 @@ public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends
         adapter.onItemSmallResize(recyclerView.getChildViewHolder(view), itemToResize, dyAbs);
     }
 
-    private void onItemBigResize(View view, RecyclerView recyclerView) {
+    private void onItemBigResize(@NonNull View view, RecyclerView recyclerView) {
         if (view.getLayoutParams().height + dyAbs >= heightExpandedItem) {
             view.getLayoutParams().height = heightExpandedItem;
         } else {
@@ -112,7 +112,7 @@ public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends
         return positionScrolled;
     }
 
-    private int calculatePositionScrolledUp(RecyclerView recyclerView) {
+    private int calculatePositionScrolledUp(@NonNull RecyclerView recyclerView) {
         int positionScrolled;
         if (recyclerView.getChildAt(itemToResize).getHeight() > recyclerView.getChildAt(itemToResize + 1).getHeight()) {
             positionScrolled = itemToResize;
@@ -124,7 +124,7 @@ public class FocusResizeScrollListener<T extends BaseFocusResizeAdapter> extends
         return positionScrolled;
     }
 
-    private void forceScrollItem(RecyclerView recyclerView, View view, int j, int positionScrolled) {
+    private void forceScrollItem(@NonNull RecyclerView recyclerView, View view, int j, int positionScrolled) {
         if (!(recyclerView.getChildViewHolder(view) instanceof BaseFocusResizeAdapter.FooterViewHolder)) {
             if (j == positionScrolled) {
                 view.getLayoutParams().height = heightExpandedItem;

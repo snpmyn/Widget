@@ -13,13 +13,12 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.ViewCompat;
 import androidx.palette.graphics.Palette;
@@ -170,12 +169,10 @@ public class CamberImageView extends AppCompatImageView {
         height = getMeasuredHeight();
         mClipPath = PathProvider.getClipPath(width, height, curvatureHeight, curvatureDirection, gravity);
         ViewCompat.setElevation(this, ViewCompat.getElevation(this));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            try {
-                setOutlineProvider(getOutlineProvider());
-            } catch (Exception e) {
-                Timber.e(e);
-            }
+        try {
+            setOutlineProvider(getOutlineProvider());
+        } catch (Exception e) {
+            Timber.e(e);
         }
     }
 
@@ -203,7 +200,6 @@ public class CamberImageView extends AppCompatImageView {
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public ViewOutlineProvider getOutlineProvider() {
         return new ViewOutlineProvider() {
@@ -219,13 +215,9 @@ public class CamberImageView extends AppCompatImageView {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         int saveCount;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
-        } else {
-            saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
-        }
+        saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
         super.onDraw(canvas);
         mPaint.setXfermode(porterDuffXfermode);
         if (tintPaint != null) {

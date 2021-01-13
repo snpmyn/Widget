@@ -1,7 +1,10 @@
 package com.zsp.library.wheelview.timer;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
+
+import androidx.annotation.NonNull;
 
 import com.zsp.library.wheelview.view.WheelView;
 
@@ -17,12 +20,18 @@ public final class MessageHandler extends Handler {
     static final int WHAT_ITEM_SELECTED = 3000;
     private final WheelView wheelView;
 
-    public MessageHandler(WheelView wheelView) {
+    /**
+     * Use the provided {@link Looper} instead of the default one.
+     *
+     * @param looper The looper, must not be null.
+     */
+    public MessageHandler(@NonNull Looper looper, WheelView wheelView) {
+        super(looper);
         this.wheelView = wheelView;
     }
 
     @Override
-    public final void handleMessage(Message msg) {
+    public final void handleMessage(@NonNull Message msg) {
         switch (msg.what) {
             case WHAT_INVALIDATE_LOOP_VIEW:
                 wheelView.invalidate();

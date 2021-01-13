@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 import com.zsp.library.guide.materialintroview.animation.AnimationFactory;
 import com.zsp.library.guide.materialintroview.animation.MaterialIntroListener;
@@ -187,7 +189,7 @@ public class MaterialIntroView extends RelativeLayout {
         init(context);
     }
 
-    public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
+    public static void removeOnGlobalLayoutListener(@NonNull View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
         v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
     }
 
@@ -282,7 +284,7 @@ public class MaterialIntroView extends RelativeLayout {
      */
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(@NonNull MotionEvent event) {
         float xEvent = event.getX();
         float yEvent = event.getY();
         boolean isTouchOnFocus = targetBaseShape.isTouchOnFocus(xEvent, yEvent);

@@ -1,5 +1,7 @@
 package com.zsp.library.sidebar;
 
+import androidx.annotation.NonNull;
+
 import value.WidgetLibraryMagic;
 
 /**
@@ -43,7 +45,8 @@ public class FirstLetter {
     /**
      * 据一含汉字字符串返一汉字拼音首字母字符串（字符依次读入、判断、输出）
      */
-    public static String getFirstLetter(String sourceStr) {
+    @NonNull
+    public static String getFirstLetter(@NonNull String sourceStr) {
         String str = sourceStr.toUpperCase();
         char ch = char2initial(str.charAt(0));
         if (isLetter(ch)) {
@@ -62,7 +65,8 @@ public class FirstLetter {
     /**
      * 指定串首字母
      */
-    public static String getAllFirstLetter(String sourceStr) {
+    @NonNull
+    public static String getAllFirstLetter(@NonNull String sourceStr) {
         StringBuilder result = new StringBuilder();
         String str = sourceStr.toUpperCase();
         int strLength = str.length();

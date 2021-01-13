@@ -11,6 +11,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 
 import java.util.Locale;
@@ -72,7 +74,7 @@ public class MultiProgressBar extends ProgressBar {
         mRadius = MultiProgressBar.dp2px(context, 16);
     }
 
-    private void initCustomAttrs(Context context, AttributeSet attrs) {
+    private void initCustomAttrs(@NonNull Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MultiProgressBar);
         final int n = typedArray.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -160,7 +162,7 @@ public class MultiProgressBar extends ProgressBar {
         }
     }
 
-    private void onDrawHorizontal(Canvas canvas) {
+    private void onDrawHorizontal(@NonNull Canvas canvas) {
         canvas.save();
         canvas.translate(getPaddingLeft(), Integer.valueOf(getMeasuredHeight()).floatValue() / 2);
         float reachedRatio = getProgress() * 1.0f / getMax();
@@ -213,7 +215,7 @@ public class MultiProgressBar extends ProgressBar {
         canvas.restore();
     }
 
-    private void onDrawCircle(Canvas canvas) {
+    private void onDrawCircle(@NonNull Canvas canvas) {
         canvas.save();
         canvas.translate(getPaddingLeft() + Integer.valueOf(mMaxStrokeWidth).floatValue() / 2, getPaddingTop() + Integer.valueOf(mMaxStrokeWidth).floatValue() / 2);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -268,11 +270,11 @@ public class MultiProgressBar extends ProgressBar {
         Wave
     }
 
-    public static int dp2px(Context context, float dpValue) {
+    public static int dp2px(@NonNull Context context, float dpValue) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, context.getResources().getDisplayMetrics());
     }
 
-    public static int sp2px(Context context, float spValue) {
+    public static int sp2px(@NonNull Context context, float spValue) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, context.getResources().getDisplayMetrics());
     }
 }

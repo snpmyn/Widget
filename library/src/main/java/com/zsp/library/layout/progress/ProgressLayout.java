@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.zsp.library.R;
@@ -88,7 +89,7 @@ public class ProgressLayout extends View implements Animatable {
         canvas.drawRect(0, 0, calculatePositionIndex(currentProgress), mHeight, paintProgressLoaded);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(@NonNull Context context, AttributeSet attrs) {
         setWillNotDraw(false);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressLayout);
         isAutoProgress = a.getBoolean(R.styleable.ProgressLayout_autoProgress, true);

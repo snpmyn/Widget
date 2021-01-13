@@ -26,7 +26,7 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    @OnClick({R.id.dialogActivityMbDialogOne, R.id.dialogActivityMbDialogTwo})
+    @OnClick({R.id.dialogActivityMbDialogOne, R.id.dialogActivityMbDialogTwo, R.id.dialogActivityMbDialogThree})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             // 对话框一
@@ -36,6 +36,10 @@ public class DialogActivity extends AppCompatActivity {
             // 对话框二
             case R.id.dialogActivityMbDialogTwo:
                 IntentUtils.jumpNoBundle(this, DialogTwoActivity.class);
+                break;
+            // 对话框三
+            case R.id.dialogActivityMbDialogThree:
+                IntentUtils.jumpNoBundle(this, DialogThreeActivity.class);
                 break;
             default:
                 break;

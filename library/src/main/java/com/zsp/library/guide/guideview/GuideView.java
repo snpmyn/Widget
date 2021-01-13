@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -160,6 +161,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
      *
      * @return TextView
      */
+    @NonNull
     public static TextView guideTextView(Context context, int hintRes, int colorRes) {
         TextView textView = new TextView(context);
         textView.setText(hintRes);
@@ -198,7 +200,8 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         }
     }
 
-    private String generateUniqueId(View v) {
+    @NonNull
+    private String generateUniqueId(@NonNull View v) {
         return SHOW_GUIDE_PREFIX + v.getId();
     }
 
@@ -330,7 +333,7 @@ public class GuideView extends RelativeLayout implements ViewTreeObserver.OnGlob
         drawBackground(canvas);
     }
 
-    private void drawBackground(Canvas canvas) {
+    private void drawBackground(@NonNull Canvas canvas) {
         Timber.d("drawBackground");
         needDraw = false;
         // 绘Bitmap后绘Bitmap至屏幕

@@ -32,7 +32,7 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<SearchHistoryAdap
      * @param context   上下文
      * @param histories 历史记录
      */
-    public SearchHistoryAdapter(Context context, ArrayList<String> histories) {
+    public SearchHistoryAdapter(@NonNull Context context, ArrayList<String> histories) {
         this.context = context.getApplicationContext();
         this.histories = histories;
     }

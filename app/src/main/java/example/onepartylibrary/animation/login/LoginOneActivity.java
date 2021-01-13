@@ -29,7 +29,7 @@ public class LoginOneActivity extends AppCompatActivity {
     @BindView(R.id.loginOneActivityPb)
     ProgressButton loginOneActivityPb;
     @SuppressLint("HandlerLeak")
-    private final Handler handler = new Handler() {
+    private final Handler handler = new Handler(getMainLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);

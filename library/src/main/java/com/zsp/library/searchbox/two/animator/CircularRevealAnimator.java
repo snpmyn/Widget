@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: 波纹动画
  * @author: 郑少鹏
@@ -15,21 +17,7 @@ public class CircularRevealAnimator {
     private static final long DURATION = 200;
     private AnimationListener animationListener;
 
-    private void actionOtherVisible(final boolean isShow, final View triggerView, final View animView) {
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
-            if (isShow) {
-                animView.setVisibility(View.VISIBLE);
-                if (animationListener != null) {
-                    animationListener.onAnimationShowEnd();
-                }
-            } else {
-                animView.setVisibility(View.GONE);
-                if (animationListener != null) {
-                    animationListener.onAnimationHideEnd();
-                }
-            }
-            return;
-        }
+    private void actionOtherVisible(final boolean isShow, @NonNull final View triggerView, @NonNull final View animView) {
         // 算triggerView中心位
         int[] tvLocation = new int[2];
         triggerView.getLocationInWindow(tvLocation);

@@ -4,6 +4,8 @@ import android.graphics.PointF;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: BezierTranslateAnimation
  * @author: 郑少鹏
@@ -84,7 +86,7 @@ public class BezierTranslateAnimation extends Animation {
     }
 
     @Override
-    protected void applyTransformation(float interpolatedTime, Transformation t) {
+    protected void applyTransformation(float interpolatedTime, @NonNull Transformation t) {
         final float dx = calculateBezier(interpolatedTime, mStart.x, mControl.x, mEnd.x);
         final float dy = calculateBezier(interpolatedTime, mStart.y, mControl.y, mEnd.y);
         t.getMatrix().setTranslate(dx, dy);

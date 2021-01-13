@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -86,7 +87,7 @@ public class GuideTwoActivity extends AppCompatActivity implements MaterialIntro
      * @param materialIntroViewId String
      */
     @Override
-    public void onUserClick(String materialIntroViewId) {
+    public void onUserClick(@NonNull String materialIntroViewId) {
         if (materialIntroViewId.equals(String.valueOf(guideTwoActivityMcv.getId()))) {
             MaterialIntroViewKit.showMaterialIntroView(this,
                     guideTwoActivityMbButtonOne,

@@ -16,6 +16,8 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 import com.zsp.library.wheelview.adapter.WheelAdapter;
 import com.zsp.library.wheelview.joggle.IPickerViewData;
@@ -201,9 +203,9 @@ public class WheelView extends View {
         }
     }
 
-    private void initLoopView(Context context) {
+    private void initLoopView(@NonNull Context context) {
         this.context = context;
-        handler = new MessageHandler(this);
+        handler = new MessageHandler(context.getMainLooper(), this);
         gestureDetector = new GestureDetector(context, new LoopViewGestureListener(this));
         gestureDetector.setIsLongpressEnabled(false);
         loop = true;

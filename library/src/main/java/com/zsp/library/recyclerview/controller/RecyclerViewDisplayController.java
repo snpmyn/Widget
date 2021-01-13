@@ -3,6 +3,7 @@ package com.zsp.library.recyclerview.controller;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class RecyclerViewDisplayController {
      * @param recyclerView 控件
      * @param adapter      适配器
      */
-    public static void display(RecyclerView recyclerView, RecyclerView.Adapter adapter) {
+    public static void display(RecyclerView recyclerView, @NonNull RecyclerView.Adapter adapter) {
         if (adapter.hasObservers()) {
             adapter.notifyDataSetChanged();
         } else {
@@ -36,7 +37,7 @@ public class RecyclerViewDisplayController {
      * @param list     数据
      * @param <T>      泛型
      */
-    public static <T> void deleteDynamic(RecyclerView.Adapter adapter, int position, List<T> list) {
+    public static <T> void deleteDynamic(@NonNull RecyclerView.Adapter adapter, int position, @NonNull List<T> list) {
         adapter.notifyItemRemoved(position);
         adapter.notifyItemRangeChanged(position, list.size() - position);
         list.remove(position);
@@ -47,7 +48,7 @@ public class RecyclerViewDisplayController {
      *
      * @param itemView 条目视图
      */
-    public static void itemViewVisible(View itemView) {
+    public static void itemViewVisible(@NonNull View itemView) {
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) itemView.getLayoutParams();
         if (layoutParams.width == LinearLayout.LayoutParams.MATCH_PARENT) {
             return;
@@ -65,7 +66,7 @@ public class RecyclerViewDisplayController {
      *
      * @param itemView 条目视图
      */
-    public static void itemViewGone(View itemView) {
+    public static void itemViewGone(@NonNull View itemView) {
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) itemView.getLayoutParams();
         if (layoutParams.width == 0) {
             return;

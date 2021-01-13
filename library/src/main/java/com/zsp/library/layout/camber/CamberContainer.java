@@ -9,14 +9,13 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 
 import com.zsp.library.R;
@@ -72,19 +71,14 @@ public class CamberContainer extends RelativeLayout {
         width = getMeasuredWidth();
         height = getMeasuredHeight();
         mClipPath = PathProvider.getClipPath(width, height, curvatureHeight, 0, 0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ViewCompat.setElevation(this, ViewCompat.getElevation(this));
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            try {
-                setOutlineProvider(getOutlineProvider());
-            } catch (Exception e) {
-                Timber.e(e);
-            }
+        ViewCompat.setElevation(this, ViewCompat.getElevation(this));
+        try {
+            setOutlineProvider(getOutlineProvider());
+        } catch (Exception e) {
+            Timber.e(e);
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public ViewOutlineProvider getOutlineProvider() {
         return new ViewOutlineProvider() {
@@ -100,13 +94,9 @@ public class CamberContainer extends RelativeLayout {
     }
 
     @Override
-    protected void dispatchDraw(Canvas canvas) {
+    protected void dispatchDraw(@NonNull Canvas canvas) {
         int saveCount;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
-        } else {
-            saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);
-        }
+        saveCount = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);
         super.dispatchDraw(canvas);
         mPaint.setXfermode(porterDuffXfermode);
         canvas.drawPath(mClipPath, mPaint);

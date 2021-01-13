@@ -9,6 +9,8 @@ import android.util.TypedValue;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 
 /**
@@ -78,6 +80,7 @@ public class Rotate3dAnimation extends Animation {
         initializePivotPoint();
     }
 
+    @NonNull
     private Description parseValue(TypedValue value) {
         Description d = new Description();
         if (value == null) {
@@ -121,7 +124,7 @@ public class Rotate3dAnimation extends Animation {
     }
 
     @Override
-    protected void applyTransformation(float interpolatedTime, Transformation t) {
+    protected void applyTransformation(float interpolatedTime, @NonNull Transformation t) {
         final float fromDegrees = mFromDegrees;
         float degrees = fromDegrees + ((mToDegrees - fromDegrees) * interpolatedTime);
         final Matrix matrix = t.getMatrix();

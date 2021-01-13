@@ -1,5 +1,7 @@
 package com.zsp.library.pickerview.util;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -152,6 +154,7 @@ public class LunarCalendar {
      * @param isLeapMonth 该月闰月
      * @return 返农历日期对应公历日期（year0，month1，day2）
      */
+    @NonNull
     public static int[] lunarToSolar(int year, int month, int monthDay, boolean isLeapMonth) {
         int dayOffset;
         int leapMonth;
@@ -223,6 +226,7 @@ public class LunarCalendar {
         return solarInfo;
     }
 
+    @NonNull
     public static int[] solarToLunar(int year, int month, int monthDay) {
         int[] lunarDate = new int[4];
         int index = year - SOLAR_1_1[0];
@@ -276,6 +280,7 @@ public class LunarCalendar {
      * @return 返公历日期对应农历日期（year0，month1，day2，leap3）
      * @deprecated 不准
      */
+    @NonNull
     @Deprecated
     public static int[] solarToLunarDeprecated(int year, int month, int monthDay) {
         int[] lunarDate = new int[4];

@@ -2,11 +2,9 @@ package application;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.multidex.MultiDex;
 
 import com.zsp.autosize.AutoSizeInitConfigure;
 import com.zsp.library.status.manager.StatusManager;
@@ -86,11 +84,5 @@ public class WidgetApp extends Application {
                 ActivitySuperviseManager.removeActivity(activity);
             }
         });
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(base);
     }
 }

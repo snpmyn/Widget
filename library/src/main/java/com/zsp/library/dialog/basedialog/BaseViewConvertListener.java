@@ -3,6 +3,10 @@ package com.zsp.library.dialog.basedialog;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
+
 /**
  * @decs: BaseViewConvertListener
  * @author: 郑少鹏
@@ -10,6 +14,8 @@ import android.os.Parcelable;
  */
 public abstract class BaseViewConvertListener implements Parcelable {
     public static final Creator<BaseViewConvertListener> CREATOR = new Creator<BaseViewConvertListener>() {
+        @NonNull
+        @Contract(value = "_ -> new", pure = true)
         @Override
         public BaseViewConvertListener createFromParcel(Parcel source) {
             return new BaseViewConvertListener(source) {
@@ -20,6 +26,8 @@ public abstract class BaseViewConvertListener implements Parcelable {
             };
         }
 
+        @NonNull
+        @Contract(value = "_ -> new", pure = true)
         @Override
         public BaseViewConvertListener[] newArray(int size) {
             return new BaseViewConvertListener[size];

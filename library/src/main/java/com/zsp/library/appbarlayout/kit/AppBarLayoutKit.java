@@ -2,6 +2,8 @@ package com.zsp.library.appbarlayout.kit;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.material.appbar.AppBarLayout;
 
 /**
@@ -21,7 +23,7 @@ public class AppBarLayoutKit {
      * @param view  视图
      * @param flags 标志
      */
-    public static void setScrollFlags(View view, int flags) {
+    public static void setScrollFlags(@NonNull View view, int flags) {
         AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) view.getLayoutParams();
         params.setScrollFlags(flags);
         view.setLayoutParams(params);

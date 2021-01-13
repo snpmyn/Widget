@@ -17,6 +17,8 @@ import com.zsp.library.screen.bean.UnfoldAndFoldBean;
 import com.zsp.library.screen.listener.ScreenAdapterItemClickListener;
 import com.zsp.library.screen.listener.ScreenNestAdapterItemClickListener;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -93,9 +95,9 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      * @param unfoldAndFoldBeanListActiveControlClassificationList  展开/折叠数据主控类别数据
      * @param unfoldAndFoldBeanListPassiveControlClassificationList 展开/折叠数据被控类别数据
      */
-    public void setScreeningData(Map<List<String>, Map<Integer, Boolean>> subjectMap,
+    public void setScreeningData(@NonNull Map<List<String>, Map<Integer, Boolean>> subjectMap,
                                  List<String> canReverseSelectAfterSingleSelectList,
-                                 Map<String, List<String>> defaultSelectMap,
+                                 @NonNull Map<String, List<String>> defaultSelectMap,
                                  List<MutuallyExclusiveBean> mutuallyExclusiveBeanList,
                                  List<String> mutuallyExclusiveBeanListClassificationList,
                                  List<UnfoldAndFoldBean> unfoldAndFoldBeanList,
@@ -251,7 +253,7 @@ public class ScreenAdapter extends RecyclerView.Adapter<ScreenAdapter.ViewHolder
      * @param classification 类别
      * @return 展开/折叠主控条件数据
      */
-    private List<String> unfoldAndFoldActiveControlCondition(String classification) {
+    private @Nullable List<String> unfoldAndFoldActiveControlCondition(String classification) {
         if (null == unfoldAndFoldBeanListActiveControlClassificationList || !unfoldAndFoldBeanListActiveControlClassificationList.contains(classification)) {
             return null;
         }

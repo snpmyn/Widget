@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.contact.bean.ContactBean;
 
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class ContactExtractor {
      *
      * @param context 上下文
      */
-    public ContactExtractor(Context context) {
+    public ContactExtractor(@NonNull Context context) {
         this.context = context.getApplicationContext();
         this.contactBeans = new ArrayList<>();
         this.contactThread = new ContactThread();

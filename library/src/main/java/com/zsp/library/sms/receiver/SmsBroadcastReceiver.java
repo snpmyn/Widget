@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsManager;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.sms.kit.SmsKit;
 import com.zsp.utilone.toast.ToastUtils;
 
@@ -28,7 +30,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
     }
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, @NonNull Intent intent) {
         if (null != intent.getAction()) {
             if (intent.getAction().equals(SmsKit.SMS_SEND_ACTION)) {
                 switch (getResultCode()) {

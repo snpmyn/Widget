@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -93,7 +94,7 @@ public class ScanQrCodeActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(@NonNull View view) {
         // 闪光灯
         if (view.getId() == R.id.scanQrCodeActivityIbFlash) {
             if (flashOn) {

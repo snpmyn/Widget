@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.guide.materialintroview.target.Target;
 
 /**
@@ -22,7 +24,7 @@ public class Circle extends BaseShape {
     }
 
     @Override
-    public void draw(Canvas canvas, Paint eraser, int padding) {
+    public void draw(@NonNull Canvas canvas, Paint eraser, int padding) {
         calculateRadius(padding);
         circlePoint = getFocusPoint();
         canvas.drawCircle(circlePoint.x, circlePoint.y, radius, eraser);

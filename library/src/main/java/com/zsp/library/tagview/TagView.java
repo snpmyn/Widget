@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 import com.zsp.utilone.density.DensityUtils;
 
@@ -101,7 +103,7 @@ public class TagView extends RelativeLayout {
      * @param attributeSet AttributeSet
      * @param defaultStyle 默样式
      */
-    private void initialize(Context context, AttributeSet attributeSet, int defaultStyle) {
+    private void initialize(@NonNull Context context, AttributeSet attributeSet, int defaultStyle) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ViewTreeObserver mViewTreeObserver = getViewTreeObserver();
         mViewTreeObserver.addOnGlobalLayoutListener(() -> {
@@ -246,7 +248,7 @@ public class TagView extends RelativeLayout {
         }
     }
 
-    private Drawable getSelector(Tag tag) {
+    private Drawable getSelector(@NonNull Tag tag) {
         if (tag.getBackground() != null) {
             return tag.getBackground();
         }

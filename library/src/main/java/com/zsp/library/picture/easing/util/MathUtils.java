@@ -2,6 +2,8 @@ package com.zsp.library.picture.easing.util;
 
 import android.graphics.RectF;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: MathUtils
  * @author: 郑少鹏
@@ -41,7 +43,7 @@ public final class MathUtils {
      * @param rect The rect to have its aspect ratio computed.
      * @return The rect aspect ratio.
      */
-    public static float getRectRatio(RectF rect) {
+    public static float getRectRatio(@NonNull RectF rect) {
         return rect.width() / rect.height();
     }
 }

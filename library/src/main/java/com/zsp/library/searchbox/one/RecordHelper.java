@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: RecordHelper
  * @author: 郑少鹏
@@ -18,7 +20,7 @@ public class RecordHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(@NonNull SQLiteDatabase db) {
         // 创数据库并建record表（仅name列存历史记录）
         db.execSQL("create table record(id integer primary key autoincrement,name varchar(50))");
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -124,7 +125,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void packStringConditions(String classification, int spanCount, boolean singleSelect, String... conditions) {
+    public void packStringConditions(String classification, int spanCount, boolean singleSelect, @NonNull String... conditions) {
         List<String> list = new ArrayList<>(1 + conditions.length);
         list.add(classification);
         list.addAll(Arrays.asList(conditions));
@@ -141,7 +142,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param singleSelect   单选否
      * @param conditions     条件
      */
-    public void packListConditions(String classification, int spanCount, boolean singleSelect, List<String> conditions) {
+    public void packListConditions(String classification, int spanCount, boolean singleSelect, @NonNull List<String> conditions) {
         List<String> list = new ArrayList<>(1 + conditions.size());
         list.add(classification);
         list.addAll(conditions);
@@ -155,7 +156,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      *
      * @param classifications 类别
      */
-    public void canReverseSelectAfterSingleSelect(String... classifications) {
+    public void canReverseSelectAfterSingleSelect(@NonNull String... classifications) {
         for (String classification : classifications) {
             if (canCancelAfterSingleSelectList.contains(classification)) {
                 return;
@@ -182,7 +183,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      *
      * @param strings 数据（组ID，类别、组ID，类别...）
      */
-    public void mutuallyExclusive(String... strings) {
+    public void mutuallyExclusive(@NonNull String... strings) {
         for (int i = 0; i < strings.length; i++) {
             if (IntUtils.even(i)) {
                 String classification = strings[i + 1];
@@ -257,7 +258,7 @@ public class ScreenHandleKit implements View.OnClickListener {
      * @param v The view that was clicked.
      */
     @Override
-    public void onClick(View v) {
+    public void onClick(@NonNull View v) {
         if (v.getId() == R.id.screenBottomSheetDialogMbReset) {
             // 重置
             screenHandleListener.reset();

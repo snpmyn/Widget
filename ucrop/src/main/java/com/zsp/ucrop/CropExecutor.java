@@ -3,6 +3,7 @@ package com.zsp.ucrop;
 import android.content.Context;
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -82,6 +83,7 @@ public class CropExecutor {
      * @param context 上下文
      * @return UCrop.Options
      */
+    @NonNull
     private static UCrop.Options options(Context context) {
         // 初始UCrop配置
         UCrop.Options options = new UCrop.Options();

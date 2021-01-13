@@ -21,6 +21,8 @@ import androidx.annotation.NonNull;
 import com.zsp.library.R;
 import com.zsp.utilone.data.FloatUtils;
 
+import org.jetbrains.annotations.Contract;
+
 import value.WidgetLibraryMagic;
 
 /**
@@ -208,7 +210,7 @@ public class ProgressWheel extends View {
      *
      * @param a the attributes to parse
      */
-    private void parseAttributes(TypedArray a) {
+    private void parseAttributes(@NonNull TypedArray a) {
         // we transform the default values from dip to pixels
         DisplayMetrics metrics = getContext().getResources().getDisplayMetrics();
         barWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, barWidth, metrics);
@@ -645,11 +647,15 @@ public class ProgressWheel extends View {
         // required field that makes Parcelables from a Parcel
         public static final Creator<WheelSavedState> CREATOR =
                 new Creator<WheelSavedState>() {
+                    @NonNull
+                    @Contract("_ -> new")
                     @Override
                     public WheelSavedState createFromParcel(Parcel in) {
                         return new WheelSavedState(in);
                     }
 
+                    @NonNull
+                    @Contract(value = "_ -> new", pure = true)
                     @Override
                     public WheelSavedState[] newArray(int size) {
                         return new WheelSavedState[size];

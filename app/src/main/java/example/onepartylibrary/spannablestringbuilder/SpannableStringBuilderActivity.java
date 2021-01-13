@@ -14,6 +14,8 @@ import com.zsp.library.spannablestringbuilder.SpannableStringBuilderCreator;
 import com.zsp.utilone.toast.ToastUtils;
 import com.zsp.widget.R;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -48,7 +50,7 @@ public class SpannableStringBuilderActivity extends AppCompatActivity {
                         .subscriptSpan(2, 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                         .bold(3, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                         .italic(3, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
-                        .imageSpan(ContextCompat.getDrawable(this, R.drawable.custom),
+                        .imageSpan(Objects.requireNonNull(ContextCompat.getDrawable(this, R.drawable.custom)),
                                 0, 0, spannableStringBuilderActivityTv.getLineHeight(), spannableStringBuilderActivityTv.getLineHeight(), 3, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                         .clickableSpan(() -> ToastUtils.shortShow(SpannableStringBuilderActivity.this, "点击"), 4, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
                         .urlSpan("http://www.google.com/", 5, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE).build();

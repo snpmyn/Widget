@@ -14,6 +14,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -216,13 +217,13 @@ public class ProgressButton extends View {
         this.bgColor = color;
     }
 
-    public float getFontLength(Paint paint, String str) {
+    public float getFontLength(@NonNull Paint paint, String str) {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect.width();
     }
 
-    public float getFontHeight(Paint paint, String str) {
+    public float getFontHeight(@NonNull Paint paint, String str) {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect.height();

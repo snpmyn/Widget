@@ -5,10 +5,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.zsp.library.status.layout.StatusLayout;
 import com.zsp.library.status.listener.BaseStatusListener;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.Objects;
 
@@ -90,11 +93,13 @@ public class StatusManager {
         this.statusLayout = statusLayout;
     }
 
+    @NonNull
+    @Contract("_, _ -> new")
     public static StatusManager generate(Object activityOrFragment, BaseStatusListener listener) {
         return new StatusManager(activityOrFragment, listener);
     }
 
-    private void setupLoadingLayout(BaseStatusListener listener, StatusLayout statusLayout) {
+    private void setupLoadingLayout(@NonNull BaseStatusListener listener, StatusLayout statusLayout) {
         if (listener.isSetLoadingLayout()) {
             int layoutId = listener.generateLoadingLayoutId();
             if (layoutId != NO_LAYOUT_ID) {
@@ -109,7 +114,7 @@ public class StatusManager {
         }
     }
 
-    private void setupEmptyLayout(BaseStatusListener listener, StatusLayout statusLayout) {
+    private void setupEmptyLayout(@NonNull BaseStatusListener listener, StatusLayout statusLayout) {
         if (listener.isSetEmptyLayout()) {
             int layoutId = listener.generateEmptyLayoutId();
             if (layoutId != NO_LAYOUT_ID) {
@@ -124,7 +129,7 @@ public class StatusManager {
         }
     }
 
-    private void setupRetryLayout(BaseStatusListener listener, StatusLayout statusLayout) {
+    private void setupRetryLayout(@NonNull BaseStatusListener listener, StatusLayout statusLayout) {
         if (listener.isSetRetryLayout()) {
             int layoutId = listener.generateRetryLayoutId();
             if (layoutId != NO_LAYOUT_ID) {

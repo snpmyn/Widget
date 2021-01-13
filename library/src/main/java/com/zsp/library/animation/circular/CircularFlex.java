@@ -12,6 +12,10 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
+
 /**
  * @decs: 圆形伸缩
  * @author: 郑少鹏
@@ -62,6 +66,8 @@ public class CircularFlex {
      * @param animView 动画视图
      * @return VisibleBuilder
      */
+    @NonNull
+    @Contract("_ -> new")
     public static VisibleBuilder show(View animView) {
         return new VisibleBuilder(animView, true);
     }
@@ -72,6 +78,8 @@ public class CircularFlex {
      * @param animView 动画视图
      * @return VisibleBuilder
      */
+    @NonNull
+    @Contract("_ -> new")
     public static VisibleBuilder hide(View animView) {
         return new VisibleBuilder(animView, false);
     }
@@ -83,6 +91,8 @@ public class CircularFlex {
      * @param triggerView 触发视图
      * @return FullActivityBuilder
      */
+    @NonNull
+    @Contract("_, _ -> new")
     public static FullActivityBuilder fullActivity(Activity activity, View triggerView) {
         return new FullActivityBuilder(activity, triggerView);
     }
@@ -205,10 +215,6 @@ public class CircularFlex {
 
         public void go(OnAnimationEndListener onAnimationEndListener) {
             mOnAnimationEndListener = onAnimationEndListener;
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                doOnEnd();
-                return;
-            }
             if (mTriggerPoint == null) {
                 if (mTriggerView != null) {
                     int[] tvLocation = new int[2];
@@ -284,7 +290,7 @@ public class CircularFlex {
         private OnAnimationEndListener mOnAnimationEndListener;
         private int mEnterAnimation = android.R.anim.fade_in, mExitAnimation = android.R.anim.fade_out;
 
-        FullActivityBuilder(Activity activity, View triggerView) {
+        FullActivityBuilder(Activity activity, @NonNull View triggerView) {
             mActivity = activity;
             int[] location = new int[2];
             triggerView.getLocationInWindow(location);
@@ -362,10 +368,6 @@ public class CircularFlex {
         public void go(OnAnimationEndListener onAnimationEndListener) {
             mOnAnimationEndListener = onAnimationEndListener;
             // 小5.0无动画
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                doOnEnd();
-                return;
-            }
             final ImageView view = new ImageView(mActivity);
             view.setScaleType(ImageView.ScaleType.CENTER_CROP);
             // 优先用mDrawable

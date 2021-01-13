@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.layout.circularreveal.RevealViewGroup;
 import com.zsp.library.layout.circularreveal.ViewRevealManager;
 
@@ -31,7 +33,7 @@ public class RevealLinearLayout extends LinearLayout implements RevealViewGroup 
     }
 
     @Override
-    protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
+    protected boolean drawChild(@NonNull Canvas canvas, View child, long drawingTime) {
         try {
             canvas.save();
             manager.transform(canvas, child);

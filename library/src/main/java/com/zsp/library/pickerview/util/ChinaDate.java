@@ -1,5 +1,9 @@
 package com.zsp.library.pickerview.util;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -77,7 +81,6 @@ public class ChinaDate {
     private final static String[] GAN = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
     private final static String[] ZHI = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
     private final static String[] ANIMALS = new String[]{"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"};
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy年M月d日 EEEEE", Locale.US);
 
     /**
      * 传回农历
@@ -154,6 +157,8 @@ public class ChinaDate {
      * @param num 月日offset，传回干支，0甲子
      * @return 干支
      */
+    @NonNull
+    @Contract(pure = true)
     private static String circle(int num) {
         return (GAN[num % 10] + ZHI[num % 12]);
     }
@@ -164,6 +169,8 @@ public class ChinaDate {
      * @param y 0甲子
      * @return 干支
      */
+    @NonNull
+    @Contract(pure = true)
     private static String cyclical(int y) {
         int num = y - 1900 + 36;
         return (circle(num));
@@ -177,6 +184,7 @@ public class ChinaDate {
      * @param d 日
      * @return y年m月d日对应农历
      */
+    @NonNull
     private static long[] calElement(int y, int m, int d) {
         long[] nongDate = new long[7];
         int i, temp = 0, leap;
@@ -296,25 +304,26 @@ public class ChinaDate {
         return a;
     }
 
+    @NonNull
     public static String today() {
         Calendar today = Calendar.getInstance(Locale.SIMPLIFIED_CHINESE);
         int year = today.get(Calendar.YEAR);
         int month = today.get(Calendar.MONTH) + 1;
         int date = today.get(Calendar.DATE);
         long[] l = calElement(year, month, date);
-        StringBuilder sToday = new StringBuilder();
-        sToday.append(SIMPLE_DATE_FORMAT.format(today.getTime()));
-        sToday.append(" 农历");
-        sToday.append(cyclical(year));
-        sToday.append('(');
-        sToday.append(animalsYear(year));
-        sToday.append(")年");
-        sToday.append(N_STRL[(int) l[1]]);
-        sToday.append("月");
-        sToday.append(getChinaDate((int) (l[2])));
-        return sToday.toString();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年M月d日 EEEEE", Locale.US);
+        return simpleDateFormat.format(today.getTime()) +
+                " 农历" +
+                cyclical(year) +
+                '(' +
+                animalsYear(year) +
+                ")年" +
+                N_STRL[(int) l[1]] +
+                "月" +
+                getChinaDate((int) (l[2]));
     }
 
+    @NonNull
     public static String oneDay(int year, int month, int day) {
         long[] l = calElement(year, month, day);
         return " 农历" +
@@ -333,10 +342,13 @@ public class ChinaDate {
      * 甲乙丙丁戊己庚辛壬癸
      * 子丑寅卯辰巳无为申酉戌亥
      */
+    @NonNull
+    @Contract(pure = true)
     private static String getLunarYearText(int lunarYear) {
         return GAN[(lunarYear - 4) % 10] + ZHI[(lunarYear - 4) % 12] + "年";
     }
 
+    @NonNull
     public static ArrayList<String> getYears(int startYear, int endYear) {
         ArrayList<String> years = new ArrayList<>();
         for (int i = startYear; i < endYear; i++) {
@@ -351,6 +363,7 @@ public class ChinaDate {
      * @param year 年
      * @return 月列表
      */
+    @NonNull
     public static ArrayList<String> getMonths(int year) {
         ArrayList<String> baseMonths = new ArrayList<>();
         for (int i = 1; i < N_STRL.length; i++) {
@@ -368,6 +381,7 @@ public class ChinaDate {
      * @param maxDay 天
      * @return 名称列表
      */
+    @NonNull
     public static ArrayList<String> getLunarDays(int maxDay) {
         ArrayList<String> days = new ArrayList<>();
         for (int i = 1; i <= maxDay; i++) {
@@ -383,6 +397,7 @@ public class ChinaDate {
      * @param m 月
      * @return 传出农历
      */
+    @NonNull
     private long[] lunar(int y, int m) {
         long[] longDate = new long[7];
         int i, temp = 0, leap;

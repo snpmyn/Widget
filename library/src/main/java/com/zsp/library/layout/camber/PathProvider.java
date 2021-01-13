@@ -2,12 +2,15 @@ package com.zsp.library.layout.camber;
 
 import android.graphics.Path;
 
+import androidx.annotation.NonNull;
+
 import java.math.BigDecimal;
 
 /**
  * 路径提供器
  */
 class PathProvider {
+    @NonNull
     static Path getOutlinePath(int width, int height, int curvatureHeight, int direction, int gravity) {
         Path mPath = new Path();
         if (direction == CamberImageView.CurvatureDirection.OUTWARD) {

@@ -2,6 +2,7 @@ package com.zsp.library.dialog.sweetalertdialog;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -25,7 +26,7 @@ public class ProgressHelper {
     private float mProgressVal;
     private int mCircleRadius;
 
-    ProgressHelper(Context ctx) {
+    ProgressHelper(@NonNull Context ctx) {
         mToSpin = true;
         mSpinSpeed = 0.75f;
         mBarWidth = ctx.getResources().getDimensionPixelSize(R.dimen.dp_3) + 1;

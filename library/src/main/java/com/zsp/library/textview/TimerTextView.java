@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
@@ -73,6 +74,7 @@ public class TimerTextView extends AppCompatTextView implements LifecycleObserve
     /**
      * 转毫秒为时分秒
      */
+    @NonNull
     @SuppressLint("DefaultLocale")
     public static String generateTime(long time) {
         String format;

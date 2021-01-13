@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 
@@ -74,7 +75,7 @@ public class SearchEditText extends AppCompatEditText {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(@NonNull MotionEvent event) {
         // 手指抬起位于清除图区域即视为点清除图
         if (event.getAction() == MotionEvent.ACTION_UP) {
             Drawable drawable = clearDrawable;

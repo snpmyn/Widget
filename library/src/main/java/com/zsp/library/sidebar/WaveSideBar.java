@@ -8,11 +8,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -114,7 +114,7 @@ public class WaveSideBar extends View {
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(@NonNull Context context, AttributeSet attrs) {
         mLetters = Arrays.asList(context.getResources().getStringArray(R.array.WaveSideBarLetters));
         mTextColor = Color.parseColor("#969696");
         int mWaveColor = Color.parseColor("#bef9b81b");
@@ -145,7 +145,7 @@ public class WaveSideBar extends View {
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
+    public boolean dispatchTouchEvent(@NonNull MotionEvent event) {
         final float y = event.getY();
         final float x = event.getX();
         mOldPosition = mChoosePosition;
@@ -209,7 +209,7 @@ public class WaveSideBar extends View {
      *
      * @param canvas 画布
      */
-    private void drawLetters(Canvas canvas) {
+    private void drawLetters(@NonNull Canvas canvas) {
         RectF fRect = new RectF();
         fRect.left = xPoint - mTextSize;
         fRect.right = xPoint + mTextSize;
@@ -272,7 +272,7 @@ public class WaveSideBar extends View {
      *
      * @param canvas 画布
      */
-    private void drawWavePath(Canvas canvas) {
+    private void drawWavePath(@NonNull Canvas canvas) {
         mWavePath.reset();
         // 移至起始点
         mWavePath.moveTo(mWidth, yCenter - 3 * mRadius);
@@ -304,9 +304,7 @@ public class WaveSideBar extends View {
         xCircleCenter = (mWidth + mCircleRadius) - (2.0F * mRadius + 2.0F * mCircleRadius) * mRatio;
         mCirclePath.reset();
         mCirclePath.addCircle(xCircleCenter, yCenter, mCircleRadius, Path.Direction.CW);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            mCirclePath.op(mWavePath, Path.Op.DIFFERENCE);
-        }
+        mCirclePath.op(mWavePath, Path.Op.DIFFERENCE);
         mCirclePath.close();
         canvas.drawPath(mCirclePath, mWavePaint);
     }

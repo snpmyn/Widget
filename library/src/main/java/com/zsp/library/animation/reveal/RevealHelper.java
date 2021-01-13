@@ -16,7 +16,10 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.List;
 
@@ -129,7 +132,7 @@ final class RevealHelper {
      * @param animationEndCallBack Callback fired on animation end.
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    static void revealView(final View viewToReveal, final int duration, final Runnable animationEndCallBack) {
+    static void revealView(@NonNull final View viewToReveal, final int duration, final Runnable animationEndCallBack) {
         // - Determine circle location and size.
         int xViewCenter = (viewToReveal.getLeft() + viewToReveal.getRight()) / 2;
         int yViewCenter = (viewToReveal.getTop() + viewToReveal.getBottom()) / 2;
@@ -163,7 +166,7 @@ final class RevealHelper {
      * @param animationEndCallBack Callback fired on animation end.
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    static void unrevealView(final View viewToUnreveal, final int duration, final Runnable animationEndCallBack) {
+    static void unrevealView(@NonNull final View viewToUnreveal, final int duration, final Runnable animationEndCallBack) {
         // - Determine circle location and size.
         int xViewCenter = (viewToUnreveal.getLeft() + viewToUnreveal.getRight()) / 2;
         int yViewCenter = (viewToUnreveal.getTop() + viewToUnreveal.getBottom()) / 2;
@@ -191,7 +194,7 @@ final class RevealHelper {
      * @param viewGroup     View group.
      * @param ordoredChilds Childs list where visible childs will be added.
      */
-    static void findAllVisibleChilds(final ViewGroup viewGroup, final List<View> ordoredChilds) {
+    static void findAllVisibleChilds(@NonNull final ViewGroup viewGroup, final List<View> ordoredChilds) {
         for (int childViewIndex = 0; childViewIndex < viewGroup.getChildCount(); childViewIndex++) {
             final View childView = viewGroup.getChildAt(childViewIndex);
             if (childView instanceof ViewGroup) {
@@ -232,7 +235,9 @@ final class RevealHelper {
      * @param bView View B.
      * @return Locations delta as a point.
      */
-    private static PointF getCenterLocationsDelta(final View aView, final View bView) {
+    @NonNull
+    @Contract("_, _ -> new")
+    private static PointF getCenterLocationsDelta(@NonNull final View aView, @NonNull final View bView) {
         final int[] fromLocation = new int[2];
         aView.getLocationOnScreen(fromLocation);
         final int[] toLocation = new int[2];

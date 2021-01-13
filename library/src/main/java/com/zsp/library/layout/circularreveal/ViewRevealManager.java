@@ -8,9 +8,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Region;
-import android.os.Build;
 import android.util.Property;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -73,6 +76,7 @@ public class ViewRevealManager {
      * @param data RevealValues contains information of starting & ending points, animation target and current animation values.
      * @return animator to manage reveal animation
      */
+    @NonNull
     private Animator createAnimator(RevealValues data) {
         final ObjectAnimator animator = ObjectAnimator.ofFloat(data, REVEAL, data.startRadius, data.endRadius);
         animator.addListener(getAnimatorCallback());
@@ -232,14 +236,12 @@ public class ViewRevealManager {
         private final Region.Op op = Region.Op.REPLACE;
 
         @Override
-        public boolean transform(Canvas canvas, View child, RevealValues values) {
+        public boolean transform(@NonNull Canvas canvas, @NonNull View child, @NonNull RevealValues values) {
             path.reset();
             // trick to applyTransformation animation, when even x & y translations are running
             path.addCircle(child.getX() + values.centerX, child.getY() + values.centerY, values.radius, Path.Direction.CW);
             canvas.clipPath(path, op);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                child.invalidateOutline();
-            }
+            child.invalidateOutline();
             return false;
         }
     }
@@ -253,13 +255,15 @@ public class ViewRevealManager {
         }
 
         @Override
-        public void set(RevealValues data, Float value) {
+        public void set(@NonNull RevealValues data, Float value) {
             data.radius = value;
             data.target.invalidate();
         }
 
+        @NonNull
+        @Contract(pure = true)
         @Override
-        public Float get(RevealValues v) {
+        public Float get(@NonNull RevealValues v) {
             return v.radius();
         }
     }
@@ -272,7 +276,7 @@ public class ViewRevealManager {
         private final int featuredLayerType;
         private final int originalLayerType;
 
-        ChangeViewLayerTypeAdapter(RevealValues viewData, int layerType) {
+        ChangeViewLayerTypeAdapter(@NonNull RevealValues viewData, int layerType) {
             this.viewData = viewData;
             this.featuredLayerType = layerType;
             this.originalLayerType = viewData.target.getLayerType();

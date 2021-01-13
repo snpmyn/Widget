@@ -6,6 +6,8 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.jetbrains.annotations.Contract;
+
 /**
  * @decs: CustomDialog
  * @author: 郑少鹏
@@ -14,6 +16,8 @@ import androidx.annotation.Nullable;
 public class CustomDialog extends BaseDialog {
     private BaseViewConvertListener baseViewConvertListener;
 
+    @NonNull
+    @Contract(" -> new")
     public static CustomDialog init() {
         return new CustomDialog();
     }

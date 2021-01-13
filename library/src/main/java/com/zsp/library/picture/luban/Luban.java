@@ -16,6 +16,9 @@ import com.zsp.library.picture.luban.listener.OnRenameListener;
 import com.zsp.library.picture.luban.predicate.CompressionPredicate;
 import com.zsp.library.picture.luban.provider.InputStreamProvider;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -47,7 +50,7 @@ public class Luban implements Handler.Callback {
     private final Handler mHandler;
     private final Random random = new Random();
 
-    private Luban(Builder builder) {
+    private Luban(@NonNull Builder builder) {
         this.mTargetDir = builder.mTargetDir;
         this.mRenameListener = builder.mRenameListener;
         this.mStreamProviders = builder.mStreamProviders;
@@ -57,6 +60,8 @@ public class Luban implements Handler.Callback {
         mHandler = new Handler(Looper.getMainLooper(), this);
     }
 
+    @NonNull
+    @Contract("_ -> new")
     public static Builder with(Context context) {
         return new Builder(context);
     }
@@ -68,7 +73,7 @@ public class Luban implements Handler.Callback {
      * @param cacheName The name of the subdirectory in which to store the cache.
      * @see #getImageCacheDir(Context)
      */
-    private static File getImageCacheDir(Context context, String cacheName) {
+    private static @Nullable File getImageCacheDir(@NonNull Context context, String cacheName) {
         File cacheDir = context.getExternalCacheDir();
         if (cacheDir != null) {
             File result = new File(cacheDir, cacheName);
@@ -88,6 +93,8 @@ public class Luban implements Handler.Callback {
      *
      * @param context A context.
      */
+    @NonNull
+    @Contract("_, _ -> new")
     private File getImageCacheFile(Context context, String suffix) {
         if (TextUtils.isEmpty(mTargetDir)) {
             mTargetDir = getImageCacheDir(context).getAbsolutePath();
@@ -96,6 +103,8 @@ public class Luban implements Handler.Callback {
         return new File(cacheBuilder);
     }
 
+    @NonNull
+    @Contract("_, _ -> new")
     private File getImageCustomFile(Context context, String filename) {
         if (TextUtils.isEmpty(mTargetDir)) {
             mTargetDir = getImageCacheDir(context).getAbsolutePath();
@@ -159,6 +168,7 @@ public class Luban implements Handler.Callback {
         }
     }
 
+    @NonNull
     private List<File> get(Context context) throws IOException {
         List<File> results = new ArrayList<>();
         Iterator<InputStreamProvider> iterator = mStreamProviders.iterator();
@@ -235,6 +245,8 @@ public class Luban implements Handler.Callback {
             this.mStreamProviders = new ArrayList<>();
         }
 
+        @NonNull
+        @Contract(" -> new")
         private Luban build() {
             return new Luban(this);
         }
@@ -272,7 +284,7 @@ public class Luban implements Handler.Callback {
             });
         }
 
-        public <T> Builder load(List<T> list) {
+        public <T> Builder load(@NonNull List<T> list) {
             for (T src : list) {
                 if (src instanceof String) {
                     load((String) src);

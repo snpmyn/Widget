@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.utilone.data.StringUtils;
 
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class SearchHistoryDataBase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(@NonNull SQLiteDatabase sqLiteDatabase) {
         // 创数据库建表
         sqLiteDatabase.execSQL(createTableSql);
     }

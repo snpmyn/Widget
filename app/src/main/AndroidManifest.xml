@@ -25,7 +25,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
         <activity android:name="example.tripartitelibrary.TripartiteLibraryExampleActivity" />
         <activity android:name="example.onepartylibrary.OnePartyLibraryExampleActivity" />
@@ -71,6 +70,7 @@
         <activity android:name="example.onepartylibrary.spruce.SpruceActivity" />
         <activity android:name="example.onepartylibrary.screen.ScreenActivity" />
         <activity android:name="example.onepartylibrary.spannablestringbuilder.SpannableStringBuilderActivity" />
+        <activity android:name="example.onepartylibrary.dialog.DialogThreeActivity" />
         <activity android:name="example.onepartylibrary.dialog.DialogTwoActivity" />
         <activity android:name="example.onepartylibrary.dialog.DialogOneActivity" />
         <activity android:name="example.onepartylibrary.dialog.DialogActivity" />

@@ -2,6 +2,8 @@ package com.zsp.library.pickerview.view;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 import com.zsp.library.pickerview.adapter.ArrayWheelAdapter;
 import com.zsp.library.pickerview.adapter.NumericWheelAdapter;
@@ -502,7 +504,7 @@ public class WheelTime {
 
     }
 
-    private void setReDay(int yearNum, int monthNum, int dStart, int dEnd, List<String> listBig, List<String> listLittle) {
+    private void setReDay(int yearNum, int monthNum, int dStart, int dEnd, @NonNull List<String> listBig, List<String> listLittle) {
         int currentItem = wvDay.getCurrentItem();
         // int maxItem;
         if (listBig.contains(String.valueOf(monthNum))) {
@@ -692,6 +694,7 @@ public class WheelTime {
      *
      * @return 公历时间
      */
+    @NonNull
     private String getLunarTime() {
         StringBuilder sb = new StringBuilder();
         int year = wvYear.getCurrentItem() + startYear;

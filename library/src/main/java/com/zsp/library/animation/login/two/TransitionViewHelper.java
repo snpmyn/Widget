@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: 过渡视图帮助
  * @author: 郑少鹏
@@ -60,7 +62,7 @@ class TransitionViewHelper {
      * @param targetView                 目标视图
      * @param baseSimpleAnimatorListener BaseSimpleAnimatorListener
      */
-    static void lineProlongAnimation(View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
+    static void lineProlongAnimation(@NonNull View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         targetView.setVisibility(View.VISIBLE);
         targetView.setPivotX(0);
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0, 0.6f, 0.9f, 1.0f);
@@ -76,7 +78,7 @@ class TransitionViewHelper {
      * @param targetView                 目标视图
      * @param baseSimpleAnimatorListener BaseSimpleAnimatorListener
      */
-    static void loggingInTextAnimation(View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
+    static void loggingInTextAnimation(@NonNull View targetView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         targetView.setVisibility(View.VISIBLE);
         int targetHeight = targetView.getMeasuredHeightAndState();
         ObjectAnimator xScaleObjectAnimator = ObjectAnimator.ofFloat(targetView, "ScaleX", 0.75f, 0.87f, 1f, 1.1f, 1.0f);
@@ -97,7 +99,7 @@ class TransitionViewHelper {
      * @param loggingInView              登录中视图
      * @param baseSimpleAnimatorListener BaseSimpleAnimatorListener
      */
-    static void successTextAnimation(View successView, View loggingInView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
+    static void successTextAnimation(@NonNull View successView, View loggingInView, BaseSimpleAnimatorListener baseSimpleAnimatorListener) {
         successView.setVisibility(View.VISIBLE);
         int width = successView.getMeasuredWidth();
         ObjectAnimator successTranslationAni = ObjectAnimator.ofFloat(successView, "TranslationX", width * -1.2f, width * -0.2f, 0);

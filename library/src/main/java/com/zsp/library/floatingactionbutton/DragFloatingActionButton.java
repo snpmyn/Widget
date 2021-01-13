@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import timber.log.Timber;
@@ -40,7 +42,7 @@ public class DragFloatingActionButton extends FloatingActionButton {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(@NonNull MotionEvent event) {
         int xRaw = (int) event.getRawX();
         int yRaw = (int) event.getRawY();
         switch (event.getAction() & MotionEvent.ACTION_MASK) {

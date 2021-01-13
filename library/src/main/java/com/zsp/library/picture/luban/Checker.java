@@ -2,7 +2,11 @@ package com.zsp.library.picture.luban;
 
 import android.graphics.BitmapFactory;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.picture.luban.provider.InputStreamProvider;
+
+import org.jetbrains.annotations.Contract;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -175,6 +179,8 @@ enum Checker {
         return value;
     }
 
+    @NonNull
+    @Contract("null -> new")
     private byte[] toByteArray(InputStream is) {
         if (is == null) {
             return new byte[0];

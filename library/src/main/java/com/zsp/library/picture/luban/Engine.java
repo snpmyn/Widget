@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.picture.luban.provider.InputStreamProvider;
 
 import java.io.ByteArrayOutputStream;
@@ -26,7 +28,7 @@ class Engine {
     private int srcHeight;
     private final boolean focusAlpha;
 
-    Engine(InputStreamProvider srcImg, File tagImg, boolean focusAlpha) throws IOException {
+    Engine(@NonNull InputStreamProvider srcImg, File tagImg, boolean focusAlpha) throws IOException {
         this.tagImg = tagImg;
         this.srcImg = srcImg;
         this.focusAlpha = focusAlpha;

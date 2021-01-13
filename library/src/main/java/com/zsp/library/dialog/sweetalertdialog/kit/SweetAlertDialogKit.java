@@ -2,6 +2,8 @@ package com.zsp.library.dialog.sweetalertdialog.kit;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.dialog.sweetalertdialog.SweetAlertDialog;
 import com.zsp.library.dialog.sweetalertdialog.listener.SweetAlertDialogValueListener;
 
@@ -22,6 +24,7 @@ public class SweetAlertDialogKit {
      * @param sweetAlertDialogValueListener SweetAlertDialog值监听
      * @return widget.dialog
      */
+    @NonNull
     public static SweetAlertDialog dialogCreate(Context context, int type, String title, boolean cancel, SweetAlertDialogValueListener sweetAlertDialogValueListener) {
         SweetAlertDialog hintDialog = new SweetAlertDialog(context, type).setTitleText(title);
         hintDialog.setCancelable(cancel);

@@ -30,6 +30,7 @@
     <string name="dialog">对话框</string>
     <string name="dialogOne">对话框一</string>
     <string name="dialogTwo">对话框二</string>
+    <string name="dialogThree">对话框三</string>
     <string name="tryMe">Try me!</string>
     <string name="showMaterialProgress">show material progress</string>
     <string name="aBasicMessage">a basic message</string>

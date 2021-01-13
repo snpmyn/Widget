@@ -47,6 +47,7 @@ class WaterfallToolbar : CardView {
                     mutualScrollListenerAction()
                 }
             }
+
     /**
      * The scroll view whose scroll is going to be listened.
      */
@@ -85,6 +86,7 @@ class WaterfallToolbar : CardView {
 
             } else throw NullPointerException("This field cannot be null.")
         }
+
     /**
      * The elevation the toolbar gets when it reaches final scroll elevation.
      */
@@ -97,6 +99,7 @@ class WaterfallToolbar : CardView {
                 if (isSetup) adjustCardElevation()
             } else throw NullPointerException("This field cannot be null.")
         }
+
     /**
      * The percentage of the screen's height that is going to be scrolled to reach the final elevation.
      */
@@ -119,14 +122,17 @@ class WaterfallToolbar : CardView {
     private val defaultInitialElevation = Dip(0.0f).toPx()
     private val defaultFinalElevation = Dip(4.0f).toPx()
     private val defaultScrollFinalElevation = 12
+
     /**
      * Auxiliary that indicates if the view is already setup.
      */
     private var isSetup: Boolean = false
+
     /**
      * Position in which toolbar must be to reach expected shadow.
      */
     private var orthodoxPosition = Px(0)
+
     /**
      * Recycler/scroll view real position.
      */
@@ -169,6 +175,7 @@ class WaterfallToolbar : CardView {
     private fun unbindRecyclerView() = recyclerView?.removeOnScrollListener(recyclerViewScrollListener)
     private fun addScrollViewScrollListener() = scrollView?.viewTreeObserver?.addOnScrollChangedListener(scrollViewScrollListener)
     private fun unbindScrollView() = scrollView?.viewTreeObserver?.removeOnScrollChangedListener(scrollViewScrollListener)
+
     /**
      * These lines are common in both scroll listeners, so they are better joined.
      */
@@ -244,11 +251,11 @@ class WaterfallToolbar : CardView {
         var orthodoxPosition: Px? = null
         var realPosition: Px? = null
 
-        internal constructor(source: Parcel) : super(source)
-        @RequiresApi(Build.VERSION_CODES.N)
-        internal constructor(source: Parcel, loader: ClassLoader) : super(source, loader)
+        constructor(source: Parcel) : super(source)
 
-        internal constructor(superState: Parcelable?) : super(superState)
+        @RequiresApi(Build.VERSION_CODES.N)
+        constructor(source: Parcel, loader: ClassLoader) : super(source, loader)
+        constructor(superState: Parcelable?) : super(superState)
 
         companion object {
             @JvmField

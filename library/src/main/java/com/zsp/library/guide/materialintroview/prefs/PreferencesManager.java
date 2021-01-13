@@ -3,6 +3,8 @@ package com.zsp.library.guide.materialintroview.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+
 /**
  * @decs: PreferencesManager
  * @author: 郑少鹏
@@ -17,7 +19,7 @@ public class PreferencesManager {
      *
      * @param context 上下文
      */
-    public PreferencesManager(Context context) {
+    public PreferencesManager(@NonNull Context context) {
         sharedPreferences = context.getApplicationContext().getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 

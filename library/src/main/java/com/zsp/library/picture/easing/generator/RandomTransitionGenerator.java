@@ -4,8 +4,12 @@ import android.graphics.RectF;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.picture.easing.transition.Transition;
 import com.zsp.library.picture.easing.util.MathUtils;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.Random;
 
@@ -86,6 +90,8 @@ public class RandomTransitionGenerator implements TransitionGenerator {
      * @param viewportRect   The bounds of the view that the drawable will be shown.
      * @return An arbitrary generated rect with the same aspect ratio of {@code viewportRect} that will be contained within {@code drawableBounds}.
      */
+    @NonNull
+    @Contract("_, _ -> new")
     private RectF generateRandomRect(RectF drawableBounds, RectF viewportRect) {
         float drawableRatio = MathUtils.getRectRatio(drawableBounds);
         float viewportRectRatio = MathUtils.getRectRatio(viewportRect);

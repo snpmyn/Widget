@@ -15,6 +15,8 @@ import androidx.core.view.MarginLayoutParamsCompat;
 
 import com.zsp.library.R;
 
+import org.jetbrains.annotations.Contract;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
@@ -55,7 +57,7 @@ public class PercentLayoutHelper {
      * @param widthAttr  int
      * @param heightAttr int
      */
-    public static void fetchWidthAndHeight(ViewGroup.LayoutParams params, TypedArray array, int widthAttr, int heightAttr) {
+    public static void fetchWidthAndHeight(@NonNull ViewGroup.LayoutParams params, @NonNull TypedArray array, int widthAttr, int heightAttr) {
         params.width = array.getLayoutDimension(widthAttr, 0);
         params.height = array.getLayoutDimension(heightAttr, 0);
     }
@@ -74,7 +76,7 @@ public class PercentLayoutHelper {
         return percentLayoutInfo;
     }
 
-    private void supportPadding(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
+    private void supportPadding(int widthHint, int heightHint, @NonNull View view, @NonNull PercentLayoutInfo info) {
         int left = view.getPaddingLeft(), right = view.getPaddingRight(), top = view.getPaddingTop(), bottom = view.getPaddingBottom();
         PercentLayoutInfo.PercentVal percentVal = info.paddingLeftPercent;
         if (percentVal != null) {
@@ -156,7 +158,7 @@ public class PercentLayoutHelper {
         }
     }
 
-    private void supportTextSize(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
+    private void supportTextSize(int widthHint, int heightHint, View view, @NonNull PercentLayoutInfo info) {
         // textSize percent support
         PercentLayoutInfo.PercentVal textSizePercent = info.textSizePercent;
         if (textSizePercent == null) {
@@ -170,7 +172,8 @@ public class PercentLayoutHelper {
         }
     }
 
-    private static int getBaseByModeAndVal(int widthHint, int heightHint, PercentLayoutInfo.BaseMode baseMode) {
+    @Contract(pure = true)
+    private static int getBaseByModeAndVal(int widthHint, int heightHint, @NonNull PercentLayoutInfo.BaseMode baseMode) {
         switch (baseMode) {
             case BASE_HEIGHT:
                 return heightHint;
@@ -193,7 +196,7 @@ public class PercentLayoutHelper {
      * @param attrs   AttributeSet
      * @return PercentLayoutInfo
      */
-    public static PercentLayoutInfo getPercentLayoutInfo(Context context, AttributeSet attrs) {
+    public static PercentLayoutInfo getPercentLayoutInfo(@NonNull Context context, AttributeSet attrs) {
         PercentLayoutInfo info;
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PercentLayout);
         info = setWidthAndHeightVal(array, null);
@@ -354,7 +357,7 @@ public class PercentLayoutHelper {
         return info;
     }
 
-    private static PercentLayoutInfo.PercentVal getPercentVal(TypedArray array, int index, boolean baseWidth) {
+    private static PercentLayoutInfo.PercentVal getPercentVal(@NonNull TypedArray array, int index, boolean baseWidth) {
         String sizeStr = array.getString(index);
         return getPercentVal(sizeStr, baseWidth);
     }
@@ -367,7 +370,7 @@ public class PercentLayoutHelper {
 
     private static final String REGEX_PERCENT = "^(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)%([s]?[wh]?)$";
 
-    private void supportMinOrMaxDimension(int widthHint, int heightHint, View view, PercentLayoutInfo info) {
+    private void supportMinOrMaxDimension(int widthHint, int heightHint, @NonNull View view, @NonNull PercentLayoutInfo info) {
         try {
             Class clazz = view.getClass();
             invokeMethod("setMaxWidth", widthHint, heightHint, view, clazz, info.maxWidthPercent);
@@ -437,7 +440,7 @@ public class PercentLayoutHelper {
         return needsSecondMeasure;
     }
 
-    private static boolean shouldHandleMeasuredWidthTooSmall(View view, PercentLayoutInfo info) {
+    private static boolean shouldHandleMeasuredWidthTooSmall(@NonNull View view, PercentLayoutInfo info) {
         int state = view.getMeasuredWidthAndState() & View.MEASURED_STATE_MASK;
         if (info == null || info.widthPercent == null) {
             return false;
@@ -445,7 +448,7 @@ public class PercentLayoutHelper {
         return state == View.MEASURED_STATE_TOO_SMALL && info.widthPercent.percent >= 0 && info.mPreservedParams.width == ViewGroup.LayoutParams.WRAP_CONTENT;
     }
 
-    private static boolean shouldHandleMeasuredHeightTooSmall(View view, PercentLayoutInfo info) {
+    private static boolean shouldHandleMeasuredHeightTooSmall(@NonNull View view, PercentLayoutInfo info) {
         int state = view.getMeasuredHeightAndState() & View.MEASURED_STATE_MASK;
         if (info == null || info.heightPercent == null) {
             return false;
@@ -540,7 +543,7 @@ public class PercentLayoutHelper {
          * @param widthHint  int
          * @param heightHint int
          */
-        void fillLayoutParams(ViewGroup.LayoutParams params, int widthHint, int heightHint) {
+        void fillLayoutParams(@NonNull ViewGroup.LayoutParams params, int widthHint, int heightHint) {
             // Preserve the original layout params, so we can restore them after the measure step.
             mPreservedParams.width = params.width;
             mPreservedParams.height = params.height;
@@ -641,7 +644,7 @@ public class PercentLayoutHelper {
          *
          * @param params ViewGroup.LayoutParams
          */
-        void restoreLayoutParams(ViewGroup.LayoutParams params) {
+        void restoreLayoutParams(@NonNull ViewGroup.LayoutParams params) {
             params.width = mPreservedParams.width;
             params.height = mPreservedParams.height;
         }

@@ -1,5 +1,7 @@
 package com.zsp.library.screen.kit;
 
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class ScreenDataKit {
      * @param selected            选否
      * @param correspondingValues 对应值
      */
-    public void singleSelectPack(List<Object> stringList, boolean selected, Object... correspondingValues) {
+    public void singleSelectPack(@NonNull List<Object> stringList, boolean selected, Object... correspondingValues) {
         if (stringList.size() > 0) {
             stringList.clear();
         }
@@ -33,7 +35,7 @@ public class ScreenDataKit {
      * @param selected            选否
      * @param correspondingValues 对应值
      */
-    public void multiSelectPack(List<Object> stringList, boolean selected, Object... correspondingValues) {
+    public void multiSelectPack(List<Object> stringList, boolean selected, @NonNull Object... correspondingValues) {
         for (Object o : correspondingValues) {
             if (selected) {
                 if (stringList.contains(o)) {

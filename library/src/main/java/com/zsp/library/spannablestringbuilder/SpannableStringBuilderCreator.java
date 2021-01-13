@@ -19,6 +19,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import org.jetbrains.annotations.Contract;
+
 /**
  * Created on 2019/6/24.
  *
@@ -26,6 +28,8 @@ import androidx.annotation.NonNull;
  * @desc SpannableStringBuilderCreator
  */
 public class SpannableStringBuilderCreator {
+    @NonNull
+    @Contract("_ -> new")
     public static Builder with(String source) {
         return new Builder(source);
     }
@@ -182,7 +186,7 @@ public class SpannableStringBuilderCreator {
          * @param flags          标志
          * @return Builder
          */
-        public Builder imageSpan(Drawable drawable, int drawableLeft, int drawableTop, int drawableRight, int drawableBottom, int start, int end, int flags) {
+        public Builder imageSpan(@NonNull Drawable drawable, int drawableLeft, int drawableTop, int drawableRight, int drawableBottom, int start, int end, int flags) {
             drawable.setBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);
             ImageSpan imageSpan = new ImageSpan(drawable);
             spannableStringBuilder.setSpan(imageSpan, start, end, flags);

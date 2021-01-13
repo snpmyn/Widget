@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,7 +29,7 @@ public class VoiceKit {
      *
      * @param activity 活动
      */
-    public static void startRecord(Activity activity) {
+    public static void startRecord(@NonNull Activity activity) {
         // start RecordService
         activity.startService(new Intent(activity, VoiceRecordService.class));
         // keep screen on while recording
@@ -40,7 +41,7 @@ public class VoiceKit {
      *
      * @param activity 活动
      */
-    public static void stopRecord(Activity activity) {
+    public static void stopRecord(@NonNull Activity activity) {
         // stop RecordService
         activity.stopService(new Intent(activity, VoiceRecordService.class));
         // allow the screen to turn off again once recording is finished

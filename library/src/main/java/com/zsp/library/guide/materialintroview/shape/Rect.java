@@ -5,6 +5,8 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.RectF;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.guide.materialintroview.target.Target;
 
 /**
@@ -31,7 +33,7 @@ public class Rect extends BaseShape {
     }
 
     @Override
-    public void draw(Canvas canvas, Paint eraser, int padding) {
+    public void draw(@NonNull Canvas canvas, Paint eraser, int padding) {
         canvas.drawRoundRect(adjustedRect, padding, padding, eraser);
     }
 

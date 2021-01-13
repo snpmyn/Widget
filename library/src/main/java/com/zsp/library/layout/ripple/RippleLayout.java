@@ -20,6 +20,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.zsp.library.R;
@@ -194,7 +195,7 @@ public class RippleLayout extends RelativeLayout {
      *
      * @param event MotionEvent registered by the ripple gesture listener
      */
-    public void animateRipple(MotionEvent event) {
+    public void animateRipple(@NonNull MotionEvent event) {
         createAnimation(event.getX(), event.getY());
     }
 
@@ -312,7 +313,7 @@ public class RippleLayout extends RelativeLayout {
      *
      * @param rippleType new ripple type for next animation
      */
-    public void setRippleType(final RippleType rippleType) {
+    public void setRippleType(@NonNull final RippleType rippleType) {
         this.rippleType = rippleType.ordinal();
     }
 

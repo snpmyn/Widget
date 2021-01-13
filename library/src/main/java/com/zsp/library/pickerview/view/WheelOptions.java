@@ -3,6 +3,8 @@ package com.zsp.library.pickerview.view;
 import android.graphics.Typeface;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.R;
 import com.zsp.library.pickerview.adapter.ArrayWheelAdapter;
 import com.zsp.library.pickerview.listener.OnOptionsSelectChangeListener;
@@ -46,7 +48,7 @@ public class WheelOptions<T> {
      */
     private float lineSpacingMultiplier;
 
-    WheelOptions(View view, boolean isRestoreItem) {
+    WheelOptions(@NonNull View view, boolean isRestoreItem) {
         super();
         this.isRestoreItem = isRestoreItem;
         this.view = view;

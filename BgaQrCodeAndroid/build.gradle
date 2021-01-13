@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion "29.0.2"
 
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility rootProject.ext.compileOptions["sourceCompatibility"]
+        targetCompatibility rootProject.ext.compileOptions["targetCompatibility"]
     }
     configurations.all {
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
@@ -39,7 +39,7 @@ dependencies {
     /*自带*/
     implementation project(path: ':matisse')
     /*matisse*/
-    implementation 'com.github.snpmyn.Util:utilone:v0.1.2'
+    implementation 'com.github.snpmyn.Util:utilone:v0.0.1.1X'
     /*util*/
     api 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'
     /*BgaQrCodeZXing*/

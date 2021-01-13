@@ -4,6 +4,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
+import org.jetbrains.annotations.Contract;
+
 /**
  * @decs: ViewHolder
  * @author: 郑少鹏
@@ -18,6 +22,8 @@ public class ViewHolder {
         views = new SparseArray<>();
     }
 
+    @NonNull
+    @Contract("_ -> new")
     static ViewHolder create(View view) {
         return new ViewHolder(view);
     }

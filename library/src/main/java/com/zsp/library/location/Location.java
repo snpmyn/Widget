@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class Location {
          * @param provider provider
          */
         @Override
-        public void onProviderEnabled(String provider) {
+        public void onProviderEnabled(@NonNull String provider) {
             // 需查权限（否编译错）
             // 抽成方法仍错（只能如下重复）
             if (Build.VERSION.SDK_INT >= WidgetLibraryMagic.INT_TWENTY_THREE &&
@@ -83,7 +84,7 @@ public class Location {
          * @param provider provider
          */
         @Override
-        public void onProviderDisabled(String provider) {
+        public void onProviderDisabled(@NonNull String provider) {
             setLocation(null);
         }
 
@@ -92,7 +93,7 @@ public class Location {
          * @param location 坐标
          */
         @Override
-        public void onLocationChanged(android.location.Location location) {
+        public void onLocationChanged(@NonNull android.location.Location location) {
             // 精确度
             location.getAccuracy();
             setLocation(location);
@@ -103,7 +104,7 @@ public class Location {
         }
     };
 
-    public Location(Context context) {
+    public Location(@NonNull Context context) {
         Location.context = context.getApplicationContext();
         getLocation();
     }

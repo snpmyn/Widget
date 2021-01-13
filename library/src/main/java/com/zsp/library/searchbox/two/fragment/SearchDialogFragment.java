@@ -189,7 +189,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(@NonNull View view) {
         if (view.getId() == R.id.searchDialogFragmentIvTopBack || view.getId() == R.id.searchDialogFragmentViewOutside) {
             hideAnimator();
         } else if (view.getId() == R.id.searchDialogFragmentIvSearch) {
@@ -370,7 +370,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
         }
 
         @Override
-        public void afterTextChanged(Editable editable) {
+        public void afterTextChanged(@NonNull Editable editable) {
             String keyword = editable.toString();
             if (TextUtils.isEmpty(keyword)) {
                 setAllHistories();
