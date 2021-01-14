@@ -41,15 +41,15 @@
 | 一方库Library | implementation 'androidx.core:core-ktx:1.5.0-alpha05' |
 | 一方库Library | implementation "org.jetbrains.kotlin:*kotlin-stdlib-jdk7*:$kotlin_version" |
 | 一方库Library | implementation 'androidx.palette:palette-ktx:1.0.0' |
-| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v0.0.1.1X'（避重）|
-| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v0.0.1.1X'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utilone*:v0.0.1.2X'（避重）|
+| 一方库Library | api 'com.github.snpmyn.Util:*utiltwo*:v0.0.1.2X'（避重）|
 | 一方库Library | api 'com.willowtreeapps.spruce:spruce-android:1.0.1'（避重）|
-| 一方库Matisse | implementation 'com.github.snpmyn.Util:utilone:v0.0.1.1X' |
+| 一方库Matisse | implementation 'com.github.snpmyn.Util:utilone:v0.0.1.2X' |
 | 一方库Matisse | api 'com.zhihu.android:matisse:0.5.3-beta3'（避重）|
 | 一方库Ucrop | api 'com.github.yalantis:ucrop:2.2.4'（避重）|
 | 一方库BgaQrCodeAndroid | implementation project(path: ':matisse') |
-| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v0.0.1.1X' |
-| 一方库Banner | implementation 'com.github.snpmyn.Util:utilone:v0.0.1.1X' |
+| 一方库BgaQrCodeAndroid | implementation 'com.github.snpmyn.Util:*utilone*:v0.0.1.2X' |
+| 一方库Banner | implementation 'com.github.snpmyn.Util:utilone:v0.0.1.2X' |
 | 一方库Banner | api 'com.youth.banner:banner:1.4.10'（避重）|
 | 一方库AutoSize | implementation 'me.jessyan:autosize:1.1.2' |
 | 二方库Util-示例app | implementation project(path: ':utilone') |
