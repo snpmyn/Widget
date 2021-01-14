@@ -49,7 +49,7 @@ public class GuideOneActivity extends AppCompatActivity {
                 // 目标图（必调）
                 .setTargetView(guideOneActivityIvOne)
                 // 引导图（ImageView或TextView）（必调）
-                .setCustomGuideView(GuideView.guideTextView(this, R.string.picture, ContextCompat.getColor(this, R.color.background)))
+                .setCustomGuideView(GuideView.guideTextView(this, R.string.picture, ContextCompat.getColor(this, R.color.pageBackground)))
                 // 引导图状（圆形、椭圆、矩形，矩形可圆角矩形）
                 .setShape(GuideView.MyShape.CIRCULAR)
                 // 引导图相对目标图位（八种，不设默屏左上角）
@@ -76,7 +76,7 @@ public class GuideOneActivity extends AppCompatActivity {
          */
         guideViewTwo = new GuideView.Builder(this)
                 .setTargetView(guideOneActivityIvTwo)
-                .setCustomGuideView(GuideView.guideTextView(this, R.string.animation, ContextCompat.getColor(this, R.color.background)))
+                .setCustomGuideView(GuideView.guideTextView(this, R.string.animation, ContextCompat.getColor(this, R.color.pageBackground)))
                 .setShape(GuideView.MyShape.CIRCULAR)
                 .setDirection(GuideView.Direction.LEFT_TOP)
                 .setRadius(170)

@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,11 +38,8 @@ public class PercentLayoutHelper {
     }
 
     private void getScreenSize() {
-        WindowManager windowManager = (WindowManager) mHost.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(outMetrics);
-        }
+        mHost.getContext().getDisplay().getMetrics(outMetrics);
         mWidthScreen = outMetrics.widthPixels;
         mHeightScreen = outMetrics.heightPixels;
     }

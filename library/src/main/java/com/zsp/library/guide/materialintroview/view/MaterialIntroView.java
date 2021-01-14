@@ -194,7 +194,7 @@ public class MaterialIntroView extends RelativeLayout {
     }
 
     @SuppressLint("InflateParams")
-    private void init(Context context) {
+    private void init(@NonNull Context context) {
         setWillNotDraw(false);
         setVisibility(INVISIBLE);
         // set default values
@@ -216,7 +216,7 @@ public class MaterialIntroView extends RelativeLayout {
         isImageViewEnabled = true;
         isIdempotent = false;
         // initialize objects
-        handler = new Handler();
+        handler = new Handler(context.getMainLooper());
         preferencesManager = new PreferencesManager(context);
         eraser = new Paint();
         eraser.setColor(0xFFFFFFFF);
@@ -529,7 +529,6 @@ public class MaterialIntroView extends RelativeLayout {
     public static class Builder {
         private final Activity activity;
         private final MaterialIntroView materialIntroView;
-        private final Focus focusType = Focus.MINIMUM;
 
         public Builder(Activity activity) {
             this.activity = activity;

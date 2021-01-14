@@ -106,7 +106,7 @@ public class ProgressLayout extends View implements Animatable {
         paintProgressLoaded.setColor(loadedColor);
         paintProgressLoaded.setStyle(Paint.Style.FILL);
         paintProgressLoaded.setAntiAlias(true);
-        handlerProgress = new Handler();
+        handlerProgress = new Handler(context.getMainLooper());
     }
 
     private int calculatePositionIndex(int currentProgress) {

@@ -105,7 +105,7 @@ public class ConnectionStatusView extends RelativeLayout {
         slideOut = AnimationUtils.loadAnimation(context, R.anim.connection_status_view_slide_out);
         // layout inflater
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        handler = new Handler();
+        handler = new Handler(context.getMainLooper());
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ConnectionStatusView);
         // get status layout ids
         int completeLayoutId = typedArray.getResourceId(R.styleable.ConnectionStatusView_complete, 0);

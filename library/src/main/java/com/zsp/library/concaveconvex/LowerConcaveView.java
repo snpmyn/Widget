@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,8 +20,7 @@ import java.math.BigDecimal;
  * @author 郑少鹏
  * @desc 下凹视图
  */
-@SuppressLint("AppCompatCustomView")
-public class LowerConcaveView extends ImageView {
+public class LowerConcaveView extends androidx.appcompat.widget.AppCompatImageView {
     /**
      * 弧高
      */

@@ -103,8 +103,8 @@ public class SideDragAdapter extends RecyclerView.Adapter<SideDragAdapter.ViewHo
         @Override
         public void onItemSlideSlipStart(Context context) {
             sideDragItemMcv.setBackgroundColor(ContextCompat.getColor(context, R.color.gray));
-            sideDragItemTv.setTextColor(ContextCompat.getColor(context, R.color.background));
-            sideDragItemIv.setColorFilter(ContextCompat.getColor(context, R.color.background), PorterDuff.Mode.SRC_IN);
+            sideDragItemTv.setTextColor(ContextCompat.getColor(context, R.color.pageBackground));
+            sideDragItemIv.setColorFilter(ContextCompat.getColor(context, R.color.pageBackground), PorterDuff.Mode.SRC_IN);
         }
 
         /**
@@ -114,7 +114,7 @@ public class SideDragAdapter extends RecyclerView.Adapter<SideDragAdapter.ViewHo
          */
         @Override
         public void onItemSlideSlipStop(Context context) {
-            sideDragItemMcv.setBackgroundColor(ContextCompat.getColor(context, R.color.background));
+            sideDragItemMcv.setBackgroundColor(ContextCompat.getColor(context, R.color.pageBackground));
             sideDragItemTv.setTextColor(ContextCompat.getColor(context, R.color.fontInput));
             sideDragItemIv.setColorFilter(ContextCompat.getColor(context, R.color.gray), PorterDuff.Mode.SRC_IN);
         }

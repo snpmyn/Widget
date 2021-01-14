@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -200,7 +201,8 @@ public class ContactActivity extends AppCompatActivity {
      * @param originalList 数据
      * @return 排序后数据
      */
-    private List<ContactBean> acronymSorting(List<ContactBean> originalList) {
+    @NonNull
+    private List<ContactBean> acronymSorting(@NonNull List<ContactBean> originalList) {
         if (originalList.isEmpty()) {
             return originalList;
         } else {

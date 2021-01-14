@@ -52,7 +52,7 @@
                 android:background="@color/warning"
                 android:gravity="center"
                 android:text="@string/exampleTwo"
-                android:textColor="@color/background"
+                android:textColor="@color/pageBackground"
                 android:textSize="@dimen/sp_16" />
         </com.zsp.library.layout.shadow.ShadowLayout>
     </LinearLayout>

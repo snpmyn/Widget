@@ -18,21 +18,21 @@
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/background"
+            android:textColor="@color/white"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
             tools:text="ToolTip Title"
-            tools:textColor="@color/background" />
+            tools:textColor="@color/white" />
 
         <TextView
             android:id="@+id/messageTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            android:textColor="@color/background"
+            android:textColor="@color/white"
             android:textSize="@dimen/sp_12"
             tools:text="ToolTip Message sample. Lorem ipsum dolor sit amet lorem ipsum."
-            tools:textColor="@color/background" />
+            tools:textColor="@color/white" />
     </LinearLayout>
 
     <ImageView

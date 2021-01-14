@@ -51,5 +51,5 @@
         app:layout_anchor="@id/counterActivityMt"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/ic_add_24dp_background"
-        app:tint="@color/background" />
+        app:tint="@color/pageBackground" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

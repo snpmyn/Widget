@@ -141,12 +141,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn.Widget:library:v0.0.1.1X'
-    implementation 'com.github.snpmyn.Widget:matisse:v0.0.1.1X'
-    implementation 'com.github.snpmyn.Widget:ucrop:v0.0.1.1X'
-    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.0.1.1X'
-    implementation 'com.github.snpmyn.Widget:banner:v0.0.1.1X'
-    implementation 'com.github.snpmyn.Widget:autosize:v0.0.1.1X'
+    implementation 'com.github.snpmyn.Widget:library:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:matisse:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:ucrop:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:banner:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:autosize:v0.0.1.2X'
 }
 ```
 

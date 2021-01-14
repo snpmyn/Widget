@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@color/red"
         android:text="@string/exampleAnchoredView"
-        android:textColor="@color/background"
+        android:textColor="@color/pageBackground"
         android:textSize="@dimen/sp_12" />
 
     <com.zsp.library.tipview.TipView
@@ -49,7 +49,7 @@
         android:layout_gravity="end"
         android:background="@color/red"
         android:text="@string/exampleAnchoredView"
-        android:textColor="@color/background"
+        android:textColor="@color/pageBackground"
         android:textSize="@dimen/sp_12" />
 
     <TextView
@@ -59,6 +59,6 @@
         android:layout_gravity="start"
         android:background="@color/red"
         android:text="@string/exampleAnchoredView"
-        android:textColor="@color/background"
+        android:textColor="@color/pageBackground"
         android:textSize="@dimen/sp_12" />
 </LinearLayout>

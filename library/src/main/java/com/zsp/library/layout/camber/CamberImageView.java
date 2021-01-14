@@ -206,7 +206,7 @@ public class CamberImageView extends AppCompatImageView {
             @Override
             public void getOutline(View view, Outline outline) {
                 try {
-                    outline.setConvexPath(PathProvider.getOutlinePath(width, height, curvatureHeight, curvatureDirection, gravity));
+                    outline.setPath(PathProvider.getOutlinePath(width, height, curvatureHeight, curvatureDirection, gravity));
                 } catch (Exception e) {
                     Timber.e(e);
                 }

@@ -85,7 +85,7 @@ public class CamberContainer extends RelativeLayout {
             @Override
             public void getOutline(View view, Outline outline) {
                 try {
-                    outline.setConvexPath(PathProvider.getOutlinePath(width, height, curvatureHeight, 0, 0));
+                    outline.setPath(PathProvider.getOutlinePath(width, height, curvatureHeight, 0, 0));
                 } catch (Exception e) {
                     Timber.e(e);
                 }

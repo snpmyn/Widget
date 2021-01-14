@@ -36,31 +36,38 @@ class ShadowLayout @JvmOverloads constructor(
      */
     @ColorInt
     private var mShadowColor: Int = 0
+
     /**
      * 阴影发散距
      */
     private var mShadowRadius: Float = 0f
+
     /**
      * X轴偏移距
      */
     private var mDx: Float = 0f
+
     /**
      * Y轴偏移距
      */
     private var mDy: Float = 0f
+
     /**
      * 圆角半径
      */
     private var mCornerRadius: Float = 0f
+
     /**
      * 边框色
      */
     @ColorInt
     private var mBorderColor: Int = 0
+
     /**
      * 边框宽
      */
     private var mBorderWidth: Float = 0f
+
     /**
      * 四边显阴影否
      */
@@ -72,19 +79,22 @@ class ShadowLayout @JvmOverloads constructor(
      * 全局画笔
      */
     private var mPaint: Paint = createPaint(color = Color.WHITE)
-    private var mHelpPaint: Paint = createPaint(color = Color.RED)
+
     /**
      * 全局Path
      */
     private var mPath = Path()
+
     /**
      * 合成模式
      */
     private var porterDuffXfermode: PorterDuffXfermode by Delegates.notNull()
+
     /**
      * 视图内容区RectF实例
      */
     private var mContentRF: RectF by Delegates.notNull()
+
     /**
      * 视图边框RectF实例
      */
@@ -189,7 +199,7 @@ class ShadowLayout @JvmOverloads constructor(
      * 绘子视图
      */
     private fun drawChild(canvas: Canvas, block: (Canvas) -> Unit) {
-        canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), mPaint, Canvas.ALL_SAVE_FLAG)
+        canvas.saveLayer(0f, 0f, canvas.width.toFloat(), canvas.height.toFloat(), mPaint)
         // 先绘子控件
         block.invoke(canvas)
         // 用path构建四圆角

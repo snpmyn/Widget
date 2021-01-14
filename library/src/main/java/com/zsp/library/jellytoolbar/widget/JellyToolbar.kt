@@ -43,18 +43,21 @@ class JellyToolbar : FrameLayout, JellyWidget {
             jellyToolbarCl.contentView = value
             field = value
         }
+
     @DrawableRes
     var iconRes: Int? = null
         set(value) {
             jellyToolbarCl.iconRes = value
             field = value
         }
+
     @DrawableRes
     var cancelIconRes: Int? = null
         set(value) {
             jellyToolbarCl.cancelIconRes = value
             field = value
         }
+
     @ColorInt
     var startColor: Int? = null
         set(value) {
@@ -63,6 +66,7 @@ class JellyToolbar : FrameLayout, JellyWidget {
                 field = value
             }
         }
+
     @ColorInt
     var endColor: Int? = null
         set(value) {
@@ -71,8 +75,8 @@ class JellyToolbar : FrameLayout, JellyWidget {
                 field = value
             }
         }
-    var jellyListener: JellyListener? = null
-    var isExpanded = false
+    private var jellyListener: JellyListener? = null
+    private var isExpanded = false
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)

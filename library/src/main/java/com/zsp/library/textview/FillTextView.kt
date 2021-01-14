@@ -31,60 +31,88 @@ import kotlin.math.min
 class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     // 编辑字段标记
     private var editTag = "<fill>"
+
     // 可编辑空白
     private val blanks = "        "
+
     // 可编辑开始符
     private var mEditStartTag = "【"
+
     // 可编辑结束符
     private var mEditEndTag = "】"
+
     // 文本
     private var mText = StringBuffer()
+
     // 存文字段列表（据<fill>分割为多字段）
     private var mTextList = arrayListOf<AText>()
+
     // 正输入字段
     private var mEditingText: AText? = null
+
     // 正编辑文字行数
     private var mEditTextRow = 1
+
     // 光标[0]：x坐标、[1]：文字基准线
     private var mCursor = arrayOf(-1.0f, -1.0f)
+
     // 光标所在文字索引
     private var mCursorIndex = 0
+
     // 光标闪烁标志
     private var mHideCursor = true
+
     // 控件宽
     private var mWidth = 0
+
     // 文字画笔
     private val mNormalPaint = Paint()
+
     // 普通文字色
     private var mNormalColor = Color.BLACK
+
     // 文字画笔
     private val mFillPaint = Paint()
+
     // 填文字色
     private var mFillColor = Color.BLACK
+
     // 光标画笔
     private val mCursorPain = Paint()
+
     // 光标宽1dp
     private var mCursorWidth = 1.0f
+
     // 一汉字宽
     private var mOneWordWidth = 0.0f
+
     // 一行最大文字数
     private var mMaxSizeOneLine = 0
+
     // 字体大小
     private var mTextSize = sp2px(16.0f).toFloat()
+
     // 当前绘至第几行
     private var mCurDrawRow = 1
+
     // 文字起始位
     private var mStartIndex = 0
+
     // 文字结束位
     private var mEndIndex = 0
+
     // 存每行文字（算文字长）
     private var mOneRowText = StringBuffer()
+
     // 一行含字段（普通字段、可编辑字段）
     private var mOneRowTexts = arrayListOf<AText>()
+
     // 默行距2dp（最小行距，设行距于此基础上叠加。即2 + cst）
     private var mRowSpace = dp2px(2.0f).toFloat()
+
     // 显下划线否
     private var mUnderlineVisible = false
+
     // 下划线画笔
     private val mUnderlinePain = Paint().apply {
         strokeWidth = dp2px(1.0f).toFloat()
@@ -296,16 +324,17 @@ class FillTextView : View, MyInputConnection.InputListener, View.OnKeyListener {
     }
 
     private var mHandler: Handler? = null
+
     /**
      * 光标闪烁定时
      */
     private fun initHandler() {
-        mHandler = Handler(Handler.Callback {
+        mHandler = Handler(context.mainLooper) {
             mHideCursor = !mHideCursor
             mHandler!!.sendEmptyMessageDelayed(1, 500)
             invalidate()
             true
-        })
+        }
         mHandler!!.sendEmptyMessageDelayed(1, 500)
     }
 

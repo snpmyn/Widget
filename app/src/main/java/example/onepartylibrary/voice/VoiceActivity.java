@@ -69,7 +69,7 @@ public class VoiceActivity extends AppCompatActivity {
             // 播放
             case R.id.voiceActivityMbPlay:
                 VoiceKit.stopRecord(this);
-                new Handler().postDelayed(() -> VoiceKit.play(VoiceActivity.this, getSupportFragmentManager()), 1000);
+                new Handler(getMainLooper()).postDelayed(() -> VoiceKit.play(VoiceActivity.this, getSupportFragmentManager()), 1000);
                 break;
             default:
                 break;

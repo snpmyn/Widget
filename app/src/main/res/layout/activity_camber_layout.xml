@@ -33,7 +33,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/image_two"
         app:CamberImageViewCamberTintAlpha="50"
-        app:CamberImageViewCamberTintColor="@color/background"
+        app:CamberImageViewCamberTintColor="@color/pageBackground"
         app:CamberImageViewCamberTintMode="manual"
         app:CamberImageViewCurvature="@dimen/dp_50"
         app:CamberImageViewCurvatureDirection="inward"

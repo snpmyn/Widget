@@ -69,7 +69,7 @@ class JellyView : View, JellyWidget {
         path.close()
     }
 
-    private fun createGradient(): LinearGradient? {
+    private fun createGradient(): LinearGradient {
         return LinearGradient(0f, 0f, width.toFloat(), 0f, startColor,
                 endColor,
                 Shader.TileMode.CLAMP)

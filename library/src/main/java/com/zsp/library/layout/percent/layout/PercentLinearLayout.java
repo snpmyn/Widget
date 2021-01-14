@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -54,11 +53,8 @@ public class PercentLinearLayout extends LinearLayout {
     }
 
     private int getScreenHeight() {
-        WindowManager windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
-        if (windowManager != null) {
-            windowManager.getDefaultDisplay().getMetrics(outMetrics);
-        }
+        getContext().getDisplay().getMetrics(outMetrics);
         return outMetrics.heightPixels;
     }
 

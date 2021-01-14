@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         app:backgroundColor="@color/colorAccent"
-        app:chooseTextColor="@color/background"
+        app:chooseTextColor="@color/pageBackground"
         app:circleRadius="@dimen/dp_24"
         app:hintTextSize="@dimen/sp_32"
         app:radius="@dimen/dp_20"

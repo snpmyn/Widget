@@ -69,7 +69,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
             // 自定
             tvTitle.setTextColor(ContextCompat.getColor(context, R.color.fontInput));
             // 自定
-            rvTopBar.setBackgroundColor(ContextCompat.getColor(context, R.color.background));
+            rvTopBar.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
             // 文字大小
             btnSubmit.setTextSize(pickerOptions.textSizeSubmitCancel);
             btnCancel.setTextSize(pickerOptions.textSizeSubmitCancel);

@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/list"
-            android:textColor="@color/background"
+            android:textColor="@color/pageBackground"
             android:textSize="@dimen/sp_16" />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background" />
+        android:background="@color/pageBackground" />
 </LinearLayout>

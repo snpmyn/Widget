@@ -25,6 +25,7 @@ private const val MINI_MAX_COUNT = 9
 private const val MINI_MAX_COUNT_TEXT = "9+"
 private const val TEXT_SIZE_DP = 11
 private const val TEXT_PADDING_DP = 2
+
 // translucent black as mask color
 private val MASK_COLOR = Color.parseColor("#33000000")
 private val ANIMATION_INTERPOLATOR = OvershootInterpolator()
@@ -85,6 +86,7 @@ class CounterFloatingActionButton @JvmOverloads constructor(
     private val isSizeMini: Boolean get() = size == SIZE_MINI
     private val badgePosition: Int
     private var countText: String = ""
+
     /**
      * The count value to show on badge starting from 0.
      */
@@ -195,33 +197,32 @@ class CounterFloatingActionButton @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (count > 0 || isAnimating) {
-            if (getContentRect(contentBounds)) {
-                val newLeft: Int
-                val newTop: Int
-                when (badgePosition) {
-                    LEFT_BOTTOM_POSITION -> {
-                        newLeft = contentBounds.left
-                        newTop = contentBounds.bottom - circleBounds.height()
-                    }
-                    LEFT_TOP_POSITION -> {
-                        newLeft = contentBounds.left
-                        newTop = contentBounds.top
-                    }
-                    RIGHT_BOTTOM_POSITION -> {
-                        newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
-                        newTop = contentBounds.bottom - circleBounds.height()
-                    }
-                    RIGHT_TOP_POSITION -> {
-                        newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
-                        newTop = contentBounds.top
-                    }
-                    else -> {
-                        newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
-                        newTop = contentBounds.top
-                    }
+            getMeasuredContentRect(contentBounds)
+            val newLeft: Int
+            val newTop: Int
+            when (badgePosition) {
+                LEFT_BOTTOM_POSITION -> {
+                    newLeft = contentBounds.left
+                    newTop = contentBounds.bottom - circleBounds.height()
                 }
-                circleBounds.offsetTo(newLeft, newTop)
+                LEFT_TOP_POSITION -> {
+                    newLeft = contentBounds.left
+                    newTop = contentBounds.top
+                }
+                RIGHT_BOTTOM_POSITION -> {
+                    newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
+                    newTop = contentBounds.bottom - circleBounds.height()
+                }
+                RIGHT_TOP_POSITION -> {
+                    newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
+                    newTop = contentBounds.top
+                }
+                else -> {
+                    newLeft = contentBounds.left + contentBounds.width() - circleBounds.width()
+                    newTop = contentBounds.top
+                }
             }
+            circleBounds.offsetTo(newLeft, newTop)
             val cx = circleBounds.centerX().toFloat()
             val cy = circleBounds.centerY().toFloat()
             val radius = circleBounds.width() / 2f * animationFactor

@@ -31,68 +31,83 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
      * 雷达图半径
      */
     private var mWebRadius: Float = 0f
+
     /**
      * 雷达图半径对应最大进度
      */
     private var mWebMaxProgress: Int = 0
+
     /**
      * 雷达图线色
      */
     @ColorInt
     private var mWebLineColor: Int = 0
+
     /**
      * 雷达图线宽
      */
     private var mWebLineWidth: Float = 0f
+
     /**
      * 雷达图各点文本色
      */
     @ColorInt
     private var mTextArrayedColor: Int = 0
+
     /**
      * 雷达图文本数组字体路径
      */
     private var mTextArrayedFontPath: String? = null
+
     /**
      * 雷达图中心连接区色
      */
     @ColorInt
     private var mAreaColor: Int = 0
+
     /**
      * 雷达图中心连接区边框色
      */
     @ColorInt
     private var mAreaBorderColor: Int = 0
+
     /**
      * 雷达图中心文本名
      */
     private var mTextCenteredName: String = default_textCenteredName
+
     /**
      * 雷达图中心文本色
      */
     @ColorInt
     private var mTextCenteredColor: Int = 0
+
     /**
      * 雷达图中心文本字体路径
      */
     private var mTextCenteredFontPath: String? = null
+
     /**
      * 文本数组且以该数组长确定雷达图为几边形
      */
     private var mTextArray: Array<String> by Delegates.notNull()
+
     /**
      * 进度数组（对应TextArray）
      */
     private var mProgressArray: Array<Int> by Delegates.notNull()
+
     /**
      * 执行动画前进度数组（对应TextArray）
      */
     private var mOldProgressArray: Array<Int> by Delegates.notNull()
+
     /**
      * 动画时（0无动画）
      * 定速模式表从雷达中心执行动画至顶点时
      */
     private var mAnimateTime: Long = 0L
+
     /**
      * 动画模式（默时一定）
      */
@@ -104,26 +119,32 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
      * 垂直文本距雷达主图宽
      */
     private var mVerticalSpaceWidth: Float by Delegates.notNull()
+
     /**
      * 水平文本距雷达主图宽
      */
     private var mHorizontalSpaceWidth: Float by Delegates.notNull()
+
     /**
      * 文本数组字体大小
      */
     private var mTextArrayedSize: Float by Delegates.notNull()
+
     /**
      * 文本数组设字体大小后文本宽（取字数最多的）
      */
     private var mTextArrayedWidth: Float by Delegates.notNull()
+
     /**
      * 文本数组设字体大小后文本高
      */
     private var mTextArrayedHeight: Float by Delegates.notNull()
+
     /**
      * 图宽
      */
     private var mWidth: Float by Delegates.notNull()
+
     /**
      * 图高
      */
@@ -136,42 +157,52 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
      */
     private val mPaint = createPaint()
     private val mHelperPaint = createPaint()
+
     /**
      * 全局路径
      */
     private val mPath = Path()
+
     /**
      * 雷达图虚线效果
      */
     private var mDashPathEffect: DashPathEffect by Delegates.notNull()
+
     /**
      * 雷达主图各顶点坐标数组
      */
     private var mPointArray: Array<PointF> by Delegates.notNull()
+
     /**
      * 文本数组各文本坐标数组
      */
     private var mTextArrayedPointArray: Array<PointF> by Delegates.notNull()
+
     /**
      * 文本数组各进度坐标数组
      */
     private var mProgressPointArray: Array<PointF> by Delegates.notNull()
+
     /**
      * 作转换用临时变量
      */
     private var mTempPointF: PointF = PointF()
+
     /**
      * 雷达图文本数组字体
      */
     private var mTextArrayedTypeface: Typeface? = null
+
     /**
      * 雷达图中心文本字体
      */
     private var mTextCenteredTypeface: Typeface? = null
+
     /**
      * 动画处理器数组
      */
     private var mAnimatorArray: Array<ValueAnimator?> by Delegates.notNull()
+
     /**
      * 各雷达属性动画时间数组
      */
@@ -256,7 +287,7 @@ class RadarChart @JvmOverloads constructor(context: Context, attrs: AttributeSet
         }
         // 设字体大小后算文本占宽高
         mPaint.textSize = mTextArrayedSize
-        mTextArray.maxBy { it.length }?.apply {
+        mTextArray.maxByOrNull { it.length }?.apply {
             mTextArrayedWidth = mPaint.measureText(this)
             mTextArrayedHeight = mPaint.fontSpacing
         }

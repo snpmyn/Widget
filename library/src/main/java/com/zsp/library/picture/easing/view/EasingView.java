@@ -1,6 +1,5 @@
 package com.zsp.library.picture.easing.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,7 +8,6 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import com.zsp.library.picture.easing.generator.RandomTransitionGenerator;
 import com.zsp.library.picture.easing.generator.TransitionGenerator;
@@ -20,8 +18,7 @@ import com.zsp.library.picture.easing.transition.Transition;
  * @author: 郑少鹏
  * @date: 2019/10/26 16:39
  */
-@SuppressLint("AppCompatCustomView")
-public class EasingView extends ImageView {
+public class EasingView extends androidx.appcompat.widget.AppCompatImageView {
     /**
      * Delay between a pair of frames at a 60 FPS frame rate.
      */

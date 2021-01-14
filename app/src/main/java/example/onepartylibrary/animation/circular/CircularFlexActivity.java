@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
@@ -149,7 +150,7 @@ public class CircularFlexActivity extends AppCompatActivity {
      *
      * @param view View
      */
-    private void imageView(View view) {
+    private void imageView(@NonNull View view) {
         view.animate().rotationBy(90);
         // triggerView为中心收、展内容布局
         if (contentVisible) {

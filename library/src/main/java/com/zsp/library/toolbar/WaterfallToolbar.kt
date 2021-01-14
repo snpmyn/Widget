@@ -1,13 +1,11 @@
 package com.zsp.library.toolbar
 
 import android.content.Context
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.ViewTreeObserver
 import android.widget.ScrollView
-import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.zsp.library.R
@@ -28,7 +26,7 @@ class WaterfallToolbar : CardView {
     /**
      * The recycler view whose scroll is going to be listened.
      */
-    var recyclerView: RecyclerView? = null
+    private var recyclerView: RecyclerView? = null
         set(value) {
             if (value == null) {
                 unbindRecyclerView()
@@ -146,10 +144,6 @@ class WaterfallToolbar : CardView {
         init(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int?) : super(context, attrs, defStyleAttr!!) {
-        init(context, attrs)
-    }
-
     private fun init(context: Context?, attrs: AttributeSet?) {
         // leave card corners square
         radius = 0.0f
@@ -252,9 +246,6 @@ class WaterfallToolbar : CardView {
         var realPosition: Px? = null
 
         constructor(source: Parcel) : super(source)
-
-        @RequiresApi(Build.VERSION_CODES.N)
-        constructor(source: Parcel, loader: ClassLoader) : super(source, loader)
         constructor(superState: Parcelable?) : super(superState)
 
         companion object {

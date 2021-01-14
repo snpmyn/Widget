@@ -118,7 +118,7 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
         anim.interpolator = AnticipateOvershootInterpolator()
         anim.duration = ANIMATION_DURATION
         anim.start()
-        Handler().postDelayed({
+        Handler(context.mainLooper).postDelayed({
             if (this@Choco.isAttachedToWindow) {
                 onDismiss?.invoke()
                 windowManager.removeViewImmediate(this@Choco)
@@ -176,7 +176,7 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             chocoActvTitle.setTextAppearance(textAppearance)
         } else {
-            chocoActvTitle.setTextAppearance(chocoActvTitle.context, textAppearance)
+            chocoActvTitle.setTextAppearance(textAppearance)
         }
     }
 
@@ -228,7 +228,7 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             chocoActvContent.setTextAppearance(textAppearance)
         } else {
-            chocoActvContent.setTextAppearance(chocoActvContent.context, textAppearance)
+            chocoActvContent.setTextAppearance(textAppearance)
         }
     }
 
@@ -325,7 +325,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     /**
      * Set the progress bar color from a color resource.
-     *
      * @param color the color resource
      */
     fun setProgressColorInt(@ColorInt color: Int) {
@@ -341,7 +340,6 @@ class Choco @JvmOverloads constructor(context: Context, attrs: AttributeSet? = n
 
     /**
      * Show a material button with the given text, and on click listener.
-     *
      * @param text the text to display on the button
      * @param onClickListener the on click listener
      */

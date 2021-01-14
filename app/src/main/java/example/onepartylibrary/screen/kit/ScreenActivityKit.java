@@ -1,5 +1,7 @@
 package example.onepartylibrary.screen.kit;
 
+import androidx.annotation.NonNull;
+
 import com.zsp.library.screen.kit.ScreenDataKit;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class ScreenActivityKit {
      * @param condition      条件
      * @param selected       选否
      */
-    public void screeningDistribution(String classification, String condition, boolean selected) {
+    public void screeningDistribution(@NonNull String classification, String condition, boolean selected) {
         switch (classification) {
             case "性别":
                 sexScreen(condition, selected);
@@ -65,7 +67,7 @@ public class ScreenActivityKit {
      * @param condition 条件
      * @param selected  选否
      */
-    private void sexScreen(String condition, boolean selected) {
+    private void sexScreen(@NonNull String condition, boolean selected) {
         switch (condition) {
             case "男":
                 sexResult = selected ? "male" : null;
@@ -113,7 +115,7 @@ public class ScreenActivityKit {
      * @param condition 条件
      * @param selected  选否
      */
-    private void consumptionCycleScreen(String condition, boolean selected) {
+    private void consumptionCycleScreen(@NonNull String condition, boolean selected) {
         switch (condition) {
             case "1个月":
                 screenDataKit.multiSelectPack(consumptionCycleResultList, selected, 1);

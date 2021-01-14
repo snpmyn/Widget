@@ -105,7 +105,7 @@ public class ProgressWheel extends View {
                     Settings.Global.ANIMATOR_DURATION_SCALE, 1);
         } else {
             animationValue = Settings.System.getFloat(getContext().getContentResolver(),
-                    Settings.System.ANIMATOR_DURATION_SCALE, 1);
+                    Settings.Global.ANIMATOR_DURATION_SCALE, 1);
         }
         shouldAnimate = animationValue != 0;
     }

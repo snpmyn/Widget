@@ -60,7 +60,7 @@
                 app:fabSize="normal"
                 app:pressedTranslationZ="@dimen/dp_12"
                 app:rippleColor="@color/colorAccent"
-                app:tint="@color/background" />
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/tvVoicePlayDialogFragmentFileLength"

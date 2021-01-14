@@ -88,7 +88,7 @@ public class RippleLayout extends RelativeLayout {
             return;
         }
         final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleLayout);
-        rippleColor = typedArray.getColor(R.styleable.RippleLayout_RippleLayoutColor, ContextCompat.getColor(context, R.color.background));
+        rippleColor = typedArray.getColor(R.styleable.RippleLayout_RippleLayoutColor, ContextCompat.getColor(context, R.color.white));
         rippleType = typedArray.getInt(R.styleable.RippleLayout_RippleLayoutType, 0);
         hasToZoom = typedArray.getBoolean(R.styleable.RippleLayout_RippleLayoutZoom, false);
         isCentered = typedArray.getBoolean(R.styleable.RippleLayout_RippleLayoutCentered, false);
@@ -96,7 +96,7 @@ public class RippleLayout extends RelativeLayout {
         frameRate = typedArray.getInteger(R.styleable.RippleLayout_RippleLayoutFrameRate, frameRate);
         rippleAlpha = typedArray.getInteger(R.styleable.RippleLayout_RippleLayoutAlpha, rippleAlpha);
         ripplePadding = typedArray.getDimensionPixelSize(R.styleable.RippleLayout_RippleLayoutRipplePadding, 0);
-        canvasHandler = new Handler();
+        canvasHandler = new Handler(context.getMainLooper());
         zoomScale = typedArray.getFloat(R.styleable.RippleLayout_RippleLayoutZoomScale, 1.03f);
         zoomDuration = typedArray.getInt(R.styleable.RippleLayout_RippleLayoutZoomDuration, 200);
         typedArray.recycle();

@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:text="@string/connectionSuccess"
-        android:textColor="@color/background"
+        android:textColor="@color/white"
         android:textSize="@dimen/sp_10" />
 </LinearLayout>

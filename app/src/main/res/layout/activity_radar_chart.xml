@@ -16,7 +16,7 @@
         app:rc_areaBorderColor="@color/colorFF415AFF"
         app:rc_areaColor="@color/colorCC6478FF"
         app:rc_textArrayedColor="@color/colorFF8995AB"
-        app:rc_textCenteredColor="@color/background"
+        app:rc_textCenteredColor="@color/pageBackground"
         app:rc_textCenteredName="能力值"
         app:rc_webLineColor="#FFD8DCE3"
         app:rc_webRadius="@dimen/dp_100" />

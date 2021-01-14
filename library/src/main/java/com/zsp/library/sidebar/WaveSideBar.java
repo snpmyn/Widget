@@ -299,7 +299,7 @@ public class WaveSideBar extends View {
      *
      * @param canvas 画布
      */
-    private void drawCirclePath(Canvas canvas) {
+    private void drawCirclePath(@NonNull Canvas canvas) {
         // X轴移路径
         xCircleCenter = (mWidth + mCircleRadius) - (2.0F * mRadius + 2.0F * mCircleRadius) * mRatio;
         mCirclePath.reset();
