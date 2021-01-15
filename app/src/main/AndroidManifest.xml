@@ -97,8 +97,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- 项目所有页都仅需以高宽其一作基准适配仅需填高宽其一设计图尺寸 -->
-        <!-- 副单位（pt、in、mm）可直像素填设计图尺寸（无需转像素为dp） -->
+        <!--在清单文件填全局设计图尺寸（单位 dp）-->
+        <!--用副单位（pt、in、mm）可直像素填设计图尺寸（无需转像素为 dp）-->
         <meta-data
             android:name="design_width_in_dp"
             android:value="360" />

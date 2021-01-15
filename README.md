@@ -88,6 +88,11 @@
 | 二方库Util-UtilOne | 无 |
 | 二方库Util-UtilTwo | 无 |
 
+### 问题
+#### autosize
+> AutoSizeInitConfigure 用 Log.d(xxx, xxx)，须替换为公共方法。
+> 用 AndroidAutoSize 致 MaterialDesignAlertDialogBuilder 创建对话框向右偏移。
+
 ### 使用
 > [SECURITY](https://github.com/snpmyn/Widget/blob/master/SECURITY.md)<br>
 > 版本快速迭代中，拉取失败暂时查看源码。
@@ -141,12 +146,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.snpmyn.Widget:library:v0.0.1.2X'
-    implementation 'com.github.snpmyn.Widget:matisse:v0.0.1.2X'
-    implementation 'com.github.snpmyn.Widget:ucrop:v0.0.1.2X'
-    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.0.1.2X'
-    implementation 'com.github.snpmyn.Widget:banner:v0.0.1.2X'
-    implementation 'com.github.snpmyn.Widget:autosize:v0.0.1.2X'
+    implementation 'com.github.snpmyn.Widget:library:v0.0.1.3X'
+    implementation 'com.github.snpmyn.Widget:matisse:v0.0.1.3X'
+    implementation 'com.github.snpmyn.Widget:ucrop:v0.0.1.3X'
+    implementation 'com.github.snpmyn.Widget:BgaQrCodeAndroid:v0.0.1.3X'
+    implementation 'com.github.snpmyn.Widget:banner:v0.0.1.3X'
+    implementation 'com.github.snpmyn.Widget:autosize:v0.0.1.3X'
 }
 ```
 
