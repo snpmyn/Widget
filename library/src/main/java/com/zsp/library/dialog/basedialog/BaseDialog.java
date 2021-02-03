@@ -159,7 +159,7 @@ public abstract class BaseDialog extends DialogFragment {
                 }
                 // Dialog宽
                 if (width == 0) {
-                    lp.width = ScreenUtils.screenWidth(getContext()) - 2 * DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), margin);
+                    lp.width = ScreenUtils.screenWidth(Objects.requireNonNull(getContext())) - 2 * DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), margin);
                 } else {
                     lp.width = DensityUtils.dipToPxByFloat(Objects.requireNonNull(getContext(), "must not be null"), width);
                 }

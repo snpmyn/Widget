@@ -47,7 +47,7 @@ public class VoicePlayDialogFragment extends DialogFragment {
     /**
      * handler
      */
-    private final Handler mHandler = new Handler(getContext().getMainLooper());
+    private final Handler mHandler = new Handler(Objects.requireNonNull(getContext()).getMainLooper());
     /**
      * 播放器
      */

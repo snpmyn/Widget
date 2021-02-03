@@ -641,7 +641,7 @@ public class MaterialIntroView extends RelativeLayout {
             if (materialIntroView.usesCustomShape) {
                 return materialIntroView;
             }
-            // no custom baseShape supplied, build our own
+            // No custom baseShape supplied, build our own.
             BaseShape baseShape;
             if (materialIntroView.shapeType == ShapeType.CIRCLE) {
                 baseShape = new Circle(

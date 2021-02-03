@@ -32,7 +32,10 @@
         <activity android:name="example.onepartylibrary.tagview.TagViewActivity" />
         <activity android:name="example.onepartylibrary.tipview.TipViewActivity" />
         <activity android:name="example.tripartitelibrary.bgaqrcodeandroid.ScanCodeActivity" />
-        <activity android:name="com.yalantis.ucrop.UCropActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="example.tripartitelibrary.matisse.MatisseExampleActivity" />
         <activity android:name="example.onepartylibrary.clock.ClockActivity" />
         <activity android:name="example.onepartylibrary.picture.EasingActivity" />

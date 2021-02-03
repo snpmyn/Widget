@@ -85,9 +85,9 @@ public class CropExecutor {
      */
     @NonNull
     private static UCrop.Options options(Context context) {
-        // 初始UCrop配置
+        // 初始 UCrop 配置
         UCrop.Options options = new UCrop.Options();
-        // Toolbar色
+        // Toolbar 色
         options.setToolbarColor(ActivityCompat.getColor(context, R.color.colorPrimary));
         // 状态栏色
         options.setStatusBarColor(ActivityCompat.getColor(context, R.color.colorPrimary));

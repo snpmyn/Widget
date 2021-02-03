@@ -108,7 +108,7 @@ public class ScanBarCodeActivity extends AppCompatActivity implements View.OnCli
         }
         // 图库
         if (view.getId() == R.id.scanBarCodeActivityIbPhotoLibrary) {
-            MatisseKit.matisseOperateInActivity(this, 1, getString(R.string.fileProviderAuthorities));
+            MatisseKit.matisseOperateInActivity(this, 1, getString(R.string.fileProviderAuthorities), false);
         }
     }
 

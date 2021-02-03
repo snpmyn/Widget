@@ -108,7 +108,7 @@ public class ScanQrCodeActivity extends AppCompatActivity implements View.OnClic
         }
         // 图库
         if (view.getId() == R.id.scanQrCodeActivityIbPhotoLibrary) {
-            MatisseKit.matisseOperateInActivity(this, 1, getString(R.string.fileProviderAuthorities));
+            MatisseKit.matisseOperateInActivity(this, 1, getString(R.string.fileProviderAuthorities), false);
         }
     }
 

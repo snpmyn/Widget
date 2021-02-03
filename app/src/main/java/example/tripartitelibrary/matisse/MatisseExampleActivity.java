@@ -85,7 +85,7 @@ public class MatisseExampleActivity extends AppCompatActivity {
                 true, new SoulPermissionUtils.CheckAndRequestPermissionCallBack() {
                     @Override
                     public void onPermissionOk() {
-                        MatisseKit.matisseOperateInActivity(MatisseExampleActivity.this, 1, getString(R.string.fileProviderAuthorities));
+                        MatisseKit.matisseOperateInActivity(MatisseExampleActivity.this, 1, getString(R.string.fileProviderAuthorities), false);
                     }
 
                     @Override
